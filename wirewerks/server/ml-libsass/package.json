@@ -1,0 +1,13 @@
+{
+  "name": "ezlibsass",
+  "version": "0.0.0",
+  "description": "New Module",
+  "main": "./index.js",
+  "private": true,
+  "dependencies": {
+    "autoprefixer": "^6.0.1",
+    "pleeease-cli": "^3.2.8",
+    "postcss-cli": "^2.1.0",
+    "precss": "^0.3.0"
+  }
+}

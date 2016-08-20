@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/wirewerks/wireworks.iml" filepath="$PROJECT_DIR$/wirewerks/wireworks.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wirewerks/wirewerks.iml" filepath="$PROJECT_DIR$/wirewerks/wirewerks.iml" />
     </modules>
   </component>
 </project>

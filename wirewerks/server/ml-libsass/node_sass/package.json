@@ -1,0 +1,10 @@
+{
+	"name": "",
+	"version": "0.0.0",
+	"description": "New Module",
+	"main": "./index.js",
+	"private": true,
+	"dependencies": {
+		"node-sass": "3.8.0"
+	}
+}
