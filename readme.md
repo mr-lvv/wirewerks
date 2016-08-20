@@ -10,13 +10,13 @@ Modules
 
 Client-side stuff
 
-	* ui
-		UI for client
+ * ui
+	UI for client
 
 **Server**
 
 Server stuff
 
 
-	* app-server
-		The main server app
+ * app-server
+	The main server app
