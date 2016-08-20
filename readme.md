@@ -51,6 +51,11 @@ npm install
 ```
 
 
+**IntelliJ**
+Install NodeJs plugin
+Install FileWatchers plugin
+
+
 Modules
 ---------
 
