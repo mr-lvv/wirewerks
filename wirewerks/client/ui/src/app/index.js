@@ -1,8 +1,8 @@
+console.log('Common: ', common);
+
 class App {
 	constructor($http) {
 		this.$http = $http
-		console.log('yesssssss');
-
 		this.output = 'No data'
 	}
 
