@@ -2,9 +2,21 @@
 <html lang="en" ng-app="ww">
 <head>
 	<title>Wireworks</title>
+	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="environment" content="dev">
+
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="apple-touch-icon" href="favicon.ico">
+
+	<link rel="canonical" href="https://wirewerks.com"/>
+	<link rel="alternate" href="https://wirewerks.com" hreflang="en"/>
+
+	<link href="styles/main.css" rel="stylesheet">
+
 
 	<!-- 1. Load libraries -->
+	<script src="node_modules/bowser/bowser.min.js"></script>
 	<script src="node_modules/angular/angular.js"></script>
 
 	<!-- 2. Load our 'modules' -->
@@ -14,8 +26,7 @@
 
 <!-- 3. Display the application -->
 <body>
-	<my-app>Loading...</my-app>
-	<ww-test></ww-test>
+	<ww-app>Loading...</ww-app>
 </body>
 
 </html>

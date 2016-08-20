@@ -5,6 +5,6 @@
 		"main.scss",
 		"general/_index.scss"
 	],
-	"mappings": "ACAA,AAAA,IAAI,CAAC;EACJ,KAAK,EAAE,IAAK,GACZ",
+	"mappings": "AAAA;;;;;;;;EAQE;ACRF,AAAA,OAAO,CAAC;EACP,KAAK,EAAE,IAAK,GACZ",
 	"names": []
 }

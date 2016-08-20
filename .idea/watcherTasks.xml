@@ -14,13 +14,13 @@
         <array />
       </option>
       <option name="outputFromStdout" value="false" />
-      <option name="program" value="$PROJECT_DIR$/wirewerks/server/ml-libsass/node_sass/node_modules/.bin/node-sass.cmd" />
+      <option name="program" value="$ProjectFileDir$/wirewerks/server/ww-libsass/node_sass/node_modules/.bin/node-sass.cmd" />
       <option name="scopeName" value="Project Files" />
       <option name="trackOnlyRoot" value="true" />
       <option name="workingDir" value="$FileDir$" />
       <envs />
     </TaskOptions>
-    <TaskOptions isEnabled="false">
+    <TaskOptions isEnabled="true">
       <option name="arguments" value="--config .postcss.json" />
       <option name="checkSyntaxErrors" value="true" />
       <option name="description" value="Compiles .scss files into .css files" />
@@ -33,7 +33,7 @@
         <array />
       </option>
       <option name="outputFromStdout" value="false" />
-      <option name="program" value="$Projectpath$/wirewerks/server/ml-libsass/node_modules/.bin/postcss.cmd" />
+      <option name="program" value="$ProjectFileDir$/wirewerks/server/ww-libsass/node_modules/.bin/postcss.cmd" />
       <option name="scopeName" value="Project Files" />
       <option name="trackOnlyRoot" value="true" />
       <option name="workingDir" value="$FileDir$" />

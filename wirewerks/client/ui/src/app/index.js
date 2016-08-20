@@ -1,8 +1,4 @@
-let tmpl = `
-Yup Yup!
-`;
-
-class MyComp {
+class App {
 	constructor() {
 		console.log('yesssssss');
 	}
@@ -13,10 +9,9 @@ class MyComp {
 }
 
 angular.module('ww', [])
-.component('wwTest', {
-	controller: MyComp,
-	template: tmpl,
+.component('wwApp', {
+	controller: App,
+	templateUrl: 'app/views/app.html',
 	bindings: {
-		myvalue: '='
 	}
 });

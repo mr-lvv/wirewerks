@@ -1,1 +1,11 @@
+/*
+ 		Note on main_production.css
+			- Generated from main.css using Autoprefixer. This means main.css doesn't have any prefix!
+
+		To run production css build by hand:
+				from main.scss folder:
+						c:\mrlvv\wirewerks\server\ww-libsass\node_modules\.bin\postcss.cmd --config .postcss.json
+
+*/
+
 @import "./general/index";
