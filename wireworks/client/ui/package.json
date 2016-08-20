@@ -1,0 +1,13 @@
+{
+	"name": "WireworksUi",
+	"version": "0.0.0",
+	"description": "Wireworks ui module",
+	"scripts": {
+		"start": "npm run lite",
+		"lite": "lite-server"
+	},
+	"license": "ISC",
+	"devDependencies": {
+		"concurrently": "^2.0.0",
+		"lite-server": "^2.2.0"
+	}}
