@@ -1,10 +1,28 @@
 Wirewerks
 ========
 
+Prerequisite
+------------
+
+ * Node 6.4.0
+
 Setup
 -------
 
-**Web client**
+**Server** (only thing you will ever need)
+```
+cd wirewerks\server\app-server
+npm install
+```
+
+Then to serve everything on port 3000 (usually best just run from IntelliJ)
+```
+cd wirewerks\server\app-server
+node index.js
+```
+
+
+**Web client only**
 ```
 cd wirewerks\client\ui
 npm install

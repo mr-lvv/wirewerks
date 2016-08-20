@@ -2,6 +2,7 @@
 	"name": "WireworksUi",
 	"version": "0.0.0",
 	"description": "Wireworks ui module",
+	"repository": "https://github.com/mr-lvv/wirewerks",
 	"scripts": {
 		"start": "npm run lite",
 		"lite": "lite-server"
