@@ -11,20 +11,20 @@ Setup
 
 **Server** (only thing you will ever need)
 ```
-cd wirewerks\server\app-server
+cd wirewerks/server/app-server
 npm install
 ```
 
 Then to serve everything on port 3000 (usually best just run from IntelliJ)
 ```
-cd wirewerks\server\app-server
+cd wirewerks/server/app-server
 node index.js
 ```
 
 
 **Web client only**
 ```
-cd wirewerks\client\ui
+cd wirewerks/client/ui
 npm install
 cd src
 npm install
@@ -33,7 +33,7 @@ npm install
 Start serving the ui
 
 ```
-cd wirewerks\client\ui
+cd wirewerks/client/ui
 npm start
 ```
 
