@@ -6,14 +6,14 @@ Modules
 ---------
 
 
-** Client **
+**Client**
 
 Client-side stuff
 
 	* ui
 		UI for client
 
-** Server **
+**Server**
 
 Server stuff
 
