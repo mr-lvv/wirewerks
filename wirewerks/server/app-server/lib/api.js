@@ -1,5 +1,7 @@
 var express = require('express')
 
+var product = require('./product.json')
+
 // For resource example: https://github.com/developit/express-es6-rest-api/blob/master/src/api/facets.js
 class Api {
 	constructor(app) {
@@ -13,6 +15,22 @@ class Api {
 		client.get("/health", (request, response) => {
 			response.status(200).send({status: 'online'})
 		});
+
+		client.get("/product/:part", (request, response) => {
+
+			//check if part exists
+
+			if(product.hasOwnProperty(request.params.part) !== undefined)
+			{
+				console.log(product[request.params.part])
+				response.status(200).send(product[request.params.part]);
+			}
+			else
+			{
+				response.send("can't find product");
+			}
+		});
+
 
 		app.use('/api/client', client);
 	}
