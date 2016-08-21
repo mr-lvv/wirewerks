@@ -1,9 +1,13 @@
-<div>
+<div class="content" ng-click="$ctrl.select()" ng-class="{selected: $ctrl.selected}">
 	<header>
 		<label>{{$ctrl.part.value}}</label>
 	</header>
 
-	<description>
-		<label>{{$ctrl.part.description}}</label>
-	</description>
+	<attribute ng-repeat="attr in $ctrl.part.attributes">
+		<label ng-class="{bold: attr.bold}">{{attr.label}}</label>
+	</attribute>
+
+	<selection-overlay ng-if="$ctrl.selected">
+		<border></border>
+	</selection-overlay>
 </div>

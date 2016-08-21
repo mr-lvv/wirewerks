@@ -1,6 +1,6 @@
 ww-part-category {
 	display: block;
-	max-width: 200px;
+	max-width: 400px;
 
 	header {
 		display: flex;
@@ -9,7 +9,37 @@ ww-part-category {
 	}
 }
 
+* {
+	outline: none
+}
+
+$border-size: 2px;
 ww-part {
+	display: block;
+
+	.content {
+		position: relative;
+
+		&.selected {
+//			border: solid $border-size #4478ff;
+		}
+
+		selection-overlay {
+			display: flex;
+			z-index: 100;
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+
+			border {
+				flex-grow: 1;
+				border: solid $border-size #4478ff;
+			}
+		}
+	}
+
 	header {
 		display: flex;
 		justify-content: center;
@@ -18,9 +48,15 @@ ww-part {
 		font-weight: bold;
 	}
 
-	description {
+	attribute {
 		display: flex;
 		justify-content: center;
 		background: #e6e6e6;
+
+		label {
+			&.bold {
+				font-weight: bold;
+			}
+		}
 	}
 }

@@ -23882,7 +23882,7 @@ md-tooltip {
 
 ww-part-category {
   display: block;
-  max-width: 200px; }
+  max-width: 400px; }
   ww-part-category header {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -23892,24 +23892,47 @@ ww-part-category {
             justify-content: center;
     background: #c39f55; }
 
-ww-part header {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  background: #ffdcae;
-  font-weight: bold; }
+* {
+  outline: none; }
 
-ww-part description {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  background: #e6e6e6; }
+ww-part {
+  display: block; }
+  ww-part .content {
+    position: relative; }
+    ww-part .content selection-overlay {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      z-index: 100;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0; }
+      ww-part .content selection-overlay border {
+        -webkit-box-flex: 1;
+            -ms-flex-positive: 1;
+                flex-grow: 1;
+        border: solid 2px #4478ff; }
+  ww-part header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    background: #ffdcae;
+    font-weight: bold; }
+  ww-part attribute {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    background: #e6e6e6; }
+    ww-part attribute label.bold {
+      font-weight: bold; }
 
 md-icon.s48 {
   width: 48px;

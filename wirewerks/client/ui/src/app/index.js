@@ -43,6 +43,10 @@ class Part {
 	constructor() {
 
 	}
+
+	select() {
+		this.selected = !this.selected
+	}
 }
 
 
