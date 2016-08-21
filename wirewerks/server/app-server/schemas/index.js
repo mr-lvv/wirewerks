@@ -42,10 +42,19 @@ class PartNumberChoice
 {
 	constructor()
 	{
-		this.important = "";
-		this.description = "Single Mode OS2";
-		this.shortDescription = "blah";
+		this.description = "";
+		this.shortDescription = "";
 		this.finePrint = "example: if more than one blha blah";
 		this.value = "1";
+		this.attributes = [];
+	}
+};
+
+class Attribute
+{
+	constructor()
+	{
+		this.label = "Single Mode";
+		this.bold = false;
 	}
 };

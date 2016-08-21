@@ -1,37 +1,153 @@
 {
   "fa": {
-    "Product" : {
-      "title": "Cable Assemblies",
-      "subTitle" : "Fiber Optic",
-      "description" : "Build your Fiber Optic Cable Assembly",
-      "shortDescription" : "",
-      "longDescription" : "",
-      "notes" : "Other options are available upon request: Connectors Cable Constructions Fire Ratings MPO Wiring Schemes Polish Staggered Leads",
-      "dataSheetLink" :"PDS-0023",
-      "part" : "FA",
-      "partNumberSections" : [
-        {
-          "partNumbers" : [
-            {
-              "title" : "FIBER TYPE",
-              "type" : "A",
-              "length" : 1,
-              "partNumberChoices" :
-              [
-                {
-                  "important" : "",
-                  "description" : "Single Mode OS2",
-                  "shortDescription" : "",
-                  "finePrint" : "",
-                  "value" : "1"
-                }
-              ]
+    "title": "Cable Assemblies",
+    "subTitle" : "Fiber Optic",
+    "description" : "Build your Fiber Optic Cable Assembly",
+    "shortDescription" : "",
+    "longDescription" : "",
+    "notes" : "Other options are available upon request: Connectors Cable Constructions Fire Ratings MPO Wiring Schemes Polish Staggered Leads",
+    "dataSheetLink" :"PDS-0023",
+    "part" : "FA",
+    "partNumberSections" : [
+      {
+        "partNumbers" : [
+          {
+            "title" : "FIBER TYPE",
+            "type" : "A",
+            "length" : 1,
+            "partNumberChoices" :
+            [
+              {
+                "attributes" : [
+                  {
+                    "label": "Single Mode OS2",
+                    "bold" : false
+                  },
+                  {
+                    "label" : "OS2",
+                    "bold"  : false
+                  }
+                ],
+                "description" : "",
+                "shortDescription" : "",
+                "finePrint" : "",
+                "value" : "1"
+              },
+              {
+                "value": " 2",
+                "description": "",
+                "shortDescription": "",
+                "finePrint": "",
+                "attributes": [{
+                  "label": "Multimode",
+                  "bold": false
+                }, {
+                  "label": "62.5/125?m OM1",
+                  "bold": false
+                }]
+              }, {
+              "value": " 3",
+              "description": "",
+              "shortDescription": "",
+              "finePrint": "",
+              "attributes": [{
+                "label": "Multimode",
+                "bold": false
+              }, {
+                "label": "50/125?m OM2",
+                "bold": false
+              }]
+            }, {
+              "value": " 4",
+              "description": "",
+              "shortDescription": "",
+              "finePrint": "",
+              "attributes": [{
+                "label": "Multimode",
+                "bold": false
+              }, {
+                "label": "50/125?m OM3",
+                "bold": false
+              }]
+            }, {
+              "value": " 5",
+              "description": "",
+              "shortDescription": "",
+              "finePrint": "",
+              "attributes": [{
+                "label": "Multimode",
+                "bold": false
+              }, {
+                "label": "50/125?m OM4",
+                "bold": false
+              }]
+            }, {
+              "value": " E",
+              "description": "",
+              "shortDescription": "",
+              "finePrint": "",
+              "attributes": [{
+                "label": "Bend Insensitive",
+                "bold": false
+              }, {
+                "label": "Single Mode",
+                "bold": false
+              }, {
+                "label": "OS2",
+                "bold": false
+              }]
+            }, {
+              "value": " B",
+              "description": "",
+              "shortDescription": "",
+              "finePrint": "",
+              "attributes": [{
+                "label": "Bend Insensitive",
+                "bold": false
+              }, {
+                "label": "Multimode",
+                "bold": false
+              }, {
+                "label": "50/125?m OM2",
+                "bold": false
+              }]
+            }, {
+              "value": " C",
+              "description": "",
+              "shortDescription": "",
+              "finePrint": "",
+              "attributes": [{
+                "label": "Bend Insensitive",
+                "bold": false
+              }, {
+                "label": "Multimode",
+                "bold": false
+              }, {
+                "label": "50/125?m OM3",
+                "bold": false
+              }]
+            }, {
+              "value": " D",
+              "description": "",
+              "shortDescription": "",
+              "finePrint": "",
+              "attributes": [{
+                "label": "Bend Insensitive",
+                "bold": false
+              }, {
+                "label": "Multimode",
+                "bold": false
+              }, {
+                "label": "50/125?m OM4",
+                "bold": false
+              }]
             }
-          ]
-        }
-      ],
-      "icon" : "section8.svg",
-      "section" : 8
-    }
+            ]
+          }
+        ]
+      }
+    ],
+    "icon" : "section8.svg",
+    "section" : 8
   }
 }
