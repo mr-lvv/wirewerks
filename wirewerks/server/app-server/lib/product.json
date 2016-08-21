@@ -672,11 +672,155 @@
             ],
             "title": "LEAD LENGTH",
             "type": "G"
+          },
+          {
+            "finePrint": "*",
+            "parts": [
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "LC"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "LC"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "SC"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "SC"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "ST"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "ST"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "FC"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "FC"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "MTRJ female"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "MT"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "MTRJ male"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "MB"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "12 Fiber MPO"
+                  },
+                  {
+                    "bold": false,
+                    "label": "Female Type A"
+                  }
+                ],
+                "description": "",
+                "finePrint": "**",
+                "shortDescription": "",
+                "value": "MP"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "12 Fiber MPO"
+                  },
+                  {
+                    "bold": false,
+                    "label": "Male Type A"
+                  }
+                ],
+                "description": "",
+                "finePrint": "**",
+                "shortDescription": "",
+                "value": "MA"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "24 Fiber MPO"
+                  },
+                  {
+                    "bold": false,
+                    "label": "Female Type A"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "PP"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "24 Fiber MPO"
+                  },
+                  {
+                    "bold": false,
+                    "label": "Male Type A"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "PA"
+              }
+            ],
+            "title": "CONNECTOR SIDE A",
+            "type": "H"
           }
         ]
       }
     ],
     "icon" : "section8.svg",
-    "section" : 8
+    "section" : 8,
+    "finePrints" : "* If more than one connector type, then place in alphabetical order, i.e. LC before SC, to avoid duplicate of part number creation for the same product. ** By default, cable assemblies with MPO connectors are manufactured with a Type A configuration. If an assembly is connectorized on both sides with an MPO connector, configuration types cannot be mixed. Examples: If a Type A is chosen on one end, the other end MUST also be of Type A configuration. *** If a decimal is required, add “D00” right after the non-decimal value and without leaving any space between. The “00” in “D00” must be replaced by the required value. Example: an assembly with an overall length of 105.55 meters shall read as 105D55."
   }
 }

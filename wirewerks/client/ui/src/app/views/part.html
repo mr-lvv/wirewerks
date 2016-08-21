@@ -1,6 +1,6 @@
 <div class="content" ng-click="$ctrl.select()" ng-class="{selected: $ctrl.selected}">
 	<header ng-style="$ctrl.style()">
-		<label>{{$ctrl.part.value}}</label>
+		<label>{{$ctrl.part.value}}{{$ctrl.part.finePrint}}</label>
 	</header>
 
 	<attribute ng-repeat="attr in $ctrl.part.attributes">
