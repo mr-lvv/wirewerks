@@ -1,37 +1,34 @@
 {
-  "fa": {
-    "Product" : {
-      "title": "Cable Assemblies",
-      "subTitle" : "Fiber Optic",
-      "description" : "Build your Fiber Optic Cable Assembly",
-      "shortDescription" : "",
-      "longDescription" : "",
-      "notes" : "Other options are available upon request: Connectors Cable Constructions Fire Ratings MPO Wiring Schemes Polish Staggered Leads",
-      "dataSheetLink" :"PDS-0023",
-      "part" : "FA",
-      "partNumberSections" : [
-        {
-          "partNumbers" : [
-            {
-              "title" : "FIBER TYPE",
-              "type" : "A",
-              "length" : 1,
-              "partNumberChoices" :
-              [
-                {
-                  "important" : "",
-                  "description" : "Single Mode OS2",
-                  "shortDescription" : "",
-                  "finePrint" : "",
-                  "value" : "1"
-                }
-              ]
-            }
-          ]
-        }
-      ],
-      "icon" : "section8.svg",
-      "section" : 8
-    }
-  }
+	"fa": {
+		"title": "Cable Assemblies",
+		"subTitle": "Fiber Optic",
+		"description": "Build your Fiber Optic Cable Assembly",
+		"shortDescription": "",
+		"longDescription": "",
+		"notes": "Other options are available upon request: Connectors Cable Constructions Fire Ratings MPO Wiring Schemes Polish Staggered Leads",
+		"dataSheetLink": "PDS-0023",
+		"part": "FA",
+		"partNumberSections": [
+			{
+				"partNumbers": [
+					{
+						"title": "FIBER TYPE",
+						"type": "A",
+						"length": 1,
+						"partNumberChoices": [
+							{
+								"important": "",
+								"description": "Single Mode OS2",
+								"shortDescription": "",
+								"finePrint": "",
+								"value": "1"
+							}
+						]
+					}
+				]
+			}
+		],
+		"icon": "section8.svg",
+		"section": 8
+	}
 }
