@@ -388,7 +388,21 @@
                 ]
               }
             ]
-          }
+          },
+          {
+            "title": "FIBER COUNT",
+            "type": "E",
+            "length": 2,
+            "partNumberChoices": [{ "value" : "02", "description": "","shortDescription": "","finePrint": "","attributes" : [{"label" : "2 fiber", "bold": false }]},{ "value" : "04", "description": "","shortDescription": "","finePrint": "","attributes" : [{"label" : "4 fiber", "bold": false }]},{ "value" : "06", "description": "","shortDescription": "","finePrint": "","attributes" : [{"label" : "6 fiber", "bold": false }]},{ "value" : "08", "description": "","shortDescription": "","finePrint": "","attributes" : [{"label" : "8 fiber", "bold": false }]},{ "value" : "12", "description": "","shortDescription": "","finePrint": "","attributes" : [{"label" : "12 fiber", "bold": false }]},{ "value" : "18", "description": "","shortDescription": "","finePrint": "","attributes" : [{"label" : "18 fiber", "bold": false }]},{ "value" : "24", "description": "","shortDescription": "","finePrint": "","attributes" : [{"label" : "24 fiber", "bold": false }]},{ "value" : "36", "description": "","shortDescription": "","finePrint": "","attributes" : [{"label" : "36 fiber", "bold": false }]},{ "value" : "48", "description": "","shortDescription": "","finePrint": "","attributes" : [{"label" : "48 fiber", "bold": false }]},{ "value" : "72", "description": "","shortDescription": "","finePrint": "","attributes" : [{"label" : "72 fiber", "bold": false }]},{ "value" : "96", "description": "","shortDescription": "","finePrint": "","attributes" : [{"label" : "96 fiber", "bold": false }]},{ "value" : "C4", "description": "","shortDescription": "","finePrint": "","attributes" : [{"label" : "144 fiber", "bold": false }]}]},
+          {
+            "title": "LEAD OD",
+            "type": "F",
+            "length": 1,
+            "partNumberChoices":[{ "value" : "9", "description": "","shortDescription": "","finePrint": "","attributes" : [{"label" : "900?m", "bold": false }]},{ "value" : "2", "description": "","shortDescription": "","finePrint": "","attributes" : [{"label" : "2mm", "bold": false }]},{ "value" : "3", "description": "","shortDescription": "","finePrint": "","attributes" : [{"label" : "3mm", "bold": false }]},{ "value" : "Z", "description": "","shortDescription": "","finePrint": "","attributes" : [{"label" : "Not Applicable", "bold": false }]}]},
+          {"title": "LEAD LENGTH",
+          "type": "G",
+          "length": 3,
+          "partNumberChoices":[{ "value" : "XXN", "description": "","shortDescription": "","finePrint": "","attributes" : [{"label" : "Length", "bold": false },{"label" : "in inches", "bold": false }]},{ "value" : "XXM", "description": "","shortDescription": "","finePrint": "","attributes" : [{"label" : "Length", "bold": false },{"label" : "in meters", "bold": false }]},{ "value" : "ZZZ", "description": "","shortDescription": "","finePrint": "","attributes" : [{"label" : "Not Applicable", "bold": false }]}]}
         ]
       }
     ],

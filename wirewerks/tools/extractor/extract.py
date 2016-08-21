@@ -1,7 +1,7 @@
 
 def createValue (value) :
     jsontext = ""
-    jsontext = "{ \"value\" : \" "
+    jsontext = "{ \"value\" : \""
     jsontext += value
     jsontext += "\", \"description\": \"\","
     jsontext += "\"shortDescription\": \"\","
@@ -26,7 +26,7 @@ def endCreateValue () :
     jsontext += "}"
     return jsontext
 
-f = open('test4.csv', 'r')
+f = open('test7.csv', 'r')
 
 file = mylist = f.read().splitlines()
 
@@ -34,8 +34,8 @@ firstValue = True
 firstAttribute = True
 newValue = True
 jsontext = "["
+#print file
 for value in file :
-    print "extracting: " + value
     if value == "" :
         newValue = True
         if firstAttribute == False:
