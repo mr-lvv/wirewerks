@@ -34,8 +34,21 @@ class PartGroup {
 }
 
 class PartCategory {
-	constructor() {
+	constructor($scope) {
+		$scope.$watch('$ctrl.category', category => {
+			if (!category) {return}
 
+			category.color = chroma.random();
+			category.partNumberChoices.forEach(part => {
+				part.color = category.color.brighten(1.5)
+			})
+		})
+	}
+
+	style() {
+		if (!this.category) {return}
+
+		return {background: this.category.color.css()}
 	}
 }
 
@@ -46,6 +59,12 @@ class Part {
 
 	select() {
 		this.selected = !this.selected
+	}
+
+	style() {
+		if (!this.part) {return}
+
+		return {background: this.part.color.css()}
 	}
 }
 

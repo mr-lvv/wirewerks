@@ -1,3 +1,5 @@
+$padding-normal: 4px;
+
 ww-part-groups {
 	display: flex;
 }
@@ -11,10 +13,14 @@ ww-part-category {
 	max-width: 200px;
 	flex-grow: 1;
 
-	header {
+	category-header {
 		display: flex;
 		justify-content: center;
-		background: rgb(195, 159, 85);
+		color: white;
+		font-size: 1.25em;
+		text-transform: uppercase;
+		font-weight: bold;
+		padding: $padding-normal;
 	}
 }
 
@@ -33,9 +39,9 @@ ww-part {
 	header {
 		display: flex;
 		justify-content: center;
-		background: rgb(255, 220, 174);
 
 		font-weight: bold;
+		padding: $padding-normal;
 	}
 
 	attribute {

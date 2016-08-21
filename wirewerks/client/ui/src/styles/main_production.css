@@ -23898,14 +23898,18 @@ ww-part-category {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1; }
-  ww-part-category header {
+  ww-part-category category-header {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    background: #c39f55; }
+    color: white;
+    font-size: 1.25em;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 4px; }
 
 * {
   outline: none; }
@@ -23921,8 +23925,8 @@ ww-part {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    background: #ffdcae;
-    font-weight: bold; }
+    font-weight: bold;
+    padding: 4px; }
   ww-part attribute {
     display: -webkit-box;
     display: -ms-flexbox;

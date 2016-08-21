@@ -1,5 +1,5 @@
 <div class="content" ng-click="$ctrl.select()" ng-class="{selected: $ctrl.selected}">
-	<header>
+	<header ng-style="$ctrl.style()">
 		<label>{{$ctrl.part.value}}</label>
 	</header>
 

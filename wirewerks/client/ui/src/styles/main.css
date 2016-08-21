@@ -17761,10 +17761,14 @@ ww-part-group {
 ww-part-category {
   max-width: 200px;
   flex-grow: 1; }
-  ww-part-category header {
+  ww-part-category category-header {
     display: flex;
     justify-content: center;
-    background: #c39f55; }
+    color: white;
+    font-size: 1.25em;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 4px; }
 
 * {
   outline: none; }
@@ -17776,8 +17780,8 @@ ww-part {
   ww-part header {
     display: flex;
     justify-content: center;
-    background: #ffdcae;
-    font-weight: bold; }
+    font-weight: bold;
+    padding: 4px; }
   ww-part attribute {
     display: flex;
     justify-content: center;
