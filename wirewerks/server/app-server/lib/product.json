@@ -418,6 +418,260 @@
             ],
             "title": "ARMOUR TYPE",
             "type": "D"
+          },
+          {
+            "parts": [
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "2 fiber"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "02"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "4 fiber"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "04"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "6 fiber"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "06"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "8 fiber"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "08"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "12 fiber"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "12"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "18 fiber"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "18"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "24 fiber"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "24"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "36 fiber"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "36"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "48 fiber"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "48"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "72 fiber"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "72"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "96 fiber"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "96"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "144 fiber"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "C4"
+              }
+            ],
+            "title": "FIBER COUNT",
+            "type": "E"
+          },
+          {
+            "parts": [
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "900 \u03bcm"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "9"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "2 mm"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "2"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "3 mm"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "3"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Not Applicable"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "Z"
+              }
+            ],
+            "title": "LEAD OD",
+            "type": "F"
+          },
+          {
+            "parts": [
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Length"
+                  },
+                  {
+                    "bold": false,
+                    "label": "in inches"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "XXN"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Length"
+                  },
+                  {
+                    "bold": false,
+                    "label": "in meters"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "XXM"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Not Applicable"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "ZZZ"
+              }
+            ],
+            "title": "LEAD LENGTH",
+            "type": "G"
           }
         ]
       }

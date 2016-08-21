@@ -1,0 +1,54 @@
+{
+    "parts": [
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "900 \u03bcm"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "9"
+        }, 
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "2 mm"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "2"
+        }, 
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "3 mm"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "3"
+        }, 
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "Not Applicable"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "Z"
+        }
+    ], 
+    "title": "LEAD OD", 
+    "type": "F"
+}

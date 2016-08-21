@@ -1,0 +1,50 @@
+{
+    "parts": [
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "Length"
+                }, 
+                {
+                    "bold": false, 
+                    "label": "in inches"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "XXN"
+        }, 
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "Length"
+                }, 
+                {
+                    "bold": false, 
+                    "label": "in meters"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "XXM"
+        }, 
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "Not Applicable"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "ZZZ"
+        }
+    ], 
+    "title": "LEAD LENGTH", 
+    "type": "G"
+}
