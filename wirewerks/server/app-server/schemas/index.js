@@ -13,32 +13,31 @@ class Product
 		this.notes = "Other options are available upon request: Connectors Cable Constructions Fire Ratings MPO Wiring Schemes Polish Staggered Leads";
 		this.dataSheetLink = "PDS-0023"; //prefix + dataSheetLink + suffix
 		this.part = "FA";
-		this.partNumberSections = []; //possible zero
+		this.partGroups = []; //possible zero
 		this.icon = "section8.svg";
 		this.section = 8;
 	}
 };
 
-class PartNumberSection
+class PartGroup
 {
 	constructor()
 	{
-		this.partNumbers = [];
+		this.partCategories = [];
 	}
 }
 
-class PartNumber
+class PartCategory
 {
 	constructor()
 	{
 		this.title = "FIBER TYPE";
 		this.type = "A";  //this should tell us the colour needed.
-		this.length = 1;
-		this.partNumberChoices = [];
+		this.parts = [];
 	}
 };
 
-class PartNumberChoice
+class Part
 {
 	constructor()
 	{

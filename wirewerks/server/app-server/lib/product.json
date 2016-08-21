@@ -8,401 +8,417 @@
     "notes" : "Other options are available upon request: Connectors Cable Constructions Fire Ratings MPO Wiring Schemes Polish Staggered Leads",
     "dataSheetLink" :"PDS-0023",
     "part" : "FA",
-    "partNumberSections" : [
+    "partGroups" : [
       {
-        "partNumbers" : [
+        "partCategories": [
           {
-            "title" : "FIBER TYPE",
-            "type" : "A",
-            "length" : 1,
-            "partNumberChoices" :
-            [
+            "parts": [
               {
-                "attributes" : [
+                "attributes": [
                   {
-                    "label": "Single Mode OS2",
-                    "bold" : false
+                    "bold": false,
+                    "label": "Single Mode"
                   },
                   {
-                    "label" : "OS2",
-                    "bold"  : false
+                    "bold": false,
+                    "label": "OS2"
                   }
                 ],
-                "description" : "",
-                "shortDescription" : "",
-                "finePrint" : "",
-                "value" : "1"
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "1"
               },
               {
-                "value": " 2",
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Multimode"
+                  },
+                  {
+                    "bold": false,
+                    "label": "62.5/125\u03bcm OM1"
+                  }
+                ],
                 "description": "",
-                "shortDescription": "",
                 "finePrint": "",
-                "attributes": [{
-                  "label": "Multimode",
-                  "bold": false
-                }, {
-                  "label": "62.5/125?m OM1",
-                  "bold": false
-                }]
-              }, {
-              "value": " 3",
-              "description": "",
-              "shortDescription": "",
-              "finePrint": "",
-              "attributes": [{
-                "label": "Multimode",
-                "bold": false
-              }, {
-                "label": "50/125?m OM2",
-                "bold": false
-              }]
-            }, {
-              "value": " 4",
-              "description": "",
-              "shortDescription": "",
-              "finePrint": "",
-              "attributes": [{
-                "label": "Multimode",
-                "bold": false
-              }, {
-                "label": "50/125?m OM3",
-                "bold": false
-              }]
-            }, {
-              "value": " 5",
-              "description": "",
-              "shortDescription": "",
-              "finePrint": "",
-              "attributes": [{
-                "label": "Multimode",
-                "bold": false
-              }, {
-                "label": "50/125?m OM4",
-                "bold": false
-              }]
-            }, {
-              "value": " E",
-              "description": "",
-              "shortDescription": "",
-              "finePrint": "",
-              "attributes": [{
-                "label": "Bend Insensitive",
-                "bold": false
-              }, {
-                "label": "Single Mode",
-                "bold": false
-              }, {
-                "label": "OS2",
-                "bold": false
-              }]
-            }, {
-              "value": " B",
-              "description": "",
-              "shortDescription": "",
-              "finePrint": "",
-              "attributes": [{
-                "label": "Bend Insensitive",
-                "bold": false
-              }, {
-                "label": "Multimode",
-                "bold": false
-              }, {
-                "label": "50/125?m OM2",
-                "bold": false
-              }]
-            }, {
-              "value": " C",
-              "description": "",
-              "shortDescription": "",
-              "finePrint": "",
-              "attributes": [{
-                "label": "Bend Insensitive",
-                "bold": false
-              }, {
-                "label": "Multimode",
-                "bold": false
-              }, {
-                "label": "50/125?m OM3",
-                "bold": false
-              }]
-            }, {
-              "value": " D",
-              "description": "",
-              "shortDescription": "",
-              "finePrint": "",
-              "attributes": [{
-                "label": "Bend Insensitive",
-                "bold": false
-              }, {
-                "label": "Multimode",
-                "bold": false
-              }, {
-                "label": "50/125?m OM4",
-                "bold": false
-              }]
-            }
-            ]
+                "shortDescription": "",
+                "value": "2"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Multimode"
+                  },
+                  {
+                    "bold": false,
+                    "label": "50/125\u03bcm OM2"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "3"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Multimode"
+                  },
+                  {
+                    "bold": false,
+                    "label": "50/125\u03bcm OM3"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "4"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Multimode"
+                  },
+                  {
+                    "bold": false,
+                    "label": "50/125\u03bcm OM4"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "5"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Bend Insensitive"
+                  },
+                  {
+                    "bold": false,
+                    "label": "Single Mode"
+                  },
+                  {
+                    "bold": false,
+                    "label": "OS2"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "E"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Bend Insensitive"
+                  },
+                  {
+                    "bold": false,
+                    "label": "Multimode"
+                  },
+                  {
+                    "bold": false,
+                    "label": "50/125\u03bcm OM2"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "B"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Bend Insensitive"
+                  },
+                  {
+                    "bold": false,
+                    "label": "Multimode"
+                  },
+                  {
+                    "bold": false,
+                    "label": "50/125\u03bcm OM3"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "C"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Bend Insensitive"
+                  },
+                  {
+                    "bold": false,
+                    "label": "Multimode"
+                  },
+                  {
+                    "bold": false,
+                    "label": "50/125\u03bcm OM4"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "D"
+              }
+            ],
+            "title": "FIBER TYPE",
+            "type": "A"
           },
           {
+            "parts": [
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Distribution"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "D"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Breakout"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "B"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Loose Tube"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "L"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Ribbon"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "R"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Mini"
+                  },
+                  {
+                    "bold": false,
+                    "label": "Distribution"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "M"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Unjacketed"
+                  },
+                  {
+                    "bold": false,
+                    "label": "Distribution"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "C"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Unjacketed"
+                  },
+                  {
+                    "bold": false,
+                    "label": "Ribbon"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "Q"
+              }
+            ],
             "title": "CABLE TYPE",
-            "type": "B",
-            "length": 1,
-            "partNumberChoices": [
-              {
-                "value": " D",
-                "description": "",
-                "shortDescription": "",
-                "finePrint": "",
-                "attributes": [
-                  {
-                    "label": "Distribution",
-                    "bold": false
-                  }
-                ]
-              },
-              {
-                "value": " B",
-                "description": "",
-                "shortDescription": "",
-                "finePrint": "",
-                "attributes": [
-                  {
-                    "label": "Breakout",
-                    "bold": false
-                  }
-                ]
-              },
-              {
-                "value": " L",
-                "description": "",
-                "shortDescription": "",
-                "finePrint": "",
-                "attributes": [
-                  {
-                    "label": "Loose Tube",
-                    "bold": false
-                  }
-                ]
-              },
-              {
-                "value": " R",
-                "description": "",
-                "shortDescription": "",
-                "finePrint": "",
-                "attributes": [
-                  {
-                    "label": "Ribbon",
-                    "bold": false
-                  }
-                ]
-              },
-              {
-                "value": " M",
-                "description": "",
-                "shortDescription": "",
-                "finePrint": "",
-                "attributes": [
-                  {
-                    "label": "Mini",
-                    "bold": false
-                  },
-                  {
-                    "label": "Distribution",
-                    "bold": false
-                  }
-                ]
-              },
-              {
-                "value": " C",
-                "description": "",
-                "shortDescription": "",
-                "finePrint": "",
-                "attributes": [
-                  {
-                    "label": "Unjacketed",
-                    "bold": false
-                  },
-                  {
-                    "label": "Distribution",
-                    "bold": false
-                  }
-                ]
-              },
-              {
-                "value": " Q",
-                "description": "",
-                "shortDescription": "",
-                "finePrint": "",
-                "attributes": [
-                  {
-                    "label": "Unjacketed",
-                    "bold": false
-                  },
-                  {
-                    "label": "Ribbon",
-                    "bold": false
-                  }
-                ]
-              }
-            ]
+            "type": "B"
           },
           {
+            "parts": [
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "OFNP"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "P"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "OFNR"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "R"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Outdoor"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "O"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Indoor/Outdoor"
+                  },
+                  {
+                    "bold": false,
+                    "label": "OFNP"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "N"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Indoor/Outdoor"
+                  },
+                  {
+                    "bold": false,
+                    "label": "OFNR"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "L"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Not Applicable"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "C"
+              }
+            ],
             "title": "FIRE RATING",
-            "type": "C",
-            "length": 1,
-            "partNumberChoices": [
-              {
-                "value": " P",
-                "description": "",
-                "shortDescription": "",
-                "finePrint": "",
-                "attributes": [
-                  {
-                    "label": "OFNP",
-                    "bold": false
-                  }
-                ]
-              },
-              {
-                "value": " R",
-                "description": "",
-                "shortDescription": "",
-                "finePrint": "",
-                "attributes": [
-                  {
-                    "label": "OFNR",
-                    "bold": false
-                  }
-                ]
-              },
-              {
-                "value": " O",
-                "description": "",
-                "shortDescription": "",
-                "finePrint": "",
-                "attributes": [
-                  {
-                    "label": "Outdoor",
-                    "bold": false
-                  }
-                ]
-              },
-              {
-                "value": " N",
-                "description": "",
-                "shortDescription": "",
-                "finePrint": "",
-                "attributes": [
-                  {
-                    "label": "Indoor/Outdoor",
-                    "bold": false
-                  },
-                  {
-                    "label": "OFNP",
-                    "bold": false
-                  }
-                ]
-              },
-              {
-                "value": " L",
-                "description": "",
-                "shortDescription": "",
-                "finePrint": "",
-                "attributes": [
-                  {
-                    "label": "Indoor/Outdoor",
-                    "bold": false
-                  },
-                  {
-                    "label": "OFNR",
-                    "bold": false
-                  }
-                ]
-              },
-              {
-                "value": " C",
-                "description": "",
-                "shortDescription": "",
-                "finePrint": "",
-                "attributes": [
-                  {
-                    "label": "Not Applicable",
-                    "bold": false
-                  }
-                ]
-              }
-            ]
+            "type": "C"
           },
           {
+            "parts": [
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Non Armoured"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "N"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "BX Type"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "B"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Light Armour"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "L"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Not Applicable"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "C"
+              }
+            ],
             "title": "ARMOUR TYPE",
-            "type": "D",
-            "length": 1,
-            "partNumberChoices": [
-              {
-                "value": " N",
-                "description": "",
-                "shortDescription": "",
-                "finePrint": "",
-                "attributes": [
-                  {
-                    "label": "Non Armoured",
-                    "bold": false
-                  }
-                ]
-              },
-              {
-                "value": " B",
-                "description": "",
-                "shortDescription": "",
-                "finePrint": "",
-                "attributes": [
-                  {
-                    "label": "BX Type",
-                    "bold": false
-                  }
-                ]
-              },
-              {
-                "value": " L",
-                "description": "",
-                "shortDescription": "",
-                "finePrint": "",
-                "attributes": [
-                  {
-                    "label": "Light Armour",
-                    "bold": false
-                  }
-                ]
-              },
-              {
-                "value": " C",
-                "description": "",
-                "shortDescription": "",
-                "finePrint": "",
-                "attributes": [
-                  {
-                    "label": "Not Applicable",
-                    "bold": false
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "title": "FIBER COUNT",
-            "type": "E",
-            "length": 2,
-            "partNumberChoices": [{ "value" : "02", "description": "","shortDescription": "","finePrint": "","attributes" : [{"label" : "2 fiber", "bold": false }]},{ "value" : "04", "description": "","shortDescription": "","finePrint": "","attributes" : [{"label" : "4 fiber", "bold": false }]},{ "value" : "06", "description": "","shortDescription": "","finePrint": "","attributes" : [{"label" : "6 fiber", "bold": false }]},{ "value" : "08", "description": "","shortDescription": "","finePrint": "","attributes" : [{"label" : "8 fiber", "bold": false }]},{ "value" : "12", "description": "","shortDescription": "","finePrint": "","attributes" : [{"label" : "12 fiber", "bold": false }]},{ "value" : "18", "description": "","shortDescription": "","finePrint": "","attributes" : [{"label" : "18 fiber", "bold": false }]},{ "value" : "24", "description": "","shortDescription": "","finePrint": "","attributes" : [{"label" : "24 fiber", "bold": false }]},{ "value" : "36", "description": "","shortDescription": "","finePrint": "","attributes" : [{"label" : "36 fiber", "bold": false }]},{ "value" : "48", "description": "","shortDescription": "","finePrint": "","attributes" : [{"label" : "48 fiber", "bold": false }]},{ "value" : "72", "description": "","shortDescription": "","finePrint": "","attributes" : [{"label" : "72 fiber", "bold": false }]},{ "value" : "96", "description": "","shortDescription": "","finePrint": "","attributes" : [{"label" : "96 fiber", "bold": false }]},{ "value" : "C4", "description": "","shortDescription": "","finePrint": "","attributes" : [{"label" : "144 fiber", "bold": false }]}]},
-          {
-            "title": "LEAD OD",
-            "type": "F",
-            "length": 1,
-            "partNumberChoices":[{ "value" : "9", "description": "","shortDescription": "","finePrint": "","attributes" : [{"label" : "900?m", "bold": false }]},{ "value" : "2", "description": "","shortDescription": "","finePrint": "","attributes" : [{"label" : "2mm", "bold": false }]},{ "value" : "3", "description": "","shortDescription": "","finePrint": "","attributes" : [{"label" : "3mm", "bold": false }]},{ "value" : "Z", "description": "","shortDescription": "","finePrint": "","attributes" : [{"label" : "Not Applicable", "bold": false }]}]},
-          {"title": "LEAD LENGTH",
-          "type": "G",
-          "length": 3,
-          "partNumberChoices":[{ "value" : "XXN", "description": "","shortDescription": "","finePrint": "","attributes" : [{"label" : "Length", "bold": false },{"label" : "in inches", "bold": false }]},{ "value" : "XXM", "description": "","shortDescription": "","finePrint": "","attributes" : [{"label" : "Length", "bold": false },{"label" : "in meters", "bold": false }]},{ "value" : "ZZZ", "description": "","shortDescription": "","finePrint": "","attributes" : [{"label" : "Not Applicable", "bold": false }]}]}
+            "type": "D"
+          }
         ]
       }
     ],

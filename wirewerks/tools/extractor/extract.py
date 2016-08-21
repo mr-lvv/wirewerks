@@ -1,6 +1,18 @@
+def createGroup(title):
+    jsontext = "{\"title\":\""
+    jsontext += title
+    jsontext += "\","
+    return jsontext
+
+def createType(type):
+    jsontext = "\"type\":\""
+    jsontext += type
+    jsontext += "\","
+
+def createPartCategory(cat):
+
 
 def createValue (value) :
-    jsontext = ""
     jsontext = "{ \"value\" : \""
     jsontext += value
     jsontext += "\", \"description\": \"\","
@@ -26,7 +38,7 @@ def endCreateValue () :
     jsontext += "}"
     return jsontext
 
-f = open('test7.csv', 'r')
+f = open('FA-A.csv', 'r')
 
 file = mylist = f.read().splitlines()
 

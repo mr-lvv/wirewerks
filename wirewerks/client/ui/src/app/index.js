@@ -39,7 +39,7 @@ class PartCategory {
 			if (!category) {return}
 
 			category.color = chroma.random();
-			category.partNumberChoices.forEach(part => {
+			category.parts.forEach(part => {
 				part.color = category.color.brighten(1.5)
 			})
 		})

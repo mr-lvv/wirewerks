@@ -8,7 +8,7 @@
 	<md-button ng-href="{{$ctrl.getDataSheetLink()}}" ng-if="$ctrl.product.dataSheetLink" target="_blank">Data sheet</md-button>
 
 	<ww-part-groups>
-		<ww-part-group group="group" ng-repeat="group in $ctrl.product.partNumberSections"></ww-part-group>
+		<ww-part-group group="group" ng-repeat="group in $ctrl.product.partGroups"></ww-part-group>
 	</ww-part-groups>
 
 	<p class="notes" ng-if="$ctrl.product.notes">{{$ctrl.product.notes}}</p>
