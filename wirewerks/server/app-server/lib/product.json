@@ -246,6 +246,148 @@
                 ]
               }
             ]
+          },
+          {
+            "title": "FIRE RATING",
+            "type": "C",
+            "length": 1,
+            "partNumberChoices": [
+              {
+                "value": " P",
+                "description": "",
+                "shortDescription": "",
+                "finePrint": "",
+                "attributes": [
+                  {
+                    "label": "OFNP",
+                    "bold": false
+                  }
+                ]
+              },
+              {
+                "value": " R",
+                "description": "",
+                "shortDescription": "",
+                "finePrint": "",
+                "attributes": [
+                  {
+                    "label": "OFNR",
+                    "bold": false
+                  }
+                ]
+              },
+              {
+                "value": " O",
+                "description": "",
+                "shortDescription": "",
+                "finePrint": "",
+                "attributes": [
+                  {
+                    "label": "Outdoor",
+                    "bold": false
+                  }
+                ]
+              },
+              {
+                "value": " N",
+                "description": "",
+                "shortDescription": "",
+                "finePrint": "",
+                "attributes": [
+                  {
+                    "label": "Indoor/Outdoor",
+                    "bold": false
+                  },
+                  {
+                    "label": "OFNP",
+                    "bold": false
+                  }
+                ]
+              },
+              {
+                "value": " L",
+                "description": "",
+                "shortDescription": "",
+                "finePrint": "",
+                "attributes": [
+                  {
+                    "label": "Indoor/Outdoor",
+                    "bold": false
+                  },
+                  {
+                    "label": "OFNR",
+                    "bold": false
+                  }
+                ]
+              },
+              {
+                "value": " C",
+                "description": "",
+                "shortDescription": "",
+                "finePrint": "",
+                "attributes": [
+                  {
+                    "label": "Not Applicable",
+                    "bold": false
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "title": "ARMOUR TYPE",
+            "type": "D",
+            "length": 1,
+            "partNumberChoices": [
+              {
+                "value": " N",
+                "description": "",
+                "shortDescription": "",
+                "finePrint": "",
+                "attributes": [
+                  {
+                    "label": "Non Armoured",
+                    "bold": false
+                  }
+                ]
+              },
+              {
+                "value": " B",
+                "description": "",
+                "shortDescription": "",
+                "finePrint": "",
+                "attributes": [
+                  {
+                    "label": "BX Type",
+                    "bold": false
+                  }
+                ]
+              },
+              {
+                "value": " L",
+                "description": "",
+                "shortDescription": "",
+                "finePrint": "",
+                "attributes": [
+                  {
+                    "label": "Light Armour",
+                    "bold": false
+                  }
+                ]
+              },
+              {
+                "value": " C",
+                "description": "",
+                "shortDescription": "",
+                "finePrint": "",
+                "attributes": [
+                  {
+                    "label": "Not Applicable",
+                    "bold": false
+                  }
+                ]
+              }
+            ]
           }
         ]
       }

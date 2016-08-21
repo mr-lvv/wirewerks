@@ -26,7 +26,7 @@ def endCreateValue () :
     jsontext += "}"
     return jsontext
 
-f = open('test2.csv', 'r')
+f = open('test4.csv', 'r')
 
 file = mylist = f.read().splitlines()
 
