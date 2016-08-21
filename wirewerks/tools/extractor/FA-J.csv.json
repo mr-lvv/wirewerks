@@ -1,167 +1,159 @@
 {
-    "finePrint": "", 
+    "finePrint": "*", 
     "parts": [
         {
             "attributes": [
                 {
                     "bold": false, 
-                    "label": "Single Mode"
-                }, 
-                {
-                    "bold": false, 
-                    "label": "OS2"
+                    "label": "LC"
                 }
             ], 
             "description": "", 
             "finePrint": "", 
             "shortDescription": "", 
-            "value": "1"
+            "value": "LC"
         }, 
         {
             "attributes": [
                 {
                     "bold": false, 
-                    "label": "Multimode"
-                }, 
-                {
-                    "bold": false, 
-                    "label": "62.5/125\u03bcm OM1"
+                    "label": "SC"
                 }
             ], 
             "description": "", 
             "finePrint": "", 
             "shortDescription": "", 
-            "value": "2"
+            "value": "SC"
         }, 
         {
             "attributes": [
                 {
                     "bold": false, 
-                    "label": "Multimode"
-                }, 
-                {
-                    "bold": false, 
-                    "label": "50/125\u03bcm OM2"
+                    "label": "ST"
                 }
             ], 
             "description": "", 
             "finePrint": "", 
             "shortDescription": "", 
-            "value": "3"
+            "value": "ST"
         }, 
         {
             "attributes": [
                 {
                     "bold": false, 
-                    "label": "Multimode"
-                }, 
-                {
-                    "bold": false, 
-                    "label": "50/125\u03bcm OM3"
+                    "label": "FC"
                 }
             ], 
             "description": "", 
             "finePrint": "", 
             "shortDescription": "", 
-            "value": "4"
+            "value": "FC"
         }, 
         {
             "attributes": [
                 {
                     "bold": false, 
-                    "label": "Multimode"
-                }, 
-                {
-                    "bold": false, 
-                    "label": "50/125\u03bcm OM4"
+                    "label": "MTRJ female"
                 }
             ], 
             "description": "", 
             "finePrint": "", 
             "shortDescription": "", 
-            "value": "5"
+            "value": "MT"
         }, 
         {
             "attributes": [
                 {
-                    "bold": true, 
-                    "label": "Bend Insensitive"
-                }, 
-                {
                     "bold": false, 
-                    "label": "Single Mode"
-                }, 
-                {
-                    "bold": false, 
-                    "label": "OS2"
+                    "label": "MTRJ male"
                 }
             ], 
             "description": "", 
             "finePrint": "", 
             "shortDescription": "", 
-            "value": "E"
+            "value": "MB"
         }, 
         {
             "attributes": [
                 {
-                    "bold": true, 
-                    "label": "Bend Insensitive"
+                    "bold": false, 
+                    "label": "12 Fiber MPO"
                 }, 
                 {
                     "bold": false, 
-                    "label": "Multimode"
-                }, 
-                {
-                    "bold": false, 
-                    "label": "50/125\u03bcm OM2"
+                    "label": "Female Type A"
                 }
             ], 
             "description": "", 
-            "finePrint": "", 
+            "finePrint": "**", 
             "shortDescription": "", 
-            "value": "B"
+            "value": "MP"
         }, 
         {
             "attributes": [
                 {
-                    "bold": true, 
-                    "label": "Bend Insensitive"
+                    "bold": false, 
+                    "label": "12 Fiber MPO"
                 }, 
                 {
                     "bold": false, 
-                    "label": "Multimode"
-                }, 
-                {
-                    "bold": false, 
-                    "label": "50/125\u03bcm OM3"
+                    "label": "Male Type A"
                 }
             ], 
             "description": "", 
-            "finePrint": "", 
+            "finePrint": "**", 
             "shortDescription": "", 
-            "value": "C"
+            "value": "MA"
         }, 
         {
             "attributes": [
                 {
-                    "bold": true, 
-                    "label": "Bend Insensitive"
+                    "bold": false, 
+                    "label": "24 Fiber MPO"
                 }, 
                 {
                     "bold": false, 
-                    "label": "Multimode"
-                }, 
-                {
-                    "bold": false, 
-                    "label": "50/125\u03bcm OM4"
+                    "label": "Female Type A"
                 }
             ], 
             "description": "", 
             "finePrint": "", 
             "shortDescription": "", 
-            "value": "D"
+            "value": "PP"
+        }, 
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "24 Fiber MPO"
+                }, 
+                {
+                    "bold": false, 
+                    "label": "Male Type A"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "PA"
+        }, 
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "Pigtail"
+                }, 
+                {
+                    "bold": false, 
+                    "label": "(no connector)"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "OE"
         }
     ], 
-    "title": "FIBER TYPE", 
-    "type": "A"
+    "title": "CONNECTOR SIDE B*", 
+    "type": "J"
 }

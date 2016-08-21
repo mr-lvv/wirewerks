@@ -1,5 +1,5 @@
-HH
-CONNECTOR SIDE A*
+JJ
+CONNECTOR SIDE B*
 LC
 LC
 SC
@@ -24,3 +24,6 @@ Female Type A
 PA
 24 Fiber MPO
 Male Type A
+OE
+Pigtail
+(no connector)

@@ -33,42 +33,46 @@ partCategory['finePrint']=""
 f = open(filename, 'r')
 mylist = f.read().splitlines()
 
-#first value is title and second is type
+#first is type and then title
 
-finePrintNumber = extractFinePrint(mylist[0])
+type = mylist[0]
+typeLength = len(type)
+partCategory['type'] = type[:1]
+
+
+finePrintNumber = extractFinePrint(mylist[1])
 partCategory['finePrint'] = '*'*finePrintNumber
-if finePrintNumber > 0 :
-    partCategory['title'] = mylist[0][:-finePrintNumber]
+if finePrintNumber > 1 :
+    partCategory['title'] = mylist[1][:-finePrintNumber]
 else:
-    partCategory['title'] = mylist[0]
-
-
-partCategory['type'] = mylist[1]
-
+    partCategory['title'] = mylist[1]
 
 '''
 here we loop to do the array of partCategories
 '''
 newPart = True
 part = {}
-for i in xrange(3,len(mylist)):
+for i in xrange(2,len(mylist)):
     #print mylist[i]
-    if newPart == True:
+    value = mylist[i]
+    finePrintNumber = extractFinePrint(value)
+    if finePrintNumber > 0 :
+        value = value[:-finePrintNumber]
+
+    if newPart == True or (len(value) == typeLength and value != part['value']):
+        if newPart == False:
+            partCategory['parts'].append(part)
+        part = {}
         newPart = False
-        part['value'] = mylist[i]
+        part['value'] = value
         part['description'] = ""
         part['shortDescription'] = ""
         part['finePrint'] = ""
         part['attributes'] = []
-
-        finePrintNumber = extractFinePrint(mylist[i])
         part['finePrint'] = '*'*finePrintNumber
-        if finePrintNumber > 0 :
-            part['value'] = mylist[i][:-finePrintNumber]
-        else:
-            part['value'] = mylist[i]
 
-    elif mylist[i] != "":
+    #if len(mylist[i]) != typeLength or mylist[i] == part['value']:
+    else:
         #it's an attribute
         attribute = {}
         attribute['label'] = mylist[i]
@@ -77,11 +81,6 @@ for i in xrange(3,len(mylist)):
         else:
             attribute['bold'] = False
         part['attributes'].append(attribute)
-    else:
-        #finish
-        partCategory['parts'].append(part)
-        part = {}
-        newPart = True
 
 partCategory['parts'].append(part)
 

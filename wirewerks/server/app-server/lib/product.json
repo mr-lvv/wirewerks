@@ -12,6 +12,7 @@
       {
         "partCategories": [
           {
+            "finePrint": "",
             "parts": [
               {
                 "attributes": [
@@ -96,7 +97,7 @@
               {
                 "attributes": [
                   {
-                    "bold": false,
+                    "bold": true,
                     "label": "Bend Insensitive"
                   },
                   {
@@ -116,7 +117,7 @@
               {
                 "attributes": [
                   {
-                    "bold": false,
+                    "bold": true,
                     "label": "Bend Insensitive"
                   },
                   {
@@ -136,7 +137,7 @@
               {
                 "attributes": [
                   {
-                    "bold": false,
+                    "bold": true,
                     "label": "Bend Insensitive"
                   },
                   {
@@ -156,7 +157,7 @@
               {
                 "attributes": [
                   {
-                    "bold": false,
+                    "bold": true,
                     "label": "Bend Insensitive"
                   },
                   {
@@ -178,6 +179,7 @@
             "type": "A"
           },
           {
+            "finePrint": "",
             "parts": [
               {
                 "attributes": [
@@ -280,6 +282,7 @@
             "type": "B"
           },
           {
+            "finePrint": "",
             "parts": [
               {
                 "attributes": [
@@ -366,6 +369,7 @@
             "type": "C"
           },
           {
+            "finePrint": "",
             "parts": [
               {
                 "attributes": [
@@ -420,6 +424,7 @@
             "type": "D"
           },
           {
+            "finePrint": "",
             "parts": [
               {
                 "attributes": [
@@ -570,6 +575,7 @@
             "type": "E"
           },
           {
+            "finePrint": "",
             "parts": [
               {
                 "attributes": [
@@ -624,6 +630,7 @@
             "type": "F"
           },
           {
+            "finePrint": "",
             "parts": [
               {
                 "attributes": [
@@ -672,7 +679,11 @@
             ],
             "title": "LEAD LENGTH",
             "type": "G"
-          },
+          }
+        ]
+      },
+      {
+        "partCategories": [
           {
             "finePrint": "*",
             "parts": [
@@ -813,8 +824,214 @@
                 "value": "PA"
               }
             ],
-            "title": "CONNECTOR SIDE A",
+            "title": "CONNECTOR SIDE A*",
             "type": "H"
+          },
+          {
+            "finePrint": "",
+            "parts": [
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "APC"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "A"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "UPC"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "B"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "PC"
+                  },
+                  {
+                    "bold": false,
+                    "label": "(multimode)"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "C"
+              }
+            ],
+            "title": "POLISH SIDE A",
+            "type": "I"
+          },
+          {
+            "finePrint": "*",
+            "parts": [
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "LC"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "LC"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "SC"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "SC"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "ST"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "ST"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "FC"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "FC"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "MTRJ female"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "MT"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "MTRJ male"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "MB"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "12 Fiber MPO"
+                  },
+                  {
+                    "bold": false,
+                    "label": "Female Type A"
+                  }
+                ],
+                "description": "",
+                "finePrint": "**",
+                "shortDescription": "",
+                "value": "MP"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "12 Fiber MPO"
+                  },
+                  {
+                    "bold": false,
+                    "label": "Male Type A"
+                  }
+                ],
+                "description": "",
+                "finePrint": "**",
+                "shortDescription": "",
+                "value": "MA"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "24 Fiber MPO"
+                  },
+                  {
+                    "bold": false,
+                    "label": "Female Type A"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "PP"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "24 Fiber MPO"
+                  },
+                  {
+                    "bold": false,
+                    "label": "Male Type A"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "PA"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Pigtail"
+                  },
+                  {
+                    "bold": false,
+                    "label": "(no connector)"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "OE"
+              }
+            ],
+            "title": "CONNECTOR SIDE B*",
+            "type": "J"
           }
         ]
       }

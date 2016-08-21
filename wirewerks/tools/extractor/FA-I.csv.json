@@ -5,47 +5,43 @@
             "attributes": [
                 {
                     "bold": false, 
-                    "label": "Length"
-                }, 
-                {
-                    "bold": false, 
-                    "label": "in inches"
+                    "label": "APC"
                 }
             ], 
             "description": "", 
             "finePrint": "", 
             "shortDescription": "", 
-            "value": "XXN"
+            "value": "A"
         }, 
         {
             "attributes": [
                 {
                     "bold": false, 
-                    "label": "Length"
-                }, 
-                {
-                    "bold": false, 
-                    "label": "in meters"
+                    "label": "UPC"
                 }
             ], 
             "description": "", 
             "finePrint": "", 
             "shortDescription": "", 
-            "value": "XXM"
+            "value": "B"
         }, 
         {
             "attributes": [
                 {
                     "bold": false, 
-                    "label": "Not Applicable"
+                    "label": "PC"
+                }, 
+                {
+                    "bold": false, 
+                    "label": "(multimode)"
                 }
             ], 
             "description": "", 
             "finePrint": "", 
             "shortDescription": "", 
-            "value": "ZZZ"
+            "value": "C"
         }
     ], 
-    "title": "LEAD LENGTH", 
-    "type": "G"
+    "title": "POLISH SIDE A", 
+    "type": "I"
 }
