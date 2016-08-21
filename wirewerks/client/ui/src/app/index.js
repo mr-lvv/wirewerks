@@ -14,9 +14,9 @@ class Url {
 
 class Product {
 	constructor(productResource) {
-		this.part = this.part || 'fa';
-		productResource.get(this.part).then((product) => {
-			this.product = product;
+		this.part = this.part || 'fa'
+		productResource.get(this.part).then(product => {
+			this.product = product
 		})
 	}
 
@@ -54,6 +54,9 @@ angular.module('ww', [
 	'ngAnimate',
 	'ngMaterial'
 ])
+.run(() => {
+	FastClick.attach(document.body)
+})
 .component('wwApp', {
 	controller: App,
 	templateUrl: 'app/views/app.html',
@@ -95,7 +98,7 @@ angular.module('ww', [
 	get(part) {
 		var url = Url.products(part)
 
-		return this.$http.get(url).then((response) => {
+		return this.$http.get(url).then(response => {
 			return response.data
 		})
 	}
