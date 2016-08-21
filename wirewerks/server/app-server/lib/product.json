@@ -1032,6 +1032,163 @@
             ],
             "title": "CONNECTOR SIDE B*",
             "type": "J"
+          },
+          {
+            "finePrint": "",
+            "parts": [
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "APC"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "A"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "UPC"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "B"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "PC"
+                  },
+                  {
+                    "bold": false,
+                    "label": "(multimode)"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "C"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Not Applicable"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "D"
+              }
+            ],
+            "title": "POLISH SIDE B",
+            "type": "K"
+          },
+          {
+            "finePrint": "",
+            "parts": [
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "None"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "0"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "1 Pulling Eye"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "1"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "2 Pulling Eyes"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "2"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Staggered with"
+                  },
+                  {
+                    "bold": false,
+                    "label": "1 Pulling Eye"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "3"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Staggered with"
+                  },
+                  {
+                    "bold": false,
+                    "label": "2 Pulling Eyes"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "4"
+              }
+            ],
+            "title": "PULLING EYE",
+            "type": "L"
+          }
+        ]
+      },
+      {
+        "partCategories": [
+          {
+            "finePrint": "***",
+            "parts": [
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "in meters"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "Assembly length"
+              }
+            ],
+            "title": "LENGTH",
+            "type": "N"
           }
         ]
       }

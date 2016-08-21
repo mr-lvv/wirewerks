@@ -1,0 +1,19 @@
+{
+    "finePrint": "***", 
+    "parts": [
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "in meters"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "Assembly length"
+        }
+    ], 
+    "title": "LENGTH", 
+    "type": "N"
+}
