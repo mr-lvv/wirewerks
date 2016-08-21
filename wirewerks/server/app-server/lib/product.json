@@ -143,6 +143,109 @@
               }]
             }
             ]
+          },
+          {
+            "title": "CABLE TYPE",
+            "type": "B",
+            "length": 1,
+            "partNumberChoices": [
+              {
+                "value": " D",
+                "description": "",
+                "shortDescription": "",
+                "finePrint": "",
+                "attributes": [
+                  {
+                    "label": "Distribution",
+                    "bold": false
+                  }
+                ]
+              },
+              {
+                "value": " B",
+                "description": "",
+                "shortDescription": "",
+                "finePrint": "",
+                "attributes": [
+                  {
+                    "label": "Breakout",
+                    "bold": false
+                  }
+                ]
+              },
+              {
+                "value": " L",
+                "description": "",
+                "shortDescription": "",
+                "finePrint": "",
+                "attributes": [
+                  {
+                    "label": "Loose Tube",
+                    "bold": false
+                  }
+                ]
+              },
+              {
+                "value": " R",
+                "description": "",
+                "shortDescription": "",
+                "finePrint": "",
+                "attributes": [
+                  {
+                    "label": "Ribbon",
+                    "bold": false
+                  }
+                ]
+              },
+              {
+                "value": " M",
+                "description": "",
+                "shortDescription": "",
+                "finePrint": "",
+                "attributes": [
+                  {
+                    "label": "Mini",
+                    "bold": false
+                  },
+                  {
+                    "label": "Distribution",
+                    "bold": false
+                  }
+                ]
+              },
+              {
+                "value": " C",
+                "description": "",
+                "shortDescription": "",
+                "finePrint": "",
+                "attributes": [
+                  {
+                    "label": "Unjacketed",
+                    "bold": false
+                  },
+                  {
+                    "label": "Distribution",
+                    "bold": false
+                  }
+                ]
+              },
+              {
+                "value": " Q",
+                "description": "",
+                "shortDescription": "",
+                "finePrint": "",
+                "attributes": [
+                  {
+                    "label": "Unjacketed",
+                    "bold": false
+                  },
+                  {
+                    "label": "Ribbon",
+                    "bold": false
+                  }
+                ]
+              }
+            ]
           }
         ]
       }
