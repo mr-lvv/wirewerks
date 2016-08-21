@@ -17751,13 +17751,24 @@ md-tooltip {
   .hide-print:not(.show-print):not(.show) {
     display: none !important; } }
 
+ww-part-groups {
+  display: flex; }
+
+ww-part-group {
+  display: flex;
+  flex-grow: 1; }
+
 ww-part-category {
-  display: block;
-  max-width: 400px; }
-  ww-part-category header {
+  max-width: 200px;
+  flex-grow: 1; }
+  ww-part-category category-header {
     display: flex;
     justify-content: center;
-    background: #c39f55; }
+    color: white;
+    font-size: 1.25em;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 4px; }
 
 * {
   outline: none; }
@@ -17766,28 +17777,29 @@ ww-part {
   display: block; }
   ww-part .content {
     position: relative; }
-    ww-part .content selection-overlay {
-      display: flex;
-      z-index: 100;
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0; }
-      ww-part .content selection-overlay border {
-        flex-grow: 1;
-        border: solid 2px #4478ff; }
   ww-part header {
     display: flex;
     justify-content: center;
-    background: #ffdcae;
-    font-weight: bold; }
+    font-weight: bold;
+    padding: 4px; }
   ww-part attribute {
     display: flex;
     justify-content: center;
     background: #e6e6e6; }
     ww-part attribute label.bold {
       font-weight: bold; }
+
+selection-overlay {
+  display: flex;
+  z-index: 100;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0; }
+  selection-overlay border {
+    flex-grow: 1;
+    border: solid 2px #4478ff; }
 
 md-icon.s48 {
   width: 48px;

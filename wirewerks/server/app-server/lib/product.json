@@ -21,7 +21,7 @@
                 "attributes" : [
                   {
                     "label": "Single Mode OS2",
-                    "bold" : true
+                    "bold" : false
                   },
                   {
                     "label" : "OS2",
