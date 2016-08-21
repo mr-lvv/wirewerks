@@ -1,0 +1,13 @@
+<div>
+	<h1>{{$ctrl.product.title}}</h1>
+	<h3>{{$ctrl.product.subTitle}}</h3>
+
+	<p class="description">{{$ctrl.product.description}}</p>
+	<md-icon md-svg-src="images/svg/{{$ctrl.product.icon}}" class="s48" ng-if="$ctrl.product.icon" aria-label="tmp"></md-icon>
+
+	<md-button ng-href="{{$ctrl.getDataSheetLink()}}" ng-if="$ctrl.product.dataSheetLink" target="_blank">Data sheet</md-button>
+
+	<ww-part-group group="group" ng-repeat="group in $ctrl.product.partNumberSections"></ww-part-group>
+
+	<p class="notes" ng-if="$ctrl.product.notes">{{$ctrl.product.notes}}</p>
+</div>

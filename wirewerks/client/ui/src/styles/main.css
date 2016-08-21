@@ -17751,8 +17751,24 @@ md-tooltip {
   .hide-print:not(.show-print):not(.show) {
     display: none !important; } }
 
-ww-test {
-  color: blue; }
+ww-part-category {
+  display: block;
+  max-width: 200px; }
+  ww-part-category header {
+    display: flex;
+    justify-content: center;
+    background: #c39f55; }
+
+ww-part header {
+  display: flex;
+  justify-content: center;
+  background: #ffdcae;
+  font-weight: bold; }
+
+ww-part description {
+  display: flex;
+  justify-content: center;
+  background: #e6e6e6; }
 
 md-icon.s48 {
   width: 48px;

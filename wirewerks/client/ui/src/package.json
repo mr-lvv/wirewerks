@@ -19,6 +19,7 @@
     "angular-sanitize": "^1.5.8",
     "angular-touch": "^1.5.8",
     "bowser": "^1.4.4",
+    "fastclick": "^1.0.6",
     "hammerjs": "^2.0.8",
     "lodash": "^4.15.0"
   }

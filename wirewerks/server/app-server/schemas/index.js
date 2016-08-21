@@ -1,5 +1,5 @@
-var datasheekLinkPrefix = "http://www.wirewerks.com/wp-content/uploads/";
-var datasheeLinkSuffix = "-EN-C.pdf";
+var datasheetLinkPrefix = "http://www.wirewerks.com/wp-content/uploads/";
+var datasheetLinkSuffix = "-EN-C.pdf";
 
 class Product
 {
@@ -25,7 +25,7 @@ class PartNumberSection
 	{
 		this.partNumbers = [];
 	}
-};
+}
 
 class PartNumber
 {

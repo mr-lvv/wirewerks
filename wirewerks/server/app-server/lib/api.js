@@ -17,12 +17,8 @@ class Api {
 		});
 
 		client.get("/product/:part", (request, response) => {
-
-			//check if part exists
-
-			if(product.hasOwnProperty(request.params.part) !== undefined)
+			if(product[request.params.part])
 			{
-				console.log(product[request.params.part])
 				response.status(200).send(product[request.params.part]);
 			}
 			else

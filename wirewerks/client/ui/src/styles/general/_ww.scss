@@ -1,0 +1,26 @@
+ww-part-category {
+	display: block;
+	max-width: 200px;
+
+	header {
+		display: flex;
+		justify-content: center;
+		background: rgb(195, 159, 85);
+	}
+}
+
+ww-part {
+	header {
+		display: flex;
+		justify-content: center;
+		background: rgb(255, 220, 174);
+
+		font-weight: bold;
+	}
+
+	description {
+		display: flex;
+		justify-content: center;
+		background: #e6e6e6;
+	}
+}
