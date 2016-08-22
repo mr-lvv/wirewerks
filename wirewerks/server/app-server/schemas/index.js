@@ -34,6 +34,7 @@ class PartCategory
 	{
 		this.title = "FIBER TYPE";
 		this.type = "A";  //this should tell us the colour needed.
+		this.length = 1;
 		this.parts = [];
 		this.finePrint = "*";
 	}

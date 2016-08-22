@@ -1,0 +1,19 @@
+{
+    "finePrint": "", 
+    "parts": [
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "Length in meters"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "Leads"
+        }
+    ], 
+    "title": "FIBER LEADS LENGTH", 
+    "type": "F"
+}

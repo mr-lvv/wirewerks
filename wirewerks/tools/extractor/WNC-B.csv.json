@@ -1,0 +1,107 @@
+{
+    "finePrint": "", 
+    "parts": [
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "900 _m"
+                }, 
+                {
+                    "bold": false, 
+                    "label": "Single Mode"
+                }, 
+                {
+                    "bold": false, 
+                    "label": "(TIA-598-C)"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "9S"
+        }, 
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "2 mm"
+                }, 
+                {
+                    "bold": false, 
+                    "label": "Single Mode"
+                }, 
+                {
+                    "bold": false, 
+                    "label": "(Yellow)"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "2S"
+        }, 
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "3 mm"
+                }, 
+                {
+                    "bold": false, 
+                    "label": "Single Mode"
+                }, 
+                {
+                    "bold": false, 
+                    "label": "(Yellow)"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "3S"
+        }, 
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "2mm"
+                }, 
+                {
+                    "bold": false, 
+                    "label": "Single Mode"
+                }, 
+                {
+                    "bold": false, 
+                    "label": "(TIA-598-C)"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "28"
+        }, 
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "3 mm"
+                }, 
+                {
+                    "bold": false, 
+                    "label": "Single Mode"
+                }, 
+                {
+                    "bold": false, 
+                    "label": "(TIA-598-C)"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "38"
+        }
+    ], 
+    "title": "LEAD TYPE", 
+    "type": "B"
+}

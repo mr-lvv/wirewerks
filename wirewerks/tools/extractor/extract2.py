@@ -46,10 +46,12 @@ if finePrintNumber > 1 :
     partCategory['title'] = mylist[1][:-finePrintNumber]
 else:
     partCategory['title'] = mylist[1]
+partCategory['length'] = typeLength
 
 '''
 here we loop to do the array of partCategories
 '''
+
 newPart = True
 part = {}
 for i in xrange(2,len(mylist)):
