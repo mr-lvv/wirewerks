@@ -49,6 +49,7 @@ class Part
 		this.finePrint = "**";
 		this.value = "1";
 		this.attributes = [];
+		//this.formatRegularExp = "^[0-9]{2}X$"
 	}
 };
 

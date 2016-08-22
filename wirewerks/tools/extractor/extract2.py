@@ -48,32 +48,36 @@ else:
     partCategory['title'] = mylist[1]
 partCategory['length'] = typeLength
 
+isLength = partCategory['title'].find("LENGTH") >= 0
+
 '''
 here we loop to do the array of partCategories
 '''
 
-newPart = True
+newPartBegin = True
 part = {}
 for i in xrange(2,len(mylist)):
-    #print mylist[i]
+
     value = mylist[i]
     finePrintNumber = extractFinePrint(value)
     if finePrintNumber > 0 :
         value = value[:-finePrintNumber]
-
-    if newPart == True or (len(value) == typeLength and value != part['value']):
-        if newPart == False:
+    newPart = (len(value) == typeLength and (newPartBegin == True or value != part['value']))
+    if newPartBegin == True or newPart == True:
+        if newPartBegin == False:
             partCategory['parts'].append(part)
         part = {}
-        newPart = False
-        part['value'] = value
+        newPartBegin = False
         part['description'] = ""
         part['shortDescription'] = ""
         part['finePrint'] = ""
         part['attributes'] = []
         part['finePrint'] = '*'*finePrintNumber
 
-    #if len(mylist[i]) != typeLength or mylist[i] == part['value']:
+        if newPart == False:
+            part['value'] = 'X'*typeLength
+        else:
+            part['value'] = value
     else:
         #it's an attribute
         attribute = {}

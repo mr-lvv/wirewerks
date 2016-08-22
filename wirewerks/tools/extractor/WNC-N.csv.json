@@ -1,20 +1,20 @@
 {
-    "finePrint": "***", 
-    "length": 3, 
+    "finePrint": "", 
+    "length": 4, 
     "parts": [
         {
             "attributes": [
                 {
                     "bold": false, 
-                    "label": "in meters"
+                    "label": "Length in meters"
                 }
             ], 
             "description": "", 
             "finePrint": "", 
             "shortDescription": "", 
-            "value": "XXX"
+            "value": "XXXX"
         }
     ], 
-    "title": "LENGTH", 
+    "title": "ASSEMBLY LENGTH", 
     "type": "N"
 }

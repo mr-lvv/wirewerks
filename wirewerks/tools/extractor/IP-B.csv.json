@@ -1,0 +1,104 @@
+{
+    "finePrint": "", 
+    "length": 1, 
+    "parts": [
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "1 fiber Outdoor"
+                }, 
+                {
+                    "bold": false, 
+                    "label": "tactical cable"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "A"
+        }, 
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "2 fiber Outdoor"
+                }, 
+                {
+                    "bold": false, 
+                    "label": "tactical cable"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "B"
+        }, 
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "12 fiber Outdoor"
+                }, 
+                {
+                    "bold": false, 
+                    "label": "tactical cable"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "C"
+        }, 
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "ONFR 1 fiber"
+                }, 
+                {
+                    "bold": false, 
+                    "label": "Indoor/Outdoor"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "D"
+        }, 
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "ONFR 2 fiber"
+                }, 
+                {
+                    "bold": false, 
+                    "label": "Indoor/Outdoor"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "E"
+        }, 
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "ONFR 12 fiber"
+                }, 
+                {
+                    "bold": false, 
+                    "label": "Indoor/Outdoor"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "F"
+        }
+    ], 
+    "title": "CABLE TYPE", 
+    "type": "B"
+}

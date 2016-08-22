@@ -1,0 +1,144 @@
+{
+    "finePrint": "*", 
+    "length": 2, 
+    "parts": [
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "LC"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "LC"
+        }, 
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "SC"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "SC"
+        }, 
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "12F MPO Female"
+                }, 
+                {
+                    "bold": false, 
+                    "label": "Type A"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "MP"
+        }, 
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "12F MPO Male"
+                }, 
+                {
+                    "bold": false, 
+                    "label": "Type A"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "MA"
+        }, 
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "12F MPO Female"
+                }, 
+                {
+                    "bold": false, 
+                    "label": "Type B"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "BP"
+        }, 
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "12F MPO Male"
+                }, 
+                {
+                    "bold": false, 
+                    "label": "Type B"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "BA"
+        }, 
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "12F MPO Female"
+                }, 
+                {
+                    "bold": false, 
+                    "label": "Type C"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "CP"
+        }, 
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "12F MPO Male"
+                }, 
+                {
+                    "bold": false, 
+                    "label": "Type C"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "CA"
+        }, 
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "Pigtail"
+                }, 
+                {
+                    "bold": false, 
+                    "label": "(no connector)"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "OE"
+        }
+    ], 
+    "title": "CONNECTOR SIDE B*", 
+    "type": "E"
+}

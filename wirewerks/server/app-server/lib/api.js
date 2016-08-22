@@ -1,6 +1,6 @@
 var express = require('express')
-
 var product = require('./product.json')
+var _ = require('underscore')
 
 // For resource example: https://github.com/developit/express-es6-rest-api/blob/master/src/api/facets.js
 class Api {
@@ -27,6 +27,9 @@ class Api {
 			}
 		});
 
+		client.get("/products", (request, response) => {
+			response.status(200).send(_.keys(product));
+		});
 
 		app.use('/api/client', client);
 	}
