@@ -1,6 +1,6 @@
 var express = require('express')
 var product = require('./product.json')
-var _ = require('underscore')
+var _ = require('lodash')
 
 // For resource example: https://github.com/developit/express-es6-rest-api/blob/master/src/api/facets.js
 class Api {
