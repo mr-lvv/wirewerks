@@ -23880,6 +23880,42 @@ md-tooltip {
   .hide-print:not(.show-print):not(.show) {
     display: none !important; } }
 
+ww-product {
+  display: block; }
+  ww-product header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end; }
+    ww-product header .title {
+      color: #d72822;
+      font-weight: 800;
+      margin: 10px; }
+    ww-product header .subtitle {
+      color: #a7a9ac;
+      font-weight: bold;
+      margin: 6px; }
+    ww-product header .parts-description {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: end;
+          -ms-flex-pack: end;
+              justify-content: flex-end; }
+    ww-product header .datasheet {
+      display: block; }
+    ww-product header order-number {
+      display: block;
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 1.25em; }
+
 ww-part-groups {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -23963,4 +23999,8 @@ selection-overlay {
 md-icon.s48 {
   width: 48px;
   height: 48px; }
+
+md-icon.s64 {
+  width: 64px;
+  height: 64px; }
 /*# sourceMappingURL=main_production.css.map */

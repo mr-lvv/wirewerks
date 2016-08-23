@@ -2,6 +2,49 @@ $padding-normal: 4px;
 $padding-medium: 6px;
 $padding-large: 10px;
 
+$font-size-medium: 1.25em;
+
+$product-title: rgb(215, 40, 34);
+$product-subtitle: rgb(167, 169, 172);
+
+ww-product {
+	display: block;
+
+	header {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-end;
+
+		.title {
+			color: $product-title;
+			font-weight: 800;
+			margin: $padding-large;
+		}
+
+		.subtitle {
+			color: $product-subtitle;
+			font-weight: bold;
+			margin: $padding-medium;
+		}
+
+		.parts-description {
+			display: flex;
+			justify-content: flex-end;
+		}
+
+		.datasheet {
+			display: block;
+		}
+
+		order-number {
+			display: block;
+			text-transform: uppercase;
+			font-weight: bold;
+			font-size: $font-size-medium;
+		}
+	}
+}
+
 ww-part-groups {
 	display: flex;
 }

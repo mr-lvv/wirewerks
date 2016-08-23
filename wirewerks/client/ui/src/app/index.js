@@ -29,6 +29,10 @@ class Order {
 				this.product = product
 		})
 	}
+
+	orderNumber() {
+		return this.productId
+	}
 }
 
 class Product {
@@ -84,11 +88,25 @@ class Part {
 }
 
 class ProductSelection {
-	constructor(productResource, $scope, $element) {
+	constructor(productResource, $scope, $element, $timeout) {
 		this.searchText = this.selectedItem
 		this.productResource = productResource
 		this.$scope = $scope
 		this.$element = $element
+	}
+
+	// Sort of hacking way since depending on autocomplete's controller inner workings
+	_getAutocomplete() {
+		var el = angular.element(this.$element.find('md-autocomplete'))
+		var ctrl = el.controller('mdAutocomplete')
+
+		return ctrl
+	}
+
+	_showAutocomplete(value) {
+		var el = angular.element(this.$element.find('md-autocomplete'))
+		var ctrl = el.controller('mdAutocomplete')
+		ctrl.hidden = !value
 	}
 
 	searchTextChange(text) {
@@ -107,11 +125,12 @@ class ProductSelection {
 		if (event.which === 13) {
 			this.id = this.searchText
 			this.selectedItem = this.id
-
-			var el = angular.element(this.$element.find('md-autocomplete'))
-			var ctrl = el.controller('mdAutocomplete')
-			ctrl.hidden = true
+			this._showAutocomplete(true)
 		}
+	}
+
+	focus(event) {
+		this._showAutocomplete(true)
 	}
 
 	$onChanges(changes) {
@@ -147,6 +166,9 @@ angular.module('ww', [
 .component('wwProduct', {
 	controller: Product,
 	templateUrl: 'app/views/product.html',
+	require: {
+		order: '^wwOrder'
+	},
 	bindings: {
 		product: '=?'
 	}

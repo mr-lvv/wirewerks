@@ -1,11 +1,18 @@
 <div>
-	<h1>{{$ctrl.product.title}}</h1>
-	<h3>{{$ctrl.product.subTitle}}</h3>
+	<header>
+		<h1 class="title md-display-3">{{$ctrl.product.title}}</h1>
+		<h3 class="subtitle md-display-1">{{$ctrl.product.subTitle}}</h3>
 
-	<p class="description">{{$ctrl.product.description}}</p>
-	<md-icon md-svg-src="images/svg/{{$ctrl.product.icon}}" class="s48" ng-if="$ctrl.product.icon" aria-label="tmp"></md-icon>
+		<div class="parts-description">
+			<div>
+				<div class="description">{{$ctrl.product.description}}</div>
+				<order-number>{{$ctrl.order.orderNumber()}}</order-number>
+			</div>
+			<md-icon md-svg-src="images/svg/{{$ctrl.product.icon}}" class="s64" ng-if="$ctrl.product.icon" aria-label="tmp"></md-icon>
+		</div>
 
-	<md-button ng-href="{{$ctrl.getDataSheetLink()}}" ng-if="$ctrl.product.dataSheetLink" target="_blank">Data sheet</md-button>
+		<md-button class="datasheet md-raised" ng-href="{{$ctrl.getDataSheetLink()}}" ng-if="$ctrl.product.dataSheetLink" target="_blank">Data sheet</md-button>
+	</header>
 
 	<ww-part-groups>
 		<ww-part-group group="group" ng-repeat="group in $ctrl.product.partGroups"></ww-part-group>
