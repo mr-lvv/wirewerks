@@ -23,7 +23,7 @@ class Api {
 			}
 			else
 			{
-				response.send("can't find product");
+				response.status(404).send("can't find product");
 			}
 		});
 

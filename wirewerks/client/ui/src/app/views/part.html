@@ -1,4 +1,4 @@
-<div class="content" ng-click="$ctrl.select()" ng-class="{selected: $ctrl.selected}">
+<div class="content" ng-click="$ctrl.select()" ng-class="{selected: $ctrl.isSelected()}">
 	<header ng-style="$ctrl.style()">
 		<label>{{$ctrl.part.value}}{{$ctrl.part.finePrint}}</label>
 	</header>
@@ -7,7 +7,7 @@
 		<label ng-class="{bold: attr.bold}">{{attr.label}}</label>
 	</attribute>
 
-	<selection-overlay ng-if="$ctrl.selected">
+	<selection-overlay ng-if="$ctrl.isSelected()">
 		<border></border>
 	</selection-overlay>
 </div>

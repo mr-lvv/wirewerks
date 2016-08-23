@@ -2,22 +2,37 @@ var Resources = {
 	Product: {}
 }
 
-class App {
-	constructor() {
-	}
-}
-
 class Url {
-	static products (part) {return '/api/client/product/' + part}
+	static product (part) {return '/api/client/product/' + part}
+	static products () {return '/api/client/products'}
 	static datasheet(sheet) {return 'http://www.wirewerks.com/wp-content/uploads/' + sheet + '-EN-C.pdf'}
 }
 
-class Product {
-	constructor(productResource) {
-		this.part = this.part || 'fa'
-		productResource.get(this.part).then(product => {
-			this.product = product
+
+class App {
+	constructor($timeout) {
+		this.id = 'fa'
+	}
+}
+
+class Order {
+	constructor(productResource, $scope) {
+		this.productResource = productResource
+
+		$scope.$watch('order.productId', this._refreshProduct.bind(this))
+	}
+
+	_refreshProduct() {
+		this.productResource.get(this.productId).then(product => {
+			// If no product found, keep current product displayed
+			if (product)
+				this.product = product
 		})
+	}
+}
+
+class Product {
+	constructor() {
 	}
 
 	getDataSheetLink() {
@@ -68,6 +83,36 @@ class Part {
 	}
 }
 
+class ProductSelection {
+	constructor(productResource) {
+		this.searchText = this.selectedItem
+		this.productResource = productResource
+	}
+
+	searchTextChange(text) {
+
+	}
+
+	selectedItemChange(item) {
+		this.id = item
+	}
+
+	query(text) {
+		return this.productResource.getProducts()
+	}
+
+	keydown(event) {
+		if (event.which === 13) {
+			this.id = this.searchText
+			this.selectedItem = this.id
+		}
+	}
+
+	$onChanges(changes) {
+		if (changes.id)
+			this.searchText = changes.id.currentValue
+	}
+}
 
 angular.module('ww', [
 	'ngCookies',
@@ -85,11 +130,19 @@ angular.module('ww', [
 	templateUrl: 'app/views/app.html',
 	bindings: {}
 })
+.component('wwOrder', {
+	controller: Order,
+	controllerAs: 'order',
+	templateUrl: 'app/views/order.html',
+	bindings: {
+		productId: '='
+	}
+})
 .component('wwProduct', {
 	controller: Product,
 	templateUrl: 'app/views/product.html',
 	bindings: {
-		part: '=?'
+		product: '=?'
 	}
 })
 .component('wwPartGroup', {
@@ -108,9 +161,19 @@ angular.module('ww', [
 })
 .component('wwPart', {
 	controller: Part,
+	require: {
+		order: '^wwOrder'
+	},
 	templateUrl: 'app/views/part.html',
 	bindings: {
 		part: '=?'
+	}
+})
+.component('wwProductSelection', {
+	controller: ProductSelection,
+	templateUrl: 'app/views/productselection.html',
+	bindings: {
+		selectedItem: '=productId'
 	}
 })
 .service('productResource', class Product {
@@ -118,11 +181,25 @@ angular.module('ww', [
 		this.$http = $http
 	}
 
-	get(part) {
-		var url = Url.products(part)
+	_responseData(response) {
+		return response.data
+	}
 
-		return this.$http.get(url).then(response => {
-			return response.data
-		})
+	get(part) {
+		var url = Url.product(part)
+
+		return this.$http.get(url).then(this._responseData.bind(this))
+	}
+
+	getProducts() {
+		var url = Url.products();
+
+		return this.$http.get(url).then(
+			this._responseData.bind(this),
+			response => {
+				// No product found. Simply return nothing
+				return undefined
+			}
+		)
 	}
 })

@@ -2,10 +2,10 @@
   <profile version="1.0">
     <option name="myName" value="Project Default" />
     <option name="myLocal" value="true" />
-    <inspection_tool class="HtmlUnknownTag" enabled="true" level="WARNING" enabled_by_default="true">
+    <inspection_tool class="HtmlUnknownTag" enabled="false" level="WARNING" enabled_by_default="false">
       <option name="myValues">
         <value>
-          <list size="13">
+          <list size="14">
             <item index="0" class="java.lang.String" itemvalue="nobr" />
             <item index="1" class="java.lang.String" itemvalue="noembed" />
             <item index="2" class="java.lang.String" itemvalue="comment" />
@@ -19,6 +19,7 @@
             <item index="10" class="java.lang.String" itemvalue="md-button" />
             <item index="11" class="java.lang.String" itemvalue="md-icon" />
             <item index="12" class="java.lang.String" itemvalue="ww-part-groups" />
+            <item index="13" class="java.lang.String" itemvalue="ww-order" />
           </list>
         </value>
       </option>

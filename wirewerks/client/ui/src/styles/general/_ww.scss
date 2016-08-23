@@ -57,6 +57,14 @@ ww-part {
 	}
 }
 
+ww-product-selection {
+	.header {
+		.md-title {
+			display: inline;
+		}
+	}
+}
+
 selection-overlay {
 	display: flex;
 	z-index: 100;

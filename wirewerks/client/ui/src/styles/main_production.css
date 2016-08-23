@@ -23938,6 +23938,9 @@ ww-part {
     ww-part attribute label.bold {
       font-weight: bold; }
 
+ww-product-selection .header .md-title {
+  display: inline; }
+
 selection-overlay {
   display: -webkit-box;
   display: -ms-flexbox;
