@@ -84,9 +84,11 @@ class Part {
 }
 
 class ProductSelection {
-	constructor(productResource) {
+	constructor(productResource, $scope, $element) {
 		this.searchText = this.selectedItem
 		this.productResource = productResource
+		this.$scope = $scope
+		this.$element = $element
 	}
 
 	searchTextChange(text) {
@@ -105,6 +107,10 @@ class ProductSelection {
 		if (event.which === 13) {
 			this.id = this.searchText
 			this.selectedItem = this.id
+
+			var el = angular.element(this.$element.find('md-autocomplete'))
+			var ctrl = el.controller('mdAutocomplete')
+			ctrl.hidden = true
 		}
 	}
 
