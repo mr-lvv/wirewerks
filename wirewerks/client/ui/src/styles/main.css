@@ -17784,10 +17784,13 @@ ww-part {
     padding: 4px; }
   ww-part attribute {
     display: flex;
-    justify-content: center;
-    background: #e6e6e6; }
+    justify-content: center; }
     ww-part attribute label.bold {
       font-weight: bold; }
+  ww-part attributes {
+    display: block;
+    padding: 10px 4px;
+    background: #e6e6e6; }
 
 ww-product-selection .header .md-title {
   display: inline; }

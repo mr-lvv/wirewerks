@@ -1,4 +1,6 @@
 $padding-normal: 4px;
+$padding-medium: 6px;
+$padding-large: 10px;
 
 ww-part-groups {
 	display: flex;
@@ -47,13 +49,19 @@ ww-part {
 	attribute {
 		display: flex;
 		justify-content: center;
-		background: #e6e6e6;
+
 
 		label {
 			&.bold {
 				font-weight: bold;
 			}
 		}
+	}
+
+	attributes {
+		display: block;
+		padding: $padding-large $padding-normal;
+		background: #e6e6e6;
 	}
 }
 
