@@ -183,8 +183,9 @@ angular.module('ww', [
 	}
 })
 .service('productResource', class Product {
-	constructor($http) {
+	constructor($http, $q) {
 		this.$http = $http
+		this.$q = $q
 	}
 
 	_responseData(response) {
@@ -192,6 +193,10 @@ angular.module('ww', [
 	}
 
 	get(part) {
+		if (!part) {
+			return this.$q.when()			// No part, no products
+		}
+
 		var url = Url.product(part)
 
 		return this.$http.get(url).then(this._responseData.bind(this))
