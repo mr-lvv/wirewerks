@@ -1,5 +1,5 @@
 <div>
-	<header>
+	<product-header>
 		<h1 class="title md-display-3">{{$ctrl.product.title}}</h1>
 		<h3 class="subtitle md-display-1">{{$ctrl.product.subTitle}}</h3>
 
@@ -12,7 +12,7 @@
 		</div>
 
 		<md-button class="datasheet md-raised" ng-href="{{$ctrl.getDataSheetLink()}}" ng-if="$ctrl.product.dataSheetLink" target="_blank">Data sheet</md-button>
-	</header>
+	</product-header>
 
 	<ww-part-groups>
 		<ww-part-group group="group" ng-repeat="group in $ctrl.product.partGroups"></ww-part-group>

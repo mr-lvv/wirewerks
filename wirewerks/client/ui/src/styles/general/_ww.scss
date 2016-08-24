@@ -10,7 +10,7 @@ $product-subtitle: rgb(167, 169, 172);
 ww-product {
 	display: block;
 
-	header {
+	product-header {
 		display: flex;
 		flex-direction: column;
 		align-items: flex-end;
@@ -130,3 +130,13 @@ selection-overlay {
 		border: solid $border-size #4478ff;
 	}
 }
+
+/*
+@media all and (orientation: portrait) {
+
+	ww-part-category {
+		display: flex;
+		flex-direction: row;
+	}
+}
+*/

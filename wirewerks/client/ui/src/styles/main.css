@@ -17753,24 +17753,24 @@ md-tooltip {
 
 ww-product {
   display: block; }
-  ww-product header {
+  ww-product product-header {
     display: flex;
     flex-direction: column;
     align-items: flex-end; }
-    ww-product header .title {
+    ww-product product-header .title {
       color: #d72822;
       font-weight: 800;
       margin: 10px; }
-    ww-product header .subtitle {
+    ww-product product-header .subtitle {
       color: #a7a9ac;
       font-weight: bold;
       margin: 6px; }
-    ww-product header .parts-description {
+    ww-product product-header .parts-description {
       display: flex;
       justify-content: flex-end; }
-    ww-product header .datasheet {
+    ww-product product-header .datasheet {
       display: block; }
-    ww-product header order-number {
+    ww-product product-header order-number {
       display: block;
       text-transform: uppercase;
       font-weight: bold;
@@ -17832,6 +17832,15 @@ selection-overlay {
     flex-grow: 1;
     border: solid 2px #4478ff; }
 
+/*
+@media all and (orientation: portrait) {
+
+	ww-part-category {
+		display: flex;
+		flex-direction: row;
+	}
+}
+*/
 md-icon.s48 {
   width: 48px;
   height: 48px; }
