@@ -16,6 +16,12 @@ System.config({
 	},
 
 	map: {
+		// Ours
+		ww: '/app',
+		common: '../common',								// Support loading common folders
+
+
+		// Vendors
 		jquery: '/node_modules/jquery/dist/jquery.slim',
 		fastclick: '/node_modules/fastclick/lib/fastclick',
 		angular: '/node_modules/angular/angular',

@@ -1,5 +1,6 @@
 define([
-	'./index',
+	'ww/index',
+	'common/index',
 
 	'angular',
 	'angular-animate',
@@ -9,5 +10,5 @@ define([
 	'angular-sanitize',
 	'angular-aria',
 	'angular-material'
-], function(ww) {
+], function(ww, common) {
 });
