@@ -14,5 +14,5 @@
 	}
 }(this, function () {
 
-	return {a:1};
+	return {common:1};
 }));

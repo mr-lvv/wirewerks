@@ -1,8 +1,12 @@
 #!/usr/bin/env bash
 echo *** Setup client ***
-cd wirewerks/client/ui/src
 
+cd wirewerks/client/ui/src
 npm install
+
+cd ..
+npm install
+
 cd ../../../..
 
 echo *** Setup server ***
