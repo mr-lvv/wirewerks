@@ -30,7 +30,7 @@ class StaticFiles {
 	constructor(app) {
 		this._app = app;
 		this.paths = {
-			client: path.join(__dirname, '../../../client/ui/dist'),
+			client: path.join(__dirname, '../../../client/ui/src'),
 			common: path.join(__dirname, '../../../common'),
 		}
 

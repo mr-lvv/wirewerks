@@ -1,10 +1,8 @@
 var path = require("path")
-var fs = require('fs')
-var rimraf = require('rimraf')
 var Builder = require('systemjs-builder')
 var babel = require("babel-core")
-var ncp = require('ncp').ncp
-
+var fs = require('fs-extra')
+var lodash = require('lodash')
 
 var paths = {
 	dist: './dist',
@@ -84,19 +82,41 @@ function build() {
 }
 
 function preBuild() {
-//	fs.mkdirSync(paths.dist)
-/*
-	ncp('./src', './dist', function (err) {
-		if (err) {
-			return console.error(err);
+	var pathFilter = ['src/node_modules', ".scss", 'src/common', 'src/styles']
+	var validNodeModules = ['bowser', 'systemjs']
+
+	var options = {
+		stopOnErr: true,
+		filter: function(filename) {
+
+			var isInvalid = pathFilter.some((pathFilter) => {
+				if (filename.indexOf(pathFilter) !== -1) {
+					var validModule = validNodeModules.some((filter) =>{
+						return filename.indexOf(filter) !== -1
+					})
+
+					if (!validModule) {
+						return true					// Filter out
+					}
+				}
+			})
+
+			if (isInvalid)
+				return false
+
+			return true;		// Copy file
 		}
+	}
 
-		build();
-	});
-*/
-	build();
+	fs.copySync('./src', './dist', options)
+	fs.copySync('./src/styles/main_production.css', './dist/styles/main.css')
 }
-
-linkCommon()
-//rimraf(paths.dist, preBuild)
-preBuild()
+try
+{
+	linkCommon()
+	fs.removeSync(paths.dist)
+	preBuild()
+	build();
+} catch (error) {
+	console.error(error);
+}

@@ -72,7 +72,7 @@
       </option>
       <option name="outputFromStdout" value="false" />
       <option name="program" value="$ProjectFileDir$/wirewerks/server/ww-libsass/node_modules/.bin/postcss" />
-      <option name="scopeName" value="Project Files" />
+      <option name="scopeName" value="Styling" />
       <option name="trackOnlyRoot" value="true" />
       <option name="workingDir" value="$FileDir$" />
       <envs />
