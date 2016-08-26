@@ -1,5 +1,5 @@
-(function() {
-	var app =  angular.module('ww', [
+define(['angular', 'fastclick', 'chroma'], function(ng, FastClick, chroma) {
+	var app = angular.module('ww', [
 		'ngCookies',
 		'ngResource',
 		'ngSanitize',
@@ -12,9 +12,17 @@
 	});
 
 	class Url {
-		static product (part) {return '/api/client/product/' + part}
-		static products () {return '/api/client/products'}
-		static datasheet(sheet) {return 'http://www.wirewerks.com/wp-content/uploads/' + sheet + '-EN-C.pdf'}
+		static product(part) {
+			return '/api/client/product/' + part
+		}
+
+		static products() {
+			return '/api/client/products'
+		}
+
+		static datasheet(sheet) {
+			return 'http://www.wirewerks.com/wp-content/uploads/' + sheet + '-EN-C.pdf'
+		}
 	}
 
 	class CategoryColors {
@@ -112,7 +120,9 @@
 		}
 
 		getDataSheetLink() {
-			if (!this.product) {return}
+			if (!this.product) {
+				return
+			}
 
 			return Url.datasheet(this.product.dataSheetLink)
 		}
@@ -152,7 +162,9 @@
 	class PartCategory {
 		constructor($scope) {
 			$scope.$watch('$ctrl.category', category => {
-				if (!category) {return}
+				if (!category) {
+					return
+				}
 
 				category.color = CategoryColors.fromCategoryType(category.type);
 				category.parts.forEach(part => {
@@ -162,7 +174,9 @@
 		}
 
 		style() {
-			if (!this.category) {return}
+			if (!this.category) {
+				return
+			}
 
 			return {background: this.category.color.css()}
 		}
@@ -189,7 +203,9 @@
 		}
 
 		style() {
-			if (!this.part) {return}
+			if (!this.part) {
+				return
+			}
 
 			return {background: this.part.color.css()}
 		}
@@ -296,12 +312,12 @@
 			var url = Url.products();
 
 			return this.$http.get(url).then(
-				this._responseData.bind(this),
-				response => {
-					// No product found. Simply return nothing
-					return undefined
-				}
+			this._responseData.bind(this),
+			response => {
+				// No product found. Simply return nothing
+				return undefined
+			}
 			)
 		}
 	})
-})()
+});
