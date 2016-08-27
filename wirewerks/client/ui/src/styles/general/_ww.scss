@@ -136,9 +136,7 @@ selection-overlay {
 	height: 100%;
 	top: 0;
 	left: 0;
-<<<<<<< HEAD
 	pointer-events: none;
-=======
 
 	transition: all 0.2s ease;
 
@@ -151,8 +149,6 @@ selection-overlay {
 			border: solid $border-size #4478ff;
 		}
 	}
-
->>>>>>> 79ebbe1cdb19099314465771f7cf7ce1d5c225f2
 	border {
 		flex-grow: 1;
 	}
