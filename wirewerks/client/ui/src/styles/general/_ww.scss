@@ -144,5 +144,42 @@ selection-overlay {
 ww-cart {
 	display: flex;
 	flex-grow: 1;
-	background-color: yellow;
+	flex-direction: column;
+
+	.cartItemImage {
+		border-style : solid;
+		border-width :  1px;
+		width : 50px;
+		height : 50px;
+		overflow:hidden;
+		background-color:orange;
+	}
+
+	.cartItemDescription {
+		border-style : solid;
+		border-width :  1px;
+		width:200px;
+		height:50px;
+		flex-grow:1;
+	}
+	.cartItemPrice {
+
+	}
+
+	.cartItemQuantity {
+		border-style : solid;
+		border-width :  1px;
+		height : 50px;
+
+
+	}
+	.cartItem {
+		justify-content:space-between;
+		align-items : center;
+		display: flex;
+		height : 60px;
+		border-style : solid;
+		border-width :  1px;
+		flex-direction : row;
+	}
 }

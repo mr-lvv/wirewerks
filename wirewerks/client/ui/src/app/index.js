@@ -323,13 +323,21 @@ define(['angular', 'fastclick', 'chroma'], function(ng, FastClick, chroma) {
 	/**
 	 *
 	 */
-	class Report {
+	class Cart {
 		constructor() {
+			//get from localStorage
+			this.quantityChoice = lodash.range(1,100);
+			this.orders = [];
+			this.orders[0] = {
+				"name" : "product blah blah",
+				"quantity" : 2,
+				"description" : "description blah blah blah blah blah"
+			};
 		}
 	}
 
 	app.component('wwCart', {
-		controller: Report,
+		controller: Cart,
 		templateUrl: 'app/views/cart.html',
 		require: {
 			order: '^wwCart'
