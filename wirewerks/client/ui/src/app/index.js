@@ -323,6 +323,22 @@ define(['angular', 'fastclick', 'chroma'], function(ng, FastClick, chroma) {
 	/**
 	 *
 	 */
+	class Report {
+		constructor() {
+		}
+	}
+
+	app.component('wwCart', {
+		controller: Report,
+		templateUrl: 'app/views/cart.html',
+		require: {
+			order: '^wwCart'
+		}
+	})
+
+	/**
+	 *
+	 */
 	app.service('productResource', class Product {
 		constructor($http, $q) {
 			this.$http = $http
