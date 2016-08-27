@@ -1,6 +1,10 @@
 <div class="content" ng-click="$ctrl.select()" ng-class="{selected: $ctrl.isSelected()}">
 	<header ng-style="$ctrl.style()">
-		<label>{{$ctrl.part.value}}{{$ctrl.part.finePrint}}</label>
+		<label ng-if="!$ctrl.shouldShowXIsDigit()">{{$ctrl.part.value}}{{$ctrl.part.finePrint}}</label>
+		<md-input-container ng-if="$ctrl.shouldShowXIsDigit()">
+			<label>{{$ctrl.part.value}}</label>
+			<input type=number ng-model="$ctrl.blahblah" md-maxlength="$ctrl.numberOfDigit()">
+		</md-input-container>
 	</header>
 
 	<attributes>

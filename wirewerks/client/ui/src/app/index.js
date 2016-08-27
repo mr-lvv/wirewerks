@@ -357,6 +357,16 @@ define(['angular', 'fastclick', 'chroma'], function(ng, FastClick, chroma) {
 			this.order.addPart(this.partInfo)
 		}
 
+		shouldShowXIsDigit()
+		{
+			return (this.part.xIsDigit && this.isSelected());
+		}
+
+		numberOfDigit()
+		{
+			return _.countBy(this.part.value)['X'];
+		}
+
 		style() {
 			if (!this.part) {
 				return

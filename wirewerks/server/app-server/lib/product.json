@@ -653,7 +653,8 @@
                 "description": "",
                 "finePrint": "",
                 "shortDescription": "",
-                "value": "XXN"
+                "value": "XXN",
+                "xIsDigit" : true
               },
               {
                 "attributes": [
@@ -669,7 +670,8 @@
                 "description": "",
                 "finePrint": "",
                 "shortDescription": "",
-                "value": "XXM"
+                "value": "XXM",
+                "xIsDigit" : true
               },
               {
                 "attributes": [
@@ -1196,7 +1198,8 @@
                 "description": "",
                 "finePrint": "",
                 "shortDescription": "",
-                "value": "XXX"
+                "value": "XXX",
+                "xIsDigit" : true
               }
             ],
             "title": "LENGTH",
