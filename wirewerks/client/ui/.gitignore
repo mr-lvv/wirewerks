@@ -1,7 +1,6 @@
 dist/
 
 # Build automatically
-styles/main.css
-styles/main_production.css
-styles/*.map
-
+main.css
+main_production.css
+*.map
