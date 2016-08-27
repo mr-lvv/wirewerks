@@ -75,7 +75,7 @@ define(['angular', 'fastclick', 'chroma'], function(ng, FastClick, chroma) {
 			template: '',
 		}).when('/state/product/:productId', {
 			template: ''
-		}).otherwise('/state')
+		}).otherwise('/')
 	})
 
 	class Application {

@@ -35,6 +35,7 @@ class StaticFiles {
 		}
 
 		this.staticserve('/', this.paths.client)
+		this.staticserve('/state', this.paths.client)
 		this.staticserve('/state/*', this.paths.client)
 		this.staticserve('/common', this.paths.common)
 	}
