@@ -1,56 +1,44 @@
 {
     "finePrint": "", 
-    "length": 1, 
+    "length": 2, 
     "parts": [
         {
             "attributes": [
                 {
                     "bold": false, 
-                    "label": "900 \u03bcm"
+                    "label": "Black"
                 }
             ], 
             "description": "", 
             "finePrint": "", 
             "shortDescription": "", 
-            "value": "9"
+            "value": "BK"
         }, 
         {
             "attributes": [
                 {
                     "bold": false, 
-                    "label": "2 mm"
+                    "label": "white"
                 }
             ], 
             "description": "", 
             "finePrint": "", 
             "shortDescription": "", 
-            "value": "2"
+            "value": "WH"
         }, 
         {
             "attributes": [
                 {
                     "bold": false, 
-                    "label": "3 mm"
+                    "label": "Almond"
                 }
             ], 
             "description": "", 
             "finePrint": "", 
             "shortDescription": "", 
-            "value": "3"
-        }, 
-        {
-            "attributes": [
-                {
-                    "bold": false, 
-                    "label": "Not Applicable"
-                }
-            ], 
-            "description": "", 
-            "finePrint": "", 
-            "shortDescription": "", 
-            "value": "Z"
+            "value": "AL"
         }
     ], 
-    "title": "LEAD OD", 
-    "type": "F"
+    "title": "COLOR", 
+    "type": "Y"
 }
