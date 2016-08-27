@@ -480,12 +480,7 @@ define(['angular', 'fastclick', 'chroma'], function(ng, FastClick, chroma) {
 		}
 
 		_responseData(response) {
-			// Assign sequential unique id to every group so we can can distinguish and order them
-			var product = response.data
-			var i = 0
-			product.partGroups.forEach((group) => group.id = i++)
-
-			return product
+			return response.data
 		}
 
 		get(part) {
@@ -495,7 +490,15 @@ define(['angular', 'fastclick', 'chroma'], function(ng, FastClick, chroma) {
 
 			var url = Url.product(part)
 
-			return this.$http.get(url).then(this._responseData.bind(this))
+			return this.$http.get(url).then(this._responseData.bind(this)).then((product) => {
+				// Assign sequential unique id to every group so we can can distinguish and order them
+				if (product) {
+					var i = 0
+					product.partGroups.forEach((group) => group.id = i++)
+				}
+
+				return product
+			})
 		}
 
 		getProducts() {
