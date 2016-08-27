@@ -71,40 +71,31 @@ define(['angular', 'fastclick', 'chroma'], function(ng, FastClick, chroma) {
 	app.config(($routeProvider, $locationProvider) => {
 		$locationProvider.html5Mode(true);
 
-		$routeProvider.when('/state/products', {
+		$routeProvider.when('/state/product', {
 			template: '',
-			controller: function() {
-				console.log('yooooooooooooooooooooooooooo');
-			}
-		}).when('/state/products/:productId', {
-			template: '',
-			controller: function ($routeParams) {
-				console.log('yooooooooooooooooooooooooooo 2222', $routeParams);
-			}
-		}).otherwise('/')
+		}).when('/state/product/:productId', {
+			template: ''
+		}).otherwise('/state')
 	})
+
+	class Application {
+		constructor() {
+		}
+	}
+
+	app.service('app', Application)
 
 	/**
 	 *
 	 */
 	class App {
-		constructor($timeout, $routeParams, $scope, $location) {
+		constructor($timeout, $routeParams, $scope, $location, app) {
 			this.id = 'fa'
-			/*
-			$scope.$watch($routeParams, function(params) {
-				console.log('params!!!', params);
 
-			}, true)
-			/*
-
-			 $scope.$watch(function () {
-				return $location.hash();
-			},
-			function (args) {
-				console.log('args: ', args);
-			}
-			);
-*/
+			$scope.$watch(() => $routeParams, function(params) {
+				// Route params changed...
+				console.log('param: ', params);
+			})
 		}
 	}
 
