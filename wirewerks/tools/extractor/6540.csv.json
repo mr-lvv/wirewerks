@@ -1,0 +1,32 @@
+{
+    "finePrint": "", 
+    "length": 2, 
+    "parts": [
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "Blue"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "BL"
+        }, 
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "white"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "WH"
+        }
+    ], 
+    "title": "COLOR CHOICE", 
+    "type": "Y"
+}
