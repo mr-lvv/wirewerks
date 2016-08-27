@@ -2276,8 +2276,8 @@
     "description": "Build your Drop Cassette",
     "shortDescription": "",
     "longDescription": "",
-    "notes": "Other options are available upon request: •Connectors •Cable Constructions •Fire Ratings •MPO Wiring Schemes •Polish",
-    "dataSheetLink": "PDS-0185",
+    "notes": "EXAMPLE: DC - 1TM06SCU0-003M FODCA, SM OS2, 6 fiber flat drop non-armored toneable, SC/UPC, 3m, middle position outlet",
+    "dataSheetLink": "PDS-0130",
     "part": "DC",
     "partGroups": [
       {
