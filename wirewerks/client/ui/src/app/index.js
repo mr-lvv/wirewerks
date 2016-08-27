@@ -354,11 +354,11 @@ define(['angular', 'fastclick', 'chroma'], function(ng, FastClick, chroma) {
 	class Cart {
 		constructor() {
 			//get from localStorage
-			this.quantityChoice = lodash.range(1,100);
+			this.quantityChoice = _.range(1,100);
 			this.orders = [];
 			this.orders[0] = {
 				"name" : "product blah blah",
-				"quantity" : 2,
+				"quantity" : 3,
 				"description" : "description blah blah blah blah blah"
 			};
 		}

@@ -1,0 +1,32 @@
+{
+    "finePrint": "", 
+    "length": 1, 
+    "parts": [
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "meters"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "M"
+        }, 
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "feet"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "F"
+        }
+    ], 
+    "title": "LENGTH UNIT", 
+    "type": "U"
+}

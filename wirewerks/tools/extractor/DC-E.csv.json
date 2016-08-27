@@ -1,0 +1,32 @@
+{
+    "finePrint": "", 
+    "length": 2, 
+    "parts": [
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "SC"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "SC"
+        }, 
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "LC"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "LC"
+        }
+    ], 
+    "title": "CONNECTOR TYPE", 
+    "type": "E"
+}
