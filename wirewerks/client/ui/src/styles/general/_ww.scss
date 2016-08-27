@@ -132,9 +132,20 @@ selection-overlay {
 	top: 0;
 	left: 0;
 
+	transition: all 0.2s ease;
+
+	&.inactive {
+		background: rgba(0, 0, 0, 0.1);
+	}
+
+	&.active {
+		border {
+			border: solid $border-size #4478ff;
+		}
+	}
+
 	border {
 		flex-grow: 1;
-		border: solid $border-size #4478ff;
 	}
 }
 

@@ -205,7 +205,8 @@ define(['angular', 'fastclick', 'chroma'], function(ng, FastClick, chroma) {
 						selected = true
 					}
 
-					var color = chroma(category.color || CategoryColors.fromCategoryType(category.type))
+					var color = category.color || CategoryColors.fromCategoryType(category.type)
+					color = chroma(color.hex())		// Clone to modify
 					if (!selected) {
 						color = color.brighten(1.5)
 						color.alpha(0.25)

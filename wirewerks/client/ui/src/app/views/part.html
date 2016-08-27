@@ -9,7 +9,7 @@
 		</attribute>
 	</attributes>
 
-	<selection-overlay ng-if="$ctrl.isSelected()">
+	<selection-overlay ng-class="$ctrl.isSelected() ? 'active' : 'inactive'">
 		<border></border>
 	</selection-overlay>
 </div>
