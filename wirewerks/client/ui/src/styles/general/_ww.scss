@@ -57,12 +57,11 @@ ww-part-groups {
 
 ww-part-group {
 	display: flex;
-	flex-grow: 1;
 }
 
 ww-part-category {
-	max-width: 200px;
 	flex-grow: 1;
+	max-width: 200px;
 
 	category-header {
 		display: flex;

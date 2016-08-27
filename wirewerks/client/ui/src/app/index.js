@@ -296,6 +296,11 @@ define(['angular', 'fastclick', 'chroma'], function(ng, FastClick, chroma) {
 		constructor() {
 
 		}
+
+		validCategories() {
+			var valid = _.filter(this.group.partCategories, (category) => !category.constant)
+			return valid
+		}
 	}
 
 	app.component('wwPartGroup', {
@@ -317,9 +322,12 @@ define(['angular', 'fastclick', 'chroma'], function(ng, FastClick, chroma) {
 				}
 
 				category.color = CategoryColors.fromCategoryType(category.type);
-				category.parts.forEach(part => {
-					part.color = category.color.brighten(1.5)
-				})
+
+				if (category.parts) {
+					category.parts.forEach(part => {
+						part.color = category.color.brighten(1.5)
+					})
+				}
 			})
 		}
 
