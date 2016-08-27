@@ -130,12 +130,12 @@ define(['angular', 'fastclick', 'chroma'], function(ng, FastClick, chroma) {
 		}
 
 		_refreshProduct() {
-			this.sections = []
-
 			this.productResource.get(this.productId).then(product => {
 				// If no product found, keep current product displayed
-				if (product)
+				if (product) {
+					this.sections = []
 					this.product = product				// Not actually product, more like productTemplate
+				}
 			})
 		}
 
