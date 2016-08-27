@@ -36,11 +36,17 @@ ww-product {
 			display: block;
 		}
 
-		order-number {
+		ww-order-number {
 			display: block;
 			text-transform: uppercase;
 			font-weight: bold;
 			font-size: $font-size-medium;
+			color: slategrey;
+
+			.part {
+				color: white;
+				padding: 0 $padding-normal;
+			}
 		}
 	}
 }

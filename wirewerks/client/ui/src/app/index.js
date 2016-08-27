@@ -109,9 +109,8 @@ define(['angular', 'fastclick', 'chroma'], function(ng, FastClick, chroma) {
 	 * Minimum required to distinguish different parts with same id
 	 */
 	class PartInfo {
-		constructor(part, category, group) {
+		constructor(part, category) {
 			this.part = part
-			this.group = group
 			this.category = category
 		}
 	}
@@ -125,10 +124,14 @@ define(['angular', 'fastclick', 'chroma'], function(ng, FastClick, chroma) {
 			this.product = undefined;
 			this.parts = []							// Type PartInfo, not part (to include category..)
 
+			this.sections = []
+
 			$scope.$watch('order.productId', this._refreshProduct.bind(this))
 		}
 
 		_refreshProduct() {
+			this.sections = []
+
 			this.productResource.get(this.productId).then(product => {
 				// If no product found, keep current product displayed
 				if (product)
@@ -136,8 +139,36 @@ define(['angular', 'fastclick', 'chroma'], function(ng, FastClick, chroma) {
 			})
 		}
 
+		// Give a group id (ascending) from a category according to current product
+		_groupId(category) {
+			if (!this.product) return
+
+			return _.find(this.product.partGroups, (group) => {
+				var found = _.find(group.partCategories, (productCategory) => productCategory === category.type)
+				if (found)
+					return group.id
+			})
+		}
+
+		/**
+		 * Remove all parts related to a category
+		 */
+		_removeCategory(category) {
+			_.remove(this.parts, (partInfo) => {
+				return partInfo.category.type === category.type
+			})
+		}
+
+		_partForCategory(category) {
+			return _.find(this.parts, (partInfo) => {
+				return partInfo.category.type === category.type
+			})
+		}
+
 		addPart(partInfo) {
 			if (this.isPartInOrder(partInfo)) {return}
+			this._removeCategory(partInfo.category)
+			this.sections = []
 
 			this.parts.push(partInfo)
 		}
@@ -145,20 +176,61 @@ define(['angular', 'fastclick', 'chroma'], function(ng, FastClick, chroma) {
 		isPartInOrder(partInfo) {
 			return this.parts.some((orderPart) => {
 				return 	orderPart.part.value === partInfo.part.value &&
-							orderPart.group === partInfo.group &&
-							orderPart.part.type === partInfo.part.type
+							orderPart.category.type === partInfo.category.type
 			})
 		}
 
 		orderNumber() {
-			var orderedParts = this.parts
-			var ids = this.productId + '-'
+			if (!this.product) return
+			if (this.sections.length)
+				return this.sections
 
-			orderedParts.forEach((part) => {
-				ids += part.value
+			var sections = this.sections
+
+			sections.push({
+				label: this.product.part,
+				data: this.product
 			})
 
-			return ids
+			this.product.partGroups.forEach((group) => {
+				sections.push({label: '-', data: group})
+
+				group.partCategories.forEach((category) => {
+					var partInfo = this._partForCategory(category)
+
+					var label = _.repeat(category.type, category.length)
+					var selected = false
+					if (partInfo) {
+						label = partInfo.part.value.toUpperCase()
+						selected = true
+					}
+
+					var color = chroma(category.color || CategoryColors.fromCategoryType(category.type))
+					if (!selected) {
+						color = color.brighten(1.5)
+						color.alpha(0.25)
+					} else {
+						color.alpha(0.75)
+					}
+
+					sections.push({
+						label: label,
+						classes: 'part',
+						selected: selected,
+						color: color.css(),
+						data: {part: partInfo, category: category}
+					})
+				})
+			})
+
+			if (this.product.suffix) {
+				sections.push({
+					label: this.product.suffix,
+					data: this.product
+				})
+			}
+
+			return sections
 		}
 	}
 
@@ -168,6 +240,25 @@ define(['angular', 'fastclick', 'chroma'], function(ng, FastClick, chroma) {
 		templateUrl: 'app/views/order.html',
 		bindings: {
 			productId: '='
+		}
+	})
+
+	/**
+	 *
+	 */
+	class OrderNumber {
+		constructor() {
+
+		}
+	}
+
+	app.component('wwOrderNumber', {
+		controller: OrderNumber,
+		templateUrl: 'app/views/ordernumber.html',
+		require: {
+			order: '^wwOrder'
+		},
+		bindings: {
 		}
 	})
 
@@ -245,7 +336,8 @@ define(['angular', 'fastclick', 'chroma'], function(ng, FastClick, chroma) {
 		controller: PartCategory,
 		templateUrl: 'app/views/partcategory.html',
 		bindings: {
-			category: '=?'
+			category: '=?',
+			group: '=?'
 		}
 	})
 
@@ -257,8 +349,12 @@ define(['angular', 'fastclick', 'chroma'], function(ng, FastClick, chroma) {
 
 		}
 
+		get partInfo() {
+			return new PartInfo(this.part, this.category)
+		}
+
 		select() {
-			this.order.addPart(this.part)
+			this.order.addPart(this.partInfo)
 		}
 
 		style() {
@@ -270,7 +366,7 @@ define(['angular', 'fastclick', 'chroma'], function(ng, FastClick, chroma) {
 		}
 
 		isSelected() {
-			return this.order.isPartInOrder(this.part)
+			return this.order.isPartInOrder(this.partInfo)
 		}
 	}
 
@@ -281,7 +377,9 @@ define(['angular', 'fastclick', 'chroma'], function(ng, FastClick, chroma) {
 		},
 		templateUrl: 'app/views/part.html',
 		bindings: {
-			part: '=?'
+			part: '=?',
+			group: '=?',
+			category: '=?'
 		}
 	})
 
@@ -374,7 +472,12 @@ define(['angular', 'fastclick', 'chroma'], function(ng, FastClick, chroma) {
 		}
 
 		_responseData(response) {
-			return response.data
+			// Assign sequential unique id to every group so we can can distinguish and order them
+			var product = response.data
+			var i = 0
+			product.partGroups.forEach((group) => group.id = i++)
+
+			return product
 		}
 
 		get(part) {
@@ -391,11 +494,11 @@ define(['angular', 'fastclick', 'chroma'], function(ng, FastClick, chroma) {
 			var url = Url.products();
 
 			return this.$http.get(url).then(
-			this._responseData.bind(this),
-			response => {
-				// No product found. Simply return nothing
-				return undefined
-			}
+				this._responseData.bind(this),
+				response => {
+					// No product found. Simply return nothing
+					return undefined
+				}
 			)
 		}
 	})
