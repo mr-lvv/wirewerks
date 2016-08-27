@@ -1223,6 +1223,7 @@
         "partCategories": [
           {
             "finePrint": "",
+            "length": 1,
             "parts": [
               {
                 "attributes": [
@@ -1310,6 +1311,7 @@
           },
           {
             "finePrint": "",
+            "length": 2,
             "parts": [
               {
                 "attributes": [
@@ -1417,6 +1419,7 @@
           },
           {
             "finePrint": "",
+            "length": 2,
             "parts": [
               {
                 "attributes": [
@@ -1496,6 +1499,7 @@
           },
           {
             "finePrint": "",
+            "length": 2,
             "parts": [
               {
                 "attributes": [
@@ -1551,6 +1555,7 @@
           },
           {
             "finePrint": "",
+            "length": 1,
             "parts": [
               {
                 "attributes": [
@@ -1582,6 +1587,7 @@
           },
           {
             "finePrint": "",
+            "length": 3,
             "parts": [
               {
                 "attributes": [
@@ -1593,7 +1599,7 @@
                 "description": "",
                 "finePrint": "",
                 "shortDescription": "",
-                "value": "Leads"
+                "value": "XXX"
               }
             ],
             "title": "FIBER LEADS LENGTH",
