@@ -13,6 +13,7 @@
         "partCategories": [
           {
             "finePrint": "",
+            "length": 1,
             "parts": [
               {
                 "attributes": [
@@ -180,6 +181,7 @@
           },
           {
             "finePrint": "",
+            "length": 1,
             "parts": [
               {
                 "attributes": [
@@ -283,6 +285,7 @@
           },
           {
             "finePrint": "",
+            "length": 1,
             "parts": [
               {
                 "attributes": [
@@ -370,6 +373,7 @@
           },
           {
             "finePrint": "",
+            "length": 1,
             "parts": [
               {
                 "attributes": [
@@ -425,6 +429,7 @@
           },
           {
             "finePrint": "",
+            "length": 2,
             "parts": [
               {
                 "attributes": [
@@ -576,6 +581,7 @@
           },
           {
             "finePrint": "",
+            "length": 1,
             "parts": [
               {
                 "attributes": [
@@ -631,6 +637,7 @@
           },
           {
             "finePrint": "",
+            "length": 3,
             "parts": [
               {
                 "attributes": [
@@ -686,6 +693,7 @@
         "partCategories": [
           {
             "finePrint": "*",
+            "length": 2,
             "parts": [
               {
                 "attributes": [
@@ -829,6 +837,7 @@
           },
           {
             "finePrint": "",
+            "length": 1,
             "parts": [
               {
                 "attributes": [
@@ -1035,6 +1044,7 @@
           },
           {
             "finePrint": "",
+            "length": 1,
             "parts": [
               {
                 "attributes": [
@@ -1094,6 +1104,7 @@
           },
           {
             "finePrint": "",
+            "length": 1,
             "parts": [
               {
                 "attributes": [
@@ -2631,6 +2642,472 @@
     ],
     "icon": "section8.svg",
     "section": 8,
-    "finePrints": "* If more than one connector type, then place in alphabetical order, i.e. LC before SC, to avoid duplicate of part number creation for the same product. ** By default, cable assemblies with MPO connectors are manufactured with a Type A configuration. If an assembly is connectorized on both sides with an MPO connector, configuration types cannot be mixed. Examples: If a Type A is chosen on one end, the other end MUST also be of Type A configuration. *** If a decimal is required, add “D00” right after the non-decimal value and without leaving any space between. The “00” in “D00” must be replaced by the required value. Example: an assembly with an overall length of 105.55 meters shall read as 105D55."
+    "finePrints": ""
+  },
+  "65402P": {
+    "title": "UTP CABLES",
+    "subTitle": "CAT UTP 4-PAIR, 1000 FEET",
+    "categories" : ["CAT6A", "CMP","CAT6A PLENUM"],
+    "description": "Our range of Ethernet UTP Cables available in Standard Categories for data, video and voice applications.",
+    "shortDescription": "",
+    "longDescription": "",
+    "notes": "Other colors available upon request",
+    "dataSheetLink": "PDS-0155",
+    "part": "6540",
+    "partGroups": [
+      {
+        "partCategories": [
+          {
+            "title": "2P",
+            "constant":true
+          },
+          {
+            "finePrint": "",
+            "length": 2,
+            "parts": [
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Blue"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "BL"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "white"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "WH"
+              }
+            ],
+            "title": "COLOR",
+            "type": "Y"
+          }
+        ]
+      },
+      {
+        "partCategories": [
+          {
+            "title": "L305",
+            "constant": true
+          }
+        ]
+      }
+    ],
+    "icon": "section1.svg",
+    "section": 1,
+    "finePrints": ""
+  },
+  "65402R": {
+    "title": "UTP CABLES",
+    "subTitle": "CAT UTP 4-PAIR, 1000 FEET",
+    "categories" : ["CAT6A", "CMR","CAT6A RISER"],
+    "description": "Our range of Ethernet UTP Cables available in Standard Categories for data, video and voice applications.",
+    "shortDescription": "",
+    "longDescription": "",
+    "notes": "Other colors available upon request",
+    "dataSheetLink": "PDS-0155",
+    "part": "6540",
+    "partGroups": [
+      {
+        "partCategories": [
+          {
+            "title": "2R",
+            "constant":true
+          },
+          {
+            "finePrint": "",
+            "length": 2,
+            "parts": [
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Blue"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "BL"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "white"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "WH"
+              }
+            ],
+            "title": "COLOR",
+            "type": "Y"
+          }
+        ]
+      },
+      {
+        "partCategories": [
+          {
+            "title": "L305",
+            "constant": true
+          }
+        ]
+      }
+    ],
+    "icon": "section1.svg",
+    "section": 1,
+    "finePrints": ""
+  },
+  "60402P": {
+    "title": "UTP CABLES",
+    "subTitle": "CAT UTP 4-PAIR, 1000 FEET",
+    "categories" : ["CAT6", "CMP","CAT6 PLENUM"],
+    "description": "Our range of Ethernet UTP Cables available in Standard Categories for data, video and voice applications.",
+    "shortDescription": "",
+    "longDescription": "",
+    "notes": "Other colors available upon request",
+    "dataSheetLink": "PDS-0156",
+    "part": "6040",
+    "partGroups": [
+      {
+        "partCategories": [
+          {
+            "title": "2P",
+            "constant":true
+          },
+          {
+            "finePrint": "",
+            "length": 2,
+            "parts": [
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Blue"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "BL"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "white"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "WH"
+              }
+            ],
+            "title": "COLOR",
+            "type": "Y"
+          }
+        ]
+      },
+      {
+        "partCategories": [
+          {
+            "title": "R305",
+            "constant": true
+          }
+        ]
+      }
+    ],
+    "icon": "section1.svg",
+    "section": 1,
+    "finePrints": ""
+  },
+  "60402R": {
+    "title": "UTP CABLES",
+    "subTitle": "CAT UTP 4-PAIR, 1000 FEET",
+    "categories" : ["CAT6", "CMR","CAT6 RISER"],
+    "description": "Our range of Ethernet UTP Cables available in Standard Categories for data, video and voice applications.",
+    "shortDescription": "",
+    "longDescription": "",
+    "notes": "Other colors available upon request",
+    "dataSheetLink": "PDS-0156",
+    "part": "6040",
+    "partGroups": [
+      {
+        "partCategories": [
+          {
+            "title": "2R",
+            "constant":true
+          },
+          {
+            "finePrint": "",
+            "length": 2,
+            "parts": [
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Blue"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "BL"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "white"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "WH"
+              }
+            ],
+            "title": "COLOR",
+            "type": "Y"
+          }
+        ]
+      },
+      {
+        "partCategories": [
+          {
+            "title": "R305",
+            "constant": true
+          }
+        ]
+      }
+    ],
+    "icon": "section1.svg",
+    "section": 1,
+    "finePrints": ""
+  },
+  "KWZZZ": {
+    "title": "BLANK",
+    "subTitle": "Keystone Blank Inserts",
+    "description": "",
+    "shortDescription": "",
+    "longDescription": "",
+    "notes": "Provided in bag of 10 units",
+    "dataSheetLink": "PDS-0048",
+    "part": "KW",
+    "partGroups": [
+      {
+        "partCategories": [
+          {
+            "title": "ZZZ",
+            "constant":true
+          }
+        ]
+      },
+      {
+        "partCategories": [
+          {
+            "title": "BLK",
+            "constant":true
+          }
+        ]
+      },
+      {
+        "partCategories": [
+          {
+            "finePrint": "",
+            "length": 2,
+            "parts": [
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Black"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "BK"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "white"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "WH"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Almond"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "AL"
+              }
+            ],
+            "title": "COLOR",
+            "type": "Y"
+          }
+        ]
+      }
+    ],
+    "icon": "section2.svg",
+    "section": 2,
+    "finePrints": ""
+  },
+  "KWDUSTCAP": {
+    "title": "DUSTCAPS",
+    "subTitle": "Keywerks Modules Dustcaps",
+    "description": "",
+    "shortDescription": "",
+    "longDescription": "",
+    "notes": "RJ45 Keywerks dust caps (provided in bag of 50 units)",
+    "dataSheetLink": "PDS-0067",
+    "part": "KW",
+    "partGroups": [
+      {
+        "partCategories": [
+          {
+            "title": "DUSTCAP",
+            "constant":true
+          }
+        ]
+      },
+      {
+        "partCategories": [
+          {
+            "finePrint": "",
+            "length": 2,
+            "parts": [
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Blue"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "BL"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Black"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "BK"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "White"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "WH"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Yellow"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "YL"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Red"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "RD"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Green"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "GN"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Almond"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "AL"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Orange"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "OG"
+              }
+            ],
+            "title": "COLOR",
+            "type": "Y"
+          }
+        ]
+      }
+    ],
+    "icon": "section2.svg",
+    "section": 2,
+    "finePrints": ""
   }
 }
