@@ -1,14 +1,19 @@
 {
-	"name": "WireworksUi",
-	"version": "0.0.0",
-	"description": "Wireworks ui module",
-	"repository": "https://github.com/mr-lvv/wirewerks",
-	"scripts": {
-		"start": "npm run lite",
-		"lite": "lite-server"
-	},
-	"license": "ISC",
-	"devDependencies": {
-		"concurrently": "^2.0.0",
-		"lite-server": "^2.2.0"
-	}}
+  "name": "WireworksUi",
+  "version": "0.0.1",
+  "description": "Wireworks ui module build system.",
+  "repository": "https://github.com/mr-lvv/wirewerks",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "babel-core": "^6.14.0",
+    "babel-plugin-transform-es2015-classes": "^6.14.0",
+    "babel-polyfill": "^6.13.0",
+    "babel-preset-es2015": "^6.14.0",
+    "fs-extra": "^0.30.0",
+    "lodash": "^4.15.0",
+    "systemjs-builder": "^0.15.30"
+  }
+}

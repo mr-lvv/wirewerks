@@ -1,0 +1,4 @@
+<category-header ng-style="$ctrl.style()">
+	<label>{{$ctrl.category.title}}{{$ctrl.category.finePrint}}</label>
+</category-header>
+<ww-part part="part" ng-repeat="part in $ctrl.category.parts"></ww-part>
