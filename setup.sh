@@ -7,7 +7,7 @@ npm install
 cd ..
 npm install
 
-cd ../../../..
+cd ../../..
 
 echo *** Setup server ***
 cd wirewerks/server/ww-libsass

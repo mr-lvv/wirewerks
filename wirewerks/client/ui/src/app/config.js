@@ -13,7 +13,7 @@ System.config({
 		// Vendors
 		jquery: 'node_modules/jquery/dist/jquery.slim',
 		fastclick: 'node_modules/fastclick/lib/fastclick',
-		angular: 'node_modules/angular/angular.min',
+		angular: 'node_modules/angular/angular',
 		'angular-animate': 'node_modules/angular-animate/angular-animate.min',
 		'angular-cookies': 'node_modules/angular-cookies/angular-cookies.min',
 		'angular-resource': 'node_modules/angular-resource/angular-resource.min',

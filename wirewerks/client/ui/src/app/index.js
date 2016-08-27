@@ -5,7 +5,8 @@ define(['angular', 'fastclick', 'chroma'], function(ng, FastClick, chroma) {
 		'ngSanitize',
 		'ngAria',
 		'ngAnimate',
-		'ngMaterial'
+		'ngMaterial',
+		'ngRoute'
 	])
 	.run(() => {
 		FastClick.attach(document.body)
@@ -65,11 +66,45 @@ define(['angular', 'fastclick', 'chroma'], function(ng, FastClick, chroma) {
 	}
 
 	/**
+	 * State Configs
+	 */
+	app.config(($routeProvider, $locationProvider) => {
+		$locationProvider.html5Mode(true);
+
+		$routeProvider.when('/state/products', {
+			template: '',
+			controller: function() {
+				console.log('yooooooooooooooooooooooooooo');
+			}
+		}).when('/state/products/:productId', {
+			template: '',
+			controller: function ($routeParams) {
+				console.log('yooooooooooooooooooooooooooo 2222', $routeParams);
+			}
+		}).otherwise('/')
+	})
+
+	/**
 	 *
 	 */
 	class App {
-		constructor($timeout) {
+		constructor($timeout, $routeParams, $scope, $location) {
 			this.id = 'fa'
+			/*
+			$scope.$watch($routeParams, function(params) {
+				console.log('params!!!', params);
+
+			}, true)
+			/*
+
+			 $scope.$watch(function () {
+				return $location.hash();
+			},
+			function (args) {
+				console.log('args: ', args);
+			}
+			);
+*/
 		}
 	}
 

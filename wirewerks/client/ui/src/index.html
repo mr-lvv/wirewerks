@@ -12,19 +12,23 @@
 	<link rel="canonical" href="https://wirewerks.com"/>
 	<link rel="alternate" href="https://wirewerks.com" hreflang="en"/>
 
-	<link href="styles/main.css" rel="stylesheet">
+	<link href="/styles/main.css" rel="stylesheet">
 
 	<!-- 1. Load libraries -->
-	<script src="node_modules/bowser/bowser.min.js"></script>
+	<script src="/node_modules/bowser/bowser.min.js"></script>
 
 	<!-- 2. Load our 'modules' -->
-	<script src="node_modules/systemjs/dist/system.js"></script>
-	<script src="app/config.js"></script>
+	<script src="/node_modules/systemjs/dist/system.js"></script>
+	<script src="/app/config.js"></script>
 	<script>System.import('ww/main.js')</script>
+
+	<base href="/">
 </head>
 
 <!-- 3. Display the application -->
 <body>
+	<ng-view class="placeholder"></ng-view>
+
 	<ww-app>Loading...</ww-app>
 </body>
 
