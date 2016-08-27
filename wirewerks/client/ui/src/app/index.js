@@ -71,40 +71,31 @@ define(['angular', 'fastclick', 'chroma'], function(ng, FastClick, chroma) {
 	app.config(($routeProvider, $locationProvider) => {
 		$locationProvider.html5Mode(true);
 
-		$routeProvider.when('/state/products', {
+		$routeProvider.when('/state/product', {
 			template: '',
-			controller: function() {
-				console.log('yooooooooooooooooooooooooooo');
-			}
-		}).when('/state/products/:productId', {
-			template: '',
-			controller: function ($routeParams) {
-				console.log('yooooooooooooooooooooooooooo 2222', $routeParams);
-			}
+		}).when('/state/product/:productId', {
+			template: ''
 		}).otherwise('/')
 	})
+
+	class Application {
+		constructor() {
+		}
+	}
+
+	app.service('app', Application)
 
 	/**
 	 *
 	 */
 	class App {
-		constructor($timeout, $routeParams, $scope, $location) {
+		constructor($timeout, $routeParams, $scope, $location, app) {
 			this.id = 'fa'
-			/*
-			$scope.$watch($routeParams, function(params) {
-				console.log('params!!!', params);
 
-			}, true)
-			/*
-
-			 $scope.$watch(function () {
-				return $location.hash();
-			},
-			function (args) {
-				console.log('args: ', args);
-			}
-			);
-*/
+			$scope.$watch(() => $routeParams, function(params) {
+				// Route params changed...
+				//console.log('param: ', params);
+			})
 		}
 	}
 
@@ -114,6 +105,16 @@ define(['angular', 'fastclick', 'chroma'], function(ng, FastClick, chroma) {
 		bindings: {}
 	})
 
+	/**
+	 * Minimum required to distinguish different parts with same id
+	 */
+	class PartInfo {
+		constructor(part, category, group) {
+			this.part = part
+			this.group = group
+			this.category = category
+		}
+	}
 
 	/**
 	 *
@@ -121,6 +122,8 @@ define(['angular', 'fastclick', 'chroma'], function(ng, FastClick, chroma) {
 	class Order {
 		constructor(productResource, $scope) {
 			this.productResource = productResource
+			this.product = undefined;
+			this.parts = []							// Type PartInfo, not part (to include category..)
 
 			$scope.$watch('order.productId', this._refreshProduct.bind(this))
 		}
@@ -129,12 +132,33 @@ define(['angular', 'fastclick', 'chroma'], function(ng, FastClick, chroma) {
 			this.productResource.get(this.productId).then(product => {
 				// If no product found, keep current product displayed
 				if (product)
-					this.product = product
+					this.product = product				// Not actually product, more like productTemplate
+			})
+		}
+
+		addPart(partInfo) {
+			if (this.isPartInOrder(partInfo)) {return}
+
+			this.parts.push(partInfo)
+		}
+
+		isPartInOrder(partInfo) {
+			return this.parts.some((orderPart) => {
+				return 	orderPart.part.value === partInfo.part.value &&
+							orderPart.group === partInfo.group &&
+							orderPart.part.type === partInfo.part.type
 			})
 		}
 
 		orderNumber() {
-			return this.productId
+			var orderedParts = this.parts
+			var ids = this.productId + '-'
+
+			orderedParts.forEach((part) => {
+				ids += part.value
+			})
+
+			return ids
 		}
 	}
 
@@ -234,7 +258,7 @@ define(['angular', 'fastclick', 'chroma'], function(ng, FastClick, chroma) {
 		}
 
 		select() {
-			this.selected = !this.selected
+			this.order.addPart(this.part)
 		}
 
 		style() {
@@ -243,6 +267,10 @@ define(['angular', 'fastclick', 'chroma'], function(ng, FastClick, chroma) {
 			}
 
 			return {background: this.part.color.css()}
+		}
+
+		isSelected() {
+			return this.order.isPartInOrder(this.part)
 		}
 	}
 

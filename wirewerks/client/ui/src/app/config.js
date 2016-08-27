@@ -35,6 +35,7 @@ System.config({
 		'angular-sanitize': {deps: ['angular']},
 		'angular-aria': {deps: ['angular']},
 		'angular-material': {deps: ['angular']},
+		lodash: {exports: "_", format: "global"}
 	}
 });
 

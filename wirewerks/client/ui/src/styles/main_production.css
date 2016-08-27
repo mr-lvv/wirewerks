@@ -23945,7 +23945,8 @@ ww-part-category {
     font-size: 1.25em;
     text-transform: uppercase;
     font-weight: bold;
-    padding: 4px; }
+    padding: 4px;
+    text-align: center; }
 
 * {
   outline: none; }
@@ -23970,8 +23971,10 @@ ww-part {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center; }
-    ww-part attribute label.bold {
-      font-weight: bold; }
+    ww-part attribute label {
+      text-align: center; }
+      ww-part attribute label.bold {
+        font-weight: bold; }
   ww-part attributes {
     display: block;
     padding: 10px 4px;

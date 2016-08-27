@@ -9,6 +9,7 @@ define([
 	'angular-route',
 	'angular-sanitize',
 	'angular-aria',
-	'angular-material'
+	'angular-material',
+	'lodash'
 ], function(ww, common) {
 });
