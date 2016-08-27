@@ -24005,6 +24005,15 @@ selection-overlay {
 	}
 }
 */
+ww-cart {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  background-color: yellow; }
+
 md-icon.s48 {
   width: 48px;
   height: 48px; }
