@@ -2700,13 +2700,13 @@
       {
         "partCategories": [
           {
-            "partCategories": [
-              {
-                "title": "6540",
-                "constant": true
-              }
-            ]
-          },
+            "title": "6540",
+            "constant": true
+          }
+        ]
+      },
+      {
+        "partCategories": [
           {
             "title": "2P",
             "constant":true
