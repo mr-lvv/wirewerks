@@ -134,6 +134,7 @@ define(['angular', 'fastclick', 'chroma'], function(ng, FastClick, chroma) {
 				// If no product found, keep current product displayed
 				if (product) {
 					this.sections = []
+					this.parts = []
 					this.product = product				// Not actually product, more like productTemplate
 				}
 			})
