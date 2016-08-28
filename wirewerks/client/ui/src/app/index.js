@@ -181,6 +181,14 @@ define(['angular', 'fastclick', 'chroma'], function(ng, FastClick, chroma) {
 			})
 		}
 
+		verifyOrder() {
+			return this.sections.every((section) => {
+				if(!section.constant && !section.selected)
+					return false
+				return true
+			})
+		}
+
 		orderNumber() {
 			if (!this.product) return
 			if (this.sections.length)
@@ -188,20 +196,19 @@ define(['angular', 'fastclick', 'chroma'], function(ng, FastClick, chroma) {
 
 			var sections = this.sections
 
-			sections.push({
-				label: this.product.part,
-				data: this.product
-			})
-
+			var first = true
 			this.product.partGroups.forEach((group) => {
-				sections.push({label: '-', data: group})
+				if (!first)
+					sections.push({label: '-', data: group, constant:true})
+				first = false
 
 				group.partCategories.forEach((category) => {
 
 					if (category.constant) {
 						sections.push({
 							label: category.title,
-							data: this.product
+							data: this.product,
+							constant : true
 						})
 					}
 					else {

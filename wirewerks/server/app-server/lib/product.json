@@ -12,6 +12,14 @@
       {
         "partCategories": [
           {
+            "title": "FA",
+            "constant": true
+          }
+        ]
+      },
+      {
+        "partCategories": [
+          {
             "finePrint": "",
             "length": 1,
             "parts": [
@@ -1226,6 +1234,14 @@
       {
         "partCategories": [
           {
+            "title": "WNC",
+            "constant": true
+          }
+        ]
+      },
+      {
+        "partCategories": [
+          {
             "finePrint": "",
             "length": 1,
             "parts": [
@@ -1650,6 +1666,14 @@
     "dataSheetLink": "PDS-0185",
     "part": "IP",
     "partGroups": [
+      {
+        "partCategories": [
+          {
+            "title": "IP",
+            "constant": true
+          }
+        ]
+      },
       {
         "partCategories": [
           {
@@ -2304,6 +2328,14 @@
       {
         "partCategories": [
           {
+            "title": "DC",
+            "constant": true
+          }
+        ]
+      },
+      {
+        "partCategories": [
+          {
             "finePrint": "",
             "length": 1,
             "parts": [
@@ -2663,10 +2695,18 @@
     "longDescription": "",
     "notes": "Other colors available upon request",
     "dataSheetLink": "PDS-0155",
-    "part": "6540",
+    "part": "65402P",
     "partGroups": [
       {
         "partCategories": [
+          {
+            "partCategories": [
+              {
+                "title": "6540",
+                "constant": true
+              }
+            ]
+          },
           {
             "title": "2P",
             "constant":true
@@ -2729,6 +2769,14 @@
     "dataSheetLink": "PDS-0155",
     "part": "6540",
     "partGroups": [
+      {
+        "partCategories": [
+          {
+            "title": "6540",
+            "constant": true
+          }
+        ]
+      },
       {
         "partCategories": [
           {
@@ -2796,6 +2844,14 @@
       {
         "partCategories": [
           {
+            "title": "6040",
+            "constant": true
+          }
+        ]
+      },
+      {
+        "partCategories": [
+          {
             "title": "2P",
             "constant":true
           },
@@ -2860,6 +2916,14 @@
       {
         "partCategories": [
           {
+            "title": "6040",
+            "constant": true
+          }
+        ]
+      },
+      {
+        "partCategories": [
+          {
             "title": "2R",
             "constant":true
           },
@@ -2920,6 +2984,14 @@
     "dataSheetLink": "PDS-0048",
     "part": "KW",
     "partGroups": [
+      {
+        "partCategories": [
+          {
+            "title": "KW",
+            "constant": true
+          }
+        ]
+      },
       {
         "partCategories": [
           {
@@ -2999,6 +3071,14 @@
     "dataSheetLink": "PDS-0067",
     "part": "KW",
     "partGroups": [
+      {
+        "partCategories": [
+          {
+            "title": "KW",
+            "constant": true
+          }
+        ]
+      },
       {
         "partCategories": [
           {

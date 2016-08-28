@@ -3,3 +3,4 @@
 -->
 
 <span ng-repeat="section in $ctrl.order.orderNumber()" ng-class="section.classes" ng-style="{'background-color': section.color}">{{section.label}}</span>
+<div ng-show="$ctrl.order.verifyOrder()">ORDER READY</div>
