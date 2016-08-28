@@ -1,6 +1,16 @@
 @import "_ww.scss";
 
 md-icon {
+	&.s32 {
+		width: 32px;
+		height: 32px;
+	}
+
+	&.s36 {
+		width: 36px;
+		height: 36px;
+	}
+
 	&.s48 {
 		width: 48px;
 		height: 48px;

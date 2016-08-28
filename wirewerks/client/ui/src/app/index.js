@@ -85,23 +85,58 @@ define(['angular', 'fastclick', 'chroma'], function(ng, FastClick, chroma) {
 
 	app.service('app', Application)
 
+	var views = {
+		products: 'products',
+		cart: 'cart',
+		default: ''
+	}
+
 	/**
 	 *
 	 */
 	class App {
 		constructor($timeout, $routeParams, $scope, $location, app) {
 			this.id = 'fa'
+			this.view = views.products
 
 			$scope.$watch(() => $routeParams, function(params) {
 				// Route params changed...
 				//console.log('param: ', params);
 			})
 		}
+
+		openCart() {
+			if  (this.view === views.cart)
+				this.view = views.products
+			else
+				this.view = views.cart
+		}
 	}
 
 	app.component('wwApp', {
 		controller: App,
 		templateUrl: 'app/views/app.html',
+		bindings: {}
+	})
+
+	/**
+	 *
+	 */
+	class Welcome {
+		constructor() {
+		}
+
+		goToProducts() {
+			this.app.view = views.products
+		}
+	}
+
+	app.component('wwWelcome', {
+		controller: Welcome,
+		require: {
+			app: "^wwApp"
+		},
+		templateUrl: 'app/views/welcome.html',
 		bindings: {}
 	})
 
