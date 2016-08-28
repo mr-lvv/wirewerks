@@ -197,41 +197,43 @@ define(['angular', 'fastclick', 'chroma'], function(ng, FastClick, chroma) {
 				sections.push({label: '-', data: group})
 
 				group.partCategories.forEach((category) => {
-					var partInfo = this._partForCategory(category)
 
-					var label = _.repeat(category.type, category.length)
-					var selected = false
-					if (partInfo) {
-						label = partInfo.part.value.toUpperCase()
-						selected = true
+					if (category.constant) {
+						sections.push({
+							label: category.title,
+							data: this.product
+						})
 					}
+					else {
+						var partInfo = this._partForCategory(category)
 
-					var color = category.color || CategoryColors.fromCategoryType(category.type)
-					color = chroma(color.hex())		// Clone to modify
-					if (!selected) {
-						color = color.brighten(1.5)
-						color.alpha(0.25)
-					} else {
-						color.alpha(0.75)
+						var label = _.repeat(category.type, category.length)
+						var selected = false
+						if (partInfo) {
+							label = partInfo.part.value.toUpperCase()
+							selected = true
+						}
+
+						var color = category.color || CategoryColors.fromCategoryType(category.type)
+						color = chroma(color.hex())		// Clone to modify
+						if (!selected) {
+							color = color.brighten(1.5)
+							color.alpha(0.25)
+						} else {
+							color.alpha(0.75)
+						}
+
+						sections.push({
+							label: label,
+							classes: 'part',
+							selected: selected,
+							color: color.css(),
+							data: {part: partInfo, category: category}
+						})
 					}
-
-					sections.push({
-						label: label,
-						classes: 'part',
-						selected: selected,
-						color: color.css(),
-						data: {part: partInfo, category: category}
-					})
 				})
 			})
-
-			if (this.product.suffix) {
-				sections.push({
-					label: this.product.suffix,
-					data: this.product
-				})
-			}
-
+			
 			return sections
 		}
 	}
