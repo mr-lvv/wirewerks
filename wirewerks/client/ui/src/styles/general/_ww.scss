@@ -121,6 +121,19 @@ ww-part {
 }
 
 ww-product-selection {
+	form {
+		display: flex;
+		align-items: center;
+
+		.md-title {
+			padding: 0 $padding-large 0 0;
+		}
+
+		md-autocomplete {
+			flex-grow: 1;
+		}
+	}
+
 	.header {
 		.md-title {
 			display: inline;
