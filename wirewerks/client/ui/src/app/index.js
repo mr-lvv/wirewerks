@@ -413,7 +413,10 @@ define(['angular', 'fastclick', 'chroma'], function(ng, FastClick, chroma) {
 			this.searchText = this.selectedItem
 			this.productResource = productResource
 			this.$scope = $scope
-			this.$element = $element
+			this.products =[]
+			this.productResource.getProducts().then(product => {
+				this.products = product
+			})
 		}
 
 		// Sort of hacking way since depending on autocomplete's controller inner workings
@@ -439,15 +442,10 @@ define(['angular', 'fastclick', 'chroma'], function(ng, FastClick, chroma) {
 		}
 
 		query(text) {
-			return this.productResource.getProducts()
-		}
+			return _.filter(this.products, function(value) {
+				return value.indexOf(text) >= 0}
+				)
 
-		keydown(event) {
-			if (event.which === 13) {
-				this.id = this.searchText
-				this.selectedItem = this.id
-				this._showAutocomplete(true)
-			}
 		}
 
 		focus(event) {
