@@ -450,9 +450,9 @@ define(['angular', 'fastclick', 'chroma'], function(ng, FastClick, chroma) {
 
 		query(text) {
 			return _.filter(this.products, function(value) {
-				return value.indexOf(text) >= 0}
-				)
-
+				var re = new RegExp(text, 'i')
+				return re.test(value)
+			})
 		}
 
 		focus(event) {
