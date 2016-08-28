@@ -1,13 +1,13 @@
 <div>
-    <div class="cartItem" ng-repeat="order in $ctrl.orders">
+    <div class="cartItem" ng-repeat="product in $ctrl.getProducts()">
         <div class="cartItemImage">Image</div>
         <div class="cartItemDescription">
-            <div class="cartItemName">{{order.name}}</div>
-            <div class=""cartItemDescription>{{order.description}}</div>
+            <div class="cartItemName">{{product.name}}</div>
+            <div class=""cartItemDescription>{{product.description}}</div>
         </div>
         <div class="cartItemPrice"></div>
         <div class="cartItemQuantity">
-            <md-select ng-model="order.quantity" class="md-no-underline" required aria-label="quantity">
+            <md-select ng-model="product.quantity" class="md-no-underline" required aria-label="quantity">
                 <md-option ng-repeat="value in $ctrl.quantityChoice" value="{{value}}" >
                     {{value}}
                 </md-option>

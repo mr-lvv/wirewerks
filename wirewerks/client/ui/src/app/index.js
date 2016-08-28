@@ -154,12 +154,14 @@ define(['angular', 'fastclick', 'chroma'], function(ng, FastClick, chroma) {
 	 *
 	 */
 	class Order {
-		constructor(productResource, $scope) {
+		constructor(productResource, $scope, cart) {
 			this.productResource = productResource
 			this.product = undefined;
 			this.parts = []							// Type PartInfo, not part (to include category..)
 
 			this.sections = []
+			this.cart = cart
+			this.partNumber = ""
 
 			$scope.$watch('order.productId', this._refreshProduct.bind(this))
 		}
@@ -216,28 +218,43 @@ define(['angular', 'fastclick', 'chroma'], function(ng, FastClick, chroma) {
 			})
 		}
 
+		verifyOrder() {
+			return this.sections.every((section) => {
+				if(!section.constant && !section.selected)
+					return false
+				return true
+			})
+		}
+
+		addToCart() {
+			this.cart.addToCart(this.partNumber)
+		}
+
 		orderNumber() {
 			if (!this.product) return
 			if (this.sections.length)
 				return this.sections
 
+			this.partNumber = ""
 			var sections = this.sections
 
-			sections.push({
-				label: this.product.part,
-				data: this.product
-			})
-
+			var first = true
 			this.product.partGroups.forEach((group) => {
-				sections.push({label: '-', data: group})
+				if (!first) {
+					sections.push({label: '-', data: group, constant: true})
+					this.partNumber += '-'
+				}
+				first = false
 
 				group.partCategories.forEach((category) => {
 
 					if (category.constant) {
 						sections.push({
 							label: category.title,
-							data: this.product
+							data: this.product,
+							constant : true
 						})
+						this.partNumber += category.title
 					}
 					else {
 						var partInfo = this._partForCategory(category)
@@ -265,10 +282,10 @@ define(['angular', 'fastclick', 'chroma'], function(ng, FastClick, chroma) {
 							color: color.css(),
 							data: {part: partInfo, category: category}
 						})
+						this.partNumber += label
 					}
 				})
 			})
-			
 			return sections
 		}
 	}
@@ -478,9 +495,9 @@ define(['angular', 'fastclick', 'chroma'], function(ng, FastClick, chroma) {
 
 		query(text) {
 			return _.filter(this.products, function(value) {
-				return value.indexOf(text) >= 0}
-				)
-
+				var re = new RegExp('^' + text, 'i')
+				return re.test(value)
+			})
 		}
 
 		focus(event) {
@@ -504,26 +521,73 @@ define(['angular', 'fastclick', 'chroma'], function(ng, FastClick, chroma) {
 	/**
 	 *
 	 */
-	class Cart {
-		constructor() {
+	class wwCart {
+		constructor(cart, $scope) {
 			//get from localStorage
+			this.cart = cart
 			this.quantityChoice = _.range(1,100);
-			this.orders = [];
-			this.orders[0] = {
-				"name" : "product blah blah",
-				"quantity" : 3,
-				"description" : "description blah blah blah blah blah"
-			};
+			this.products = undefined
+			this.$scope = $scope
+			this.$scope.$watch(()=>this.products, this._updateQuantity.bind(this), true)
+		}
+
+		_updateQuantity() {
+			if(!this.products)
+				return;
+			this.cart.updateQuantity(this.products)
+		}
+
+		getProducts() {
+			//accidentally call watch
+			this.products = this.cart.getAllCart()
+			return this.products
 		}
 	}
 
 	app.component('wwCart', {
-		controller: Cart,
+		controller: wwCart,
 		templateUrl: 'app/views/cart.html',
 		require: {
 			order: '^wwCart'
 		}
 	})
+
+	app.service('cart',  class Cart {
+		constructor() {
+			this.products = undefined;
+		}
+
+		updateQuantity(products) {
+			localStorage.setItem("myCart2", JSON.stringify(products))
+			this.products = undefined;
+		}
+		getAllCart() {
+			if(!this.products)
+				this.products = JSON.parse(localStorage.getItem("myCart2"))
+			return this.products
+		}
+
+		addToCart(completePartNumber) {
+			//window.localStorate
+			//alert("added to cart: "+ completePartNumber)
+
+			var products = this.getAllCart()
+			if (!products)
+				products = {}
+
+			if(products[completePartNumber])
+				products[completePartNumber].quantity++
+			else {
+				products[completePartNumber] = {}
+				products[completePartNumber].quantity = 1
+				products[completePartNumber].name = completePartNumber
+				products[completePartNumber].description = "the description"
+			}
+
+			this.updateQuantity(products)
+		}
+	})
+
 
 	/**
 	 *
