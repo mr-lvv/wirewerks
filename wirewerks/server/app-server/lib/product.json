@@ -1208,7 +1208,8 @@
                 "finePrint": "",
                 "shortDescription": "",
                 "value": "XXX",
-                "xIsDigit" : true
+                "xIsDigit" : true,
+                "allowDecimal" : true
               }
             ],
             "title": "LENGTH",
@@ -1643,7 +1644,8 @@
                 "description": "",
                 "finePrint": "",
                 "shortDescription": "",
-                "value": "XXXX"
+                "value": "XXXX",
+                "xIsDigit" : true
               }
             ],
             "title": "ASSEMBLY LENGTH",
@@ -2302,7 +2304,9 @@
                 "description": "",
                 "finePrint": "",
                 "shortDescription": "",
-                "value": "XXX"
+                "value": "XXX",
+                "xIsDigit" : true,
+                "allowDecimal" : true
               }
             ],
             "title": "LENGTH",
@@ -2635,13 +2639,14 @@
                 "attributes": [
                   {
                     "bold": false,
-                    "label": "1 unit"
+                    "label": "number of unit"
                   }
                 ],
                 "description": "",
                 "finePrint": "",
                 "shortDescription": "",
-                "value": "001"
+                "value": "XXX",
+                "xIsDigit" : true
               }
             ],
             "title": "ASSEMBLY LENGTH",
