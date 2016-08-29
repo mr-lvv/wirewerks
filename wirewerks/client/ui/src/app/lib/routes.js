@@ -13,7 +13,6 @@ define(['../app'], function(app) {
 		}).when('/state/product/:productId', {
 			template: '',
 			controller: function(app, $routeParams) {
-				console.log('products: ', app, $routeParams);
 				app.view = 'product'
 			}
 		}).when('/state/cart', {

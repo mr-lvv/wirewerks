@@ -9,7 +9,7 @@ define([
 ], function(ng, FastClick, chroma, app, Url, CategoryColors) {
 	app.run(() => {
 		FastClick.attach(document.body)
-	});
+	})
 
 	var views = {
 		product: 'product',

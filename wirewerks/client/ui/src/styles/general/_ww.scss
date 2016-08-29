@@ -17,6 +17,7 @@ html, body {
 ww-app {
 	display: block;
 	min-height: 100vh;
+	position: relative;
 
 	background-image: url('/images/general/background_dots.png');
 	background-size: 50%;
@@ -27,9 +28,14 @@ ww-app {
 		background: transparent;
 	}
 
-	md-toolbar {
+	md-toolbar.header {
 		ww-product-selection {
 			flex-grow: 1;
+
+			md-content {
+				padding-left: 0;
+				padding-right: 0;
+			}
 		}
 
 		md-icon {
@@ -110,6 +116,16 @@ ww-product {
 				padding: 0 $padding-normal;
 			}
 		}
+	}
+}
+
+ww-order {
+	display: block;
+
+	// Should probably put following in "ww-product-page" or something.*[]:
+	overflow: hidden;
+	md-sidenav {
+		min-width: 250px;
 	}
 }
 
@@ -283,4 +299,8 @@ ww-cart {
 		border-width :  1px;
 		flex-direction : row;
 	}
+}
+
+ng-switch {
+	display: block;
 }
