@@ -2,8 +2,9 @@
 	<header ng-style="$ctrl.style()">
 		<label ng-if="!$ctrl.shouldShowXIsDigit()">{{$ctrl.part.value}}{{$ctrl.part.finePrint}}</label>
 		<md-input-container ng-if="$ctrl.shouldShowXIsDigit()">
-			<label>{{$ctrl.part.value}}</label>
-			<input type=number ng-model="$ctrl.blahblah" md-maxlength="$ctrl.numberOfDigit()">
+			<label ng-if="$ctrl.part.inputValue">{{$ctrl.part.inputValue}}</label>
+			<label ng-if="!$ctrl.part.inputValue">{{$ctrl.part.value}}</label>
+			<input type="text" ng-model="$ctrl.inputValue" ng-change="$ctrl.valueChange()" ng-keypress="$ctrl.limit($event)">
 		</md-input-container>
 	</header>
 

@@ -375,7 +375,7 @@ define(['angular', 'fastclick', 'chroma'], function(ng, FastClick, chroma) {
 	 */
 	class Part {
 		constructor() {
-
+			this.inputValue="";
 		}
 
 		get partInfo() {
@@ -386,14 +386,44 @@ define(['angular', 'fastclick', 'chroma'], function(ng, FastClick, chroma) {
 			this.order.addPart(this.partInfo)
 		}
 
-		shouldShowXIsDigit()
-		{
+		shouldShowXIsDigit() {
 			return (this.part.xIsDigit && this.isSelected());
 		}
 
-		numberOfDigit()
-		{
+		getSuffix() {
+			return this.part.value.substring(this.numberOfDigit())
+		}
+
+		valueChange() {
+
+			if(!this.inputValue) {
+				this.part.inputValue = undefined
+				return
+			}
+			
+			function pad(num, size) {
+				var s = num+"";
+				while (s.length < size) s = "0" + s;
+				return s;
+			}
+
+			this.part.inputValue = pad(this.inputValue, this.numberOfDigit()) + this.getSuffix()
+		}
+
+		numberOfDigit() {
 			return _.countBy(this.part.value)['X'];
+		}
+
+		limit($event)
+		{
+			var element = $event.target
+			var max_chars = this.numberOfDigit()-1;
+			if(isNaN(String.fromCharCode($event.which))) {
+				return $event.preventDefault()
+			}
+			if(element.value.length > max_chars) {
+				element.value = element.value.substr(0, max_chars);
+			}
 		}
 
 		style() {
