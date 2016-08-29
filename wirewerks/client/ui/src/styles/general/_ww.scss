@@ -171,10 +171,9 @@ ww-part {
 		padding: $padding-large $padding-normal;
 		background: #e6e6e6;
 	}
-
-	input[type=number]::-webkit-outer-spin-button {
-		-webkit-appearance: none;
-		margin: 0;
+	.no-animate {
+		-webkit-transition: none !important;
+		transition: none !important;
 	}
 }
 

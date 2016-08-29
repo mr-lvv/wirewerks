@@ -203,12 +203,16 @@ define(['angular', 'fastclick', 'chroma'], function(ng, FastClick, chroma) {
 			})
 		}
 
-		addPart(partInfo) {
-			if (!partInfo.part.inputValue && this.isPartInOrder(partInfo)) {return}
+		updatePart(partInfo) {
 			this._removeCategory(partInfo.category)
 			this.sections = []
 
 			this.parts.push(partInfo)
+		}
+
+		addPart(partInfo) {
+			if (!partInfo.part.inputValue && this.isPartInOrder(partInfo)) {return}
+			this.updatePart(partInfo)
 		}
 
 		isPartInOrder(partInfo) {
@@ -262,11 +266,18 @@ define(['angular', 'fastclick', 'chroma'], function(ng, FastClick, chroma) {
 						var label = _.repeat(category.type, category.length)
 						var selected = false
 						if (partInfo) {
-							if(partInfo.part.inputValue)
-								label = partInfo.part.inputValue.toUpperCase()
-							else
+							if(partInfo.part.xIsDigit) {
+								if(partInfo.part.inputValueValid)
+								{
+									label = partInfo.part.inputValue.toUpperCase()
+									selected = true
+								}
+							}
+							else {
 								label = partInfo.part.value.toUpperCase()
-							selected = true
+								selected = true
+							}
+
 						}
 
 						var color = category.color || CategoryColors.fromCategoryType(category.type)
@@ -413,7 +424,7 @@ define(['angular', 'fastclick', 'chroma'], function(ng, FastClick, chroma) {
 	 */
 	class Part {
 		constructor() {
-			this.inputValue="";
+			this.inputValue=""
 		}
 
 		get partInfo() {
@@ -432,21 +443,27 @@ define(['angular', 'fastclick', 'chroma'], function(ng, FastClick, chroma) {
 			return this.part.value.substring(this.numberOfDigit())
 		}
 
+		validate(value) {
+			return !this.inputValue || this.inputValue == 0
+		}
+
 		valueChange() {
 
-			if(!this.inputValue || this.inputValue == 0) {
+			if(this.validate(this.inputValue)) {
 				this.part.inputValue = undefined
-				return
+				this.part.inputValueValid = false
 			}
-			
-			function pad(num, size) {
-				var s = num+"";
-				while (s.length < size) s = "0" + s;
-				return s;
-			}
+			else {
+				function pad(num, size) {
+					var s = num+"";
+					while (s.length < size) s = "0" + s;
+					return s;
+				}
 
-			this.part.inputValue = pad(this.inputValue, this.numberOfDigit()) + this.getSuffix()
-			this.select()
+				this.part.inputValue = pad(this.inputValue, this.numberOfDigit()) + this.getSuffix()
+				this.part.inputValueValid = true
+			}
+			this.order.updatePart(this.partInfo)
 		}
 
 		numberOfDigit() {
