@@ -3,9 +3,67 @@ $padding-medium: 6px;
 $padding-large: 10px;
 
 $font-size-medium: 1.25em;
+$font-size-logo: 5em;
 
 $product-title: rgb(215, 40, 34);
 $product-subtitle: rgb(167, 169, 172);
+$color-wirewerks: #0084cb;
+
+
+html, body {
+	height: 100%;
+}
+
+ww-app {
+	display: block;
+	min-height: 100vh;
+
+	background-image: url('/images/general/background_dots.png');
+	background-size: 50%;
+	background-repeat: no-repeat;
+	background-position: top left;
+
+	md-content {
+		background: transparent;
+	}
+
+	md-toolbar {
+		md-icon {
+			color: white;
+			fill: white;
+		}
+	}
+}
+
+ww-welcome {
+	.logo {
+		color: $color-wirewerks;
+		font-size: $font-size-logo;
+	}
+
+	md-content {
+
+		display: flex;
+		justify-content: center;
+
+		md-card {
+			width: 300px;
+
+			img {
+				cursor: pointer;
+			}
+
+			md-card-title {
+				cursor: pointer;
+			}
+
+			&.products {
+
+			}
+		}
+
+	}
+}
 
 ww-product {
 	display: block;

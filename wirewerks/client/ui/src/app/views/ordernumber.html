@@ -1,6 +1,2 @@
-<!--
-<span>{{$ctrl.order.productId}}</span><span ng-repeat="group in productGroups">-{{$ctrl.order.orderNumber()}}</span>
--->
-
 <span ng-repeat="section in $ctrl.order.orderNumber()" ng-class="section.classes" ng-style="{'background-color': section.color}">{{section.label}}</span>
 <md-button ng-show="$ctrl.order.verifyOrder()" ng-click="$ctrl.order.addToCart()">Add To Cart</md-button>

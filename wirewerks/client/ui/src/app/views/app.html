@@ -1,5 +1,25 @@
-<div>
-	<ww-cart></ww-cart>
-	<ww-product-selection product-id="$ctrl.id"></ww-product-selection>
-	<ww-order product-id="$ctrl.id"></ww-order>
-</div>
+<md-content>
+	<md-toolbar class="md-hue-2">
+		<span class="md-toolbar-tools">
+
+			<md-icon md-svg-icon="images/svg/general/search.svg" class="s32" aria-label="label"></md-icon>
+
+			<span flex></span>
+
+			<md-button class="md-icon-button cart" ng-click="$ctrl.openCart()">
+				<md-icon md-svg-icon="images/svg/general/shopping-cart.svg" class="s32" aria-label="label"></md-icon>
+			</md-button>
+		</span>
+	</md-toolbar>
+
+	<ng-switch on="$ctrl.view">
+		<div ng-switch-when="cart">
+			<ww-cart></ww-cart>
+		</div>
+		<div ng-switch-when="products">
+			<ww-product-selection product-id="$ctrl.id"></ww-product-selection>
+			<ww-order product-id="$ctrl.id"></ww-order>
+		</div>
+		<ww-welcome ng-switch-default></ww-welcome>
+	</ng-switch>
+</md-content>
