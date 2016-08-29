@@ -204,7 +204,7 @@ define(['angular', 'fastclick', 'chroma'], function(ng, FastClick, chroma) {
 		}
 
 		addPart(partInfo) {
-			if (this.isPartInOrder(partInfo)) {return}
+			if (!partInfo.part.inputValue && this.isPartInOrder(partInfo)) {return}
 			this._removeCategory(partInfo.category)
 			this.sections = []
 
@@ -262,7 +262,10 @@ define(['angular', 'fastclick', 'chroma'], function(ng, FastClick, chroma) {
 						var label = _.repeat(category.type, category.length)
 						var selected = false
 						if (partInfo) {
-							label = partInfo.part.value.toUpperCase()
+							if(partInfo.part.inputValue)
+								label = partInfo.part.inputValue.toUpperCase()
+							else
+								label = partInfo.part.value.toUpperCase()
 							selected = true
 						}
 
@@ -431,7 +434,7 @@ define(['angular', 'fastclick', 'chroma'], function(ng, FastClick, chroma) {
 
 		valueChange() {
 
-			if(!this.inputValue) {
+			if(!this.inputValue || this.inputValue == 0) {
 				this.part.inputValue = undefined
 				return
 			}
@@ -443,6 +446,7 @@ define(['angular', 'fastclick', 'chroma'], function(ng, FastClick, chroma) {
 			}
 
 			this.part.inputValue = pad(this.inputValue, this.numberOfDigit()) + this.getSuffix()
+			this.select()
 		}
 
 		numberOfDigit() {
