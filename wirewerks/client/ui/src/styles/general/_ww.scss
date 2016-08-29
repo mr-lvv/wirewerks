@@ -28,6 +28,10 @@ ww-app {
 	}
 
 	md-toolbar {
+		ww-product-selection {
+			flex-grow: 1;
+		}
+
 		md-icon {
 			color: white;
 			fill: white;
@@ -35,7 +39,7 @@ ww-app {
 	}
 }
 
-ww-welcome {
+ww-home {
 	.logo {
 		color: $color-wirewerks;
 		font-size: $font-size-logo;
@@ -239,6 +243,15 @@ ww-cart {
 	display: flex;
 	flex-grow: 1;
 	flex-direction: column;
+
+	.empty {
+		display: flex;
+		justify-content: center;
+
+		.md-headline {
+			color: $color-wirewerks;
+		}
+	}
 
 	.cartItemImage {
 		border-style : solid;

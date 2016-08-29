@@ -1,120 +1,80 @@
-define(['angular', 'fastclick', 'chroma'], function(ng, FastClick, chroma) {
-	var app = angular.module('ww', [
-		'ngCookies',
-		'ngResource',
-		'ngSanitize',
-		'ngAria',
-		'ngAnimate',
-		'ngMaterial',
-		'ngRoute'
-	])
-	.run(() => {
+define([
+	'angular',
+	'fastclick',
+	'chroma',
+	'./app',
+	'./lib/url',
+	'./lib/categorycolors',
+	'./lib/routes'
+], function(ng, FastClick, chroma, app, Url, CategoryColors) {
+	app.run(() => {
 		FastClick.attach(document.body)
 	});
 
-	class Url {
-		static product(part) {
-			return '/api/client/product/' + part
-		}
-
-		static products() {
-			return '/api/client/products'
-		}
-
-		static datasheet(sheet) {
-			return 'http://www.wirewerks.com/wp-content/uploads/' + sheet + '-EN-C.pdf'
-		}
+	var views = {
+		product: 'product',
+		cart: 'cart',
+		home: 'home'
 	}
-
-	class CategoryColors {
-		static fromCategoryType(type) {
-			type = type ? type.toUpperCase() : '';
-
-			var color;
-			if (type === 'A') {
-				color = chroma('#e3811c')
-			} else if (type === 'B') {
-				color = chroma('#00a770')
-			} else if (type === 'C') {
-				color = chroma('#cc171e')
-			} else if (type === 'D') {
-				color = chroma('#0089cf')
-			} else if (type === 'E') {
-				color = chroma('#b70b7f')
-			} else if (type === 'F') {
-				color = chroma('#e6bd15')
-			} else if (type === 'G') {
-				color = chroma('#00658f')
-			} else if (type === 'H') {
-				color = chroma('#007f60')
-			} else if (type === 'I') {
-				color = chroma('#821f24')
-			} else if (type === 'J') {
-				color = chroma('#fcb116')
-			} else if (type === 'K') {
-				color = chroma('#90356a')
-			} else if (type === 'L') {
-				color = chroma('#ee4a97')
-			} else if (type === 'N') {
-				color = chroma('#c7b227')
-			} else {
-				color = chroma.random()
-			}
-
-			return color;
-		}
-	}
-
-	/**
-	 * State Configs
-	 */
-	app.config(($routeProvider, $locationProvider) => {
-		$locationProvider.html5Mode(true);
-
-		$routeProvider.when('/state/product', {
-			template: '',
-		}).when('/state/product/:productId', {
-			template: ''
-		}).otherwise('/')
-	})
 
 	class Application {
-		constructor() {
+		constructor($location) {
+			this.$location = $location
+			this.view = views.home
 		}
+
+		goToHome() {this.$location.path("/state/home");}
+		goToCart() {this.$location.path("/state/cart");}
+		goToProducts(id) {
+			id = id || 'fa'
+			if (id)
+				id = '/' + id
+
+			this.$location.path("/state/product" + id);
+		}
+
+
+		/**
+		 * Toggle between cart/product
+		 */
+		toggleCart() {
+			if (this.view === views.cart)
+				this.goToProducts()
+			else
+				this.goToCart()
+		}
+
 	}
 
 	app.service('app', Application)
 
-	var views = {
-		products: 'products',
-		cart: 'cart',
-		default: ''
-	}
-
 	/**
 	 *
 	 */
-	class App {
+	class wwApp {
 		constructor($timeout, $routeParams, $scope, $location, app) {
-			this.id = 'fa'
-			this.view = views.products
+			this.id = ''
+			this.app = app
 
-			$scope.$watch(() => $routeParams, function(params) {
+			// Should be removed at some point...
+			$scope.$watch(() => $routeParams, (params) => {
 				// Route params changed...
-				//console.log('param: ', params);
-			})
-		}
+				if (params.productId)
+					this.id = params.productId
+			}, true)
 
-		openCart() {
-			if  (this.view === views.cart)
-				this.view = views.products
-			else
-				this.view = views.cart
+			$scope.$watch(() => this.id, (id) => {
+				if (!id) {
+					return
+				}
+
+				this.app.goToProducts(id)
+			})
 		}
 	}
 
 	app.component('wwApp', {
-		controller: App,
+		controller: wwApp,
 		templateUrl: 'app/views/app.html',
 		bindings: {}
 	})
@@ -122,21 +82,15 @@ define(['angular', 'fastclick', 'chroma'], function(ng, FastClick, chroma) {
 	/**
 	 *
 	 */
-	class Welcome {
-		constructor() {
-		}
-
-		goToProducts() {
-			this.app.view = views.products
+	class Home {
+		constructor(app) {
+			this.app = app
 		}
 	}
 
-	app.component('wwWelcome', {
-		controller: Welcome,
-		require: {
-			app: "^wwApp"
-		},
-		templateUrl: 'app/views/welcome.html',
+	app.component('wwHome', {
+		controller: Home,
+		templateUrl: 'app/views/home.html',
 		bindings: {}
 	})
 
@@ -541,6 +495,15 @@ define(['angular', 'fastclick', 'chroma'], function(ng, FastClick, chroma) {
 			//accidentally call watch
 			this.products = this.cart.getAllCart()
 			return this.products
+		}
+
+		isEmpty() {
+			var products = this.getProducts()
+			if (!products)
+				return true
+
+			if (!_.keys(products).length)
+				return true
 		}
 	}
 

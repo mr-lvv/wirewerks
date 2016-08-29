@@ -2,24 +2,27 @@
 	<md-toolbar class="md-hue-2">
 		<span class="md-toolbar-tools">
 
-			<md-icon md-svg-icon="images/svg/general/search.svg" class="s32" aria-label="label"></md-icon>
+			<md-button class="md-icon-button home" ng-click="$ctrl.app.goToHome()">
+				<md-icon md-svg-icon="images/svg/general/home.svg" class="s32" aria-label="label"></md-icon>
+			</md-button>
+
+			<ww-product-selection product-id="$ctrl.id"></ww-product-selection>
 
 			<span flex></span>
 
-			<md-button class="md-icon-button cart" ng-click="$ctrl.openCart()">
+			<md-button class="md-icon-button cart" ng-click="$ctrl.app.toggleCart()">
 				<md-icon md-svg-icon="images/svg/general/shopping-cart.svg" class="s32" aria-label="label"></md-icon>
 			</md-button>
 		</span>
 	</md-toolbar>
 
-	<ng-switch on="$ctrl.view">
+	<ng-switch on="$ctrl.app.view">
 		<div ng-switch-when="cart">
 			<ww-cart></ww-cart>
 		</div>
-		<div ng-switch-when="products">
-			<ww-product-selection product-id="$ctrl.id"></ww-product-selection>
+		<div ng-switch-when="product">
 			<ww-order product-id="$ctrl.id"></ww-order>
 		</div>
-		<ww-welcome ng-switch-default></ww-welcome>
+		<ww-home ng-switch-default></ww-home>
 	</ng-switch>
 </md-content>

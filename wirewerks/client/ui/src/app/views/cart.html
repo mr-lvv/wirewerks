@@ -1,17 +1,21 @@
 <div>
-    <div class="cartItem" ng-repeat="product in $ctrl.getProducts()">
-        <div class="cartItemImage">Image</div>
-        <div class="cartItemDescription">
-            <div class="cartItemName">{{product.name}}</div>
-            <div class=""cartItemDescription>{{product.description}}</div>
-        </div>
-        <div class="cartItemPrice"></div>
-        <div class="cartItemQuantity">
-            <md-select ng-model="product.quantity" class="md-no-underline" required aria-label="quantity">
-                <md-option ng-repeat="value in $ctrl.quantityChoice" value="{{value}}" >
-                    {{value}}
-                </md-option>
-            </md-select>
-        </div>
-    </div>
+	<div class="empty" ng-if="$ctrl.isEmpty()">
+		<h1 class="md-headline">Your cart is empty.</h1>
+	</div>
+
+	<div class="cartItem" ng-repeat="product in $ctrl.getProducts()">
+		<div class="cartItemImage">Image</div>
+		<div class="cartItemDescription">
+			<div class="cartItemName">{{product.name}}</div>
+			<div class="" cartItemDescription>{{product.description}}</div>
+		</div>
+		<div class="cartItemPrice"></div>
+		<div class="cartItemQuantity">
+			<md-select ng-model="product.quantity" class="md-no-underline" required aria-label="quantity">
+				<md-option ng-repeat="value in $ctrl.quantityChoice" value="{{value}}">
+					{{value}}
+				</md-option>
+			</md-select>
+		</div>
+	</div>
 </div>

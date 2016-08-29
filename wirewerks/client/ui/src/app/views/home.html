@@ -2,8 +2,8 @@
 
 <md-content>
 	<md-card class="products">
-		<img src="images/general/products.png" class="md-card-image" ng-click="$ctrl.goToProducts()">
-		<md-card-title ng-click="$ctrl.goToProducts()">
+		<img src="images/general/products.png" class="md-card-image" ng-click="$ctrl.app.goToProducts()">
+		<md-card-title ng-click="$ctrl.app.goToProducts()">
 			<md-card-title-text>
 				<span class="md-headline">Products</span>
 				<span class="md-subhead">Search and order products</span>
@@ -11,7 +11,7 @@
 		</md-card-title>
 		<md-card-actions layout="row" layout-align="end center">
 			<!-- Put last products seen here ... -->
-			<md-button>Cart</md-button>
+			<md-button>Action</md-button>
 		</md-card-actions>
 	</md-card>
 </md-content>

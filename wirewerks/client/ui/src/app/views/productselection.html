@@ -1,13 +1,13 @@
 <md-content class="md-padding">
+	<md-tooltip>Enter the product part number</md-tooltip>
 	<form ng-submit="$event.preventDefault()">
-		<div class="header">
-			<h4 class="md-title">Enter the product part number</h4>
-		</div>
+
+		<md-icon md-svg-icon="images/svg/general/search.svg" class="s32" aria-label="label"></md-icon>
 
 		<md-autocomplete
 			md-selected-item="$ctrl.selectedItem"
 			md-require-match="true"
-			md-autofocus="true"
+			md-autofocus="false"
 			md-select-on-match="true"
 			md-match-case-insensitive="true"
 			md-search-text-change="$ctrl.searchTextChange($ctrl.searchText)"
