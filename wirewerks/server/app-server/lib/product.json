@@ -1620,7 +1620,8 @@
                 "description": "",
                 "finePrint": "",
                 "shortDescription": "",
-                "value": "XXX"
+                "value": "XXX",
+                "xIsDigit" : true
               }
             ],
             "title": "FIBER LEADS LENGTH",
