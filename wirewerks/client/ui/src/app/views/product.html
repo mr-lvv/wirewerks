@@ -24,7 +24,7 @@
 						<div class="description">{{$ctrl.product.description}}</div>
 						<ww-order-number></ww-order-number>
 					</div>
-					<md-icon md-svg-src="images/svg/{{$ctrl.product.icon}}" class="s64" ng-if="$ctrl.product.icon" aria-label="tmp"></md-icon>
+					<md-icon md-svg-src="images/svg/sections/{{$ctrl.product.section}}.svg" class="s64" ng-if="$ctrl.product.icon" aria-label="tmp"></md-icon>
 				</div>
 
 				<md-button class="datasheet md-raised" ng-href="{{$ctrl.getDataSheetLink()}}" ng-if="$ctrl.product.dataSheetLink" target="_blank">Data sheet</md-button>
