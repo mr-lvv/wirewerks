@@ -131,15 +131,22 @@ ww-order {
 
 ww-part-groups {
 	display: flex;
+	padding: $padding-medium;
 }
 
 ww-part-group {
 	display: flex;
+	padding: 0 $padding-normal;
 }
 
 ww-part-category {
 	flex-grow: 1;
 	max-width: 200px;
+
+	.part-column {
+		box-shadow: 1px 4px 10px -3px gray;
+		padding: 1px;
+	}
 
 	category-header {
 		display: flex;

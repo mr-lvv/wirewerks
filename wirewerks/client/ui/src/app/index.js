@@ -5,8 +5,9 @@ define([
 	'./app',
 	'./lib/url',
 	'./lib/categorycolors',
-	'./lib/routes'
-], function(ng, FastClick, chroma, app, Url, CategoryColors) {
+	'./lib/routes',
+	'./lib/search'
+], function(ng, FastClick, chroma, app, Url, CategoryColors, search) {
 	app.run(() => {
 		FastClick.attach(document.body)
 	})
