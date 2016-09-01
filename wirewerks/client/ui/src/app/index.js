@@ -469,11 +469,11 @@ define([
 					return s;
 				}
 
+				//need to pad with leading zeroes or trailing zeroes
 				var splitValue = this.inputValue.split(".")
 
 				if(splitValue[0].length < maxChars)
 					splitValue[0] = pad(splitValue[0], maxChars, false)
-
 
 				this.part.inputValue = splitValue[0]
 				if(this.decimal) {
@@ -653,13 +653,15 @@ define([
 			return this.products
 		}
 
-		isEmpty() {
-			var products = this.getProducts()
-			if (!products.length)
-				return true
+		removeFromCart(partNumber) {
+			this.cart.removeFromCart(partNumber)
+		}
 
-			if (!_.keys(products).length)
+		isEmpty() {
+			var products = this.cart.getAllCart()
+			if (!products || !_.keys(products).length)
 				return true
+			return false
 		}
 	}
 
@@ -678,7 +680,7 @@ define([
 
 		updateQuantity(products) {
 			localStorage.setItem("myCart2", JSON.stringify(products))
-			this.products = undefined;
+			this.products = products;
 		}
 		getAllCart() {
 			if(!this.products)
@@ -705,6 +707,17 @@ define([
 
 			this.updateQuantity(products)
 		}
+
+		removeFromCart(completePartNumber){
+			var products = this.getAllCart()
+			if(!products)
+				return
+
+			delete products[completePartNumber]
+			localStorage.setItem("myCart2", JSON.stringify(products))
+			this.products = products;
+		}
+
 	})
 
 	/**
