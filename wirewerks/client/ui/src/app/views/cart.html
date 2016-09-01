@@ -10,14 +10,14 @@
 			<div class="" cartItemDescription>{{product.description}}</div>
 		</div>
 		<div class="cartItemPrice"></div>
-		<div class="cartItemQuantity">
+		<div class="cartItemQuantity" layout layout-align="center center" >
 			<md-select ng-model="product.quantity" class="md-no-underline" required aria-label="quantity">
 				<md-option ng-repeat="value in $ctrl.quantityChoice" value="{{value}}">
 					{{value}}
 				</md-option>
 			</md-select>
 		</div>
-		<div class-="cartItemDelete">
+		<div class="cartItemRemove">
 			<md-button ng-click="$ctrl.removeFromCart(product.name)">Remove</md-button>
 		</div>
 	</div>
