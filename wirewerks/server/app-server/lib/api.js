@@ -1,5 +1,6 @@
 var express = require('express')
-var product = require('./product.json')
+var products = require('./product.json')
+var sections = require('./sections.json')
 var _ = require('lodash')
 
 // For resource example: https://github.com/developit/express-es6-rest-api/blob/master/src/api/facets.js
@@ -17,9 +18,9 @@ class Api {
 		});
 
 		client.get("/product/:part", (request, response) => {
-			if(product[request.params.part])
+			if(products[request.params.part])
 			{
-				response.status(200).send(product[request.params.part]);
+				response.status(200).send(products[request.params.part]);
 			}
 			else
 			{
@@ -28,8 +29,13 @@ class Api {
 		});
 
 		client.get("/products", (request, response) => {
-			response.status(200).send(_.keys(product));
+			response.status(200).send(_.values(products));			// Search result product. Wouldn't actually need the entire product
 		});
+
+		client.get("/sections", (request, response) => {
+			response.status(200).send(sections);
+		});
+
 
 		app.use('/api/client', client);
 	}

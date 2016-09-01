@@ -1,4 +1,7 @@
 define(['../app'], function(app) {
+	/*
+																									Work In Progress
+	 */
 
 	class GlobalQuery {
 		constructor() {
