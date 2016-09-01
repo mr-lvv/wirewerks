@@ -84,9 +84,7 @@ define([
 		}
 
 		toggleNavigation() {
-			this.$mdSidenav('ww-nav-left').toggle().then(function () {
-				//console.log('Toggled...');
-			});
+			this.$mdSidenav('ww-nav-left').toggle().then(function () {});
 		}
 	}
 
@@ -750,9 +748,7 @@ define([
 		}
 
 		close() {
-			this.$mdSidenav('ww-nav-left').close().then(function () {
-				//console.log('Toggled...');
-			});
+			this.$mdSidenav('ww-nav-left').close().then(function () {});
 		}
 	}
 
@@ -810,9 +806,11 @@ define([
 	 *
 	 */
 	class wwProductListItem {
-		constructor(app) {
+		constructor(app, $mdSidenav) {
 			this.selectProduct = () => {
 				app.goToProducts(this.product.part)
+
+				$mdSidenav('ww-nav-left').toggle().then(function () {});
 			}
 		}
 	}
