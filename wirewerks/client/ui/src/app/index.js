@@ -61,7 +61,7 @@ define([
 	 *
 	 */
 	class wwApp {
-		constructor($timeout, $routeParams, $scope, $location, app) {
+		constructor($timeout, $routeParams, $scope, $location, app, $mdSidenav) {
 			this.id = ''
 			this.app = app
 
@@ -79,6 +79,14 @@ define([
 
 				this.app.goToProducts(id)
 			})
+
+			this.$mdSidenav = $mdSidenav
+		}
+
+		toggleNavigation() {
+			this.$mdSidenav('ww-nav-left').toggle().then(function () {
+				//console.log('Toggled...');
+			});
 		}
 	}
 
@@ -724,7 +732,7 @@ define([
 	 *
 	 */
 	class wwProductNav {
-		constructor(app, $scope, $routeParams, productsCache, sectionsCache) {
+		constructor(app, $scope, $routeParams, productsCache, sectionsCache, $mdSidenav) {
 			// Set the section to the currently viewed product on page refresh
 			if (app.view === views.product) {
 				productsCache.byId($routeParams.productId).then((product) => {
@@ -737,6 +745,14 @@ define([
 			$scope.$watch(() => this.section, (section) => {
 				app.filters.section = section
 			})
+
+			this.$mdSidenav = $mdSidenav
+		}
+
+		close() {
+			this.$mdSidenav('ww-nav-left').close().then(function () {
+				//console.log('Toggled...');
+			});
 		}
 	}
 

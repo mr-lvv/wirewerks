@@ -1,11 +1,16 @@
 <md-toolbar>
-	<h1 class="md-toolbar-tools">Navigation</h1>
+	<div class="md-toolbar-tools">
+		<h1>Navigation</h1>
+
+		<span flex></span>
+
+		<md-button ng-click="$ctrl.close()" hide-gt-md>
+			Close
+		</md-button>
+	</div>
 </md-toolbar>
 <md-content layout-padding>
-	<md-button ng-click="$ctrl.close()" class="md-primary" hide-gt-md>
-		Close
-	</md-button>
-	<div hide show-gt-md>
+	<div>
 		<ww-section-selection selected="$ctrl.section"></ww-section-selection>
 		<ww-section-products section="$ctrl.section"></ww-section-products>
 	</div>
