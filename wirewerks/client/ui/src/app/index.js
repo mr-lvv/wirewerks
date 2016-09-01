@@ -5,8 +5,10 @@ define([
 	'./app',
 	'./lib/url',
 	'./lib/categorycolors',
-	'./lib/routes'
-], function(ng, FastClick, chroma, app, Url, CategoryColors) {
+	'./lib/routes',
+	'./lib/search',
+	'./lib/resources'
+], function(ng, FastClick, chroma, app, Url, CategoryColors, search, resources) {
 	app.run(() => {
 		FastClick.attach(document.body)
 	})
@@ -21,6 +23,7 @@ define([
 		constructor($location) {
 			this.$location = $location
 			this.view = views.home
+			this.filters = {section: undefined}								// Search filters (ie: section, etc...)
 		}
 
 		goToHome() {this.$location.path("/state/home");}
@@ -535,13 +538,14 @@ define([
 	 *
 	 */
 	class ProductSelection {
-		constructor(productResource, $scope, $element, $timeout) {
-			this.searchText = this.selectedItem
+		constructor(productResource, $scope, $element, $timeout, app) {
+			this.app = app
+			this.searchText = this.selectedItem ? this.selectedItem.part : ''
 			this.productResource = productResource
 			this.$scope = $scope
 			this.products =[]
-			this.productResource.getProducts().then(product => {
-				this.products = product
+			this.productResource.getProducts().then(products => {
+				this.products = products
 			})
 		}
 
@@ -564,14 +568,27 @@ define([
 		}
 
 		selectedItemChange(item) {
-			this.id = item
+			this.id = item ? item.part : ''
 		}
 
 		query(text) {
-			return _.filter(this.products, function(value) {
+			var products = this.products
+
+			// Filter by selected section
+			var sectionFilter= this.app.filters.section
+			if (sectionFilter) {
+				products = _.filter(products, (product) => {
+					return product.section === sectionFilter.id
+				})
+			}
+
+			// Filter items that don't match
+			var results = _.filter(products, function(product) {
 				var re = new RegExp('^' + text, 'i')
-				return re.test(value)
+				return re.test(product.part)
 			})
+
+			return results
 		}
 
 		focus(event) {
@@ -582,13 +599,24 @@ define([
 			if (changes.id)
 				this.searchText = changes.id.currentValue
 		}
+
+		notFoundMessage() {
+			var message = 'No products matching "' + this.searchText + '" were found'
+			if (this.app.filters.section) {
+				message += ' in <em class="heavy">section ' + this.app.filters.section.id + '</em>'
+			}
+
+			message += '.'
+
+			return message
+		}
 	}
 
 	app.component('wwProductSelection', {
 		controller: ProductSelection,
 		templateUrl: 'app/views/productselection.html',
 		bindings: {
-			selectedItem: '=productId'
+			id: '=productId'
 		}
 	})
 
@@ -619,7 +647,7 @@ define([
 
 		isEmpty() {
 			var products = this.getProducts()
-			if (!products)
+			if (!products.length)
 				return true
 
 			if (!_.keys(products).length)
@@ -671,48 +699,38 @@ define([
 		}
 	})
 
+	/**
+	 *
+	 */
+	class wwProductNav {
+		constructor(app, $scope) {
+			$scope.$watch(() => this.section, (section) => {
+				app.filters.section = section
+			})
+		}
+	}
+
+	app.component('wwProductNav', {
+		controller: wwProductNav,
+		templateUrl: 'app/views/productnav.html',
+	})
 
 	/**
 	 *
 	 */
-	app.service('productResource', class Product {
-		constructor($http, $q) {
-			this.$http = $http
-			this.$q = $q
-		}
-
-		_responseData(response) {
-			return response.data
-		}
-
-		get(part) {
-			if (!part) {
-				return this.$q.when()			// No part, no products
-			}
-
-			var url = Url.product(part)
-
-			return this.$http.get(url).then(this._responseData.bind(this)).then((product) => {
-				// Assign sequential unique id to every group so we can can distinguish and order them
-				if (product) {
-					var i = 0
-					product.partGroups.forEach((group) => group.id = i++)
-				}
-
-				return product
+	class wwSectionSelection {
+		constructor(sectionResource) {
+			sectionResource.getSections().then((sections) => {
+				this.sections = sections
 			})
 		}
+	}
 
-		getProducts() {
-			var url = Url.products();
-
-			return this.$http.get(url).then(
-				this._responseData.bind(this),
-				response => {
-					// No product found. Simply return nothing
-					return undefined
-				}
-			)
+	app.component('wwSectionSelection', {
+		controller: wwSectionSelection,
+		templateUrl: 'app/views/sectionselection.html',
+		bindings: {
+			selected: '=?'
 		}
 	})
 });

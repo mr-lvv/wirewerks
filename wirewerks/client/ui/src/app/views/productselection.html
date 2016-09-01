@@ -6,6 +6,7 @@
 
 		<md-autocomplete
 			md-selected-item="$ctrl.selectedItem"
+			md-no-cache="true"
 			md-require-match="true"
 			md-autofocus="false"
 			md-select-on-match="true"
@@ -14,7 +15,7 @@
 			md-search-text="$ctrl.searchText"
 			md-selected-item-change="$ctrl.selectedItemChange(item)"
 			md-items="item in $ctrl.query($ctrl.searchText)"
-			md-item-text="item"
+			md-item-text="item.part"
 			md-min-length="0"
 			ng-keydown="$ctrl.keydown($event)"
 			md-select-on-focus
@@ -22,11 +23,11 @@
 			placeholder="Enter the product part number.">
 
 			<md-item-template>
-				<span md-highlight-text="$ctrl.searchText" md-highlight-flags="^i">{{item}}</span>
+				<span md-highlight-text="$ctrl.searchText" md-highlight-flags="^i">{{item.part.toLowerCase()}}</span><span ng-if="item.title"> -- {{item.title.toLowerCase()}}</span>
 			</md-item-template>
 
 			<md-not-found>
-				No products matching "{{$ctrl.searchText}}" were found.
+				<span ng-bind-html="$ctrl.notFoundMessage()"></span>
 			</md-not-found>
 
 		</md-autocomplete>

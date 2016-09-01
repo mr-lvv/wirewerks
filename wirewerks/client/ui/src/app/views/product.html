@@ -1,18 +1,9 @@
 <div layout="column" ng-cloak>
 	<section layout="row" flex>
 		<md-sidenav class="md-sidenav-left" md-is-locked-open="$mdMedia('gt-md')" md-whiteframe="4">
-			<md-toolbar>
-				<h1 class="md-toolbar-tools">Search Filters</h1>
-			</md-toolbar>
-			<md-content layout-padding >
-				<md-button ng-click="$ctrl.close()" class="md-primary" hide-gt-md>
-					Close
-				</md-button>
-				<div hide show-gt-md>
-					Products.
-				</div>
-			</md-content>
+			<ww-product-nav></ww-product-nav>
 		</md-sidenav>
+
 
 		<md-content>
 			<product-header>

@@ -11,6 +11,10 @@ define([], function() {
 		static datasheet(sheet) {
 			return 'http://www.wirewerks.com/wp-content/uploads/' + sheet + '-EN-C.pdf'
 		}
+
+		static sections() {
+			return '/api/client/sections'
+		}
 	}
 
 	return Url
