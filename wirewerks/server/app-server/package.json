@@ -10,7 +10,8 @@
     "compression": "^1.6.2",
     "cors": "^2.7.1",
     "express": "^4.14.0",
+    "lodash": "^4.15.0",
     "resource-router-middleware": "^0.6.0",
-    "lodash": "^4.15.0"
+    "yargs": "^5.0.0"
   }
 }

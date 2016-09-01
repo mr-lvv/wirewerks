@@ -5,7 +5,7 @@ var _ = require('lodash')
 
 // For resource example: https://github.com/developit/express-es6-rest-api/blob/master/src/api/facets.js
 class Api {
-	constructor(app) {
+	constructor(app, config) {
 		var client = express.Router();
 
 		client.use(function (request, response, next) {

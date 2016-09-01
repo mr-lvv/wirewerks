@@ -3,9 +3,11 @@ var Builder = require('systemjs-builder')
 var babel = require("babel-core")
 var fs = require('fs-extra')
 var lodash = require('lodash')
+var child_process = require('child_process')
 
 var paths = {
 	dist: './dist',
+	styles: './src/styles/',
 
 	common: {
 		source: '../../common',
@@ -43,6 +45,28 @@ function babelBuild(callback) {
 			callback()
 		});
 	})
+}
+
+function buildCss() {
+	var filename = 'main.scss'
+	var output = 'main.css'
+
+	var exec = '../../../../server/ww-libsass/node_sass/node_modules/.bin/node-sass'
+	var args = ` --output-style nested --source-map true ${filename} ${output}`;
+	var cmd = exec + args
+
+	console.log('Building css: ', cmd);
+	var result = child_process.execSync(cmd, {cwd: paths.styles})
+	console.log(result.toString());
+}
+
+function buildPostCss() {
+	var cmd = '../../../../server/ww-libsass/node_modules/.bin/postcss'
+	var args = ` --config .postcss.json`;
+
+	console.log('Building css prefix: ', cmd);
+	var result = child_process.execSync(cmd + args, {cwd: paths.styles})
+	console.log(result.toString());
 }
 
 function build() {
@@ -111,11 +135,16 @@ function preBuild() {
 	fs.copySync('./src', './dist', options)
 	fs.copySync('./src/styles/main_production.css', './dist/styles/main.css')
 }
+
 try
 {
 	linkCommon()
 	fs.removeSync(paths.dist)
 	preBuild()
+
+	buildCss()
+	buildPostCss()
+
 	build();
 } catch (error) {
 	console.error(error);
