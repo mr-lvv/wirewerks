@@ -378,7 +378,8 @@ define([
 	 */
 	class Part {
 		constructor() {
-			this.inputValue=""
+			this.inputValue=null
+			this.decimal = false
 		}
 
 		get partInfo() {
@@ -398,27 +399,88 @@ define([
 		}
 
 		validate(value) {
-			return !this.inputValue || this.inputValue == 0
+			//here we can use regexp to check
+			if(!value || value == 0)
+				return false
+
+			if(this.part.allowDecimal)
+			{
+				var re = new RegExp('^\\d{1,' + this.numberOfDigit() + "}(\\.[0-9][0-9]?)?$");
+				return re.test(value)
+			}
+			else
+			{
+				var re = new RegExp('^\\d{1,' + this.numberOfDigit() + "}$");
+				return re.test(value)
+			}
 		}
 
 		valueChange() {
 
-			if(this.validate(this.inputValue)) {
+			//This happens when we delete or backspace
+
+			//this.order.updatePart(this.partInfo)
+			if (this.inputValue.indexOf(".") < 0)
+				this.decimal = false
+
+			this._updateValue()
+
+		}
+
+		_updateValue()
+		{
+			var maxChars = this.numberOfDigit()
+			var maxDecimal = this.decimal ? 2+1 : 0 //includes the period
+
+			if(this.inputValue.length > maxChars + maxDecimal)
+			{
+				//the keypress is adding a number to big, shift everything to the right
+				this.inputValue = this.inputValue.substr(1);
+
+				//if it's decimal we need to move the decimal point too
+				if(this.decimal)
+					this.inputValue = (this.inputValue * 10).toFixed(2)
+			}
+
+			if(!this.validate(this.inputValue)) {
 				this.part.inputValue = undefined
 				this.part.inputValueValid = false
-			}
-			else {
-				function pad(num, size) {
-					var s = num+"";
-					while (s.length < size) s = "0" + s;
+			} else {
+				this.part.inputValue = this.inputValue
+				this.part.inputValueValid = true
+
+				function pad(num, size, decimal) {
+					var s = num + "";
+					while (s.length < size) {
+						if(!decimal)
+							s = "0" + s;
+						else
+							s = s + "0"
+					}
 					return s;
 				}
 
-				this.part.inputValue = pad(this.inputValue, this.numberOfDigit()) + this.getSuffix()
-				this.part.inputValueValid = true
+				var splitValue = this.inputValue.split(".")
+
+				if(splitValue[0].length < maxChars)
+					splitValue[0] = pad(splitValue[0], maxChars, false)
+
+
+				this.part.inputValue = splitValue[0]
+				if(this.decimal) {
+					if(splitValue[1].length > 0 && splitValue[1].length < maxDecimal-1)
+						splitValue[1] = pad(splitValue[1], maxDecimal-1, true)
+
+					this.part.inputValue = this.part.inputValue + "." + splitValue[1]
+				}
+
+				//Replace dot by D
+				this.part.inputValue = this.part.inputValue.replace('.', 'D')
 			}
+
 			this.order.updatePart(this.partInfo)
 		}
+
 
 		numberOfDigit() {
 			return _.countBy(this.part.value)['X'];
@@ -427,13 +489,20 @@ define([
 		limit($event)
 		{
 			var element = $event.target
-			var max_chars = this.numberOfDigit()-1;
-			if(isNaN(String.fromCharCode($event.which))) {
+
+			var keyPress = String.fromCharCode($event.which)
+			if(this.part.allowDecimal && !this.decimal && keyPress == '.')
+			{
+				this.decimal = true
+			}
+			else if(isNaN(keyPress)) {
 				return $event.preventDefault()
 			}
-			if(element.value.length > max_chars) {
-				element.value = element.value.substr(0, max_chars);
-			}
+			//now we know it's either the decimal or a digit that was input
+			this.inputValue = this.inputValue ? this.inputValue : ""
+			this.inputValue += keyPress
+			this._updateValue()
+			$event.preventDefault()
 		}
 
 		style() {
