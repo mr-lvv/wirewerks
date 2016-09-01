@@ -485,6 +485,10 @@ define([
 
 				//Replace dot by D
 				this.part.inputValue = this.part.inputValue.replace('.', 'D')
+
+				//Replace non X values by
+				var toAppend = this.part.value.replace(/X+/g,'')
+				this.part.inputValue += toAppend
 			}
 
 			this.order.updatePart(this.partInfo)
