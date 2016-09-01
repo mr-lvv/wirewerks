@@ -22,5 +22,5 @@ define(['../app'], function(app) {
 		}
 	}
 
-	app.sevice('facetedQuery', FacetedQuery)
+	app.service('facetedQuery', FacetedQuery)
 });
