@@ -1,4 +1,71 @@
 define(['../app', './url'], function(app, Url) {
+	/**
+	 *
+	 */
+	class SectionsCache {
+		constructor($q, sectionResource) {
+			this.resource = sectionResource
+			this._cache = undefined
+			this.$q = $q
+		}
+
+		get(force) {
+			if (this._cache || force) {
+				return this.$q.when(this._cache)
+			}
+
+			return this.resource.getSections().then(sections => {
+				this._cache = sections
+				return this._cache
+			})
+		}
+
+		byId(sectionId) {
+			return this.get().then((sections) => {
+				return _.find(sections, (section) => {
+					return section.id === sectionId
+				})
+			})
+		}
+	}
+
+	app.service('sectionsCache', SectionsCache)
+
+	/**
+	 *
+	 */
+	class ProductsCache {
+		constructor($q, productResource) {
+			this.resource = productResource
+			this._cache = undefined
+			this.$q = $q
+		}
+
+		get(force) {
+			if (this._cache || force) {
+				return this.$q.when(this._cache)
+			}
+
+			return this.resource.getProducts().then(products => {
+				this._cache = products
+			})
+		}
+
+		byId(productId) {
+			return this.get().then((products) => {
+				return _.find(products, (product) => {
+					return product.part.toLowerCase() === productId.toLowerCase()
+				})
+			})
+		}
+	}
+
+	app.service('productsCache', ProductsCache)
+
+
+	/**
+	 *
+	 */
 	class Resource {
 		constructor() {}
 
@@ -24,7 +91,7 @@ define(['../app', './url'], function(app, Url) {
 				return this.$q.when()			// No part, no products
 			}
 
-			var url = Url.product(part.toLowerCase())
+			var url = Url.product(part)
 
 			return this.$http.get(url).then(this._responseData.bind(this)).then((product) => {
 				// Assign sequential unique id to every group so we can can distinguish and order them

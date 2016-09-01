@@ -1,0 +1,7 @@
+<md-list flex ng-if="$ctrl.products.length" ng-cloak>
+	<md-subheader class="md-no-sticky">Product list</md-subheader>
+	<ww-product-list-item product="product" ng-repeat="product in $ctrl.products"></ww-product-list-item>
+</md-list>
+<div ng-if="!$ctrl.products.length">
+	<em>There are no products in this section.</em>
+</div>

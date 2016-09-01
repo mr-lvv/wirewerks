@@ -13,6 +13,12 @@ define([
 		FastClick.attach(document.body)
 	})
 
+	function filterProductsBySection(products, section) {
+		return _.filter(products, (product) => {
+			return product.section === section.id
+		})
+	}
+
 	var views = {
 		product: 'product',
 		cart: 'cart',
@@ -469,13 +475,13 @@ define([
 	 *
 	 */
 	class ProductSelection {
-		constructor(productResource, $scope, $element, $timeout, app) {
+		constructor(productResource, $scope, $element, $timeout, app, productsCache) {
 			this.app = app
 			this.searchText = this.selectedItem ? this.selectedItem.part : ''
 			this.productResource = productResource
 			this.$scope = $scope
-			this.products =[]
-			this.productResource.getProducts().then(products => {
+			this.products = []
+			productsCache.get().then(products => {
 				this.products = products
 			})
 		}
@@ -508,9 +514,7 @@ define([
 			// Filter by selected section
 			var sectionFilter= this.app.filters.section
 			if (sectionFilter) {
-				products = _.filter(products, (product) => {
-					return product.section === sectionFilter.id
-				})
+				products = filterProductsBySection(products, sectionFilter.id)
 			}
 
 			// Filter items that don't match
@@ -634,7 +638,16 @@ define([
 	 *
 	 */
 	class wwProductNav {
-		constructor(app, $scope) {
+		constructor(app, $scope, $routeParams, productsCache, sectionsCache) {
+			// Set the section to the currently viewed product on page refresh
+			if (app.view === views.product) {
+				productsCache.byId($routeParams.productId).then((product) => {
+					sectionsCache.byId(product.section).then((section) => {
+						this.section = section
+					})
+				})
+			}
+
 			$scope.$watch(() => this.section, (section) => {
 				app.filters.section = section
 			})
@@ -650,8 +663,8 @@ define([
 	 *
 	 */
 	class wwSectionSelection {
-		constructor(sectionResource) {
-			sectionResource.getSections().then((sections) => {
+		constructor(sectionsCache) {
+			sectionsCache.get().then((sections) => {
 				this.sections = sections
 			})
 		}
@@ -662,6 +675,51 @@ define([
 		templateUrl: 'app/views/sectionselection.html',
 		bindings: {
 			selected: '=?'
+		}
+	})
+
+	/**
+	 *
+	 */
+	class wwSectionProducts {
+		constructor(app, productsCache, $scope) {
+			$scope.$watch(() => this.section, (section) => {
+				productsCache.get().then(products => {
+					this.products = []
+
+					// Filter by selected section
+					if (section) {
+						this.products = filterProductsBySection(products, section)
+					}
+				})
+			})
+		}
+	}
+
+	app.component('wwSectionProducts', {
+		controller: wwSectionProducts,
+		templateUrl: 'app/views/sectionproducts.html',
+		bindings: {
+			section: '=?'
+		}
+	})
+
+	/**
+	 *
+	 */
+	class wwProductListItem {
+		constructor(app) {
+			this.selectProduct = () => {
+				app.goToProducts(this.product.part)
+			}
+		}
+	}
+
+	app.component('wwProductListItem', {
+		controller: wwProductListItem,
+		templateUrl: 'app/views/productlistitem.html',
+		bindings: {
+			product: '='
 		}
 	})
 });

@@ -18,9 +18,17 @@ class Api {
 		});
 
 		client.get("/product/:part", (request, response) => {
-			if(products[request.params.part])
+			var product = products[request.params.part];
+			if (!product) {
+				product = products[request.params.part.toLowerCase()];
+			}
+			if (!product) {
+				product = products[request.params.part.toUpperCase()];
+			}
+
+			if(product)
 			{
-				response.status(200).send(products[request.params.part]);
+				response.status(200).send(product);
 			}
 			else
 			{
