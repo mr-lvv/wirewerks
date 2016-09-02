@@ -33,6 +33,22 @@ ww-app {
 		padding-left:10px;
 	}
 	md-toolbar.header {
+
+		.md-toolbar-tools {
+		}
+
+		.md-button.menu,
+		.md-button.home, {
+			padding-right: 0;
+			margin-right: 0;
+			padding-left: 0;
+			margin-left: 0;
+
+			md-icon {
+				margin: 0;
+			}
+		}
+
 		ww-product-selection {
 			flex-grow: 1;
 
@@ -208,6 +224,8 @@ ww-part {
 }
 
 ww-product-selection {
+	display: block;
+
 	form {
 		display: flex;
 		align-items: center;
@@ -314,7 +332,7 @@ ww-cart {
 
 	.cartItemDescription {
 		width:200px;
-		height:50px;
+		min-height:50px;
 		flex-grow:1;
 		padding : 5px 5px 5px 5px;
 	}
@@ -327,7 +345,7 @@ ww-cart {
 		justify-content:space-between;
 		align-items : center;
 		display: flex;
-		height : 70px;
+		min-height : 70px;
 		flex-direction : row;
 		padding: 2px 2px 2px 2px;
 		margin:2px 2px 2px 2px;
