@@ -588,12 +588,9 @@ define([
 		}
 
 		query(text) {
+			var products = this.products
 
 			// Filter by selected section
-
-			//ask Mathieu why it seems we have to do a deep clone of this.products...
-			var products = this.products.slice()
-
 			var sectionFilter= this.app.filters.section
 			if (sectionFilter) {
 				products = filterProductsBySection(products, sectionFilter)
@@ -840,7 +837,7 @@ define([
 						this.products = filterProductsBySection(products, section)
 					}
 					else
-						this.products = products
+						this.products = _.sortBy(products, function(o) {return o.part})
 				})
 			})
 		}
