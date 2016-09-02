@@ -6,11 +6,11 @@
 	<div class="cart"  ng-if="!$ctrl.isEmpty()">
 		<div class="cartClientInfo">
 			<md-input-container>
-				<input type="text" ng-model="clientInfo" placeholder="Client Name" aria-label="client Info">
+				<input type="text" ng-model="$ctrl.client" placeholder="Client Name" aria-label="client Info">
 			</md-input-container>
 
 			<md-input-container>
-				<input type="text" ng-model="Email" placeholder="Email" aria-label="email">
+				<input type="email" ng-model="$ctrl.email" placeholder="E-mail" aria-label="email">
 			</md-input-container>
 		</div>
 

@@ -647,6 +647,8 @@ define([
 			this.products = undefined
 			this.$scope = $scope
 			this.$scope.$watch(()=>this.products, this._updateQuantity.bind(this), true)
+			this.email = ""
+			this.client = ""
 		}
 
 		_updateQuantity() {
