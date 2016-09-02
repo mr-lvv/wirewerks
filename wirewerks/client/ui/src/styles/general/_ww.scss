@@ -267,6 +267,21 @@ ww-cart {
 	flex-grow: 1;
 	flex-direction: column;
 
+	.cart {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.cartClientInfo {
+		padding: 5px 5px 5px 5px;
+		display: flex;
+		flex-direction: column;
+
+		md-input-container {
+			width : 33%;
+		}
+
+	}
 	.empty {
 		display: flex;
 		justify-content: center;
