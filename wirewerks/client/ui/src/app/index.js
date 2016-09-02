@@ -837,10 +837,11 @@ define([
 			$scope.$watch(() => this.section, (section) => {
 				productsCache.get().then(products => {
 					this.products = []
-					// Filter by selected section
 					if (section) {
 						this.products = filterProductsBySection(products, section)
 					}
+					else
+						this.products = products
 				})
 			})
 		}
