@@ -29,9 +29,11 @@ define(['chroma'], function(chroma) {
 			} else if (type === 'L') {
 				color = chroma('#ee4a97')
 			} else if (type === 'N') {
-				color = chroma('#c7b227')
+				color = chroma('#821f24')
 			} else if (type === 'Y') {
 				color = chroma('#f47421')
+			} else if (type === 'U') {
+				color = chroma('#fcb116')
 			} else {
 				console.warn('No color set for category: ', type, ' -- using random color instead.')
 				color = chroma.random()
