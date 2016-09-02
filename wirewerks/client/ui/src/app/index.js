@@ -651,7 +651,11 @@ define([
 			//Angular's email doesn't check TLD, even though we understand it's possible to have: me@localhost, it won't happen in this case...
 			this.emailValidation = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 			this.email = ""
-			this.client = ""
+			this.client = this.cart.getClient()
+			this.$scope.$watch(()=>this.client, this._setClient.bind(this))
+
+			this.email = this.cart.getEmail()
+			this.$scope.$watch(()=>this.email, this._setEmail.bind(this))
 		}
 
 		_updateQuantity() {
@@ -669,6 +673,23 @@ define([
 		removeFromCart(partNumber) {
 			this.cart.removeFromCart(partNumber)
 		}
+
+		getClient() {
+			this.cart.getClient()
+		}
+
+		_setClient(client) {
+			this.cart.setClient(this.client)
+		}
+
+		getEmail() {
+			this.cart.getEmail()
+		}
+
+		_setEmail(client) {
+			this.cart.setEmail(this.email)
+		}
+
 
 		isEmpty() {
 			var products = this.cart.getAllCart()
@@ -688,7 +709,32 @@ define([
 
 	app.service('cart',  class Cart {
 		constructor() {
-			this.products = undefined;
+			this.products = undefined
+			this.email = undefined
+			this.client = undefined
+		}
+
+
+		getClient() {
+			if(!this.client)
+				this.client = localStorage.getItem("client")
+			return this.client ? this.client : ""
+		}
+
+		setClient(client){
+			localStorage.setItem("client", client)
+			this.client = client
+		}
+
+		getEmail() {
+			if(!this.email)
+				this.email = localStorage.getItem("email")
+			return this.email ? this.email : ""
+		}
+
+		setEmail(email){
+			localStorage.setItem("email", email)
+			this.email = email
 		}
 
 		updateQuantity(products) {
