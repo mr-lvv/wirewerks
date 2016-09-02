@@ -277,13 +277,17 @@ ww-cart {
 	.cartClientInfo {
 		padding: 5px 5px 5px 5px;
 		display: flex;
-		flex-direction: column;
 
 		md-input-container {
-			width : 33%;
+			min-width : 33%;
 		}
 
 	}
+
+	.cartSubmit {
+		padding: $padding-large $padding-normal;
+	}
+
 	.empty {
 		display: flex;
 		justify-content: center;
