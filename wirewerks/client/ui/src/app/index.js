@@ -588,15 +588,17 @@ define([
 		}
 
 		query(text) {
-			var products = this.products
 
 			// Filter by selected section
+
+			//ask Mathieu why it seems we have to do a deep clone of this.products...
+			var products = this.products.slice()
+
+
 			var sectionFilter= this.app.filters.section
 			if (sectionFilter) {
-				products = filterProductsBySection(products, sectionFilter.id)
+				products = filterProductsBySection(products, sectionFilter)
 			}
-
-			// Filter items that don't match
 			var results = _.filter(products, function(product) {
 				var re = new RegExp('^' + text, 'i')
 				return re.test(product.part)
@@ -784,7 +786,6 @@ define([
 			$scope.$watch(() => this.section, (section) => {
 				productsCache.get().then(products => {
 					this.products = []
-
 					// Filter by selected section
 					if (section) {
 						this.products = filterProductsBySection(products, section)
