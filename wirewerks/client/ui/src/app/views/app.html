@@ -1,5 +1,4 @@
-<md-content>
-	<md-toolbar class="header">
+<md-toolbar class="header">
 		<span class="md-toolbar-tools">
 
 			<md-button class="md-icon-button menu s32" ng-click="$ctrl.toggleNavigation()" hide-gt-md>
@@ -18,8 +17,9 @@
 				<md-icon md-svg-icon="images/svg/general/shopping-cart.svg" class="s32" aria-label="label"></md-icon>
 			</md-button>
 		</span>
-	</md-toolbar>
+</md-toolbar>
 
+<md-content>
 	<ng-switch on="$ctrl.app.view">
 		<ww-cart ng-switch-when="cart"></ww-cart>
 		<ww-order ng-switch-when="product" product-id="$ctrl.id"></ww-order>
