@@ -48,6 +48,7 @@ define(['../app', './url'], function(app, Url) {
 
 			return this.resource.getProducts().then(products => {
 				this._cache = products
+				return this._cache
 			})
 		}
 
@@ -107,9 +108,9 @@ define(['../app', './url'], function(app, Url) {
 		getProducts() {
 			var url = Url.products();
 
-			return this.$http.get(url).then(this._responseData.bind(this), response => {
+			return this.$http.get(url).then(this._responseData.bind(this)).then((response) => {
 				// No product found.
-				return []
+				return response
 			})
 		}
 	}

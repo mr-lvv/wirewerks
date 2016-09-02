@@ -588,15 +588,17 @@ define([
 		}
 
 		query(text) {
-			var products = this.products
 
 			// Filter by selected section
+
+			//ask Mathieu why it seems we have to do a deep clone of this.products...
+			var products = this.products.slice()
+
+
 			var sectionFilter= this.app.filters.section
 			if (sectionFilter) {
-				products = filterProductsBySection(products, sectionFilter.id)
+				products = filterProductsBySection(products, sectionFilter)
 			}
-
-			// Filter items that don't match
 			var results = _.filter(products, function(product) {
 				var re = new RegExp('^' + text, 'i')
 				return re.test(product.part)
@@ -645,6 +647,15 @@ define([
 			this.products = undefined
 			this.$scope = $scope
 			this.$scope.$watch(()=>this.products, this._updateQuantity.bind(this), true)
+
+			//Angular's email doesn't check TLD, even though we understand it's possible to have: me@localhost, it won't happen in this case...
+			this.emailValidation = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+			this.email = ""
+			this.client = this.cart.getClient()
+			this.$scope.$watch(()=>this.client, this._setClient.bind(this))
+
+			this.email = this.cart.getEmail()
+			this.$scope.$watch(()=>this.email, this._setEmail.bind(this))
 		}
 
 		_updateQuantity() {
@@ -662,6 +673,23 @@ define([
 		removeFromCart(partNumber) {
 			this.cart.removeFromCart(partNumber)
 		}
+
+		getClient() {
+			this.cart.getClient()
+		}
+
+		_setClient(client) {
+			this.cart.setClient(this.client)
+		}
+
+		getEmail() {
+			this.cart.getEmail()
+		}
+
+		_setEmail(client) {
+			this.cart.setEmail(this.email)
+		}
+
 
 		isEmpty() {
 			var products = this.cart.getAllCart()
@@ -681,7 +709,32 @@ define([
 
 	app.service('cart',  class Cart {
 		constructor() {
-			this.products = undefined;
+			this.products = undefined
+			this.email = undefined
+			this.client = undefined
+		}
+
+
+		getClient() {
+			if(!this.client)
+				this.client = localStorage.getItem("client")
+			return this.client ? this.client : ""
+		}
+
+		setClient(client){
+			localStorage.setItem("client", client)
+			this.client = client
+		}
+
+		getEmail() {
+			if(!this.email)
+				this.email = localStorage.getItem("email")
+			return this.email ? this.email : ""
+		}
+
+		setEmail(email){
+			localStorage.setItem("email", email)
+			this.email = email
 		}
 
 		updateQuantity(products) {
@@ -784,7 +837,6 @@ define([
 			$scope.$watch(() => this.section, (section) => {
 				productsCache.get().then(products => {
 					this.products = []
-
 					// Filter by selected section
 					if (section) {
 						this.products = filterProductsBySection(products, section)

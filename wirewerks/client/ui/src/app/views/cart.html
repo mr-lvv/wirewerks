@@ -3,22 +3,38 @@
 		<h1 class="md-headline">Your cart is empty.</h1>
 	</div>
 
-	<div class="cartItem" ng-repeat="product in $ctrl.getProducts()">
-		<div class="cartItemImage">Image</div>
-		<div class="cartItemDescription">
-			<div class="cartItemName">{{product.name}}</div>
-			<div class="" cartItemDescription>{{product.description}}</div>
+	<div class="cart"  ng-if="!$ctrl.isEmpty()">
+		<div class="cartClientInfo">
+			<md-input-container>
+				<input type="text" ng-model="$ctrl.client" placeholder="Client Name" aria-label="client Info">
+			</md-input-container>
+
+			<md-input-container>
+				<input type="email" ng-model="$ctrl.email" placeholder="E-mail" aria-label="email" ng-pattern="$ctrl.emailValidation">
+			</md-input-container>
 		</div>
-		<div class="cartItemPrice"></div>
-		<div class="cartItemQuantity" layout layout-align="center center" >
-			<md-select ng-model="product.quantity" class="md-no-underline" required aria-label="quantity">
-				<md-option ng-repeat="value in $ctrl.quantityChoice" value="{{value}}">
-					{{value}}
-				</md-option>
-			</md-select>
+
+		<div class="cartItem" ng-repeat="product in $ctrl.getProducts()">
+			<div class="cartItemImage">Image</div>
+			<div class="cartItemDescription">
+				<div class="cartItemName">{{product.name}}</div>
+				<div class="" cartItemDescription>{{product.description}}</div>
+			</div>
+			<div class="cartItemPrice"></div>
+			<div class="cartItemQuantity" layout layout-align="center center" >
+				<md-select ng-model="product.quantity" class="md-no-underline" required aria-label="quantity">
+					<md-option ng-repeat="value in $ctrl.quantityChoice" value="{{value}}">
+						{{value}}
+					</md-option>
+				</md-select>
+			</div>
+			<div class="cartItemRemove">
+				<md-button ng-click="$ctrl.removeFromCart(product.name)">Remove</md-button>
+			</div>
 		</div>
-		<div class="cartItemRemove">
-			<md-button ng-click="$ctrl.removeFromCart(product.name)">Remove</md-button>
+
+		<div class="cartSubmit">
+			<md-button ng-click="">Send Email</md-button>
 		</div>
 	</div>
 </div>
