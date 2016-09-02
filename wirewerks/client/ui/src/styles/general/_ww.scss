@@ -20,7 +20,7 @@ ww-app {
 	min-height: 100vh;
 	position: relative;
 
-	background-image: url('/images/general/background_dots.png');
+	background-image: url('/images/general/background_dots_alpha.png');
 	background-size: 50%;
 	background-repeat: no-repeat;
 	background-position: top left;
@@ -58,7 +58,7 @@ ww-home {
 		justify-content: center;
 
 		md-card {
-			width: 200px;
+			width: 250px;
 
 			img {
 				cursor: pointer;
@@ -82,7 +82,7 @@ ww-product {
 	product-header {
 		display: flex;
 		flex-direction: column;
-		align-items: flex-end;
+		align-items: flex-start;
 
 		.title {
 			color: $product-title;
@@ -102,7 +102,7 @@ ww-product {
 		}
 
 		.datasheet {
-			display: block;
+			display: inline-block;
 		}
 
 		ww-order-number {
