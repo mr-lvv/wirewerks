@@ -841,7 +841,7 @@ define([
 						this.products = filterProductsBySection(products, section)
 					}
 					else
-						this.products = products
+						this.products = _.sortBy(products, function(o) {return o.part})
 				})
 			})
 		}
