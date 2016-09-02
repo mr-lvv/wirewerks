@@ -594,7 +594,6 @@ define([
 			//ask Mathieu why it seems we have to do a deep clone of this.products...
 			var products = this.products.slice()
 
-
 			var sectionFilter= this.app.filters.section
 			if (sectionFilter) {
 				products = filterProductsBySection(products, sectionFilter)
@@ -860,10 +859,13 @@ define([
 	 */
 	class wwProductListItem {
 		constructor(app, $mdSidenav) {
-			this.selectProduct = () => {
+			this.selectProduct = ($event) => {
 				app.goToProducts(this.product.part)
 
-				$mdSidenav('ww-nav-left').toggle().then(function () {});
+				var sidenav = $mdSidenav('ww-nav-left')
+				if (!sidenav.isLockedOpen()) {
+					sidenav.toggle().then(function () {});
+				}
 			}
 		}
 	}
