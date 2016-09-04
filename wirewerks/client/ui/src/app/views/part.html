@@ -1,10 +1,11 @@
 <div class="content" ng-click="$ctrl.select()" ng-class="{selected: $ctrl.isSelected()}">
 	<header ng-style="$ctrl.style()">
 		<label ng-if="!$ctrl.shouldShowXIsDigit()">{{$ctrl.part.value}}{{$ctrl.part.finePrint}}</label>
-		<md-input-container ng-if="$ctrl.shouldShowXIsDigit()">
+		<md-input-container ng-if="$ctrl.shouldShowXIsDigit()" ng-click="$ctrl.digitClick($event)">
 			<label class="no-animate" ng-if="$ctrl.part.inputValue">{{$ctrl.part.inputValue}}</label>
 			<label class="no-animate" ng-if="!$ctrl.part.inputValue">{{$ctrl.part.value}}</label>
-			<input type="text" ng-model="$ctrl.inputValue" ng-change="$ctrl.valueChange()" ng-keypress="$ctrl.limit($event)" aria-label="value">
+			<input type="text" ng-model="$ctrl.inputValue" ng-change="$ctrl.valueChange()" ng-keypress="$ctrl.limit($event)"
+				   ng-blur="$ctrl.nextCategory()" aria-label="value">
 		</md-input-container>
 	</header>
 

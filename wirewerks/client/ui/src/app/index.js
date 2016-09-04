@@ -1,6 +1,7 @@
 define([
 	'angular',
 	'fastclick',
+	'scrollTo',
 	'chroma',
 	'./app',
 	'./lib/url',
@@ -8,10 +9,22 @@ define([
 	'./lib/routes',
 	'./lib/search',
 	'./lib/resources'
-], function(ng, FastClick, chroma, app, Url, CategoryColors, search, resources) {
+], function(ng, FastClick, scrollTo, chroma, app, Url, CategoryColors, search, resources) {
 	app.run(() => {
 		FastClick.attach(document.body)
 	})
+
+	function productCategories(product) {
+		var categories = []
+		product.partGroups.forEach(group => {
+			group.partCategories.forEach(category => {
+				if (!category.constant)
+					categories.push(category)
+			})
+		})
+
+		return categories
+	}
 
 	function filterProductsBySection(products, section) {
 		return _.filter(products, (product) => {
@@ -166,7 +179,9 @@ define([
 			})
 		}
 
-		_partForCategory(category) {
+		partForCategory(category) {
+			if (!category) return
+
 			return _.find(this.parts, (partInfo) => {
 				return partInfo.category.type === category.type
 			})
@@ -182,6 +197,10 @@ define([
 		addPart(partInfo) {
 			if (!partInfo.part.inputValue && this.isPartInOrder(partInfo)) {return}
 			this.updatePart(partInfo)
+		}
+
+		removePart(partInfo) {
+			this._removeCategory(partInfo.category)
 		}
 
 		isPartInOrder(partInfo) {
@@ -230,7 +249,7 @@ define([
 						this.partNumber += category.title
 					}
 					else {
-						var partInfo = this._partForCategory(category)
+						var partInfo = this.partForCategory(category)
 
 						var label = _.repeat(category.type, category.length)
 						var selected = false
@@ -304,8 +323,91 @@ define([
 	/**
 	 *
 	 */
+	app.service('Nav', function($rootScope) {
+		/**
+		 *
+		 */
+		class Nav {
+			constructor() {
+			}
+
+			init(product, order) {
+				this.product = product
+				this.order = order
+
+				this.next()
+			}
+
+			_nextFocusedIndex(focusedIndex, categories, order) {
+				if (focusedIndex === -1)
+					focusedIndex = 0
+
+				// Start from focusedIndex an find the next category that has no selected parts
+				for (let i = 0; i < categories.length; i++) {
+					var nextIndex = (i + focusedIndex) % categories.length
+					var category = categories[nextIndex]
+
+					if (!this.order.partForCategory(category)) {
+						return nextIndex
+					}
+				}
+
+				// All parts are selected
+				return undefined
+			}
+
+			next(fromCategory) {
+				if (!this.order || !this.product) {
+					console.warn('No order or product on navigation. Cannot focus next category.')
+					return
+				}
+
+				//
+				// Select next category
+				var categories = productCategories(this.product)
+				if (!categories.length)
+					return
+
+				// Find currently focused category
+				var focusedIndex = 0
+				if (fromCategory) {
+					focusedIndex = _.findIndex(categories, category => category.type === fromCategory.type)
+				}
+
+				// Reset navigation info on categories
+				categories.forEach(category => {
+					category.navFocus = false
+				})
+
+				var index = this._nextFocusedIndex(focusedIndex, categories)
+				if (index !== undefined) {
+					categories[index].navFocus = true
+					$rootScope.$emit('nav.focus', categories[index])
+				}
+			}
+		}
+
+		return Nav
+	})
+
+	/**
+	 *
+	 */
 	class Product {
-		constructor() {
+		constructor($scope, $rootScope, Nav) {
+			function initNav() {
+				if (this.product && this.order) {
+					this.nav = new Nav()
+					this.nav.init(this.product, this.order)
+				}
+			}
+
+			$scope.$watch(() => this.product, initNav.bind(this))
+			$scope.$watch(() => this.order, initNav.bind(this))
+
+			$rootScope.$on('part.selected', (event, partInfo) => {
+				this.nav.next(partInfo.category)
+			})
 		}
 
 		getDataSheetLink() {
@@ -354,7 +456,7 @@ define([
 	 *
 	 */
 	class PartCategory {
-		constructor($scope) {
+		constructor($scope, $rootScope, $element) {
 			$scope.$watch('$ctrl.category', category => {
 				if (!category) {
 					return
@@ -368,20 +470,96 @@ define([
 					})
 				}
 			})
+
+			$rootScope.$on('nav.focus', (event, category) => {
+				//
+				// Scroll horizontally to new category
+				if (category.type === this.category.type) {
+					var product = $('.product')
+/*
+					product.scrollTo($element, {
+						axis: 'x',
+						interrupt: true,
+						duration: 2000,
+						left: '+=150'
+//						offset: {top: 0, left: -200}
+					})
+					*/
+					/*
+					var productOffset = product.offset().left
+					var pos_x = $element.offset().left - productOffset
+					var width = product.width()
+					var visible = width - productOffset
+					*/
+				}
+			})
+		}
+
+		_navFocusDistance() {
+			if (this.isNavFocused())
+				return 1
+
+			return 0
+		}
+
+		_navZoom() {
+			return this._navFocusDistance() * 1.25
 		}
 
 		style() {
-			if (!this.category) {
-				return
+			if (!this.category) {return}
+
+			var color = this.category.color
+			if (!this.isPicked())
+				color = color.darken(1.1)
+
+			var style = {background: color.css()}
+			var navZoom = this._navZoom()
+			if (navZoom) {
+				style.zoom = (navZoom * 100) + '%'
 			}
 
-			return {background: this.category.color.css()}
+			return style
+		}
+
+		columnStyle() {
+			var style = {}
+			if (this.isNavFocused()) {
+				style['min-width'] = 200;
+				style['max-width'] = 200;
+			}
+
+			return style
+		}
+
+		// Is any part picked in this category?
+		isPicked() {
+			return this.order.partForCategory(this.category)
+		}
+
+		// Is this category the next navigatable one?
+		isNavFocused() {
+			return this.category.navFocus
+		}
+
+		overlayClasses() {
+			var classes = {
+				picked: this.isPicked(),
+				'nav-focused': this.isNavFocused()
+			}
+
+			classes[this.category.type] = true
+
+			return classes
 		}
 	}
 
 	app.component('wwPartCategory', {
 		controller: PartCategory,
 		templateUrl: 'app/views/partcategory.html',
+		require: {
+			order: '^wwOrder'
+		},
 		bindings: {
 			category: '=?',
 			group: '=?'
@@ -392,17 +570,36 @@ define([
 	 *
 	 */
 	class Part {
-		constructor() {
+		constructor($rootScope) {
 			this.inputValue=null
 			this.decimal = false
+			this.$rootScope = $rootScope
 		}
 
 		get partInfo() {
 			return new PartInfo(this.part, this.category)
 		}
 
+		digitClick(event) {
+			// Don't propagate to parent, otherwise it will unselect current part
+			event.stopPropagation()
+		}
+
+		nextCategory() {
+			this.$rootScope.$emit('part.selected', this.partInfo)
+		}
+
 		select() {
-			this.order.addPart(this.partInfo)
+			if (this.order.isPartInOrder(this.partInfo)) {
+				this.order.removePart(this.partInfo)
+			} else {
+				this.order.addPart(this.partInfo)
+			}
+
+			// If there is a second step expected, then don't continue navigation.
+			if (!this.part.xIsDigit) {
+				this.nextCategory()
+			}
 		}
 
 		shouldShowXIsDigit() {
@@ -508,6 +705,12 @@ define([
 		limit($event)
 		{
 			var element = $event.target
+
+			// On return
+			if ($event.which === 13) {
+				element.blur()
+				return
+			}
 
 			var keyPress = String.fromCharCode($event.which)
 			if(this.part.allowDecimal && !this.decimal && keyPress == '.')
