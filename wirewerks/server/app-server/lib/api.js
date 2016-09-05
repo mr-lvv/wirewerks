@@ -1,6 +1,7 @@
 var express = require('express')
 var products = require('./product.json')
 var sections = require('./sections.json')
+var rules = require('./rules.json')
 var _ = require('lodash')
 
 // For resource example: https://github.com/developit/express-es6-rest-api/blob/master/src/api/facets.js
@@ -44,7 +45,9 @@ class Api {
 			response.status(200).send(sections);
 		});
 
-
+		client.get("/rules", (request, response) => {
+			response.status(200).send(rules);
+		})
 		app.use('/api/client', client);
 	}
 }

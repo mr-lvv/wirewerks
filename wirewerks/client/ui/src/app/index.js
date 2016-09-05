@@ -123,7 +123,7 @@ define([
 	 *
 	 */
 	class Order {
-		constructor(productResource, $scope, cart) {
+		constructor(productResource, $scope, cart, rulesCache) {
 			this.productResource = productResource
 			this.product = undefined;
 			this.parts = []							// Type PartInfo, not part (to include category..)
@@ -133,6 +133,14 @@ define([
 			this.partNumber = ""
 
 			$scope.$watch('order.productId', this._refreshProduct.bind(this))
+
+			this.rules = {}
+			//Should optimize for each product
+			rulesCache.get().then(rules => {
+				this.rules = rules
+			})
+
+			this.validity = {}
 		}
 
 		_refreshProduct() {
@@ -177,6 +185,17 @@ define([
 			this.sections = []
 
 			this.parts.push(partInfo)
+		}
+
+		valid(category, part)
+		{
+
+			if (!this.validity[category])
+				return true
+			if (this.validity[category][part])
+				return this.validity[category]['valid']
+			else
+				return !this.validity[category]['valid']
 		}
 
 		addPart(partInfo) {
@@ -401,7 +420,14 @@ define([
 			return new PartInfo(this.part, this.category)
 		}
 
+		valid() {
+			//console.log(this.category.title, this.part.value)
+			return this.order.valid(this.category.title, this.part.value)
+		}
+
 		select() {
+			//This is when we click on the thinngy
+			//Update the rules
 			this.order.addPart(this.partInfo)
 		}
 

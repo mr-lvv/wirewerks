@@ -1,4 +1,4 @@
-<div class="content" ng-click="$ctrl.select()" ng-class="{selected: $ctrl.isSelected()}">
+<div class="content" ng-click="$ctrl.select()" ng-class="{selected: $ctrl.isSelected(), invalid : !$ctrl.valid()}">
 	<header ng-style="$ctrl.style()">
 		<label ng-if="!$ctrl.shouldShowXIsDigit()">{{$ctrl.part.value}}{{$ctrl.part.finePrint}}</label>
 		<md-input-container ng-if="$ctrl.shouldShowXIsDigit()">

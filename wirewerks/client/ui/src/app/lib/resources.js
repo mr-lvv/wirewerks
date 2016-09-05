@@ -64,6 +64,27 @@ define(['../app', './url'], function(app, Url) {
 	app.service('productsCache', ProductsCache)
 
 
+	class RulesCache {
+		constructor($q, rulesResource) {
+			this.resource = rulesResource
+			this._cache = undefined
+			this.$q = $q
+		}
+
+		get(force) {
+			if (this._cache || force) {
+				return this.$q.when(this._cache)
+			}
+
+			return this.resource.getRules().then(rules => {
+				this._cache = rules
+				return this._cache
+			})
+		}
+	}
+
+	app.service('rulesCache', RulesCache)
+
 	/**
 	 *
 	 */
@@ -130,4 +151,19 @@ define(['../app', './url'], function(app, Url) {
 		}
 	}
 	app.service('sectionResource', Section)
+
+	class Rules extends Resource {
+		constructor($http) {
+			super()
+
+			this.$http = $http
+		}
+
+		getRules() {
+			var url = Url.rules()
+
+			return this.$http.get(url).then(this._responseData.bind(this))
+		}
+	}
+	app.service('rulesResource', Rules)
 });

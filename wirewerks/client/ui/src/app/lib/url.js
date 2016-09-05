@@ -15,6 +15,10 @@ define([], function() {
 		static sections() {
 			return '/api/client/sections'
 		}
+
+		static rules() {
+			return '/api/client/rules'
+		}
 	}
 
 	return Url

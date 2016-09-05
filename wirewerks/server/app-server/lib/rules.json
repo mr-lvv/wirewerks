@@ -1,0 +1,54 @@
+{
+  "FA": {
+    "CABLE TYPE": {
+      "R": {
+        "LEAD OD":
+        {
+          "valid" : true,
+          "9" : true
+        }
+      },
+      "M": {
+        "LEAD OD":
+        {
+          "valid" : true,
+          "9" : true
+        }
+      },
+      "C": {
+        "FIRE RATING": {
+          "valid": true,
+          "C": true
+        },
+        "LEAD OD":
+        {
+          "valid" : true,
+          "9" : true
+        }
+      },
+      "Q": {
+        "FIRE RATING": {
+          "valid": true,
+          "C": true
+        },
+        "LEAD OD":
+        {
+          "valid" : true,
+          "9" : true
+        }
+      },
+      "*": {
+        "FIRE RATING": {
+          "valid": false,
+          "C": true
+        },
+        "LEAD OD":
+        {
+          "valid" : false
+        }
+      }
+    }
+  }
+}
+
+

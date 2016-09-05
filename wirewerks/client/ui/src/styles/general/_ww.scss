@@ -187,6 +187,11 @@ $border-size: 2px;
 ww-part {
 	display: block;
 
+	.invalid {
+		pointer-events: none;
+		opacity: 0.4;
+	}
+
 	.content {
 		position: relative;
 	}
