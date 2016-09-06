@@ -227,6 +227,22 @@
         }
       }
     },
+    "CONNECTOR SIDE B" :{
+      "OE": {
+        "POLISH SIDE B":
+        {
+          "D" : {"valid" : true},
+          "*" : {"valid" : false}
+        }
+      },
+      "*": {
+        "POLISH SIDE B":
+        {
+          "D" : {"valid" : false},
+          "*" : {"valid" : true}
+        }
+      }
+    },
     "POLISH SIDE B": {
       "A": {
         "FIBER TYPE":
@@ -255,6 +271,20 @@
           "C" : {"valid" : true},
           "D" : {"valid" : true},
           "*" : {"valid" : false}
+        }
+      },
+      "D": {
+        "CONNECTOR SIDE B":
+        {
+          "OE" : {"valid" : true},
+          "*" : {"valid" : false}
+        }
+      },
+      "*": {
+        "CONNECTOR SIDE B":
+        {
+          "OE" : {"valid" : false},
+          "*" : {"valid" : true}
         }
       }
     }
