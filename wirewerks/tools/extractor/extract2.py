@@ -42,7 +42,7 @@ partCategory['type'] = type[:1]
 
 finePrintNumber = extractFinePrint(mylist[1])
 partCategory['finePrint'] = '*'*finePrintNumber
-if finePrintNumber > 1 :
+if finePrintNumber >= 1 :
     partCategory['title'] = mylist[1][:-finePrintNumber]
 else:
     partCategory['title'] = mylist[1]

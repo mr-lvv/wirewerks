@@ -1,50 +1,260 @@
 {
   "FA": {
+    "FIBER TYPE": {
+      "1":{
+        "POLISH SIDE A":
+        {
+          "A" : {"valid" : true},
+          "B" : {"valid" : true},
+          "*" : {"valid" : false}
+        },
+        "POLISH SIDE B":
+        {
+          "A" : {"valid" : true},
+          "B" : {"valid" : true},
+          "*" : {"valid" : false}
+        }
+      },
+      "E":{
+        "POLISH SIDE A":
+        {
+          "A" : {"valid" : true},
+          "B" : {"valid" : true},
+          "*" : {"valid" : false}
+        },
+        "POLISH SIDE B":
+        {
+          "A" : {"valid" : true},
+          "B" : {"valid" : true},
+          "*" : {"valid" : false}
+        }
+      },
+      "*":{
+        "POLISH SIDE A":
+        {
+          "C" : {"valid" : true},
+          "*" : {"valid" : false}
+        },
+        "POLISH SIDE B":
+        {
+          "A" : {"valid" : true},
+          "B" : {"valid" : true},
+          "*" : {"valid" : false}
+        }
+      }
+    },
     "CABLE TYPE": {
       "R": {
         "LEAD OD":
         {
-          "valid" : true,
-          "9" : true
+          "9" : {"valid" : true},
+          "*" : {"valid" : false}
         }
       },
       "M": {
         "LEAD OD":
         {
-          "valid" : true,
-          "9" : true
+          "9" : {"valid" : true},
+          "*" : {"valid" : false}
         }
       },
       "C": {
         "FIRE RATING": {
-          "valid": true,
-          "C": true
+          "C" : {"valid" : true},
+          "*" : {"valid" : false}
         },
         "LEAD OD":
         {
-          "valid" : true,
-          "9" : true
+          "9" : {"valid" : true},
+          "*" : {"valid" : false}
         }
       },
       "Q": {
         "FIRE RATING": {
-          "valid": true,
-          "C": true
+          "C" : {"valid" : true},
+          "*" : {"valid" : false}
         },
         "LEAD OD":
         {
-          "valid" : true,
-          "9" : true
+          "9" : {"valid" : true},
+          "*" : {"valid" : false}
         }
       },
       "*": {
         "FIRE RATING": {
-          "valid": false,
-          "C": true
+          "C": {"valid": false}
         },
         "LEAD OD":
         {
-          "valid" : false
+          "9" : {"valid" : false}
+        }
+      }
+    },
+    "FIRE RATING": {
+      "C": {
+        "CABLE TYPE":
+        {
+          "C" : {"valid" : true},
+          "Q" : {"valid" : true},
+          "*" : {"valid" : false}
+        },
+        "ARMOUR TYPE":{
+          "C" : {"valid" : true},
+          "*" : {"valid" : false}
+        }
+      },
+      "*": {
+        "CABLE TYPE": {
+          "C": {"valid": false},
+          "Q":{"valid": false}
+        },
+        "ARMOUR TYPE":{
+          "C" : {"valid" : false}
+        }
+      }
+    },
+    "ARMOUR TYPE": {
+      "C": {
+        "CABLE TYPE":
+        {
+          "C" : {"valid" : true},
+          "Q" : {"valid" : true},
+          "*" : {"valid" : false}
+        },
+        "FIRE RATING":{
+          "C" : {"valid" : true},
+          "*" : {"valid" : false}
+        }
+      },
+      "*": {
+        "CABLE TYPE": {
+          "C": {"valid": false},
+          "Q":{"valid": false}
+        },
+        "FIRE RATING":{
+          "C" : {"valid" : false}
+        }
+      }
+    },
+    "LEAD OD": {
+      "9": {
+        "CABLE TYPE":
+        {
+          "R" : {"valid" : true},
+          "M" : {"valid" : true},
+          "C" : {"valid" : true},
+          "Q" : {"valid" : true},
+          "*" : {"valid" : false}
+        }
+      },
+      "Z":{
+        "LEAD LENGTH":
+        {
+          "ZZZ" : {"valid" : true},
+          "*" : {"valid" : false}
+        }
+      },
+      "*": {
+        "CABLE TYPE": {
+          "R" : {"valid" : false},
+          "M" : {"valid" : false},
+          "C" : {"valid" : false},
+          "Q" : {"valid" : false}
+        },
+        "LEAD LENGTH":
+        {
+          "ZZZ" : {"valid" : false}
+        }
+      }
+    },
+    "LEAD LENGTH": {
+      "ZZZ": {
+        "LEAD OD":
+        {
+          "Z" : {"valid" : true},
+          "*" : {"valid" : false}
+        }
+      },
+      "*": {
+        "LEAD OD": {
+          "Z" : {"valid" : false}
+        }
+      }
+    },
+    "POLISH SIDE A": {
+      "A": {
+        "FIBER TYPE":
+        {
+          "1" : {"valid" : true},
+          "E" : {"valid" : true},
+          "*" : {"valid" : false}
+        }
+      },
+      "B": {
+        "FIBER TYPE":
+        {
+          "1" : {
+            "&":[
+              {"category":"CONNECTOR SIDE A", "value":"MP" ,"valid" : false},
+              {"category":"CONNECTOR SIDE A", "value":"MA" ,"valid" : false},
+              {"category":"CONNECTOR SIDE A", "value":"PP" ,"valid" : false},
+              {"category":"CONNECTOR SIDE A", "value":"PA" ,"valid" : false}
+            ],
+            "valid":true
+          }
+        ,
+          "E" : {"&":[
+            {"category":"CONNECTOR SIDE A", "value":"MP" ,"valid" : false},
+            {"category":"CONNECTOR SIDE A", "value":"MA" ,"valid" : false},
+            {"category":"CONNECTOR SIDE A", "value":"PP" ,"valid" : false},
+            {"category":"CONNECTOR SIDE A", "value":"PA" ,"valid" : false}
+          ],
+            "valid" : true},
+          "*" : {"valid" : false}
+        }
+      },
+      "C": {
+        "FIBER TYPE":
+        {
+          "2" : {"valid" : true},
+          "3" : {"valid" : true},
+          "4" : {"valid" : true},
+          "5" : {"valid" : true},
+          "B" : {"valid" : true},
+          "C" : {"valid" : true},
+          "D" : {"valid" : true},
+          "*" : {"valid" : false}
+        }
+      }
+    },
+    "POLISH SIDE B": {
+      "A": {
+        "FIBER TYPE":
+        {
+          "1" : {"valid" : true},
+          "E" : {"valid" : true},
+          "*" : {"valid" : false}
+        }
+      },
+      "B": {
+        "FIBER TYPE":
+        {
+          "1" : {"valid" : true},
+          "E" : {"valid" : true},
+          "*" : {"valid" : false}
+        }
+      },
+      "C": {
+        "FIBER TYPE":
+        {
+          "2" : {"valid" : true},
+          "3" : {"valid" : true},
+          "4" : {"valid" : true},
+          "5" : {"valid" : true},
+          "B" : {"valid" : true},
+          "C" : {"valid" : true},
+          "D" : {"valid" : true},
+          "*" : {"valid" : false}
         }
       }
     }

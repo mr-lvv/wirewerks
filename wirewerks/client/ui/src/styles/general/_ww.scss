@@ -9,6 +9,8 @@ $product-title: rgb(215, 40, 34);
 $product-subtitle: rgb(167, 169, 172);
 $color-wirewerks: #0084cb;
 
+$transition-common: all 0.2s ease;
+
 $z-overlay: 10;				// 100 goes above md-select which is not good.
 
 html, body {
@@ -38,7 +40,7 @@ ww-app {
 		}
 
 		.md-button.menu,
-		.md-button.home, {
+		.md-button.home {
 			padding-right: 0;
 			margin-right: 0;
 			padding-left: 0;
@@ -159,23 +161,54 @@ ww-part-group {
 }
 
 ww-part-category {
+	position: relative;
 	flex-grow: 1;
-	max-width: 200px;
 
 	.part-column {
 		box-shadow: 1px 4px 10px -3px gray;
 		padding: 1px;
+		max-width: 200px;
+
+		selection-overlay {
+			background: rgba(10, 0, 40, 0.6);				// Category with no selection
+		}
+
+		&.picked {
+			selection-overlay.inactive {
+				background: rgba(0, 0, 0, 0.8);			// Not picked, in a category with a selection
+			}
+			selection-overlay.active {
+				background: transparent;
+			}
+		}
+
+		&.nav-focused {
+			selection-overlay {
+				background: rgba(0, 0, 0, 0.15);		// Not picked, in the currently focused category
+			}
+		}
+	}
+
+	.content {
+		position: relative;
 	}
 
 	category-header {
-		display: flex;
-		justify-content: center;
-		color: white;
-		font-size: 1.25em;
-		text-transform: uppercase;
-		font-weight: bold;
-		padding: $padding-normal;
-		text-align: center;
+		display: block;
+		position: relative;
+
+		label {
+			display: flex;
+			justify-content: center;
+			z-index: $z-overlay + 1;
+
+			color: white;
+			font-size: 1.25em;
+			text-transform: uppercase;
+			font-weight: bold;
+			padding: $padding-normal;
+			text-align: center;
+		}
 	}
 }
 
@@ -189,7 +222,7 @@ ww-part {
 
 	.invalid {
 		pointer-events: none;
-		opacity: 0.4;
+		opacity : 0.01;
 	}
 
 	.content {
@@ -251,7 +284,7 @@ ww-product-selection {
 	}
 }
 
-selection-overlay {
+overlay {
 	display: flex;
 	z-index: $z-overlay;
 	position: absolute;
@@ -261,17 +294,22 @@ selection-overlay {
 	left: 0;
 	pointer-events: none;
 
-	transition: all 0.2s ease;
+	transition: $transition-common;
 
 	&.inactive {
 		background: rgba(0, 0, 0, 0.1);
 	}
+}
+
+selection-overlay {
+	@extend overlay;
 
 	&.active {
 		border {
 			border: solid $border-size #4478ff;
 		}
 	}
+
 	border {
 		flex-grow: 1;
 	}
@@ -279,11 +317,6 @@ selection-overlay {
 
 /*
 @media all and (orientation: portrait) {
-
-	ww-part-category {
-		display: flex;
-		flex-direction: row;
-	}
 }
 */
 

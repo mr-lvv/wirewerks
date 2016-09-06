@@ -11,8 +11,9 @@ System.config({
 		"babel-runtime": "node_modules/babel-runtime@5.8.38",
 
 		// Vendors
-		jquery: 'node_modules/jquery/dist/jquery.slim',
+		jquery: 'node_modules/jquery/dist/jquery.min',
 		fastclick: 'node_modules/fastclick/lib/fastclick',
+		scrollTo: 'node_modules/jquery.scrollto/jquery.scrollTo',
 		angular: 'node_modules/angular/angular',
 		'angular-animate': 'node_modules/angular-animate/angular-animate.min',
 		'angular-cookies': 'node_modules/angular-cookies/angular-cookies.min',
@@ -28,6 +29,7 @@ System.config({
 
 	meta: {
 		fastclick: {deps: ['jquery']},
+		scrollTo: {deps: ['jquery']},
 		'angular-animate': {deps: ['angular']},
 		'angular-cookies': {deps: ['angular']},
 		'angular-resource': {deps: ['angular']},
