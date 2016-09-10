@@ -1,0 +1,12 @@
+
+<h1><%= title %></h1>
+<img class='logo' src="<%= logo %>" >
+<ul>
+
+
+<% for (var prop in parts) {
+     if (Object.prototype.hasOwnProperty.call(parts, prop)) { %>
+       <li><%= prop %> quantity: <%= parts[prop].quantity %></li>
+<%   }
+   } %>
+</ul>

@@ -60,12 +60,15 @@ class Server {
 		env = env || 'default'
 		this.config = config[env]
 
+		if(process.env.PORT)
+			this.config.port = process.env.PORT
+
 		this.server = http.createServer(this.app);
 
 		this._setup()
 		this._api()
 
-		this.server.listen(process.env.PORT || this.config.port, this._onstart.bind(this));
+		this.server.listen(this.config.port, this._onstart.bind(this));
 	}
 }
 

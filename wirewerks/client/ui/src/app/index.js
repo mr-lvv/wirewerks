@@ -914,7 +914,7 @@ define([
 	 *
 	 */
 	class wwCart {
-		constructor(cart, $scope) {
+		constructor(cart, $scope, $http, FileSaver) {
 			//get from localStorage
 			this.cart = cart
 			this.quantityChoice = _.range(1,100);
@@ -930,12 +930,41 @@ define([
 
 			this.email = this.cart.getEmail()
 			this.$scope.$watch(()=>this.email, this._setEmail.bind(this))
+			this.$http = $http
+			this.FileSaver = FileSaver
 		}
 
 		_updateQuantity() {
 			if(!this.products)
 				return;
 			this.cart.updateQuantity(this.products)
+		}
+
+		getPdf(){
+			var data = {};
+			data.title = this.client
+			data.parts = this.products
+			data.email = this.email
+			var responseType = 'arraybuffer'
+			var config = {
+				headers : {
+			 		'Content-Type': 'application/json'
+				}
+				,responseType: responseType
+			}
+			var fs = this.FileSaver
+			this.$http.post(Url.bompdf(), data, config)
+				.then(
+					function(response){
+						// success callback
+						var dataBlob = new Blob([response.data], { type: 'application/pdf' });
+						fs.saveAs(dataBlob, 'wirewerks-bom.pdf', true);
+
+					},
+					function(response){
+						// failure callback
+					}
+				);
 		}
 
 		getProducts() {
@@ -1050,7 +1079,6 @@ define([
 			localStorage.setItem("myCart2", JSON.stringify(products))
 			this.products = products;
 		}
-
 	})
 
 	/**

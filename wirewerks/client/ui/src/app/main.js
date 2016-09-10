@@ -10,6 +10,7 @@ define([
 	'angular-sanitize',
 	'angular-aria',
 	'angular-material',
-	'lodash'
+	'lodash',
+	'angular-file-saver'
 ], function(ww, common) {
 });

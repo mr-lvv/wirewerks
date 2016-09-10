@@ -12,6 +12,8 @@
     "express": "^4.14.0",
     "lodash": "^4.15.0",
     "resource-router-middleware": "^0.6.0",
-    "yargs": "^5.0.0"
+    "yargs": "^5.0.0",
+    "html-pdf": "^2.1.0",
+    "ejs":"^2.5.2"
   }
 }

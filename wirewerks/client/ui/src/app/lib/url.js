@@ -19,6 +19,10 @@ define([], function() {
 		static rules() {
 			return '/api/client/rules'
 		}
+
+		static bompdf() {
+			return '/api/client/bom'
+		}
 	}
 
 	return Url

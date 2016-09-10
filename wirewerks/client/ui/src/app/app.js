@@ -6,6 +6,7 @@ define([], function() {
 		'ngAria',
 		'ngAnimate',
 		'ngMaterial',
-		'ngRoute'
+		'ngRoute',
+		'ngFileSaver'
 	])
 });

@@ -24,7 +24,8 @@ System.config({
 		'angular-material': 'node_modules/angular-material/angular-material.min',
 		hammer: 'node_modules/hammerjs/hammer.min',
 		lodash: 'node_modules/lodash/lodash.min',
-		chroma: 'node_modules/chroma-js/chroma.min'
+		chroma: 'node_modules/chroma-js/chroma.min',
+		'angular-file-saver': 'node_modules/angular-file-saver/dist/angular-file-saver.bundle.min.js'
 	},
 
 	meta: {
@@ -37,6 +38,7 @@ System.config({
 		'angular-sanitize': {deps: ['angular']},
 		'angular-aria': {deps: ['angular']},
 		'angular-material': {deps: ['angular']},
+		'angular-file-saver':{deps: ['angular']},
 		lodash: {exports: "_", format: "global"}
 	}
 });
