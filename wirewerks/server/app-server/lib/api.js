@@ -57,9 +57,11 @@ class Api {
 
 			var logoUrl = 'http://localhost:' + config.port + '/images/general/wirewerks-beta.png'
 			var data = {
-				'title':'Wirewerks BOM',
+				'title':'Bill of Materials',
 				'parts' : request.body.parts,
-				'logo' : logoUrl
+				'logo' : logoUrl,
+				'email' : request.body.email,
+				'client' : request.body.client
 			}
 
 			var templatePath = path.join(__dirname, '../../../client/ui/' + config.clientFolder +'/bom/bom.ejs')

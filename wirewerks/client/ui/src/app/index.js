@@ -942,15 +942,14 @@ define([
 
 		getPdf(){
 			var data = {};
-			data.title = this.client
+			data.client = this.client
 			data.parts = this.products
 			data.email = this.email
-			var responseType = 'arraybuffer'
 			var config = {
 				headers : {
 			 		'Content-Type': 'application/json'
 				}
-				,responseType: responseType
+				,responseType: 'arraybuffer'
 			}
 			var fs = this.FileSaver
 			this.$http.post(Url.bompdf(), data, config)
