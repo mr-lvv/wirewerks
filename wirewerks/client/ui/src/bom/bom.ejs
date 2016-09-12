@@ -5,6 +5,20 @@ img {
 }
 
 .left{float:left; width:50%;}
+
+h3 {
+       left: 5mm;
+}
+
+.part {
+       left: 5mm;
+}
+.bottom {
+       position: absolute;
+       left: 3mm;
+       right: 5mm;
+       bottom: 5mm;
+}
 </style>
 
 <img class='logo' src="<%= logo %>" width="75%" align="middle">
@@ -12,10 +26,27 @@ img {
 
 <h1 align="center"><%= title %></h1>
 
-<h3>Customer Name: <%= client %> </h2>
-<h3>Email: <%= email %> </h2>
+<h3>Customer Name: <%= client %> </h3>
+<h3>Email: <%= email %> </h3>
 <% for (var prop in parts) {
      if (Object.prototype.hasOwnProperty.call(parts, prop)) { %>
-       <div class="left"><%= prop %>  </div><div class="left">quantity: <%= parts[prop].quantity %></div>
+       <div class="part">
+              <div class="left"><%= prop %>  </div><div class="left">quantity: <%= parts[prop].quantity %></div>
+       </div>
 <%   }
    } %>
+
+
+<div class="bottom">
+<pre>
+<a href="http://www.wirewerks.com">Wirewerks</a>
+Head Office & Regional Field Sales Offices
+10280 Ch. de la Côte-de-liesse
+Lachine Québec
+H8T 1A3
+514-635-1103
+Toll Free Phone Number
+1-888-993-4237 or
+1-888-99F-IBER
+</pre>
+</div>
