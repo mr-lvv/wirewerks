@@ -113,6 +113,11 @@ function build() {
 }
 
 function preBuild() {
+	// Make sure CSS is present prior to copy...
+	buildCss()
+	buildPostCss()
+
+	// Copy all files
 	var pathFilter = ['src/node_modules', ".scss", 'src/common', 'src/styles']
 	var validNodeModules = ['bowser', 'systemjs']
 
@@ -147,9 +152,6 @@ try
 	linkCommon()
 	fs.removeSync(paths.dist)
 	preBuild()
-
-	buildCss()
-	buildPostCss()
 
 	build();
 } catch (error) {
