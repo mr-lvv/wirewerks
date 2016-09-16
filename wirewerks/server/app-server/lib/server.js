@@ -15,10 +15,11 @@ var config = {
 	},
 
 	production: {
-		port: 80,
+		port: process.env.PORT || 80,
 		bodyLimit: '100kb',
 		corsHeaders: ['Link'],
-		clientFolder: 'dist'
+//		clientFolder: 'dist'
+		clientFolder: 'src'				// For now...
 	}
 }
 
