@@ -118,7 +118,7 @@ function preBuild() {
 	buildPostCss()
 
 	// Copy all files
-	var pathFilter = ['src/node_modules', ".scss", 'src/common', 'src/styles']
+	var pathFilter = ['src/node_modules', ".scss", 'src/common']
 	var validNodeModules = ['bowser', 'systemjs']
 
 	var options = {
