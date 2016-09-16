@@ -77,3 +77,10 @@ Server stuff
 
 	The main server app
 
+
+Deployement
+-----------
+
+**Heroku Commands**
+
+heroku logs --app wirewerks --tail

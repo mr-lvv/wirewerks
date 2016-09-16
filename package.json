@@ -7,7 +7,8 @@
 	},
 	"main": "wirewerks/server/app-server/index.js",
 	"scripts": {
-		"start": "sh start.sh"
+		"start": "sh start.sh",
+		"install": "sh setup.sh"
 	},
 	"repository": {
 		"type": "git",
