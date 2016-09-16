@@ -17,7 +17,9 @@ var paths = {
 
 function linkCommon() {
 	unlinkCommon()
-	fs.linkSync(paths.common.source, paths.common.target, 's')
+	if (!fs.existsSync(paths.common.target)) {
+		fs.linkSync(paths.common.source, paths.common.target, 's')
+	}
 }
 
 function unlinkCommon() {
