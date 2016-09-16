@@ -140,7 +140,6 @@ function preBuild() {
 	}
 
 	fs.copySync('./src', './dist', options)
-	fs.copySync('./src/styles/main_production.css', './dist/styles/main.css')
 }
 
 try
