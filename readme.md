@@ -81,7 +81,10 @@ Server stuff
 Deployement
 -----------
 
+- Install Heroku CLI: https://devcenter.heroku.com/articles/heroku-command-line#download-and-install
+- Login so you can run commands: heroku login
+
 **Heroku Commands**
 
 heroku logs --app wirewerks --tail
-run bash --app wirewerks
+heroku run bash --app wirewerks

@@ -78,6 +78,8 @@ function buildPostCss() {
 	var result = child_process.execSync(cmd + args, {cwd: paths.styles})
 	console.log(result.toString());
 
+	fs.copySync('./src/styles/main_production.css', './src/styles/main.css')							// Copy over current main.css in case we copy everything from 'src' later...
+	fs.copySync('./src/styles/main_production.css.map', './src/styles/main.css.map')			//
 	fs.copySync('./src/styles/main_production.css', './dist/styles/main.css')
 	fs.copySync('./src/styles/main_production.css.map', './dist/styles/main.css.map')
 }
