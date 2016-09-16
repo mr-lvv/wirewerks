@@ -1,6 +1,6 @@
 dist/
 
 # Build automatically
-main.css
+# removed until production build uses 'dist' folder main.css
 main_production.css
 *.map
