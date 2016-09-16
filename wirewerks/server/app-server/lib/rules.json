@@ -143,8 +143,7 @@
           "R" : {"valid" : true},
           "M" : {"valid" : true},
           "C" : {"valid" : true},
-          "Q" : {"valid" : true},
-          "*" : {"valid" : false}
+          "Q" : {"valid" : true}
         }
       },
       "Z":{
