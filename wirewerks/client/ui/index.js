@@ -4,6 +4,7 @@ var babel = require("babel-core")
 var fs = require('fs-extra')
 var lodash = require('lodash')
 var child_process = require('child_process')
+var argv = require('yargs').argv;
 
 var paths = {
 	dist: './dist',
@@ -65,6 +66,8 @@ function buildCss() {
 	console.log('Building css: ', cmd);
 	var result = child_process.execSync(cmd, {cwd: paths.styles})
 	console.log(result.toString());
+
+	fs.copySync('./src/styles/main.css', './dist/styles/main.css')
 }
 
 function buildPostCss() {
@@ -74,6 +77,11 @@ function buildPostCss() {
 	console.log('Building css prefix: ', cmd);
 	var result = child_process.execSync(cmd + args, {cwd: paths.styles})
 	console.log(result.toString());
+
+	fs.copySync('./src/styles/main_production.css', './src/styles/main.css')							// Copy over current main.css in case we copy everything from 'src' later...
+	fs.copySync('./src/styles/main_production.css.map', './src/styles/main.css.map')			//
+	fs.copySync('./src/styles/main_production.css', './dist/styles/main.css')
+	fs.copySync('./src/styles/main_production.css.map', './dist/styles/main.css.map')
 }
 
 function build() {
@@ -149,11 +157,21 @@ function preBuild() {
 
 try
 {
-	linkCommon()
-	fs.removeSync(paths.dist)
-	preBuild()
+	// Build mode
+	if (argv.css) {
+		console.log('Building Css Only.');
+		buildCss()
+		buildPostCss()
+	} else {
+		// Full Build
 
-	build();
+		linkCommon()
+		fs.removeSync(paths.dist)
+		preBuild()
+
+		build();
+	}
+
 } catch (error) {
 	console.error(error);
 }
