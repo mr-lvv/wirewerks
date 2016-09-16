@@ -17877,6 +17877,9 @@ ww-part-category {
 
 ww-part {
   display: block; }
+  ww-part .invalid {
+    pointer-events: none;
+    opacity: 0.01; }
   ww-part .content {
     position: relative; }
   ww-part header {

@@ -18,8 +18,7 @@ var config = {
 		port: process.env.PORT || 80,
 		bodyLimit: '100kb',
 		corsHeaders: ['Link'],
-//		clientFolder: 'dist'
-		clientFolder: 'src'				// For now...
+		clientFolder: 'dist'
 	}
 }
 
