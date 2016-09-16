@@ -288,6 +288,249 @@
         }
       }
     }
+  },
+  "IP": {
+    "POLISH SIDE A": {
+      "A": {
+        "FIBER TYPE":
+        {
+          "1" : {"valid" : true},
+          "*" : {"valid" : false}
+        }
+      },
+      "B": {
+        "FIBER TYPE":
+        {
+          "1" : {
+            "&":[
+              {"category":"CONNECTOR SIDE A", "value":"MP" ,"valid" : false},
+              {"category":"CONNECTOR SIDE A", "value":"MA" ,"valid" : false},
+              {"category":"CONNECTOR SIDE A", "value":"BP" ,"valid" : false},
+              {"category":"CONNECTOR SIDE A", "value":"BA" ,"valid" : false},
+              {"category":"CONNECTOR SIDE A", "value":"CP" ,"valid" : false},
+              {"category":"CONNECTOR SIDE A", "value":"CA" ,"valid" : false}
+            ],
+            "valid" : true},
+          "*" : {"valid" : false}
+        }
+      },
+      "C": {
+        "FIBER TYPE":
+        {
+          "2" : {"valid" : true},
+          "3" : {"valid" : true},
+          "4" : {"valid" : true},
+          "5" : {"valid" : true},
+          "*" : {"valid" : false}
+        }
+      }
+    },
+    "POLISH SIDE B": {
+      "A": {
+        "FIBER TYPE":
+        {
+          "1" : {"valid" : true},
+          "*" : {"valid" : false}
+        }
+      },
+      "B": {
+        "FIBER TYPE":
+        {
+          "1" : {
+            "&":[
+              {"category":"CONNECTOR SIDE B", "value":"MP" ,"valid" : false},
+              {"category":"CONNECTOR SIDE B", "value":"MA" ,"valid" : false},
+              {"category":"CONNECTOR SIDE B", "value":"BP" ,"valid" : false},
+              {"category":"CONNECTOR SIDE B", "value":"BA" ,"valid" : false},
+              {"category":"CONNECTOR SIDE B", "value":"CP" ,"valid" : false},
+              {"category":"CONNECTOR SIDE B", "value":"CA" ,"valid" : false}
+            ],
+            "valid" : true},
+          "*" : {"valid" : false}
+        }
+      },
+      "C": {
+        "FIBER TYPE":
+        {
+          "2" : {"valid" : true},
+          "3" : {"valid" : true},
+          "4" : {"valid" : true},
+          "5" : {"valid" : true},
+          "*" : {"valid" : false}
+        }
+      },
+      "D": {
+        "CONNECTOR SIDE B":
+        {
+          "OE" : {"valid" : true},
+          "*" : {"valid" : false}
+        }
+      },
+      "*": {
+        "CONNECTOR SIDE B":
+        {
+          "OE" : {"valid" : false},
+          "*" : {"valid" : true}
+        }
+      }
+    },
+    "CONNECTOR SIDE A" :{
+      "SC": {
+        "CABLE TYPE":
+        {
+          "C" : {"valid" : false},
+          "F" : {"valid" : false},
+          "*" : {"valid" : true}
+        }
+      },
+      "LC": {
+        "CABLE TYPE":
+        {
+          "C" : {"valid" : false},
+          "F" : {"valid" : false},
+          "*" : {"valid" : true}
+        }
+      },
+      "*":{
+        "CABLE TYPE":
+        {
+          "C" : {"valid" : true},
+          "F" : {"valid" : true},
+          "*" : {"valid" : false}
+        }
+      }
+    },
+    "CONNECTOR SIDE B" :{
+      "SC": {
+        "CABLE TYPE":
+        {
+          "C" : {"valid" : false},
+          "F" : {"valid" : false},
+          "*" : {"valid" : true}
+        }
+      },
+      "LC": {
+        "CABLE TYPE":
+        {
+          "C" : {"valid" : false},
+          "F" : {"valid" : false},
+          "*" : {"valid" : true}
+        }
+      },
+      "OE": {
+        "CABLE TYPE":
+        {
+          "C" : {"valid" : false},
+          "F" : {"valid" : false},
+          "*" : {"valid" : true}
+        }
+      },
+      "*":{
+        "CABLE TYPE":
+        {
+          "OE": {"valid" : true},
+          "C" : {"valid" : true},
+          "F" : {"valid" : true},
+          "*" : {"valid" : false}
+        }
+      }
+    },
+    "CABLE TYPE": {
+      "C": {
+        "CONNECTOR SIDE A":
+        {
+          "*" : {"valid" : true},
+          "SC" : {"valid" : false},
+          "LC" : {"valid" : false}
+        },
+        "CONNECTOR SIDE B":
+        {
+          "*" : {"valid" : true},
+          "SC" : {"valid" : false},
+          "LC" : {"valid" : false}
+        }
+      },
+      "F": {
+        "CONNECTOR SIDE A":
+        {
+          "*" : {"valid" : true},
+          "SC" : {"valid" : false},
+          "LC" : {"valid" : false}
+        },
+        "CONNECTOR SIDE B":
+        {
+          "*" : {"valid" : true},
+          "SC" : {"valid" : false},
+          "LC" : {"valid" : false}
+        }
+      },
+      "*":{
+        "CONNECTOR SIDE A":
+        {
+          "*" : {"valid" : false},
+          "SC" : {"valid" : true},
+          "LC" : {"valid" : true}
+        },
+        "CONNECTOR SIDE B":
+        {
+          "*" : {"valid" : false},
+          "SC" : {"valid" : true},
+          "LC" : {"valid" : true}
+        }
+      }
+    }
+  },
+  "DC": {
+    "OUTLET POSITION": {
+      "M": {
+        "CABLE TYPE":
+        {
+          "T" : {"valid" : true},
+          "N" : {"valid" : true},
+          "*" : {"valid" : false}
+        }
+      },
+      "*": {
+        "CABLE TYPE":
+        {
+          "T" : {"valid" : false},
+          "N" : {"valid" : false},
+          "*" : {"valid" : true}
+        }
+      }
+    },
+    "CABLE TYPE": {
+      "T": {
+        "OUTLET POSITION": {
+          "M": {
+            "valid": true
+          },
+          "*": {
+            "valid": false
+          }
+        }
+      },
+      "N": {
+        "OUTLET POSITION": {
+          "M": {
+            "valid": true
+          },
+          "*": {
+            "valid": false
+          }
+        }
+      },
+      "*": {
+        "OUTLET POSITION": {
+          "M": {
+            "valid": false
+          },
+          "*": {
+            "valid": true
+          }
+        }
+      }
+    }
   }
 }
 
