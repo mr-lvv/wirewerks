@@ -21,8 +21,13 @@ function linkCommon() {
 }
 
 function unlinkCommon() {
-	if (fs.existsSync(paths.common.target))
-		fs.unlinkSync(paths.common.target)
+	if (fs.existsSync(paths.common.target)) {
+		try {
+			fs.unlinkSync(paths.common.target)
+		} catch (error) {
+			console.log('Could not unlink common folder.. the folder may be a copy and not a link, which is ok for deployement.');
+		}
+	}
 }
 
 function babelBuild(callback) {
