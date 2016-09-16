@@ -15,7 +15,7 @@ var config = {
 	},
 
 	production: {
-		port: 4000,
+		port: 80,
 		bodyLimit: '100kb',
 		corsHeaders: ['Link'],
 		clientFolder: 'dist'
