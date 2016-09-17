@@ -25,7 +25,8 @@ System.config({
 		hammer: 'node_modules/hammerjs/hammer.min',
 		lodash: 'node_modules/lodash/lodash.min',
 		chroma: 'node_modules/chroma-js/chroma.min',
-		'angular-file-saver': 'node_modules/angular-file-saver/dist/angular-file-saver.bundle.min.js'
+		'angular-file-saver': 'node_modules/angular-file-saver/dist/angular-file-saver.bundle.min.js',
+		'offline': 'node_modules/offline-js/offline.min.js'
 	},
 
 	meta: {

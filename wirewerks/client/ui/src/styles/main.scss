@@ -8,4 +8,6 @@
 
 */
 @import "../node_modules/angular-material/angular-material.scss";
+@import "../node_modules/offline-js/themes/offline-theme-chrome";			// Without .css extension imports inline
+@import "../node_modules/offline-js/themes/offline-language-english";			//
 @import "./general/index";

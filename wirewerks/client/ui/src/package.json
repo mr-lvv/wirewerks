@@ -13,6 +13,7 @@
     "angular-animate": "^1.5.8",
     "angular-aria": "^1.5.8",
     "angular-cookies": "^1.5.8",
+    "angular-file-saver": "^1.1.2",
     "angular-material": "^1.1.0",
     "angular-resource": "^1.5.8",
     "angular-route": "^1.5.8",
@@ -26,7 +27,7 @@
     "jquery": "^3.1.0",
     "jquery.scrollto": "^2.1.2",
     "lodash": "^4.15.0",
-    "systemjs": "^0.19.37",
-    "angular-file-saver": "^1.1.2"
+    "offline-js": "^0.7.18",
+    "systemjs": "^0.19.37"
   }
 }
