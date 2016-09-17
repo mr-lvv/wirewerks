@@ -690,10 +690,11 @@ define([
 	 *
 	 */
 	class Part {
-		constructor($rootScope) {
+		constructor($rootScope, $scope) {
 			this.inputValue=null
 			this.decimal = false
 			this.$rootScope = $rootScope
+			this.$scope = $scope
 		}
 
 		get partInfo() {
@@ -735,7 +736,8 @@ define([
 			return this.part.value.substring(this.numberOfDigit())
 		}
 
-		validate(value) {
+		validate() {
+			var value = this.inputValue
 			//here we can use regexp to check
 			if(!value || value == 0)
 				return false
@@ -779,13 +781,15 @@ define([
 					this.inputValue = (this.inputValue * 10).toFixed(2)
 			}
 
-			if(!this.validate(this.inputValue)) {
+			if(!this.validate()) {
 				this.part.inputValue = undefined
 				this.part.inputValueValid = false
+				console.log(this.$scope)
+				this.$scope.form.mdInputValue.$setValidity("invalid", false);
 			} else {
 				this.part.inputValue = this.inputValue
 				this.part.inputValueValid = true
-
+				this.$scope.form.mdInputValue.$setValidity("invalid", true);
 				function pad(num, size, decimal) {
 					var s = num + "";
 					while (s.length < size) {
@@ -1031,7 +1035,7 @@ define([
 		}
 
 		_setClient(client) {
-			this.cart.setClient(this.client)
+			this.cart.setClient(this.client ? this.client : "")
 		}
 
 		getEmail() {
@@ -1039,7 +1043,7 @@ define([
 		}
 
 		_setEmail(client) {
-			this.cart.setEmail(this.email)
+			this.cart.setEmail(this.email ? this.email : "")
 		}
 
 
@@ -1068,12 +1072,18 @@ define([
 
 
 		getClient() {
-			if(!this.client)
+			if(this.client == undefined)
 				this.client = localStorage.getItem("client")
-			return this.client ? this.client : ""
+
+			if(this.client == undefined)
+				this.client = ""
+
+			return this.client
 		}
 
 		setClient(client){
+			if (client == undefined)
+				client == ""
 			localStorage.setItem("client", client)
 			this.client = client
 		}

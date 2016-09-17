@@ -3,14 +3,15 @@
 		<h1 class="md-headline">Your cart is empty.</h1>
 	</div>
 
+	<form name="form" autocomplete="off">
 	<div class="cart"  ng-if="!$ctrl.isEmpty()">
 		<div class="cartClientInfo">
 			<md-input-container>
-				<input type="text" ng-model="$ctrl.client" placeholder="Client Name" aria-label="client Info">
+				<input name="client" type="text" ng-model="$ctrl.client" placeholder="Client Name" aria-label="client Info" required>
 			</md-input-container>
 
 			<md-input-container>
-				<input type="email" ng-model="$ctrl.email" placeholder="E-mail" aria-label="email" ng-pattern="$ctrl.emailValidation">
+				<input name="email" type="email" ng-model="$ctrl.email" placeholder="E-mail" aria-label="email" ng-pattern="$ctrl.emailValidation" required>
 			</md-input-container>
 		</div>
 
@@ -36,7 +37,8 @@
 		</div>
 
 		<div class="cartSubmit">
-			<md-button ng-click="$ctrl.getPdf()">Download PDF</md-button>
+			<md-button ng-disabled="form.$invalid" ng-click="$ctrl.getPdf()">Download PDF</md-button>
 		</div>
 	</div>
+	</form>
 </div>
