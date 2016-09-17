@@ -375,8 +375,9 @@ define([
 	 *
 	 */
 	class OrderNumber {
-		constructor($mdDialog) {
+		constructor($mdDialog, $mdToast) {
 			this.$mdDialog = $mdDialog
+			this.$mdToast = $mdToast
 		}
 
 		cartButtonClasses() {
@@ -392,6 +393,13 @@ define([
 		addToCart(event) {
 			if (this.order.verifyOrder()) {
 				this.order.addToCart()
+
+				this.$mdToast.show(
+					this.$mdToast.simple()
+					.textContent('Product Added To Cart!')
+					.position('top right')
+					.hideDelay(3000)
+				);
 			} else {
 				this.$mdDialog.show(
 					this.$mdDialog.alert()
