@@ -963,7 +963,8 @@ define([
 	app.component('wwPart', {
 		controller: Part,
 		require: {
-			order: '^wwOrder'
+			order: '^wwOrder',
+			partCategory: '^wwPartCategory'
 		},
 		templateUrl: 'app/views/part.html',
 		bindings: {
@@ -1156,7 +1157,7 @@ define([
 			var classes = {}
 
 			if (this.$scope.form.$valid) {
-				setPrimaryButtonClasses(classes)
+				classes['md-primary'] = true
 			}
 
 			return classes
@@ -1190,8 +1191,6 @@ define([
 		}
 
 		setClient(client){
-			if (client == undefined)
-				client == ""
 			localStorage.setItem("client", client)
 			this.client = client
 		}
