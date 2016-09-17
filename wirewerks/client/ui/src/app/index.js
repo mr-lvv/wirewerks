@@ -426,6 +426,26 @@ define([
 				return undefined
 			}
 
+			clearFocus() {
+				var categories = productCategories(this.product)
+				if (!categories.length)
+					return
+
+				// Reset navigation info on categories
+				categories.forEach(category => {
+					category.navFocus = false
+				})
+			}
+
+			setFocus(category) {
+				this.clearFocus()
+
+				if (category) {
+					category.navFocus = true
+					$rootScope.$emit('nav.focus', category)
+				}
+			}
+
 			next(fromCategory) {
 				if (!this.order || !this.product) {
 					console.warn('No order or product on navigation. Cannot focus next category.')
@@ -444,21 +464,23 @@ define([
 					focusedIndex = _.findIndex(categories, category => category.type === fromCategory.type)
 				}
 
-				// Reset navigation info on categories
-				categories.forEach(category => {
-					category.navFocus = false
-				})
+				var category
 
 				var index = this._nextFocusedIndex(focusedIndex, categories)
 				if (index !== undefined) {
-					categories[index].navFocus = true
-					$rootScope.$emit('nav.focus', categories[index])
+					category = categories[index]
 				}
+
+				this.setFocus(category)
 			}
 		}
 
 		return Nav
 	})
+
+	function validCategories(group) {
+		return _.filter(group.partCategories, (category) => !category.constant)
+	}
 
 	/**
 	 *
@@ -487,6 +509,17 @@ define([
 
 			return Url.datasheet(this.product.dataSheetLink)
 		}
+
+		// Return all group that has valid categories
+		validGroups() {
+			if (!this.product) return
+
+			var groups = _.filter(this.product.partGroups, group => {
+				return validCategories(group).length
+			})
+
+			return groups
+		}
 	}
 
 	app.component('wwProduct', {
@@ -509,8 +542,7 @@ define([
 		}
 
 		validCategories() {
-			var valid = _.filter(this.group.partCategories, (category) => !category.constant)
-			return valid
+			return validCategories(this.group)
 		}
 	}
 
@@ -607,6 +639,10 @@ define([
 			return this.order.partForCategory(this.category)
 		}
 
+		setNavFocus() {
+			this.product.nav.setFocus(this.category)
+		}
+
 		// Is this category the next navigatable one?
 		isNavFocused() {
 			return this.category.navFocus
@@ -622,13 +658,27 @@ define([
 
 			return classes
 		}
+
+		// Get parts to show for this category
+		getParts() {
+			var parts = this.category.parts
+
+			if (!this.isNavFocused()) {
+				parts = _.filter(parts, part => {
+					return this.order.isPartInOrder(new PartInfo(part, this.category))
+				})
+			}
+
+			return parts
+		}
 	}
 
 	app.component('wwPartCategory', {
 		controller: PartCategory,
 		templateUrl: 'app/views/partcategory.html',
 		require: {
-			order: '^wwOrder'
+			order: '^wwOrder',
+			product: '^wwProduct'
 		},
 		bindings: {
 			category: '=?',
