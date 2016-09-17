@@ -1,24 +1,30 @@
 <style>
-img {
-    display: block;
-    margin: 0 auto;
-}
+	img {
+		display: block;
+		margin: 0 auto;
+	}
 
-.left{float:left; width:50%;}
+	h3 {
+		left: 5mm;
+	}
 
-h3 {
-       left: 5mm;
-}
+	<% // Phantom JS is awful and does not support flexbox properly. Using old style flexbox.. %>
+	.part {
+		display: flex;
+		justify-content: space-between;
+		display: -webkit-box;
+		-webkit-box-orient: horizontal;
+		-webkit-box-pack: justify;
 
-.part {
-       left: 5mm;
-}
-.bottom {
-       position: absolute;
-       left: 3mm;
-       right: 5mm;
-       bottom: 5mm;
-}
+		left: 5mm;
+	}
+
+	.bottom {
+		position: absolute;
+		left: 3mm;
+		right: 5mm;
+		bottom: 5mm;
+	}
 </style>
 
 <img class='logo' src="<%= logo %>" width="75%" align="middle">
@@ -28,13 +34,15 @@ h3 {
 
 <h3>Client Name: <%= client %> </h3>
 <h3>Email: <%= email %> </h3>
+
 <% for (var prop in parts) {
      if (Object.prototype.hasOwnProperty.call(parts, prop)) { %>
-       <div class="part">
-              <div class="left"><%= prop %>  </div><div class="left">quantity: <%= parts[prop].quantity %></div>
-       </div>
+		<div class="part">
+			<div class="left"><%= prop %> </div>
+			<div class="right">quantity: <%= parts[prop].quantity %></div>
+		</div>
 <%   }
-   } %>
+} %>
 
 
 <div class="bottom">
