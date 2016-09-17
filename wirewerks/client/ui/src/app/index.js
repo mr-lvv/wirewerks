@@ -810,12 +810,9 @@ define([
 			if(!this.validate()) {
 				this.part.inputValue = undefined
 				this.part.inputValueValid = false
-				console.log(this.$scope)
-				this.$scope.form.mdInputValue.$setValidity("invalid", false);
 			} else {
 				this.part.inputValue = this.inputValue
 				this.part.inputValueValid = true
-				this.$scope.form.mdInputValue.$setValidity("invalid", true);
 				function pad(num, size, decimal) {
 					var s = num + "";
 					while (s.length < size) {
