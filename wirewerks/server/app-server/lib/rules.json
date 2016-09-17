@@ -37,8 +37,7 @@
         },
         "POLISH SIDE B":
         {
-          "A" : {"valid" : true},
-          "B" : {"valid" : true},
+          "C" : {"valid" : true},
           "*" : {"valid" : false}
         }
       }
@@ -83,10 +82,6 @@
       "*": {
         "FIRE RATING": {
           "C": {"valid": false}
-        },
-        "LEAD OD":
-        {
-          "9" : {"valid" : false}
         }
       }
     },
