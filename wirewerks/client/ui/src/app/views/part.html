@@ -1,4 +1,4 @@
-<div class="content" ng-click="$ctrl.select()" ng-class="{selected: $ctrl.isSelected(), invalid : !$ctrl.valid()}">
+<div class="content" ng-click="$ctrl.select()" ng-class="{selected: $ctrl.isSelected()}" ng-if="$ctrl.valid()">
 	<header ng-style="$ctrl.style()">
 		<label ng-if="!$ctrl.shouldShowXIsDigit()">{{$ctrl.part.value}}{{$ctrl.part.finePrint}}</label>
 		<form name="form" autocomplete="off">

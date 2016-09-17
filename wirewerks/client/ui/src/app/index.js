@@ -165,13 +165,13 @@ define([
 			})
 
 			this.selection = {}
+			this.validPartsMap = {}
 		}
 
 		_refreshProduct() {
 			this.productResource.get(this.productId).then(product => {
 				// If no product found, keep current product displayed
 				if (product) {
-					this.sections = []
 					this.parts = []
 					this.product = product				// Not actually product, more like productTemplate
 				}
@@ -210,31 +210,72 @@ define([
 		updatePart(partInfo) {
 			this._removeCategory(partInfo.category)
 			this.sections = []
-
 			this.parts.push(partInfo)
 		}
 
-		valid(category, part)
-		{
-			//verify current
+		valid(category, part) {
+			return (_.keys(this.selection).length == 0 || (this.validPartsMap[category] && this.validPartsMap[category][part]['valid'] == true))
+		}
 
+		validateAll() {
+			this.validPartsMap = {}
+			this.product.partGroups.forEach((group) => {
+				group.partCategories.forEach((category) => {
+
+					if(!category.parts)
+						return;
+					category.parts.forEach((part) => {
+
+						var isValid = this.validate(category.title, part.value)
+						if(!this.validPartsMap[category.title]) {
+							this.validPartsMap[category.title] = {}
+						}
+
+
+						this.validPartsMap[category.title][part.value] = {}
+						this.validPartsMap[category.title][part.value]['valid'] = isValid
+						if(isValid) {
+							if(!this.validPartsMap[category.title]['number']) {
+								this.validPartsMap[category.title]['number'] = 1
+								this.validPartsMap[category.title]['default'] = part.value
+								this.validPartsMap[category.title][part.value]['part'] = part
+							}
+							else
+								this.validPartsMap[category.title]['number']++
+						}
+					})
+					//done with the category, we can check if we can autopick
+					if (this.validPartsMap[category.title]['number'] ==1) {
+
+						var partValue = this.validPartsMap[category.title]['default'];
+						if(this.selection[category.title] == partValue)
+							return
+
+						var defaultCategory = category
+						var defaultPart = this.validPartsMap[category.title][partValue]['part']
+						if(defaultPart.xIsDigit)
+							return;
+						var defaultPartInfo = new PartInfo(defaultPart, defaultCategory)
+						this.addPart(defaultPartInfo)
+					}
+				})
+			})
+		}
+
+		validate(category, part) {
 			if(!this.rules || !this.rules[this.productId] )
 				return true
 
 			if(this.rules[this.productId][category])
 			{
 				var currentRulesArray = this.rules[this.productId][category][part]
-
 				var defaultRulesArray = this.rules[this.productId][category]["*"]
-				//console.log(defaultRulesArray)
 
 				if(!currentRulesArray && !defaultRulesArray)
 					return true
 
 				currentRulesArray = currentRulesArray ? currentRulesArray : {}
-
 				defaultRulesArray = defaultRulesArray ? defaultRulesArray : {}
-
 
 				for (var key in this.selection){
 					if (this.selection.hasOwnProperty(key)) {
@@ -269,19 +310,23 @@ define([
 					}
 				}
 			}
-			return true
 
+
+
+			return true
 		}
 
 		addPart(partInfo) {
 			if (!partInfo.part.inputValue && this.isPartInOrder(partInfo)) {return}
 			this.updatePart(partInfo)
 			this.selection[partInfo.category.title] = partInfo.part.value
+			this.validateAll()
 		}
 
 		removePart(partInfo) {
 			this._removeCategory(partInfo.category)
 			delete this.selection[partInfo.category.title]
+			this.validateAll()
 		}
 
 		isPartInOrder(partInfo) {
@@ -751,7 +796,6 @@ define([
 		}
 		
 		valid() {
-			//console.log(this.category.title, this.part.value)
 			return this.order.valid(this.category.title, this.part.value)
 		}
 
