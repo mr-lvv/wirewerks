@@ -14,8 +14,6 @@ $transition-common: all 0.2s ease;
 $z-overlay: 10;				// 100 goes above md-select which is not good.
 
 html, body {
-	min-height: 100%;
-	height: inherit;
 }
 
 ww-app {
@@ -269,6 +267,13 @@ ww-part {
 		padding: $padding-large $padding-normal;
 		background: #e6e6e6;
 	}
+
+	&:hover {
+		selection-overlay {
+			opacity: 0.1;
+		}
+	}
+
 	.no-animate {
 		-webkit-transition: none !important;
 		transition: none !important;
