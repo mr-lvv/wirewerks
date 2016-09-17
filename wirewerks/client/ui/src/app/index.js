@@ -962,7 +962,8 @@ define([
 	app.component('wwPart', {
 		controller: Part,
 		require: {
-			order: '^wwOrder'
+			order: '^wwOrder',
+			partCategory: '^wwPartCategory'
 		},
 		templateUrl: 'app/views/part.html',
 		bindings: {
