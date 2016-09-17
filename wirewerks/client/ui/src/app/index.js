@@ -375,8 +375,34 @@ define([
 	 *
 	 */
 	class OrderNumber {
-		constructor() {
+		constructor($mdDialog) {
+			this.$mdDialog = $mdDialog
+		}
 
+		cartButtonClasses() {
+			var classes = {};
+			if (this.order.verifyOrder()) {
+				classes['md-primary'] = true
+				classes['md-raised'] = true
+			}
+
+			return classes
+		}
+
+		addToCart(event) {
+			if (this.order.verifyOrder()) {
+				this.order.addToCart()
+			} else {
+				this.$mdDialog.show(
+					this.$mdDialog.alert()
+						.clickOutsideToClose(true)
+						.title('Product Selection Incomplete.')
+						.textContent('You need to choose a part for every section before adding the product to cart.')
+						.ariaLabel('Alert Dialog')
+						.ok('Got it!')
+						.targetEvent(event)
+				);
+			}
 		}
 	}
 
@@ -690,7 +716,7 @@ define([
 	 *
 	 */
 	class Part {
-		constructor($rootScope) {
+		constructor($rootScope, $element) {
 			this.inputValue=null
 			this.decimal = false
 			this.$rootScope = $rootScope
