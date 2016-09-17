@@ -728,7 +728,6 @@ define([
 		}
 		
 		valid() {
-			//console.log(this.category.title, this.part.value)
 			return this.order.valid(this.category.title, this.part.value)
 		}
 
