@@ -1338,7 +1338,7 @@
                 "attributes": [
                   {
                     "bold": false,
-                    "label": "900 _m"
+                    "label": "900 \u03bcm"
                   },
                   {
                     "bold": false,
@@ -2988,7 +2988,7 @@
     "longDescription": "",
     "notes": "Provided in bag of 10 units",
     "dataSheetLink": "PDS-0048",
-    "part": "KW",
+    "part": "KWZZZ",
     "partGroups": [
       {
         "partCategories": [
@@ -3075,7 +3075,7 @@
     "longDescription": "",
     "notes": "RJ45 Keywerks dust caps (provided in bag of 50 units)",
     "dataSheetLink": "PDS-0067",
-    "part": "KW",
+    "part": "KWDUSTCAP",
     "partGroups": [
       {
         "partCategories": [
