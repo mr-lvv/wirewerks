@@ -14,7 +14,8 @@ $transition-common: all 0.2s ease;
 $z-overlay: 10;				// 100 goes above md-select which is not good.
 
 html, body {
-	height: 100%;
+	min-height: 100%;
+	height: inherit;
 }
 
 ww-app {
@@ -167,25 +168,37 @@ ww-part-category {
 
 	.part-column {
 		box-shadow: 1px 4px 10px -3px gray;
-		padding: 1px;
+		margin: 0 1px;
 		max-width: 200px;
 
 		selection-overlay {
 			background: rgba(10, 0, 40, 0.6);				// Category with no selection
 		}
 
+		category-header {
+			opacity: 0.25;
+		}
+
 		&.picked {
 			selection-overlay.inactive {
-				background: rgba(0, 0, 0, 0.8);			// Not picked, in a category with a selection
+				background: rgba(0, 0, 0, 0.5);			// Not picked, in a category with a selection
 			}
 			selection-overlay.active {
 				background: transparent;
+			}
+
+			category-header {
+				opacity: 1;
 			}
 		}
 
 		&.nav-focused {
 			selection-overlay {
 				background: rgba(0, 0, 0, 0.15);		// Not picked, in the currently focused category
+			}
+
+			category-header {
+				opacity: 1
 			}
 		}
 	}

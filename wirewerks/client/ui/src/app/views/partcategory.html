@@ -1,9 +1,9 @@
 <div class="part-column" ng-style="$ctrl.columnStyle()" ng-class="$ctrl.overlayClasses()">
-	<category-header ng-style="$ctrl.style()">
+	<category-header ng-style="$ctrl.style()" ng-click="$ctrl.setNavFocus()">
 		<label>{{$ctrl.category.title}}{{$ctrl.category.finePrint}}</label>
 	</category-header>
 
 	<div class="content">
-		<ww-part part="part" category="$ctrl.category" group="$ctrl.group" ng-repeat="part in $ctrl.category.parts"></ww-part>
+		<ww-part part="part" category="$ctrl.category" group="$ctrl.group" ng-repeat="part in $ctrl.getParts()"></ww-part>
 	</div>
 </div>

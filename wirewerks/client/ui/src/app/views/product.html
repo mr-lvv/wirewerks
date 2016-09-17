@@ -23,7 +23,7 @@
 			</product-header>
 
 			<ww-part-groups>
-				<ww-part-group group="group" ng-repeat="group in $ctrl.product.partGroups"></ww-part-group>
+				<ww-part-group group="group" ng-repeat="group in $ctrl.validGroups()"></ww-part-group>
 			</ww-part-groups>
 
 			<p class="notes" ng-if="$ctrl.product.notes">{{$ctrl.product.notes}}</p>
