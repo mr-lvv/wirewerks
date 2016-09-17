@@ -45,13 +45,24 @@ define([
 			this.filters = {section: undefined}								// Search filters (ie: section, etc...)
 		}
 
-		goToHome() {this.$location.path("/state/home");}
-		goToCart() {this.$location.path("/state/cart");}
+		goToHome() {
+			ga('send', 'event', 'Navigation', 'Home');
+
+			this.$location.path("/state/home");
+		}
+
+		goToCart() {
+			ga('send', 'event', 'Navigation', 'View Cart');
+
+			this.$location.path("/state/cart");
+		}
+
 		goToProducts(id) {
 			id = id || 'fa'
 			if (id)
 				id = '/' + id
 
+			ga('send', 'event', 'Navigation', 'Product', id);
 			this.$location.path("/state/product" + id);
 		}
 
@@ -420,19 +431,24 @@ define([
 		}
 	})
 
+	function setPrimaryButtonClasses(classes) {
+		classes['md-primary'] = true
+		classes['md-raised'] = true
+	}
+
 	/**
 	 *
 	 */
 	class OrderNumber {
-		constructor($mdDialog) {
+		constructor($mdDialog, $mdToast) {
 			this.$mdDialog = $mdDialog
+			this.$mdToast = $mdToast
 		}
 
 		cartButtonClasses() {
 			var classes = {};
 			if (this.order.verifyOrder()) {
-				classes['md-primary'] = true
-				classes['md-raised'] = true
+				setPrimaryButtonClasses(classes)
 			}
 
 			return classes
@@ -441,6 +457,13 @@ define([
 		addToCart(event) {
 			if (this.order.verifyOrder()) {
 				this.order.addToCart()
+
+				this.$mdToast.show(
+					this.$mdToast.simple()
+					.textContent('Product Added To Cart!')
+					.position('bottom right')
+					.hideDelay(3000)
+				);
 			} else {
 				this.$mdDialog.show(
 					this.$mdDialog.alert()
@@ -966,6 +989,10 @@ define([
 			productsCache.get().then(products => {
 				this.products = products
 			})
+
+			this._sendTextAnalytics = _.debounce(text => {
+				ga('send', 'event', 'Search', 'text', text);
+			}, 3000)
 		}
 
 		// Sort of hacking way since depending on autocomplete's controller inner workings
@@ -983,7 +1010,7 @@ define([
 		}
 
 		searchTextChange(text) {
-
+			this._sendTextAnalytics(text)
 		}
 
 		selectedItemChange(item) {
@@ -1076,6 +1103,9 @@ define([
 				}
 				,responseType: 'arraybuffer'
 			}
+
+			ga('send', 'event', 'User Action', 'Get Bill of Materials', data);
+
 			var fs = this.FileSaver
 			this.$http.post(Url.bompdf(), data, config)
 				.then(
@@ -1123,6 +1153,16 @@ define([
 			if (!products || !_.keys(products).length)
 				return true
 			return false
+		}
+
+		getSubmitClasses() {
+			var classes = {}
+
+			if (this.$scope.form.$valid) {
+				setPrimaryButtonClasses(classes)
+			}
+
+			return classes
 		}
 	}
 
