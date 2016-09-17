@@ -175,6 +175,7 @@ define([
 					this.parts = []
 					this.product = product				// Not actually product, more like productTemplate
 					this.selection = {}
+					this.sections = []
 				}
 			})
 		}
@@ -1027,7 +1028,6 @@ define([
 				var re = new RegExp('^' + text, 'i')
 				return re.test(product.part)
 			})
-
 			return results
 		}
 
