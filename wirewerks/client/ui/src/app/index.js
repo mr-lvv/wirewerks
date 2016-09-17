@@ -166,8 +166,6 @@ define([
 
 			this.selection = {}
 			this.validPartsMap = {}
-
-			this.noSelection = true
 		}
 
 		_refreshProduct() {
@@ -216,7 +214,7 @@ define([
 		}
 
 		valid(category, part) {
-			return (this.noSelection || (this.validPartsMap[category] && this.validPartsMap[category][part]['valid'] == true))
+			return (_.keys(this.selection).length == 0 || (this.validPartsMap[category] && this.validPartsMap[category][part]['valid'] == true))
 		}
 
 		validateAll() {
@@ -319,8 +317,6 @@ define([
 		}
 
 		addPart(partInfo) {
-			if(this.noSelection == true)
-				this.noSelection  = false
 			if (!partInfo.part.inputValue && this.isPartInOrder(partInfo)) {return}
 			this.updatePart(partInfo)
 			this.selection[partInfo.category.title] = partInfo.part.value
