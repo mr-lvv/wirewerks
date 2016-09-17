@@ -174,6 +174,7 @@ define([
 				if (product) {
 					this.parts = []
 					this.product = product				// Not actually product, more like productTemplate
+					this.selection = {}
 				}
 			})
 		}
