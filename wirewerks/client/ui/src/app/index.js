@@ -58,7 +58,7 @@ define([
 		}
 
 		goToProducts(id) {
-			id = id || 'fa'
+			id = id || 'FA'
 			if (id)
 				id = '/' + id
 
