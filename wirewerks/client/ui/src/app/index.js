@@ -429,7 +429,6 @@ define([
 
 	function setPrimaryButtonClasses(classes) {
 		classes['md-primary'] = true
-		classes['md-raised'] = true
 	}
 
 	/**
@@ -1156,7 +1155,7 @@ define([
 			var classes = {}
 
 			if (this.$scope.form.$valid) {
-				classes['md-primary'] = true
+				setPrimaryButtonClasses(classes)
 			}
 
 			return classes
