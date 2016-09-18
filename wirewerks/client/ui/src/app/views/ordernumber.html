@@ -1,2 +1,2 @@
 <span ng-repeat="section in $ctrl.order.orderNumber()" ng-class="section.classes" ng-style="{'background-color': section.color}">{{section.label}}</span>
-<md-button ng-class="$ctrl.cartButtonClasses()" ng-click="$ctrl.addToCart($event)">Add To Cart</md-button>
+<md-button class="md-raised" ng-class="$ctrl.cartButtonClasses()" ng-click="$ctrl.addToCart($event)">Add To Cart</md-button>
