@@ -115,7 +115,7 @@ define([
 					this.productsIds = productsIds
 					//here find out which id it is
 					var theId = _.find(productsIds, function(o) {
-						return id.startsWith(o)
+						return id.replace(/-/g,'').startsWith(o)
 					});
 
 					if (!theId || theId == id)
@@ -243,7 +243,7 @@ define([
 											break
 
 										if(part.xIsDigit) {
-											if(!this.partService.validate(value, part))
+											if(!this.partService.validate(value.replace(/\D/g,''), part))
 												break
 											part.inputValue = value
 											part.inputValueValid = true
@@ -1163,7 +1163,7 @@ define([
 	 *
 	 */
 	class wwCart {
-		constructor(cart, $scope, $http, FileSaver) {
+		constructor(cart, $scope, $http, FileSaver,app) {
 			//get from localStorage
 			this.cart = cart
 			this.quantityChoice = _.range(1,100);
@@ -1181,6 +1181,7 @@ define([
 			this.$scope.$watch(()=>this.email, this._setEmail.bind(this))
 			this.$http = $http
 			this.FileSaver = FileSaver
+			this.app = app
 		}
 
 		_updateQuantity() {
@@ -1226,6 +1227,10 @@ define([
 
 		removeFromCart(partNumber) {
 			this.cart.removeFromCart(partNumber)
+		}
+
+		goTo(partNumber) {
+			this.app.goToProducts(partNumber)
 		}
 
 		getClient() {
