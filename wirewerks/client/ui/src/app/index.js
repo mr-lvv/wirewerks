@@ -42,7 +42,10 @@ define([
 		constructor($location) {
 			this.$location = $location
 			this.view = views.home
-			this.filters = {section: undefined}								// Search filters (ie: section, etc...)
+			this.filters = {section: undefined}
+
+			// Search filters (ie: section, etc...)
+
 		}
 
 		goToHome() {
@@ -85,9 +88,16 @@ define([
 	 *
 	 */
 	class wwApp {
-		constructor($timeout, $routeParams, $scope, $location, app, $mdSidenav) {
+		constructor($timeout, $routeParams, $scope, $location, app, $mdSidenav, productsIdsCache) {
+
+			this.productsIds = []
+			//Should optimize for each product
+
+
 			this.id = ''
 			this.app = app
+			this.partnumber = ''
+			this.foundId = ''
 
 			// Should be removed at some point...
 			$scope.$watch(() => $routeParams, (params) => {
@@ -101,7 +111,25 @@ define([
 					return
 				}
 
-				this.app.goToProducts(id)
+				productsIdsCache.get().then(productsIds => {
+					this.productsIds = productsIds
+					//here find out which id it is
+					var theId = _.find(productsIds, function(o) {
+						return id.startsWith(o)
+					});
+
+					if (!theId || theId == id)
+					{
+						this.foundId = id
+						this.partnumber = ''
+					}
+					else
+					{
+						this.foundId = theId
+						this.partnumber = id
+					}
+					this.app.goToProducts(id)
+				})
 			})
 
 			this.$mdSidenav = $mdSidenav
@@ -157,6 +185,7 @@ define([
 			this.partNumber = ""
 
 			$scope.$watch('order.productId', this._refreshProduct.bind(this))
+			$scope.$watch('order.partnumber', this._refreshProduct.bind(this))
 
 			this.rules = {}
 			//Should optimize for each product
@@ -166,6 +195,7 @@ define([
 
 			this.selection = {}
 			this.validPartsMap = {}
+			this.disableAutopick = false
 		}
 
 		_refreshProduct() {
@@ -176,6 +206,55 @@ define([
 					this.product = product				// Not actually product, more like productTemplate
 					this.selection = {}
 					this.sections = []
+				}
+
+				if(this.partnumber)
+				{
+					//Need to regex that partnumber
+
+
+					//disable autopick or it will correct errors...
+					this.disableAutopick = true
+					var partnumberCleaned = this.partnumber.replace(/-/g,'')
+					var startIndex = 0
+					product.partGroups.forEach((group) => {
+						group.partCategories.forEach((category) => {
+							if (category.constant) {
+								//move forward
+								startIndex += category.title.length
+							}
+							else
+							{
+								var length = category['length']
+								var value = partnumberCleaned.substr(startIndex, length)
+								for(var i = 0 ; i < category.parts.length; i++) {
+									var part = category.parts[i]
+									var valueToCheck = value
+									if(part.xIsDigit)
+									{
+										valueToCheck = value.replace(/[0-9]/g, "X")
+									}
+
+									if(part.value == valueToCheck)
+									{
+										var valid =  this.valid(category.title, part.value)
+										if(!valid)
+											break
+
+										if(part.xIsDigit) {
+											part.inputValueValid = true
+											part.inputValue = value
+										}
+										var partInfo = new PartInfo(part,category)
+										this.addPart(partInfo)
+										break
+									}
+								}
+								startIndex += length
+							}
+						})
+					})
+					this.disableAutopick = false
 				}
 			})
 		}
@@ -247,18 +326,20 @@ define([
 						}
 					})
 					//done with the category, we can check if we can autopick
-					if (this.validPartsMap[category.title]['number'] ==1) {
+					if(this.disableAutopick == false) {
+						if (this.validPartsMap[category.title]['number'] ==1) {
 
-						var partValue = this.validPartsMap[category.title]['default'];
-						if(this.selection[category.title] == partValue)
-							return
+							var partValue = this.validPartsMap[category.title]['default'];
+							if(this.selection[category.title] == partValue)
+								return
 
-						var defaultCategory = category
-						var defaultPart = this.validPartsMap[category.title][partValue]['part']
-						if(defaultPart.xIsDigit)
-							return;
-						var defaultPartInfo = new PartInfo(defaultPart, defaultCategory)
-						this.addPart(defaultPartInfo)
+							var defaultCategory = category
+							var defaultPart = this.validPartsMap[category.title][partValue]['part']
+							if(defaultPart.xIsDigit)
+								return;
+							var defaultPartInfo = new PartInfo(defaultPart, defaultCategory)
+							this.addPart(defaultPartInfo)
+						}
 					}
 				})
 			})
@@ -312,8 +393,6 @@ define([
 					}
 				}
 			}
-
-
 
 			return true
 		}
@@ -425,7 +504,8 @@ define([
 		controllerAs: 'order',
 		templateUrl: 'app/views/order.html',
 		bindings: {
-			productId: '='
+			productId: '=',
+			partnumber: '='
 		}
 	})
 
@@ -793,6 +873,8 @@ define([
 		}
 
 		get partInfo() {
+			if(this.part.inputValue)
+				this.inputValue = this.part.inputValue.replace(/\D/g,'')
 			return new PartInfo(this.part, this.category)
 		}
 		
@@ -1250,12 +1332,21 @@ define([
 	 *
 	 */
 	class wwProductNav {
-		constructor(app, $scope, $routeParams, productsCache, sectionsCache, $mdSidenav) {
+		constructor(app, $scope, $routeParams, productsCache, sectionsCache, $mdSidenav, productsIdsCache) {
 			// Set the section to the currently viewed product on page refresh
 			if (app.view === views.product) {
-				productsCache.byId($routeParams.productId).then((product) => {
-					sectionsCache.byId(product.section).then((section) => {
-						this.section = section
+				var id = $routeParams.productId
+				productsIdsCache.get().then(productsIds => {
+					this.productsIds = productsIds
+					//here find out which id it is
+					var theId = _.find(productsIds, function(o) {
+						return id.startsWith(o)
+					});
+
+					productsCache.byId(theId).then((product) => {
+						sectionsCache.byId(product.section).then((section) => {
+							this.section = section
+						})
 					})
 				})
 			}

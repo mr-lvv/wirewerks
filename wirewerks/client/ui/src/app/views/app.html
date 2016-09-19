@@ -22,7 +22,7 @@
 <md-content>
 	<ng-switch on="$ctrl.app.view">
 		<ww-cart ng-switch-when="cart"></ww-cart>
-		<ww-order ng-switch-when="product" product-id="$ctrl.id"></ww-order>
+		<ww-order ng-switch-when="product" product-id="$ctrl.foundId" partnumber="$ctrl.partnumber"></ww-order>
 		<ww-home ng-switch-default></ww-home>
 	</ng-switch>
 </md-content>
