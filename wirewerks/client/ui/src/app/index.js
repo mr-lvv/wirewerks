@@ -175,11 +175,12 @@ define([
 	 *
 	 */
 	class Order {
-		constructor(productResource, $scope, cart, rulesCache, partService, productsRegexCache) {
+		constructor(productResource, $scope, cart, rulesCache, partService, productsRegexCache, $rootScope) {
 			this.productResource = productResource
 			this.product = undefined;
 			this.parts = []							// Type PartInfo, not part (to include category..)
 			this.productsRegexCache = productsRegexCache
+			this.$rootScope = $rootScope
 
 			this.sections = []
 			this.cart = cart
@@ -256,6 +257,8 @@ define([
 											}
 											var partInfo = new PartInfo(part,category)
 											this.addPart(partInfo)
+
+											this.$rootScope.$emit('order.part.changed', partInfo)
 											break
 										}
 									}
@@ -594,7 +597,7 @@ define([
 			}
 
 			_nextFocusedIndex(focusedIndex, categories, order) {
-				if (focusedIndex === -1)
+				if (focusedIndex === -1 || focusedIndex === undefined)
 					focusedIndex = 0
 
 				// Start from focusedIndex an find the next category that has no selected parts
@@ -644,7 +647,7 @@ define([
 					return
 
 				// Find currently focused category
-				var focusedIndex = 0
+				var focusedIndex
 				if (fromCategory) {
 					focusedIndex = _.findIndex(categories, category => category.type === fromCategory.type)
 				}
@@ -682,9 +685,13 @@ define([
 			$scope.$watch(() => this.product, initNav.bind(this))
 			$scope.$watch(() => this.order, initNav.bind(this))
 
-			$rootScope.$on('part.selected', (event, partInfo) => {
-				this.nav.next(partInfo.category)
-			})
+			$rootScope.$on('part.selected', (event, partInfo) => this._onPartChanged(partInfo.category))
+			$rootScope.$on('order.part.changed', () => this._onPartChanged())
+		}
+
+		// Category is the category from which a change has been made (can be undefined)
+		_onPartChanged(category) {
+			this.nav.next(category)
 		}
 
 		getDataSheetLink() {
