@@ -175,7 +175,7 @@ define([
 	 *
 	 */
 	class Order {
-		constructor(productResource, $scope, cart, rulesCache) {
+		constructor(productResource, $scope, cart, rulesCache, partService) {
 			this.productResource = productResource
 			this.product = undefined;
 			this.parts = []							// Type PartInfo, not part (to include category..)
@@ -183,6 +183,7 @@ define([
 			this.sections = []
 			this.cart = cart
 			this.partNumber = ""
+			this.partService = partService
 
 			$scope.$watch('order.productId', this._refreshProduct.bind(this))
 			$scope.$watch('order.partnumber', this._refreshProduct.bind(this))
@@ -242,8 +243,10 @@ define([
 											break
 
 										if(part.xIsDigit) {
-											part.inputValueValid = true
+											if(!this.partService.validate(value, part))
+												break
 											part.inputValue = value
+											part.inputValueValid = true
 										}
 										var partInfo = new PartInfo(part,category)
 										this.addPart(partInfo)
@@ -864,12 +867,38 @@ define([
 	/**
 	 *
 	 */
+
+
+	app.service('partService',  class PartService {
+		constructor() {
+		}
+		validate(value, part) {
+			//here we can use regexp to check
+			if(!value || value == 0)
+				return false
+
+			var numberOfDigit = _.countBy(part.value)['X']
+			if(part.allowDecimal)
+			{
+				var re = new RegExp('^\\d{1,' + numberOfDigit + "}(\\.[0-9][0-9]?)?$");
+				return re.test(value)
+			}
+			else
+			{
+				var re = new RegExp('^\\d{1,' + numberOfDigit + "}$");
+				return re.test(value)
+			}
+		}
+
+	})
+
 	class Part {
-		constructor($rootScope, $scope) {
+		constructor($rootScope, $scope, partService) {
 			this.inputValue=null
 			this.decimal = false
 			this.$rootScope = $rootScope
 			this.$scope = $scope
+			this.partService = partService
 		}
 
 		get partInfo() {
@@ -913,21 +942,7 @@ define([
 		}
 
 		validate() {
-			var value = this.inputValue
-			//here we can use regexp to check
-			if(!value || value == 0)
-				return false
-
-			if(this.part.allowDecimal)
-			{
-				var re = new RegExp('^\\d{1,' + this.numberOfDigit() + "}(\\.[0-9][0-9]?)?$");
-				return re.test(value)
-			}
-			else
-			{
-				var re = new RegExp('^\\d{1,' + this.numberOfDigit() + "}$");
-				return re.test(value)
-			}
+			return this.partService.validate(this.inputValue, this.part)
 		}
 
 		valueChange() {
