@@ -60,10 +60,11 @@ define(['../app', './url'], function(app, Url) {
 			})
 		}
 	}
-
 	app.service('productsCache', ProductsCache)
 
-
+	/**
+	 *
+	 */
 	class ProductsIdsCache {
 		constructor($q, productsIdsResource) {
 			this.resource = productsIdsResource
@@ -82,9 +83,11 @@ define(['../app', './url'], function(app, Url) {
 			})
 		}
 	}
-
 	app.service('productsIdsCache', ProductsIdsCache)
 
+	/**
+	 *
+	 */
 	class RulesCache {
 		constructor($q, rulesResource) {
 			this.resource = rulesResource
@@ -105,6 +108,36 @@ define(['../app', './url'], function(app, Url) {
 	}
 
 	app.service('rulesCache', RulesCache)
+
+	/**
+	 *
+	 */
+	class ProductsRegexCache {
+		constructor($q, productsRegexResource) {
+			this.resource = productsRegexResource
+			this._cache = undefined
+			this.$q = $q
+		}
+
+		get(force) {
+			if (this._cache || force) {
+				return this.$q.when(this._cache)
+			}
+
+			return this.resource.getProductsRegex().then(productsRegex => {
+				this._cache = productsRegex
+				return this._cache
+			})
+		}
+
+		byId(productId) {
+			return this.get().then((productsRegex) => {
+				console.log("prodReg" ,productsRegex)
+				return productsRegex[productId]
+			})
+		}
+	}
+	app.service('productsRegexCache', ProductsRegexCache)
 
 	/**
 	 *
@@ -158,6 +191,9 @@ define(['../app', './url'], function(app, Url) {
 	}
 	app.service('productResource', Product)
 
+	/**
+	 *
+	 */
 	class ProductsIds extends Resource {
 		constructor($http, $q) {
 			super()
@@ -168,7 +204,6 @@ define(['../app', './url'], function(app, Url) {
 
 		getProductsIds() {
 			var url = Url.productsids();
-
 			return this.$http.get(url).then(this._responseData.bind(this)).then((response) => {
 				// No product found.
 				return response
@@ -177,6 +212,9 @@ define(['../app', './url'], function(app, Url) {
 	}
 	app.service('productsIdsResource', ProductsIds)
 
+	/**
+	 *
+	 */
 	class Section extends Resource {
 		constructor($http) {
 			super()
@@ -192,6 +230,9 @@ define(['../app', './url'], function(app, Url) {
 	}
 	app.service('sectionResource', Section)
 
+	/**
+	 *
+	 */
 	class Rules extends Resource {
 		constructor($http) {
 			super()
@@ -206,4 +247,22 @@ define(['../app', './url'], function(app, Url) {
 		}
 	}
 	app.service('rulesResource', Rules)
+
+	/**
+	 *
+	 */
+	class ProductsRegex extends Resource {
+		constructor($http, $q) {
+			super()
+
+			this.$http = $http
+			this.$q = $q
+		}
+
+		getProductsRegex() {
+			var url = Url.productsRegex();
+			return this.$http.get(url).then(this._responseData.bind(this))
+		}
+	}
+	app.service('productsRegexResource', ProductsRegex)
 });

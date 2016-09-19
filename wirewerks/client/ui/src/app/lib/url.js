@@ -27,6 +27,10 @@ define([], function() {
 		static productsids(){
 			return '/api/client/productsids'
 		}
+
+		static productsRegex(){
+			return '/api/client/productsregex'
+		}
 	}
 
 	return Url

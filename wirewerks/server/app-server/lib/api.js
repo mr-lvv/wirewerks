@@ -2,7 +2,7 @@ var express = require('express')
 var products = require('./product.json')
 var sections = require('./sections.json')
 var rules = require('./rules.json')
-var regexsearch=('./regexsearch.json')
+var regexsearch=require('./regexsearch.json')
 var _ = require('lodash')
 var pdf = require('html-pdf');
 var fs = require('fs');
@@ -91,7 +91,7 @@ class Api {
 			response.status(200).send(rules);
 		});
 
-		client.get("/regexsearch", (request, response) => {
+		client.get("/productsregex", (request, response) => {
 			response.status(200).send(regexsearch);
 		});
 

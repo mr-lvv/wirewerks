@@ -175,10 +175,11 @@ define([
 	 *
 	 */
 	class Order {
-		constructor(productResource, $scope, cart, rulesCache, partService) {
+		constructor(productResource, $scope, cart, rulesCache, partService, productsRegexCache) {
 			this.productResource = productResource
 			this.product = undefined;
 			this.parts = []							// Type PartInfo, not part (to include category..)
+			this.productsRegexCache = productsRegexCache
 
 			this.sections = []
 			this.cart = cart
@@ -212,52 +213,58 @@ define([
 				if(this.partnumber)
 				{
 					//Need to regex that partnumber
+					this.productsRegexCache.byId(this.productId).then(regex => {
+						if(!regex)
+							return
+						var productRegex = new RegExp(regex)
+						if(!productRegex.test(this.partnumber))
+							return
 
-
-					//disable autopick or it will correct errors...
-					this.disableAutopick = true
-					var partnumberCleaned = this.partnumber.replace(/-/g,'')
-					var startIndex = 0
-					product.partGroups.forEach((group) => {
-						group.partCategories.forEach((category) => {
-							if (category.constant) {
-								//move forward
-								startIndex += category.title.length
-							}
-							else
-							{
-								var length = category['length']
-								var value = partnumberCleaned.substr(startIndex, length)
-								for(var i = 0 ; i < category.parts.length; i++) {
-									var part = category.parts[i]
-									var valueToCheck = value
-									if(part.xIsDigit)
-									{
-										valueToCheck = value.replace(/[0-9]/g, "X")
-									}
-
-									if(part.value == valueToCheck)
-									{
-										var valid =  this.valid(category.title, part.value)
-										if(!valid)
-											break
-
-										if(part.xIsDigit) {
-											if(!this.partService.validate(value.replace(/\D/g,''), part))
-												break
-											part.inputValue = value
-											part.inputValueValid = true
-										}
-										var partInfo = new PartInfo(part,category)
-										this.addPart(partInfo)
-										break
-									}
+						//disable autopick or it will correct errors...
+						this.disableAutopick = true
+						var partnumberCleaned = this.partnumber.replace(/-/g,'')
+						var startIndex = 0
+						product.partGroups.forEach((group) => {
+							group.partCategories.forEach((category) => {
+								if (category.constant) {
+									//move forward
+									startIndex += category.title.length
 								}
-								startIndex += length
-							}
+								else
+								{
+									var length = category['length']
+									var value = partnumberCleaned.substr(startIndex, length)
+									for(var i = 0 ; i < category.parts.length; i++) {
+										var part = category.parts[i]
+										var valueToCheck = value
+										if(part.xIsDigit)
+										{
+											valueToCheck = value.replace(/[0-9]/g, "X")
+										}
+
+										if(part.value == valueToCheck)
+										{
+											var valid =  this.valid(category.title, part.value)
+											if(!valid)
+												break
+
+											if(part.xIsDigit) {
+												if(!this.partService.validate(value.replace(/\D/g,''), part))
+													break
+												part.inputValue = value
+												part.inputValueValid = true
+											}
+											var partInfo = new PartInfo(part,category)
+											this.addPart(partInfo)
+											break
+										}
+									}
+									startIndex += length
+								}
+							})
 						})
+						this.disableAutopick = false
 					})
-					this.disableAutopick = false
 				}
 			})
 		}
@@ -1078,10 +1085,9 @@ define([
 	 *
 	 */
 	class ProductSelection {
-		constructor(productResource, $scope, $element, $timeout, app, productsCache) {
+		constructor($scope, $element, $timeout, app, productsCache) {
 			this.app = app
 			this.searchText = this.selectedItem ? this.selectedItem.part : ''
-			this.productResource = productResource
 			this.$scope = $scope
 			this.products = []
 			productsCache.get().then(products => {
