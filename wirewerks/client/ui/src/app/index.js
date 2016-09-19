@@ -175,10 +175,12 @@ define([
 	 *
 	 */
 	class Order {
-		constructor(productResource, $scope, cart, rulesCache, partService) {
+		constructor(productResource, $scope, cart, rulesCache, partService, productsRegexCache, $rootScope) {
 			this.productResource = productResource
 			this.product = undefined;
 			this.parts = []							// Type PartInfo, not part (to include category..)
+			this.productsRegexCache = productsRegexCache
+			this.$rootScope = $rootScope
 
 			this.sections = []
 			this.cart = cart
@@ -212,52 +214,60 @@ define([
 				if(this.partnumber)
 				{
 					//Need to regex that partnumber
+					this.productsRegexCache.byId(this.productId).then(regex => {
+						if(!regex)
+							return
+						var productRegex = new RegExp(regex)
+						if(!productRegex.test(this.partnumber))
+							return
 
-
-					//disable autopick or it will correct errors...
-					this.disableAutopick = true
-					var partnumberCleaned = this.partnumber.replace(/-/g,'')
-					var startIndex = 0
-					product.partGroups.forEach((group) => {
-						group.partCategories.forEach((category) => {
-							if (category.constant) {
-								//move forward
-								startIndex += category.title.length
-							}
-							else
-							{
-								var length = category['length']
-								var value = partnumberCleaned.substr(startIndex, length)
-								for(var i = 0 ; i < category.parts.length; i++) {
-									var part = category.parts[i]
-									var valueToCheck = value
-									if(part.xIsDigit)
-									{
-										valueToCheck = value.replace(/[0-9]/g, "X")
-									}
-
-									if(part.value == valueToCheck)
-									{
-										var valid =  this.valid(category.title, part.value)
-										if(!valid)
-											break
-
-										if(part.xIsDigit) {
-											if(!this.partService.validate(value.replace(/\D/g,''), part))
-												break
-											part.inputValue = value
-											part.inputValueValid = true
-										}
-										var partInfo = new PartInfo(part,category)
-										this.addPart(partInfo)
-										break
-									}
+						//disable autopick or it will correct errors...
+						this.disableAutopick = true
+						var partnumberCleaned = this.partnumber.replace(/-/g,'')
+						var startIndex = 0
+						product.partGroups.forEach((group) => {
+							group.partCategories.forEach((category) => {
+								if (category.constant) {
+									//move forward
+									startIndex += category.title.length
 								}
-								startIndex += length
-							}
+								else
+								{
+									var length = category['length']
+									var value = partnumberCleaned.substr(startIndex, length)
+									for(var i = 0 ; i < category.parts.length; i++) {
+										var part = category.parts[i]
+										var valueToCheck = value
+										if(part.xIsDigit)
+										{
+											valueToCheck = value.replace(/[0-9]/g, "X")
+										}
+
+										if(part.value == valueToCheck)
+										{
+											var valid =  this.valid(category.title, part.value)
+											if(!valid)
+												break
+
+											if(part.xIsDigit) {
+												if(!this.partService.validate(value.replace(/\D/g,''), part))
+													break
+												part.inputValue = value
+												part.inputValueValid = true
+											}
+											var partInfo = new PartInfo(part,category)
+											this.addPart(partInfo)
+
+											this.$rootScope.$emit('order.part.changed', partInfo)
+											break
+										}
+									}
+									startIndex += length
+								}
+							})
 						})
+						this.disableAutopick = false
 					})
-					this.disableAutopick = false
 				}
 			})
 		}
@@ -587,7 +597,7 @@ define([
 			}
 
 			_nextFocusedIndex(focusedIndex, categories, order) {
-				if (focusedIndex === -1)
+				if (focusedIndex === -1 || focusedIndex === undefined)
 					focusedIndex = 0
 
 				// Start from focusedIndex an find the next category that has no selected parts
@@ -637,7 +647,7 @@ define([
 					return
 
 				// Find currently focused category
-				var focusedIndex = 0
+				var focusedIndex
 				if (fromCategory) {
 					focusedIndex = _.findIndex(categories, category => category.type === fromCategory.type)
 				}
@@ -675,9 +685,13 @@ define([
 			$scope.$watch(() => this.product, initNav.bind(this))
 			$scope.$watch(() => this.order, initNav.bind(this))
 
-			$rootScope.$on('part.selected', (event, partInfo) => {
-				this.nav.next(partInfo.category)
-			})
+			$rootScope.$on('part.selected', (event, partInfo) => this._onPartChanged(partInfo.category))
+			$rootScope.$on('order.part.changed', () => this._onPartChanged())
+		}
+
+		// Category is the category from which a change has been made (can be undefined)
+		_onPartChanged(category) {
+			this.nav.next(category)
 		}
 
 		getDataSheetLink() {
@@ -1078,10 +1092,9 @@ define([
 	 *
 	 */
 	class ProductSelection {
-		constructor(productResource, $scope, $element, $timeout, app, productsCache) {
+		constructor($scope, $element, $timeout, app, productsCache) {
 			this.app = app
 			this.searchText = this.selectedItem ? this.selectedItem.part : ''
-			this.productResource = productResource
 			this.$scope = $scope
 			this.products = []
 			productsCache.get().then(products => {
