@@ -23,6 +23,10 @@ define([], function() {
 		static bompdf() {
 			return '/api/client/bom'
 		}
+
+		static productsids(){
+			return '/api/client/productsids'
+		}
 	}
 
 	return Url

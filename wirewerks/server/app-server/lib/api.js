@@ -2,6 +2,7 @@ var express = require('express')
 var products = require('./product.json')
 var sections = require('./sections.json')
 var rules = require('./rules.json')
+var regexsearch=('./regexsearch.json')
 var _ = require('lodash')
 var pdf = require('html-pdf');
 var fs = require('fs');
@@ -78,13 +79,21 @@ class Api {
 			response.status(200).send(_.values(products));			// Search result product. Wouldn't actually need the entire product
 		});
 
+		client.get("/productsids", (request, response) => {
+			response.status(200).send(_.keys(products));			// Search result product. Wouldn't actually need the entire product
+		});
+
 		client.get("/sections", (request, response) => {
 			response.status(200).send(sections);
 		});
 
 		client.get("/rules", (request, response) => {
 			response.status(200).send(rules);
-		})
+		});
+
+		client.get("/regexsearch", (request, response) => {
+			response.status(200).send(regexsearch);
+		});
 
 		client.post("/bom", (request, response) => {
 			var data = {
