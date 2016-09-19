@@ -877,7 +877,7 @@ define([
 			if(!value || value == 0)
 				return false
 
-			var numberOfDigit = _.countBy(part.value)['X']
+			var numberOfDigit = this.numberOfDigit(part)
 			if(part.allowDecimal)
 			{
 				var re = new RegExp('^\\d{1,' + numberOfDigit + "}(\\.[0-9][0-9]?)?$");
@@ -890,6 +890,9 @@ define([
 			}
 		}
 
+		numberOfDigit(part) {
+			return _.countBy(part.value)['X'];
+		}
 	})
 
 	class Part {
@@ -1016,7 +1019,7 @@ define([
 
 
 		numberOfDigit() {
-			return _.countBy(this.part.value)['X'];
+			return this.partService.numberOfDigit(this.part)
 		}
 
 		limit($event)
