@@ -120,12 +120,12 @@ define([
 
 					if (!theId || theId == id)
 					{
-						this.foundId = id
+						this.foundId = id.toUpperCase()
 						this.partnumber = ''
 					}
 					else
 					{
-						this.foundId = theId
+						this.foundId = theId.toUpperCase()
 						this.partnumber = id
 					}
 					this.app.goToProducts(id)

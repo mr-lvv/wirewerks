@@ -5,7 +5,7 @@
 			<md-input-container ng-if="$ctrl.shouldShowXIsDigit()" ng-click="$ctrl.digitClick($event)" md-is-error="!$ctrl.validate()">
 				<label class="no-animate" ng-if="$ctrl.part.inputValue">{{$ctrl.part.inputValue}}</label>
 				<label class="no-animate" ng-if="!$ctrl.part.inputValue">{{$ctrl.part.value}}</label>
-				<input name="mdInputValue" ng-model="$ctrl.inputValue" ng-change="$ctrl.valueChange()" ng-keypress="$ctrl.limit($event)"
+				<input type='tel' name="mdInputValue" ng-model="$ctrl.inputValue" ng-change="$ctrl.valueChange()" ng-keypress="$ctrl.limit($event)"
 					   ng-blur="$ctrl.nextCategory()" aria-label="value" />
 			</md-input-container>
 		</form>
