@@ -43,9 +43,14 @@ function babelBuild(callback) {
 
 		//inputSourceMap: ''
 		minified: config.minified,
-		sourcemap: true,
+		// sourcemaps: true,
 		comments: false
 	}, function (err, result) {
+		if (err) {
+			console.error('Error building.', err.message);
+			callback(err);
+			return
+		}
 		fs.writeFile("./dist/app/main.js", result.code, function (err) {
 			if (err) {
 				console.log('Error!!!');
