@@ -12,6 +12,7 @@
         {
           "A" : {"valid" : true},
           "B" : {"valid" : true},
+          "D" : {"valid" : true},
           "*" : {"valid" : false}
         }
       },
@@ -26,6 +27,7 @@
         {
           "A" : {"valid" : true},
           "B" : {"valid" : true},
+          "D" : {"valid" : true},
           "*" : {"valid" : false}
         }
       },
