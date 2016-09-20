@@ -5,6 +5,9 @@ var fs = require('fs-extra')
 var lodash = require('lodash')
 var child_process = require('child_process')
 var argv = require('yargs').argv;
+var config = {
+	minified: !argv.dev
+}
 
 var paths = {
 	dist: './dist',
@@ -39,8 +42,8 @@ function babelBuild(callback) {
 		compact: false,
 
 		//inputSourceMap: ''
-		//minified: true,
-		//sourcemap: true,
+		minified: config.minified,
+		sourcemap: true,
 		comments: false
 	}, function (err, result) {
 		fs.writeFile("./dist/app/main.js", result.code, function (err) {
