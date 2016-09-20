@@ -28,7 +28,7 @@ var testBom = {
 			"description": "the description"
 		},
 		"FA-2BRB04Z32N-LCALCA0-323D23": {
-			"quantity": "5",
+			"quantity": 15,
 			"name": "FA-2BRB04Z32N-LCALCA0-323D23",
 			"description": "the description"
 		}
