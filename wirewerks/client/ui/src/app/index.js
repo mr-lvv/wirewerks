@@ -912,8 +912,12 @@ define([
 		}
 
 		get partInfo() {
-			if(this.part.inputValue)
-				this.inputValue = this.part.inputValue.replace(/\D/g,'')
+
+			if(this.part.inputValue) {
+				var temp = this.part.inputValue.replace('D','.')
+				this.inputValue = temp.replace(/[^0-9.]/g, '')
+			}
+
 			return new PartInfo(this.part, this.category)
 		}
 		
