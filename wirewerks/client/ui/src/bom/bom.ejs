@@ -17,6 +17,25 @@
 		-webkit-box-pack: justify;
 		left: 5mm;
 		right: 5mm;
+		padding-bottom: 1mm;
+		padding-top: 1mm;
+		border-bottom: dashed;
+		border-bottom-width: 1px;
+		border-bottom-color: rgba(0, 0, 0, 0.25);
+	}
+
+	.partDescription {
+		display: flex;
+		justify-content: space-between;
+		display: -webkit-box;
+		-webkit-box-orient: horizontal;
+		-webkit-box-pack: justify;
+		top: 3mm;
+		bottom: 3mm;
+		left: 5mm;
+		right: 5mm;
+		border-bottom: solid;
+		border-bottom-width: 3px;
 	}
 
 	.warning {
@@ -34,20 +53,19 @@
 <h3>Client Name: <%= client %> </h3>
 <h3>Email: <%= email %> </h3>
 
-<div class="part">
+<div class="partDescription">
 	<div class="left">Part Number</div>
 	<div class="right">Quantity</div>
 </div>
-<hr noshade size="3">
 <% for (var prop in parts) {
      if (Object.prototype.hasOwnProperty.call(parts, prop)) { %>
 		<div class="part">
 			<div class="left"><a href="http://wirewerks.mr-lvv.com/state/product/<%= prop %>"><%= prop %></a> </div>
 			<div class="right"><%= parts[prop].quantity %></div>
 		</div>
-		<hr noshade size="1">
 <%   }
 } %>
+
 
 <div id="pageFooter-last">
 <a href="http://www.wirewerks.com">Wirewerks</a><br>
