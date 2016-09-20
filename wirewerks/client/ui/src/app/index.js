@@ -969,8 +969,6 @@ define([
 		valueChange() {
 
 			//This happens when we delete or backspace
-
-			//this.order.updatePart(this.partInfo)
 			if (this.inputValue.indexOf(".") < 0)
 				this.decimal = false
 
@@ -1056,7 +1054,8 @@ define([
 				this.decimal = true
 			}
 			else if(isNaN(keyPress)) {
-				return $event.preventDefault()
+				$event.preventDefault()
+				return
 			}
 			//now we know it's either the decimal or a digit that was input
 			this.inputValue = this.inputValue ? this.inputValue : ""
