@@ -132,7 +132,6 @@ define(['../app', './url'], function(app, Url) {
 
 		byId(productId) {
 			return this.get().then((productsRegex) => {
-				console.log("prodReg" ,productsRegex)
 				return productsRegex[productId]
 			})
 		}
