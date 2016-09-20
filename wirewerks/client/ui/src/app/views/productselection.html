@@ -23,7 +23,7 @@
 			placeholder="Enter the product part number.">
 
 			<md-item-template>
-				<span md-highlight-text="$ctrl.searchText" md-highlight-flags="^i">{{item.part.toLowerCase()}}</span><span ng-if="item.title"> -- {{item.title.toLowerCase()}}</span>
+				<span md-highlight-text="$ctrl.searchText" md-highlight-flags="^i">{{item.part.toUpperCase()}}</span><span ng-if="item.title"> -- {{item.title.toLowerCase()}}</span>
 			</md-item-template>
 
 			<md-not-found>

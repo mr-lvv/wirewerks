@@ -691,7 +691,8 @@ define([
 
 		// Category is the category from which a change has been made (can be undefined)
 		_onPartChanged(category) {
-			this.nav.next(category)
+			if(this.nav)
+				this.nav.next(category)
 		}
 
 		getDataSheetLink() {
@@ -1095,13 +1096,17 @@ define([
 	 *
 	 */
 	class ProductSelection {
-		constructor($scope, $element, $timeout, app, productsCache) {
+		constructor($scope, $element, $timeout, app, productsCache, productsRegexCache) {
 			this.app = app
 			this.searchText = this.selectedItem ? this.selectedItem.part : ''
 			this.$scope = $scope
 			this.products = []
 			productsCache.get().then(products => {
 				this.products = products
+			})
+
+			productsRegexCache.get().then(productsRegex => {
+				this.productsRegex = productsRegex
 			})
 
 			this._sendTextAnalytics = _.debounce(text => {
@@ -1133,16 +1138,46 @@ define([
 
 		query(text) {
 			var products = this.products
-
 			// Filter by selected section
 			var sectionFilter= this.app.filters.section
 			if (sectionFilter) {
 				products = filterProductsBySection(products, sectionFilter)
 			}
+
+			if(text == "")
+				return products
+
 			var results = _.filter(products, function(product) {
-				var re = new RegExp('^' + text, 'i')
-				return re.test(product.part)
+				var toSearch = product.part
+				var toMatch = text
+				if(text.length > product.part.length) {
+					toSearch = text
+					toMatch = product.part
+				}
+
+				var re = new RegExp('^' + toMatch, 'i')
+				var matched =  re.test(toSearch)
+
+				if(!matched) {
+					//try to find other part
+					var regexOtherStr = product.title + ' ' + product.subTitle + ' ' + product.description
+					regexOtherStr = regexOtherStr.replace(/\s/g,'|')
+					var regexOther = new RegExp("(" + regexOtherStr + ")", 'i')
+					matched = regexOther.test(text)
+				}
+
+				return matched
 			})
+
+			if(results.length == 1) {
+				//try to regex it
+				var regexRule = this.productsRegex[results[0].part]
+				var re = new RegExp(regexRule)
+				if(re.test(text))
+				{
+					results[0] = {'part':text}
+				}
+			}
 			return results
 		}
 
