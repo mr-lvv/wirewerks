@@ -1101,7 +1101,6 @@ define([
 			this.searchText = this.selectedItem ? this.selectedItem.part : ''
 			this.$scope = $scope
 			this.products = []
-			this.isPartNumber = false
 			productsCache.get().then(products => {
 				this.products = products
 			})
@@ -1134,11 +1133,7 @@ define([
 		}
 
 		selectedItemChange(item) {
-			if(this.isPartNumber)
-				this.id = item
-			else
-				this.id = item ? item.part : ''
-			this.isPartNumber = false
+			this.id = item ? item.part : ''
 		}
 
 		query(text) {
@@ -1170,8 +1165,7 @@ define([
 				var re = new RegExp(regexRule)
 				if(re.test(text))
 				{
-					this.isPartNumber = true
-					results[0] = text
+					results[0] = {'part':text}
 				}
 			}
 			return results
