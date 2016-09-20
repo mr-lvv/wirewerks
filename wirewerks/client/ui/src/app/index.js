@@ -439,7 +439,7 @@ define([
 		}
 
 		addToCart() {
-			this.cart.addToCart(this.partNumber)
+			this.cart.addToCart(this.partNumber, this.product.title)
 		}
 
 		orderNumber() {
@@ -1371,7 +1371,7 @@ define([
 			return this.products
 		}
 
-		addToCart(completePartNumber) {
+		addToCart(completePartNumber, description) {
 			//window.localStorate
 			//alert("added to cart: "+ completePartNumber)
 
@@ -1385,7 +1385,7 @@ define([
 				products[completePartNumber] = {}
 				products[completePartNumber].quantity = 1
 				products[completePartNumber].name = completePartNumber
-				products[completePartNumber].description = "the description"
+				products[completePartNumber].description = description
 			}
 
 			this.updateQuantity(products)
