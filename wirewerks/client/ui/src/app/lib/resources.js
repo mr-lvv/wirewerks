@@ -55,7 +55,7 @@ define(['../app', './url'], function(app, Url) {
 		byId(productId) {
 			return this.get().then((products) => {
 				return _.find(products, (product) => {
-					return product.part.toLowerCase() === productId.toLowerCase()
+					return product.part.toUpperCase() === productId.toUpperCase()
 				})
 			})
 		}
@@ -132,7 +132,6 @@ define(['../app', './url'], function(app, Url) {
 
 		byId(productId) {
 			return this.get().then((productsRegex) => {
-				console.log("prodReg" ,productsRegex)
 				return productsRegex[productId]
 			})
 		}

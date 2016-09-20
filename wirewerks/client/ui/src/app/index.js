@@ -120,12 +120,12 @@ define([
 
 					if (!theId || theId == id)
 					{
-						this.foundId = id
+						this.foundId = id.toUpperCase()
 						this.partnumber = ''
 					}
 					else
 					{
-						this.foundId = theId
+						this.foundId = theId.toUpperCase()
 						this.partnumber = id
 					}
 					this.app.goToProducts(id)
@@ -919,8 +919,12 @@ define([
 		}
 
 		get partInfo() {
-			if(this.part.inputValue)
-				this.inputValue = this.part.inputValue.replace(/\D/g,'')
+
+			if(this.part.inputValue) {
+				var temp = this.part.inputValue.replace('D','.')
+				this.inputValue = temp.replace(/[^0-9.]/g, '')
+			}
+
 			return new PartInfo(this.part, this.category)
 		}
 		
@@ -965,8 +969,6 @@ define([
 		valueChange() {
 
 			//This happens when we delete or backspace
-
-			//this.order.updatePart(this.partInfo)
 			if (this.inputValue.indexOf(".") < 0)
 				this.decimal = false
 
@@ -1052,7 +1054,8 @@ define([
 				this.decimal = true
 			}
 			else if(isNaN(keyPress)) {
-				return $event.preventDefault()
+				$event.preventDefault()
+				return
 			}
 			//now we know it's either the decimal or a digit that was input
 			this.inputValue = this.inputValue ? this.inputValue : ""
@@ -1376,7 +1379,7 @@ define([
 					this.productsIds = productsIds
 					//here find out which id it is
 					var theId = _.find(productsIds, function(o) {
-						return id.startsWith(o)
+						return id.replace(/-/g,'').startsWith(o)
 					});
 
 					productsCache.byId(theId).then((product) => {
