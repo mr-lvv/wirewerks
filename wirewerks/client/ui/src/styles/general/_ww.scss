@@ -412,6 +412,28 @@ ww-cart {
 		height : 50px;
 		padding : 5px 5px 5px 5px;
 	}
+
+	.cartItemHeader{
+		display: flex;
+		justify-content:space-between;
+		padding: 2px 2px 2px 2px;
+		margin:2px 2px 2px 2px;
+		border-bottom-color: $color-wirewerks;
+		border-bottom-width: 3px;
+		border-bottom-style:solid;
+
+		.cartItemHeaderPart{
+			padding-left:2px;
+			font-weight: bold;
+			color:$color-wirewerks;
+		}
+
+		.cartItemHeaderQuantity{
+			padding-right:128px;
+			font-weight: bold;
+			color:$color-wirewerks;
+		}
+	}
 }
 
 ng-switch {

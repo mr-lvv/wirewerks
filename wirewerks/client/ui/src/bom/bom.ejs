@@ -2,13 +2,14 @@
 	img {
 		display: block;
 		margin: 0 auto;
+		opacity:1;
+		border-bottom-color: transparent;
 	}
 
 	h3 {
 		left: 5mm;
 	}
 
-	<% // Phantom JS is awful and does not support flexbox properly. Using old style flexbox.. %>
 	.part {
 		display: flex;
 		justify-content: space-between;
@@ -19,10 +20,19 @@
 		right: 5mm;
 		padding-bottom: 1mm;
 		padding-top: 1mm;
-		border-bottom: dashed;
-		border-bottom-width: 1px;
-		border-bottom-color: rgba(0, 0, 0, 0.25);
+		border-bottom-style: solid;
+		border-bottom-width: 0.5px;
+		border-bottom-color: rgb(245, 245, 245);
 	}
+
+	.address {
+		display: flex;
+		display: -webkit-box;
+		justify-content: space-between;
+		-webkit-box-orient: horizontal;
+		-webkit-box-pack: justify;
+	}
+
 
 	.partDescription {
 		display: flex;
@@ -34,7 +44,7 @@
 		bottom: 3mm;
 		left: 5mm;
 		right: 5mm;
-		border-bottom: solid;
+		border-bottom-style: solid;
 		border-bottom-width: 3px;
 	}
 
@@ -44,32 +54,38 @@
 
 </style>
 
-<img class='logo' src="<%= logo %>" width="75%" align="middle">
+	<img src="<%= logo %>" width="75%" align="middle">
+	<h1 align="center" class="warning">THIS IS AN EXAMPLE TO FIX LINK IN PROD</h1>
+	<h1 align="center"><%= title %></h1>
 
-<h1 align="center" class="warning">THIS IS AN EXAMPLE TO FIX LINK IN PROD</h1>
+	<h3>Client Name: <%= client %> </h3>
+	<h3>Email: <%= email %> </h3>
 
-<h1 align="center"><%= title %></h1>
-
-<h3>Client Name: <%= client %> </h3>
-<h3>Email: <%= email %> </h3>
-
-<div class="partDescription">
-	<div class="left">Part Number</div>
-	<div class="right">Quantity</div>
-</div>
-<% for (var prop in parts) {
-     if (Object.prototype.hasOwnProperty.call(parts, prop)) { %>
-		<div class="part">
-			<div class="left"><a href="http://wirewerks.mr-lvv.com/state/product/<%= prop %>"><%= prop %></a> </div>
-			<div class="right"><%= parts[prop].quantity %></div>
-		</div>
-<%   }
-} %>
-
+	<div class="partDescription">
+		<div class="left">Part Number</div>
+		<div class="right">Quantity</div>
+	</div>
+	<% for (var prop in parts) {
+	if (Object.prototype.hasOwnProperty.call(parts, prop)) { %>
+	<div class="part">
+		<div class="left"><a href="http://wirewerks.mr-lvv.com/state/product/<%= prop %>"><%= prop %></a> </div>
+		<div class="right"><%= parts[prop].quantity %></div>
+	</div>
+	<%   }
+	} %>
 
 <div id="pageFooter-last">
-<a href="http://www.wirewerks.com">Wirewerks</a><br>
-Head Office & Regional Field Sales Offices<br>
-10280 Ch. de la Côte-de-liesse<br>
-Lachine Québec, H8T 1A3
+	<img class='logo' src="<%= logo %>" width="10%"/>
+	<div>
+		<a href="http://www.wirewerks.com">Wirewerks</a>
+	</div>
+	<div>
+		Head Office & Regional Field Sales Offices
+	</div>
+	<div class="address">
+		<a href="https://www.google.com/maps/place/10280+Chemin+de+la+Côte-de-Liesse,+Lachine,+QC+H8T+1A3">10280 Ch. de la Côte-de-liesse, Lachine Québec, H8T 1A3, Canada</a>
+	</div>
+	<div>
+		Toll Free Phone Number: 1-888-993-4237
+	</div>
 </div>
