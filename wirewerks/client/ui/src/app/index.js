@@ -1156,7 +1156,17 @@ define([
 				}
 
 				var re = new RegExp('^' + toMatch, 'i')
-				return re.test(toSearch)
+				var matched =  re.test(toSearch)
+
+				if(!matched) {
+					//try to find other part
+					var regexOtherStr = product.title + ' ' + product.subTitle + ' ' + product.description
+					regexOtherStr = regexOtherStr.replace(/\s/g,'|')
+					var regexOther = new RegExp("(" + regexOtherStr + ")", 'i')
+					matched = regexOther.test(text)
+				}
+
+				return matched
 			})
 
 			if(results.length == 1) {
