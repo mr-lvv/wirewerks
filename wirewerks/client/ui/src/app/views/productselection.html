@@ -2,7 +2,9 @@
 	<md-tooltip>Enter the product part number</md-tooltip>
 	<form ng-submit="$event.preventDefault()">
 
-		<md-icon md-svg-icon="images/svg/general/search.svg" class="s32" aria-label="label"></md-icon>
+		<div class="inline">
+			<md-icon md-svg-icon="images/svg/general/search.svg" class="s32" aria-label="label"></md-icon>
+		</div>
 
 		<md-autocomplete
 			md-selected-item="$ctrl.selectedItem"
