@@ -16,6 +16,7 @@
 			<md-button class="md-icon-button cart s32" ng-click="$ctrl.app.toggleCart()">
 				<md-icon md-svg-icon="images/svg/general/shopping-cart.svg" class="s32" aria-label="label"></md-icon>
 			</md-button>
+			<span class="badge" ng-show="$ctrl.app.getCartNbItem() > 0" ng-click="$ctrl.app.toggleCart()">{{$ctrl.app.getCartNbItem()}}</span>
 		</div>
 </md-toolbar>
 

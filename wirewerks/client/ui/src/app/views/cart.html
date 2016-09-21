@@ -14,14 +14,17 @@
 					<input name="email" type="email" ng-model="$ctrl.email" placeholder="E-mail" aria-label="email" ng-pattern="$ctrl.emailValidation" required>
 				</md-input-container>
 			</div>
-
+			<div class="cartItemHeader">
+				<div class="cartItemHeaderPart">Part Number</div>
+				<div class="cartItemHeaderQuantity">Quantity</div>
+			</div>
 			<div class="cartItem" ng-repeat="product in $ctrl.getProducts()">
 				<div class="cartItemImage">
 					<span>Image</span>
 				</div>
 				<div class="cartItemDescription" ng-click="$ctrl.goTo(product.name)">
 					<div class="cartItemName">{{product.name}}</div>
-					<div class="" cartItemDescription>{{product.description}}</div>
+					<div class="cartItemDesc">{{product.description}}</div>
 				</div>
 				<div class="cartItemPrice"></div>
 				<div class="cartItemQuantity" layout layout-align="center center" >

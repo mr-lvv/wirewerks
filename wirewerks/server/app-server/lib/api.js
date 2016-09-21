@@ -126,7 +126,7 @@ class Api {
 
 	_createBom(data, callback) {
 		var logoUrl = 'http://localhost:' + this.config.port + '/images/general/wirewerks-beta.png'
-		data.logo = logoUrl;
+		data.logo = logoUrl
 		var templatePath = path.join(__dirname, '../../../client/ui/' + this.config.clientFolder + '/bom/bom.ejs')
 
 		ejs.renderFile(templatePath, data, (error, html) => {
