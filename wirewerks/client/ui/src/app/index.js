@@ -10,6 +10,11 @@ define([
 	'./lib/search',
 	'./lib/resources'
 ], function(ng, FastClick, scrollTo, chroma, app, Url, CategoryColors, search, resources) {
+	app.config(($mdThemingProvider) => {
+		$mdThemingProvider.theme('grey')
+			.primaryPalette('grey')
+	})
+
 	app.run(() => {
 		FastClick.attach(document.body)
 	})

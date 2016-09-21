@@ -14,10 +14,15 @@ $padding-md-button-total: $padding-md-button * 2; // Includes up/down (or left/r
 
 	md-icon {
 		&.s#{$size} {
-			width: $size + 0px;
+			max-width: $size + 0px;
+			min-width: $size + 0px;
 			height: auto;
 		}
 	}
+}
+
+.inline {
+	display: inline-block;
 }
 
 @include md-icon-size(32)
