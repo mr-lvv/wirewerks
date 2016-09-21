@@ -90,6 +90,35 @@ ww-app {
 			user-select: none;
 		}
 	}
+
+	.app-footer {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+
+
+		.top {
+			flex-grow: 1;
+		}
+
+		.bottom {
+			display: flex;
+			flex-direction: column;
+		}
+
+		md-divider {
+			min-width: 85%;
+			line-height: 0;
+			padding: $padding-normal $padding-medium 0 $padding-medium ;
+			border-top-color: rgba(255, 255, 255, 0.3);
+			align-self: center;
+		}
+
+		.copyright {
+			padding: $padding-medium;
+			align-self: flex-end;
+		}
+	}
 }
 
 ww-home {
