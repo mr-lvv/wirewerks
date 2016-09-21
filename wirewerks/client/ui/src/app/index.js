@@ -1237,7 +1237,7 @@ define([
 	 *
 	 */
 	class wwCart {
-		constructor(cart, $scope, $http, FileSaver,app) {
+		constructor(cart, $scope, $http, FileSaver, app, $mdDialog) {
 			//get from localStorage
 			this.cart = cart
 			this.quantityChoice = _.range(1,100);
@@ -1247,7 +1247,6 @@ define([
 
 			//Angular's email doesn't check TLD, even though we understand it's possible to have: me@localhost, it won't happen in this case...
 			this.emailValidation = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-			this.email = ""
 			this.client = this.cart.getClient()
 			this.$scope.$watch(()=>this.client, this._setClient.bind(this))
 
@@ -1256,6 +1255,7 @@ define([
 			this.$http = $http
 			this.FileSaver = FileSaver
 			this.app = app
+			this.$mdDialog = $mdDialog
 		}
 
 		_updateQuantity() {
@@ -1265,6 +1265,31 @@ define([
 		}
 
 		getPdf(){
+			if (!this.$scope.form.$valid) {
+
+				var error = "You need to enter the Client's "
+				var and = ""
+				if(!this.client) {
+					error += "name"
+					and = " and "
+				}
+
+				if(!this.emailValidation.test(this.email))
+					error += and + " email"
+				error += "."
+
+				this.$mdDialog.show(
+					this.$mdDialog.alert()
+						.clickOutsideToClose(true)
+						.title('Information Incomplete.')
+						.textContent(error)
+						.ariaLabel('Alert Dialog')
+						.ok('Got it!')
+						.targetEvent(event)
+				);
+				return
+			}
+
 			var data = {};
 			data.client = this.client
 			data.parts = this.products
