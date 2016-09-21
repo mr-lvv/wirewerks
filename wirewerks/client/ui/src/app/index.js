@@ -125,7 +125,7 @@ define([
 					this.productsIds = productsIds
 					//here find out which id it is
 					var theId = _.find(productsIds, function(o) {
-						return id.replace(/-/g,'').startsWith(o)
+						return _.startsWith(id.replace(/-/g,''), o)
 					});
 
 					if (!theId || theId == id)
@@ -1187,13 +1187,12 @@ define([
 				var matched =  re.test(toSearch)
 
 				if(!matched) {
-					//try to find other part
-					var regexOtherStr = product.title + ' ' + product.subTitle + ' ' + product.description
-					regexOtherStr = regexOtherStr.replace(/\s/g,'|')
-					var regexOther = new RegExp("(" + regexOtherStr + ")", 'i')
-					matched = regexOther.test(text)
+					matched = product.title.toUpperCase().indexOf(text.toUpperCase()) >= 0
+					if(!matched)
+						matched = product.subTitle.toUpperCase().indexOf(text.toUpperCase()) >= 0
+					else if (!matched)
+						matched = product.description.toUpperCase().indexOf(text.toUpperCase()) >= 0
 				}
-
 				return matched
 			})
 
@@ -1479,7 +1478,7 @@ define([
 					this.productsIds = productsIds
 					//here find out which id it is
 					var theId = _.find(productsIds, function(o) {
-						return id.replace(/-/g,'').startsWith(o)
+						return _.startsWith(id.replace(/-/g,''), o)
 					});
 
 					productsCache.byId(theId).then((product) => {
