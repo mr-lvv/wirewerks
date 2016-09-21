@@ -318,6 +318,8 @@ ww-product-selection {
 
 		md-autocomplete {
 			flex-grow: 1;
+
+			// Need to be fixed width, otherwise autocomplete box will not always be the same size (ie: if an 'x' appears in the input line)
 			max-width: 500px;
 		}
 	}
