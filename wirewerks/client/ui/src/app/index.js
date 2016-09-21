@@ -1243,7 +1243,7 @@ define([
 			this.quantityChoice = _.range(1,100);
 			this.products = undefined
 			this.$scope = $scope
-			this.$scope.$watch(()=>this.products, this._updateQuantity.bind(this), true)
+			this.$scope.$watch(()=>this.products, this._updateQuantity.bind(this))
 
 			//Angular's email doesn't check TLD, even though we understand it's possible to have: me@localhost, it won't happen in this case...
 			this.emailValidation = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
@@ -1400,7 +1400,7 @@ define([
 
 			for(var key in allProducts){
 				if (allProducts.hasOwnProperty(key)) {
-					total += allProducts[key].quantity;
+					total += Number(allProducts[key].quantity);
 				}
 			}
 			return total;
