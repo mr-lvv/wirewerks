@@ -40,6 +40,7 @@
         "POLISH SIDE B":
         {
           "C" : {"valid" : true},
+          "D" : {"valid" : true},
           "*" : {"valid" : false}
         }
       }

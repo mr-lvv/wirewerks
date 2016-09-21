@@ -175,7 +175,7 @@ define([
 	 *
 	 */
 	class Order {
-		constructor(productResource, $scope, cart, rulesCache, partService, productsRegexCache, $rootScope) {
+		constructor(productResource, $scope, cart, rulesCache, partService, productsRegexCache, $rootScope, $mdDialog) {
 			this.productResource = productResource
 			this.product = undefined;
 			this.parts = []							// Type PartInfo, not part (to include category..)
@@ -186,6 +186,7 @@ define([
 			this.cart = cart
 			this.partNumber = ""
 			this.partService = partService
+			this.$mdDialog = $mdDialog
 
 			$scope.$watch('order.productId', this._refreshProduct.bind(this))
 			$scope.$watch('order.partnumber', this._refreshProduct.bind(this))
@@ -225,6 +226,7 @@ define([
 						this.disableAutopick = true
 						var partnumberCleaned = this.partnumber.replace(/-/g,'')
 						var startIndex = 0
+						var hasErrors = ""
 						product.partGroups.forEach((group) => {
 							group.partCategories.forEach((category) => {
 								if (category.constant) {
@@ -246,8 +248,10 @@ define([
 										if(part.value == valueToCheck)
 										{
 											var valid =  this.valid(category.title, part.value)
-											if(!valid)
+											if(!valid) {
+												hasErrors += "<br>"+category.title
 												break
+											}
 
 											if(part.xIsDigit) {
 												if(!this.partService.validate(value.replace(/\D/g,''), part))
@@ -266,6 +270,18 @@ define([
 								}
 							})
 						})
+						if(hasErrors != "") {
+							hasErrors = 'There were parts selected that are not allowed to be.<br>Please re-select:' + hasErrors
+							this.$mdDialog.show(
+								this.$mdDialog.alert()
+									.clickOutsideToClose(true)
+									.title('Product Part Error.')
+									.htmlContent(hasErrors)
+									.ariaLabel('Alert Dialog')
+									.ok('Got it!')
+									.targetEvent(event)
+							);
+						}
 						this.disableAutopick = false
 					})
 				}
@@ -420,7 +436,9 @@ define([
 		removePart(partInfo) {
 			this._removeCategory(partInfo.category)
 			delete this.selection[partInfo.category.title]
+			this.disableAutopick = true
 			this.validateAll()
+			this.disableAutopick = false
 		}
 
 		isPartInOrder(partInfo) {
