@@ -39,10 +39,11 @@ define([
 	}
 
 	class Application {
-		constructor($location) {
+		constructor($location, cart) {
 			this.$location = $location
 			this.view = views.home
 			this.filters = {section: undefined}
+			this.cart = cart
 
 			// Search filters (ie: section, etc...)
 
@@ -78,6 +79,10 @@ define([
 				this.goToProducts()
 			else
 				this.goToCart()
+		}
+
+		getCartNbItem() {
+			return this.cart.getNbOfItems()
 		}
 
 	}
@@ -1387,6 +1392,18 @@ define([
 			if(!this.products)
 				this.products = JSON.parse(localStorage.getItem("myCart2"))
 			return this.products
+		}
+
+		getNbOfItems() {
+			var allProducts = this.getAllCart()
+			var total = 0
+
+			for(var key in allProducts){
+				if (allProducts.hasOwnProperty(key)) {
+					total += allProducts[key].quantity;
+				}
+			}
+			return total;
 		}
 
 		addToCart(completePartNumber, description) {
