@@ -39,10 +39,11 @@ define([
 	}
 
 	class Application {
-		constructor($location) {
+		constructor($location, cart) {
 			this.$location = $location
 			this.view = views.home
 			this.filters = {section: undefined}
+			this.cart = cart
 
 			// Search filters (ie: section, etc...)
 
@@ -78,6 +79,10 @@ define([
 				this.goToProducts()
 			else
 				this.goToCart()
+		}
+
+		getCartNbItem() {
+			return this.cart.getNbOfItems()
 		}
 
 	}
@@ -175,7 +180,7 @@ define([
 	 *
 	 */
 	class Order {
-		constructor(productResource, $scope, cart, rulesCache, partService, productsRegexCache, $rootScope) {
+		constructor(productResource, $scope, cart, rulesCache, partService, productsRegexCache, $rootScope, $mdDialog) {
 			this.productResource = productResource
 			this.product = undefined;
 			this.parts = []							// Type PartInfo, not part (to include category..)
@@ -186,6 +191,7 @@ define([
 			this.cart = cart
 			this.partNumber = ""
 			this.partService = partService
+			this.$mdDialog = $mdDialog
 
 			$scope.$watch('order.productId', this._refreshProduct.bind(this))
 			$scope.$watch('order.partnumber', this._refreshProduct.bind(this))
@@ -225,6 +231,7 @@ define([
 						this.disableAutopick = true
 						var partnumberCleaned = this.partnumber.replace(/-/g,'')
 						var startIndex = 0
+						var hasErrors = ""
 						product.partGroups.forEach((group) => {
 							group.partCategories.forEach((category) => {
 								if (category.constant) {
@@ -246,8 +253,10 @@ define([
 										if(part.value == valueToCheck)
 										{
 											var valid =  this.valid(category.title, part.value)
-											if(!valid)
+											if(!valid) {
+												hasErrors += "<br>"+category.title
 												break
+											}
 
 											if(part.xIsDigit) {
 												if(!this.partService.validate(value.replace(/\D/g,''), part))
@@ -266,6 +275,18 @@ define([
 								}
 							})
 						})
+						if(hasErrors != "") {
+							hasErrors = 'There were parts selected that are not allowed to be.<br>Please re-select:' + hasErrors
+							this.$mdDialog.show(
+								this.$mdDialog.alert()
+									.clickOutsideToClose(true)
+									.title('Product Part Error.')
+									.htmlContent(hasErrors)
+									.ariaLabel('Alert Dialog')
+									.ok('Got it!')
+									.targetEvent(event)
+							);
+						}
 						this.disableAutopick = false
 					})
 				}
@@ -420,7 +441,9 @@ define([
 		removePart(partInfo) {
 			this._removeCategory(partInfo.category)
 			delete this.selection[partInfo.category.title]
+			this.disableAutopick = true
 			this.validateAll()
+			this.disableAutopick = false
 		}
 
 		isPartInOrder(partInfo) {
@@ -439,7 +462,7 @@ define([
 		}
 
 		addToCart() {
-			this.cart.addToCart(this.partNumber)
+			this.cart.addToCart(this.partNumber, this.product.title)
 		}
 
 		orderNumber() {
@@ -1214,17 +1237,16 @@ define([
 	 *
 	 */
 	class wwCart {
-		constructor(cart, $scope, $http, FileSaver,app) {
+		constructor(cart, $scope, $http, FileSaver, app, $mdDialog) {
 			//get from localStorage
 			this.cart = cart
 			this.quantityChoice = _.range(1,100);
 			this.products = undefined
 			this.$scope = $scope
-			this.$scope.$watch(()=>this.products, this._updateQuantity.bind(this), true)
+			this.$scope.$watch(()=>this.products, this._updateQuantity.bind(this))
 
 			//Angular's email doesn't check TLD, even though we understand it's possible to have: me@localhost, it won't happen in this case...
 			this.emailValidation = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-			this.email = ""
 			this.client = this.cart.getClient()
 			this.$scope.$watch(()=>this.client, this._setClient.bind(this))
 
@@ -1233,6 +1255,7 @@ define([
 			this.$http = $http
 			this.FileSaver = FileSaver
 			this.app = app
+			this.$mdDialog = $mdDialog
 		}
 
 		_updateQuantity() {
@@ -1242,6 +1265,31 @@ define([
 		}
 
 		getPdf(){
+			if (!this.$scope.form.$valid) {
+
+				var error = "You need to enter the Client's "
+				var and = ""
+				if(!this.client) {
+					error += "name"
+					and = " and "
+				}
+
+				if(!this.emailValidation.test(this.email))
+					error += and + " email"
+				error += "."
+
+				this.$mdDialog.show(
+					this.$mdDialog.alert()
+						.clickOutsideToClose(true)
+						.title('Information Incomplete.')
+						.textContent(error)
+						.ariaLabel('Alert Dialog')
+						.ok('Got it!')
+						.targetEvent(event)
+				);
+				return
+			}
+
 			var data = {};
 			data.client = this.client
 			data.parts = this.products
@@ -1371,7 +1419,19 @@ define([
 			return this.products
 		}
 
-		addToCart(completePartNumber) {
+		getNbOfItems() {
+			var allProducts = this.getAllCart()
+			var total = 0
+
+			for(var key in allProducts){
+				if (allProducts.hasOwnProperty(key)) {
+					total += Number(allProducts[key].quantity);
+				}
+			}
+			return total;
+		}
+
+		addToCart(completePartNumber, description) {
 			//window.localStorate
 			//alert("added to cart: "+ completePartNumber)
 
@@ -1385,7 +1445,7 @@ define([
 				products[completePartNumber] = {}
 				products[completePartNumber].quantity = 1
 				products[completePartNumber].name = completePartNumber
-				products[completePartNumber].description = "the description"
+				products[completePartNumber].description = description
 			}
 
 			this.updateQuantity(products)

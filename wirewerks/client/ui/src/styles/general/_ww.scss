@@ -64,6 +64,31 @@ ww-app {
 			color: white;
 			fill: white;
 		}
+
+		.badge {
+			display: block;
+			cursor:pointer;
+			position: absolute;
+			top: 10px;
+			right: 20px;
+			line-height: 16px;
+			padding: 0 5px;
+			font-family: Arial, sans-serif;
+			font-size:75%;
+			color: white;
+			text-shadow: 0 1px rgba(black, .25);
+			border: 1px solid;
+			border-radius: 3px;
+			vertical-align: middle;
+			background: $color-wirewerks;
+			border-color: $color-wirewerks;
+			-webkit-touch-callout: none;
+			-webkit-user-select: none;
+			-khtml-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+		}
 	}
 }
 
@@ -389,6 +414,7 @@ ww-cart {
 	}
 
 	.cartItemDescription {
+		cursor:pointer;
 		width:200px;
 		min-height:50px;
 		flex-grow:1;
@@ -412,6 +438,28 @@ ww-cart {
 	.cartItemRemove {
 		height : 50px;
 		padding : 5px 5px 5px 5px;
+	}
+
+	.cartItemHeader{
+		display: flex;
+		justify-content:space-between;
+		padding: 2px 2px 2px 2px;
+		margin:2px 2px 2px 2px;
+		border-bottom-color: $color-wirewerks;
+		border-bottom-width: 3px;
+		border-bottom-style:solid;
+
+		.cartItemHeaderPart{
+			padding-left:2px;
+			font-weight: bold;
+			color:$color-wirewerks;
+		}
+
+		.cartItemHeaderQuantity{
+			padding-right:128px;
+			font-weight: bold;
+			color:$color-wirewerks;
+		}
 	}
 }
 
