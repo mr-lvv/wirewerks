@@ -17,8 +17,10 @@ html, body {
 }
 
 ww-app {
-	display: block;
+	display: flex;
+	flex-direction: column;
 	min-height: 100vh;
+	height: 100vh;
 	position: relative;
 
 	background-image: url('/images/general/background_dots_alpha.png');
@@ -27,6 +29,7 @@ ww-app {
 	background-position: top left;
 
 	md-content {
+		flex: 1 0 auto;
 		background: transparent;
 	}
 
