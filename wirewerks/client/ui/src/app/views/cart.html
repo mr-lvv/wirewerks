@@ -13,6 +13,9 @@
 				<md-input-container>
 					<input name="email" type="email" ng-model="$ctrl.email" placeholder="E-mail" aria-label="email" ng-pattern="$ctrl.emailValidation" required>
 				</md-input-container>
+				<div class="cartSubmit">
+					<md-button class="md-raised" ng-class="$ctrl.getSubmitClasses()" ng-click="$ctrl.getPdf()">Download PDF</md-button>
+				</div>
 			</div>
 			<div class="cartItemHeader">
 				<div class="cartItemHeaderPart">Part Number</div>
@@ -37,10 +40,6 @@
 				<div class="cartItemRemove">
 					<md-button ng-click="$ctrl.removeFromCart(product.name)">Remove</md-button>
 				</div>
-			</div>
-
-			<div class="cartSubmit" ng-cloak>
-				<md-button class="md-raised" ng-class="$ctrl.getSubmitClasses()" ng-disabled="form.$invalid" ng-click="$ctrl.getPdf()">Download PDF</md-button>
 			</div>
 		</div>
 	</form>
