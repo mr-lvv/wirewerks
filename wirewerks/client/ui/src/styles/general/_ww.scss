@@ -20,7 +20,6 @@ ww-app {
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
-	height: 100vh;
 	position: relative;
 
 	background-image: url('/images/general/background_dots_alpha.png');
@@ -29,7 +28,9 @@ ww-app {
 	background-position: top left;
 
 	md-content {
-		flex: 1 0 auto;
+		display:flex;
+		flex-grow:1;
+		flex-direction: column;
 		background: transparent;
 	}
 
@@ -133,12 +134,14 @@ ww-home {
 	md-content {
 
 		display: flex;
+		flex-direction: row;
 		justify-content: center;
 
 		md-card {
 			width: 250px;
 
 			img {
+				justify-content: center;
 				cursor: pointer;
 			}
 
