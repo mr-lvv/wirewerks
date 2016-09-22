@@ -28,9 +28,6 @@ ww-app {
 	background-position: top left;
 
 	md-content {
-		display:flex;
-		flex-grow:1;
-		flex-direction: column;
 		background: transparent;
 	}
 
@@ -132,9 +129,7 @@ ww-home {
 	}
 
 	md-content {
-
-		display: flex;
-		flex-direction: row;
+		display:flex;
 		justify-content: center;
 
 		md-card {
