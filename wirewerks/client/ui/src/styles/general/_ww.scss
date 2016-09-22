@@ -19,6 +19,7 @@ html, body {
 ww-app {
 	display: flex;
 	flex-direction: column;
+	height:100vh;
 	min-height: 100vh;
 	position: relative;
 
@@ -28,6 +29,9 @@ ww-app {
 	background-position: top left;
 
 	md-content {
+		display:flex;
+		flex-grow: 1;
+		flex-direction: column;
 		background: transparent;
 	}
 
@@ -130,13 +134,13 @@ ww-home {
 
 	md-content {
 		display:flex;
+		flex-direction:row;
 		justify-content: center;
 
 		md-card {
 			width: 250px;
 
 			img {
-				justify-content: center;
 				cursor: pointer;
 			}
 
@@ -153,12 +157,11 @@ ww-home {
 }
 
 ww-product {
-	display: block;
+	//display: flex ;
 	product-header {
 		display: flex;
 		flex-direction: column;
 		align-items: flex-start;
-
 		.title {
 			color: $product-title;
 			font-weight: 800;
@@ -208,17 +211,20 @@ ww-order {
 ww-part-groups {
 	display: flex;
 	padding: $padding-medium;
+	flex-shrink: 0;
 }
 
 ww-part-group {
 	display: flex;
 	padding: 0 $padding-normal;
+	flex-shrink: 0;
 }
 
 ww-part-category {
 	display: block;
 	position: relative;
 	flex-grow: 1;
+	flex-shrink: 0;
 
 	.part-column {
 		box-shadow: 1px 4px 10px -3px gray;
