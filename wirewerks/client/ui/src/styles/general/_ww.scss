@@ -19,7 +19,6 @@ html, body {
 ww-app {
 	display: flex;
 	flex-direction: column;
-	height:100vh;
 	min-height: 100vh;
 	position: relative;
 
@@ -157,7 +156,6 @@ ww-home {
 }
 
 ww-product {
-	//display: flex ;
 	product-header {
 		display: flex;
 		flex-direction: column;
