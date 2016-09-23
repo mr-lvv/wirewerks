@@ -247,7 +247,6 @@ define([
 								{
 									var length = category['length']
 									var value = partnumberCleaned.substr(startIndex, length)
-									var hasDecimal = false
 									for(var i = 0 ; i < category.parts.length; i++) {
 										var part = category.parts[i]
 										var valueToCheck = value
