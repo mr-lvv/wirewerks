@@ -247,6 +247,7 @@ define([
 								{
 									var length = category['length']
 									var value = partnumberCleaned.substr(startIndex, length)
+									var hasDecimal = false
 									for(var i = 0 ; i < category.parts.length; i++) {
 										var part = category.parts[i]
 										var valueToCheck = value
@@ -264,7 +265,15 @@ define([
 											}
 
 											if(part.xIsDigit) {
-												if(!this.partService.validate(value.replace(/\D/g,''), part))
+
+												if(part.allowDecimal && partnumberCleaned[startIndex+length] == 'D') {
+													//now we have to extract more
+													length = length + 3
+													value = partnumberCleaned.substr(startIndex, length)
+												}
+
+												var cleanedValue = part.allowDecimal ? value.replace('D', '.') : value.replace(/\D/g,'')
+												if(!this.partService.validate(cleanedValue, part))
 													break
 												part.inputValue = value
 												part.inputValueValid = true
@@ -949,7 +958,7 @@ define([
 
 		get partInfo() {
 
-			if(this.part.inputValue) {
+			if(this.part.inputValue && !this.inputValue) {
 				var temp = this.part.inputValue.replace('D','.')
 				this.inputValue = temp.replace(/[^0-9.]/g, '')
 			}
