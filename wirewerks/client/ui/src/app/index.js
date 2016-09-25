@@ -264,7 +264,15 @@ define([
 											}
 
 											if(part.xIsDigit) {
-												if(!this.partService.validate(value.replace(/\D/g,''), part))
+
+												if(part.allowDecimal && partnumberCleaned[startIndex+length] == 'D') {
+													//now we have to extract more
+													length = length + 3
+													value = partnumberCleaned.substr(startIndex, length)
+												}
+
+												var cleanedValue = part.allowDecimal ? value.replace('D', '.') : value.replace(/\D/g,'')
+												if(!this.partService.validate(cleanedValue, part))
 													break
 												part.inputValue = value
 												part.inputValueValid = true
@@ -921,8 +929,13 @@ define([
 				return false
 
 			var numberOfDigit = this.numberOfDigit(part)
-			if(part.allowDecimal)
-			{
+			if(part.allowDecimal) {
+				if(value.indexOf(".") >= 0) {
+					var decimalPart = value.split(".")[1]
+					if(!decimalPart || decimalPart == 0 )
+						return false
+				}
+
 				var re = new RegExp('^\\d{1,' + numberOfDigit + "}(\\.[0-9][0-9]?)?$");
 				return re.test(value)
 			}
@@ -940,7 +953,9 @@ define([
 
 	class Part {
 		constructor($rootScope, $scope, partService) {
-			this.inputValue=null
+			this.displayValue=null
+			this.displayValueStr=""
+			this.nbDigitsBeforePeriod=0
 			this.decimal = false
 			this.$rootScope = $rootScope
 			this.$scope = $scope
@@ -949,7 +964,7 @@ define([
 
 		get partInfo() {
 
-			if(this.part.inputValue) {
+			if(this.part.inputValue && !this.inputValue) {
 				var temp = this.part.inputValue.replace('D','.')
 				this.inputValue = temp.replace(/[^0-9.]/g, '')
 			}
@@ -992,40 +1007,16 @@ define([
 		}
 
 		validate() {
-			return this.partService.validate(this.inputValue, this.part)
-		}
-
-		valueChange() {
-
-			//This happens when we delete or backspace
-			if (this.inputValue.indexOf(".") < 0)
-				this.decimal = false
-
-			this._updateValue()
-
+			return this.partService.validate(this.displayValueStr, this.part)
 		}
 
 		_updateValue()
 		{
-			var maxChars = this.numberOfDigit()
-			var maxDecimal = this.decimal ? 2+1 : 0 //includes the period
-
-			if(this.inputValue.length > maxChars + maxDecimal)
-			{
-				//the keypress is adding a number to big, shift everything to the right
-				this.inputValue = this.inputValue.substr(1);
-
-				//if it's decimal we need to move the decimal point too
-				if(this.decimal)
-					this.inputValue = (this.inputValue * 10).toFixed(2)
-			}
-
 			if(!this.validate()) {
 				this.part.inputValue = undefined
 				this.part.inputValueValid = false
 			} else {
-				this.part.inputValue = this.inputValue
-				this.part.inputValueValid = true
+
 				function pad(num, size, decimal) {
 					var s = num + "";
 					while (s.length < size) {
@@ -1037,14 +1028,16 @@ define([
 					return s;
 				}
 
+				var maxDecimal = 3
+				var inputValue = String(this.displayValue)
 				//need to pad with leading zeroes or trailing zeroes
-				var splitValue = this.inputValue.split(".")
+				var splitValue = inputValue.split(".")
 
-				if(splitValue[0].length < maxChars)
-					splitValue[0] = pad(splitValue[0], maxChars, false)
+				if(splitValue[0].length < this.numberOfDigit())
+					splitValue[0] = pad(splitValue[0], this.numberOfDigit(), false)
 
 				this.part.inputValue = splitValue[0]
-				if(this.decimal) {
+				if(this.decimal && splitValue[1]) {
 					if(splitValue[1].length > 0 && splitValue[1].length < maxDecimal-1)
 						splitValue[1] = pad(splitValue[1], maxDecimal-1, true)
 
@@ -1057,6 +1050,7 @@ define([
 				//Replace non X values by
 				var toAppend = this.part.value.replace(/X+/g,'')
 				this.part.inputValue += toAppend
+				this.part.inputValueValid = true
 			}
 
 			this.order.updatePart(this.partInfo)
@@ -1067,30 +1061,62 @@ define([
 			return this.partService.numberOfDigit(this.part)
 		}
 
-		limit($event)
-		{
+		valueChange() {
+			this._updateValue()
+		}
+
+		limit($event) {
+			//use keydown so we get all keys including backspace and delete
+			// On return
 			var element = $event.target
 
-			// On return
 			if ($event.which === 13) {
 				element.blur()
 				return
 			}
-
-			var keyPress = String.fromCharCode($event.which)
-			if(this.part.allowDecimal && !this.decimal && keyPress == '.')
+			var keyCode = $event.keyCode
+			if( keyCode == 8 || keyCode == 46 )
 			{
-				this.decimal = true
+				//this is backspace and delete keys
+				if(this.displayValueStr == "")
+					$event.preventDefault()
+				else
+				{
+					this.displayValueStr = this.displayValueStr.slice(0,-1)
+					if (this.displayValueStr.indexOf(".") < 0) {
+						this.decimal = false
+					}
+				}
 			}
-			else if(isNaN(keyPress)) {
+			else if(keyCode >= 48 && keyCode<=57)
+			{
+				var maxLength = this.numberOfDigit()
+				if(this.part.allowDecimal && this.decimal) {
+					maxLength = Math.min(maxLength, this.nbDigitsBeforePeriod) + 3
+				}
+				//check max number of digits
+				if(this.displayValueStr.length == maxLength)
+				{
+					$event.preventDefault()
+				}
+				else
+					this.displayValueStr += String.fromCharCode($event.which)
+			}
+			else if(keyCode == 190 && this.part.allowDecimal)
+			{
+				//decimal
+				if (this.decimal == false)
+				{
+					this.decimal = true
+					this.nbDigitsBeforePeriod = this.displayValueStr.length
+					this.displayValueStr += "."
+				}
+				else
+					$event.preventDefault()
+			}
+			else{
 				$event.preventDefault()
-				return
 			}
-			//now we know it's either the decimal or a digit that was input
-			this.inputValue = this.inputValue ? this.inputValue : ""
-			this.inputValue += keyPress
-			this._updateValue()
-			$event.preventDefault()
 		}
 
 		style() {
