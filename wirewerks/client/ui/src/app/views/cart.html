@@ -4,7 +4,7 @@
 	</div>
 
 	<form name="form" autocomplete="off">
-		<div class="cart"  ng-if="!$ctrl.isEmpty()">
+		<div class="cart"  ng-show="!$ctrl.isEmpty()">
 			<div class="cartClientInfo">
 				<md-input-container>
 					<input name="client" type="text" ng-model="$ctrl.client" placeholder="Client Name" aria-label="client Info" required>
