@@ -183,7 +183,7 @@
 		/**
 		 * Parse part number and creates a list of parts for every category
 		 */
-		parse(partnumber) {
+		parse(partnumber, keepGenericCategories) {
 			if (!this.regex)
 				return []
 
@@ -202,7 +202,7 @@
 
 			var partnumberCleaned = partnumber.replace(/-/g, '')
 			var startIndex = 0
-			result.errors = ""
+			result.errors = {}			// Key is category where errors happen. Value is info object.
 			this.product.partGroups.forEach((group) => {
 				group.partCategories.forEach((category) => {
 					if (category.constant) {
@@ -213,21 +213,19 @@
 						var length = category['length']
 						var value = partnumberCleaned.substr(startIndex, length)
 
-						category.parts.forEach(part => {
+						var found = category.parts.some(part => {
+							var found = false
 							var valueToCheck = value
 							if (part.xIsDigit) {
 								valueToCheck = value.replace(/[0-9]/g, "X")
 							}
 
-							if (part.value == valueToCheck) {
-								var valid = this.validator.valid(category.title, part.value, this.selection)
-								if (!valid) {
-									result.errors += "<br>" + category.title
-									return
-								}
+							// Check if part number is valid for this category
+							var valid = false;				// Part number not found for this category
+							if (part.value === valueToCheck) {
+								valid = this.validator.valid(category.title, part.value, this.selection)
 
-								if (part.xIsDigit) {
-
+								if (valid && part.xIsDigit) {
 									if (part.allowDecimal && partnumberCleaned[startIndex + length] == 'D') {
 										//now we have to extract more
 										length = length + 3
@@ -236,8 +234,12 @@
 
 									var cleanedValue = part.allowDecimal ? value.replace('D', '.') : value.replace(/\D/g, '')
 									if (!PartService.instance.validate(cleanedValue, part))
-										return
+										valid = false
+								}
+							}
 
+							if (valid) {
+								if (part.xIsDigit) {
 									part.inputValue = value
 									part.inputValueValid = true
 								}
@@ -245,8 +247,15 @@
 								var partInfo = new PartInfo(part, category)
 								this.validator.createValidationMap(this.selection)			// Rebuild validation cache when parts change
 								result.push(partInfo)
+								found = true
 							}
+
+							return found
 						})
+
+						if (!found && value) {
+							result.errors[category.title] = {category: category, value: value}		// Value is the part of the partnumber that caused the error
+						}
 
 						startIndex += length
 					}

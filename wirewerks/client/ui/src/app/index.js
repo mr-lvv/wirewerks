@@ -241,8 +241,9 @@ define([
 
 						this.disableAutopick = false
 
-						if (parsed.errors) {
-							var message = 'There were parts selected that are not allowed to be.<br>Please re-select:' + parsed.errors
+						if (_.keys(parsed.errors).length) {
+							var message = `There were parts selected that are not allowed to for number <em>${this.partnumber}</em>.<br>Please re-select:<br>`
+							message += _.values(parsed.errors).map(error => error.category.title + ' for ' + error.value).join('<br>')
 
 							this.$mdDialog.show(
 								this.$mdDialog.alert()
