@@ -183,18 +183,22 @@
 		/**
 		 * Parse part number and creates a list of parts for every category
 		 */
-		parse(partNumber) {
+		parse(partnumber) {
 			if (!this.regex)
-				return
+				return []
 
-			var productRegex = new RegExp(regex)
-			if (!productRegex.test(partnumber))
-				return
+			if (!this.validator)
+				return []
+
+			// TODO: see if we can put it back
+			//var productRegex = new RegExp(this.regex)
+			//if (!productRegex.test(partnumber))
+			//	return []
 
 			var result = []
 
 			this.selection = {}
-			validator.createValidationMap(this.selection)
+			this.validator.createValidationMap(this.selection)
 
 			var partnumberCleaned = partnumber.replace(/-/g, '')
 			var startIndex = 0
@@ -216,7 +220,7 @@
 							}
 
 							if (part.value == valueToCheck) {
-								var valid = validator.valid(category.title, part.value, this.selection)
+								var valid = this.validator.valid(category.title, part.value, this.selection)
 								if (!valid) {
 									result.errors += "<br>" + category.title
 									return
@@ -239,7 +243,7 @@
 								}
 
 								var partInfo = new PartInfo(part, category)
-								validator.createValidationMap(this.selection)			// Rebuild validation cache when parts change
+								this.validator.createValidationMap(this.selection)			// Rebuild validation cache when parts change
 								result.push(partInfo)
 							}
 						})

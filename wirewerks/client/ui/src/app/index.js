@@ -210,14 +210,19 @@ define([
 			this.product = product				// Not actually product, more like productTemplate
 			this.selection = {}					// TODO: not needed (should just be the parts list)
 			this.sections = []
-			this.validator = new ProductValidation(this.product, this.rules[this.productId])
+
+			if (this.rules && this.product) {
+				this.validator = new ProductValidation(this.product, this.rules[this.productId])
+			} else {
+				this.validator = undefined
+			}
 		}
 
 		_refreshProduct() {
 			this.productResource.get(this.productId).then(product => {
 				// If no product found, keep current product displayed
 				if (product) {
-					this.initProduct()
+					this.initProduct(product)
 				}
 
 				if(this.partnumber)
@@ -229,14 +234,14 @@ define([
 						//disable autopick or it will correct errors...
 						this.disableAutopick = true
 
-						var parsed = partNumber.parse()
+						var parsed = partNumber.parse(this.partnumber)
 						parsed.forEach(partInfo => {
 							this.addPart(partInfo)
 						})
 
 						this.disableAutopick = false
 
-						if (parsed.errors != "") {
+						if (parsed.errors) {
 							var message = 'There were parts selected that are not allowed to be.<br>Please re-select:' + parsed.errors
 
 							this.$mdDialog.show(
@@ -305,6 +310,9 @@ define([
 			if (this.disableAutopick == false) {
 				this.product.partGroups.forEach(group => {
 					group.partCategories.forEach(category => {
+						if (!this.validator.validPartsMap[category.title])
+							return
+
 						if (this.validator.validPartsMap[category.title]['number'] == 1) {
 
 							var partValue = this.validator.validPartsMap[category.title]['default'];
