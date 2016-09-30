@@ -8,6 +8,14 @@ var pdf = require('html-pdf');
 var fs = require('fs');
 var path = require('path');
 var ejs = require('ejs');
+var PartNumber = require_common('index').PartNumber
+var ProductValidation = require_common('index').ProductValidation
+
+function clock(start) {
+	if (!start) return process.hrtime();
+	var end = process.hrtime(start);
+	return Math.round((end[0] * 1000) + (end[1] / 1000000));
+}
 
 var testBom = {
 	"title": "Bill of Materials",
@@ -36,19 +44,6 @@ var testBom = {
 	"logo": "http://localhost:3000/images/general/wirewerks-beta.png",
 	"email": "dfssfd@sdm.com",
 	"client": "ds"
-}
-
-/**
- * Get the part of every category from id
- * @param id string ex: FA-ABCDEE9GGGLCB
- * @param product
- */
-function parseId(id, product) {
-
-}
-
-function partAtCategoryFromId(id, category) {
-
 }
 
 // For resource example: https://github.com/developit/express-es6-rest-api/blob/master/src/api/facets.js
@@ -115,6 +110,8 @@ class Api {
 		//					disambiguate by longest match until all parts have been found (or not found), return closest match.
 		*/
 		client.get('/productimage', (request, response) => {
+			var start = clock()
+
 			var id = request.query.productid
 			if (!id) {
 				return response.status(400).send({error: true, message: 'No Product specfifed.'})
@@ -137,34 +134,61 @@ class Api {
 				return response.status(400).send({error: true, message: 'Product not found: ' + product})
 			}
 
-			console.log(productImages, product, productId);
+			var validator = new ProductValidation(productTemplate, rules[productTemplate.part])
+			var productRegex = regexsearch[productTemplate.part]
+			var parser = new PartNumber(productTemplate, productRegex, validator)
 
-			var categories = []
-			productTemplate.partGroups.forEach(group => {
-				categories = _.concat(categories, group.partCategories)
+			var requestParts = parser.parse(id, true)
+			if (requestParts.errors.length) {
+				return response.status(400).send({error: true, message: 'Product number invalid: ', errors: requestParts.errors})
+			}
+
+			// Add all parts for each imageInfo
+			productImages = productImages.map(imageInfo => {
+				imageInfo.parts = parser.parse(imageInfo.partNumber, true)			// Could cache this since it's probably really slow
+				imageInfo.matches = 0
+				imageInfo.exactMatches = 0
+
+				return imageInfo
 			})
 
-			categories.forEach(category => {
-				if (category.constant) return;				// skip
+			// Tag the number of matching parts for each imageInfo
+			requestParts.forEach(partInfo => {
+				productImages.forEach(imageInfo => {
+					// Get the matching part for this category
+					var imagePart = _.find(imageInfo.parts, part => {return part.category.type === partInfo.category.type})
 
-				//
-				//		 Keep all images that match current category
-				//
-				productImages = productImages.filter(image => {
-
+					if (imagePart) {
+						// Is it an exact match?
+						if (imagePart.part.value === partInfo.part.value) {
+							imageInfo.exactMatches++
+							imageInfo.matches++
+						} else if (imagePart.wildcard) {
+							imageInfo.matches++
+						}
+					}
 				})
-//				bool remove = true
-
-				//
-				// Does the part number fit the category
-
-
-				//
-				// Does an image fit this category?
-				//category.parts.forEach
 			})
 
-			response.status(200).send({image: productImages})
+			// Remove those that have more matching parts then the requested part number
+			// This is to prevent FA-1B to be found as a better match then FA-1 for FA-1
+			var filtered = productImages.filter(imageInfo => !(imageInfo.parts.length > requestParts.length))
+
+			// Does it even have any match (eg: for request FA-1, FA-2 shouldn't produce any image)
+			filtered = filtered.filter(imageInfo => imageInfo.matches)
+
+			// Find the image that has the most parts matching
+			var ordered = _.orderBy(filtered, [
+				function numberOfMatchingParts(o) {return o.matches},
+				function numberOfMatchingParts(o) {return o.exactMatches},
+				function numberExactMatches(o) {return _.filter(o.parts, part => !part.wildcard).length}
+			], 'desc')
+
+			var image = _.first(ordered)
+
+			response.status(200).send({image: image.path})
+
+			console.log(`Product image request took ${clock(start)} (ms)`)			// Just in case it becomes overly slow...
 		})
 
 		client.post("/bom", (request, response) => {
@@ -223,7 +247,7 @@ class Api {
 		if (!this._productImages) {
 			var files = fs.readdirSync(this._imageFolder());
 			this._productImages = files.map(file => {
-				return path.basename(file, '.png')
+				return {partNumber: path.basename(file, '.png'), path: file}
 			})
 		}
 

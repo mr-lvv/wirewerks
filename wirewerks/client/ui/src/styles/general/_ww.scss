@@ -194,6 +194,12 @@ ww-product {
 			}
 		}
 	}
+
+	ww-product-image {
+		.product-image {
+			max-width: 500px;
+		}
+	}
 }
 
 ww-order {
