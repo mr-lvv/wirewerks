@@ -22,9 +22,11 @@
 				<md-button class="datasheet md-raised" ng-href="{{$ctrl.getDataSheetLink()}}" ng-if="$ctrl.product.dataSheetLink" target="_blank">Data sheet</md-button>
 			</product-header>
 
-			<ww-part-groups>
-				<ww-part-group group="group" ng-repeat="group in $ctrl.validGroups()"></ww-part-group>
-			</ww-part-groups>
+			<md-content class="productGroups">
+				<ww-part-groups>
+					<ww-part-group group="group" ng-repeat="group in $ctrl.validGroups()"></ww-part-group>
+				</ww-part-groups>
+			</md-content>
 
 			<p class="notes" ng-if="$ctrl.product.notes">{{$ctrl.product.notes}}</p>
 

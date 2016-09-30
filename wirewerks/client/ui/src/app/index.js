@@ -694,7 +694,7 @@ define([
 				//
 				// Scroll horizontally to new category
 				if (category.type === this.category.type) {
-					var product = $('.product')
+					var product = $('.productGroups')
 
 
 					var rect = $element[0].getBoundingClientRect();
