@@ -264,4 +264,26 @@ define(['../app', './url'], function(app, Url) {
 		}
 	}
 	app.service('productsRegexResource', ProductsRegex)
+
+	/**
+	 *
+	 */
+	class ProductsImages extends Resource {
+		constructor($http, $q) {
+			super()
+
+			this.$http = $http
+			this.$q = $q
+		}
+
+		getImageFilename(partnumber) {
+			var url = Url.productImagesApi();
+			return this.$http.get(url, {params: {productid: partnumber}})
+				.then(this._responseData.bind(this))
+				.then(data => {
+					return data.image
+				})
+		}
+	}
+	app.service('productImagesResource', ProductsImages)
 });

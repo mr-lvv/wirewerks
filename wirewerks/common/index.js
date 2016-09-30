@@ -182,8 +182,9 @@
 
 		/**
 		 * Parse part number and creates a list of parts for every category
+		 * @returns Array PartInfo
 		 */
-		parse(partnumber, keepGenericCategories) {
+		parse(partnumber, keepWildcards) {
 			if (!this.regex)
 				return []
 
@@ -208,57 +209,76 @@
 					if (category.constant) {
 						//move forward
 						startIndex += category.title.length
+						return
 					}
-					else {
-						var length = category['length']
-						var value = partnumberCleaned.substr(startIndex, length)
 
-						var found = category.parts.some(part => {
-							var found = false
-							var valueToCheck = value
-							if (part.xIsDigit) {
-								valueToCheck = value.replace(/[0-9]/g, "X")
-							}
+					var length = category.length
+					var value = partnumberCleaned.substr(startIndex, length)
 
-							// Check if part number is valid for this category
-							var valid = false;				// Part number not found for this category
-							if (part.value === valueToCheck) {
-								valid = this.validator.valid(category.title, part.value, this.selection)
-
-								if (valid && part.xIsDigit) {
-									if (part.allowDecimal && partnumberCleaned[startIndex + length] == 'D') {
-										//now we have to extract more
-										length = length + 3
-										value = partnumberCleaned.substr(startIndex, length)
-									}
-
-									var cleanedValue = part.allowDecimal ? value.replace('D', '.') : value.replace(/\D/g, '')
-									if (!PartService.instance.validate(cleanedValue, part))
-										valid = false
-								}
-							}
-
-							if (valid) {
-								if (part.xIsDigit) {
-									part.inputValue = value
-									part.inputValueValid = true
-								}
-
-								var partInfo = new PartInfo(part, category)
-								this.validator.createValidationMap(this.selection)			// Rebuild validation cache when parts change
-								result.push(partInfo)
-								found = true
-							}
-
-							return found
-						})
-
-						if (!found && value) {
-							result.errors[category.title] = {category: category, value: value}		// Value is the part of the partnumber that caused the error
+					var found = category.parts.some(part => {
+						var found = false
+						var valueToCheck = value
+						if (part.xIsDigit) {
+							valueToCheck = value.replace(/[0-9]/g, "X")
 						}
 
-						startIndex += length
+						// Check if part number is valid for this category
+						var valid = false;				// Part number not found for this category
+						if (part.value === valueToCheck) {
+							valid = this.validator.valid(category.title, part.value, this.selection)
+
+							if (valid && part.xIsDigit) {
+								if (part.allowDecimal && partnumberCleaned[startIndex + length] == 'D') {
+									//now we have to extract more
+									length = length + 3
+									value = partnumberCleaned.substr(startIndex, length)
+								}
+
+								var cleanedValue = part.allowDecimal ? value.replace('D', '.') : value.replace(/\D/g, '')
+								if (!PartService.instance.validate(cleanedValue, part))
+									valid = false
+							}
+						}
+
+						// Wildcards are letters that can denote any valid part (ie: ABCDE)
+						var wildcard = false
+						if (!valid && (keepWildcards && value)) {
+							var numberMatch = part.value === valueToCheck		// eg: 'XXN'
+							var categoryMatch = value === category.type || value == _.repeat(category.type, category.length)
+							var isWildCard = numberMatch || categoryMatch
+
+							if (isWildCard) {
+								valid = true
+								wildcard = true
+							}
+						}
+
+						if (valid) {
+							if (part.xIsDigit) {
+								part.inputValue = value
+								part.inputValueValid = true
+
+								if (wildcard) {
+									part.inputValue = _.repeat('1', PartService.instance.numberOfDigit(part))
+								}
+							}
+
+							var partInfo = new PartInfo(part, category)
+							partInfo.wildcard = wildcard
+
+							this.validator.createValidationMap(this.selection)			// Rebuild validation cache when parts change
+							result.push(partInfo)
+							found = true
+						}
+
+						return found
+					})
+
+					if (!found && value) {
+						result.errors[category.title] = {category: category, value: value}		// Value is the part of the partnumber that caused the error
 					}
+
+					startIndex += length
 				})
 			})
 

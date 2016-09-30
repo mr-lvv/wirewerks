@@ -435,6 +435,23 @@ define([
 			})
 			return sections
 		}
+
+		simpleOrderNumber() {
+			var partnumber = ''
+			var buffer = ''
+			this.orderNumber().forEach(section => {
+				// Don't add anything past the last actual selected part. (ie: FA-1D shouldn't produce part number FA-1DBCCGGGXXN...)
+				// This is a current limitation that could potentially be removed...
+				buffer += section.label
+
+				if (section.data.part && !section.constant) {
+					partnumber += buffer
+					buffer = ''
+				}
+			})
+
+			return partnumber
+		}
 	}
 
 	app.component('wwOrder', {
@@ -999,6 +1016,34 @@ define([
 			part: '=?',
 			group: '=?',
 			category: '=?'
+		}
+	})
+
+	class ProductImage {
+		constructor($scope, productImagesResource) {
+			this.productImagesResource = productImagesResource
+			$scope.$watch(() => this.order.simpleOrderNumber(), this._refreshProduct.bind(this))
+		}
+
+		_refreshProduct(partnumber) {
+			if (!partnumber) {
+				delete this.image
+				return
+			}
+
+			this.productImagesResource.getImageFilename(partnumber).then(imageFile => {
+				this.image = Url.productImages(imageFile)
+			})
+		}
+	}
+
+	app.component('wwProductImage', {
+		controller: ProductImage,
+		require: {
+			order: '^wwOrder'
+		},
+		templateUrl: 'app/views/productimage.html',
+		bindings: {
 		}
 	})
 
