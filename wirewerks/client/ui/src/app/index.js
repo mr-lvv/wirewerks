@@ -807,21 +807,34 @@ define([
 				// Scroll horizontally to new category
 				if (category.type === this.category.type) {
 					var product = $('.product')
-/*
-					product.scrollTo($element, {
-						axis: 'x',
-						interrupt: true,
-						duration: 2000,
-						left: '+=150'
-//						offset: {top: 0, left: -200}
-					})
-					*/
-					/*
-					var productOffset = product.offset().left
-					var pos_x = $element.offset().left - productOffset
-					var width = product.width()
-					var visible = width - productOffset
-					*/
+
+
+					var rect = $element[0].getBoundingClientRect();
+					var visibleLeft = rect.left >= 0
+					var visibleRight = rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+
+					var visible = visibleLeft && visibleRight
+
+					var middle = (product.width() - product.offset().left)/2;
+
+					var move = ""
+					if(!visibleLeft){
+						var goTo = product.scrollLeft() + $element.offset().left - 50
+						move  =  goTo + "px"
+					}
+					else
+					{
+						move += "+="
+						move += middle + "px"
+					}
+
+					if(!visible)
+						product.scrollTo(move, {
+							axis: 'x',
+							interrupt: true,
+							duration: 300,
+							left: '+=100'
+						})
 				}
 			})
 		}
@@ -1012,6 +1025,16 @@ define([
 
 		_updateValue()
 		{
+			if(this.displayValue == null)
+			{
+				this.displayValueStr = ""
+				this.part.inputValue = undefined
+				this.part.inputValueValid = false
+				this.decimal = false
+				nbDigitsBeforePeriod = 0
+				return
+			}
+
 			if(!this.validate()) {
 				this.part.inputValue = undefined
 				this.part.inputValueValid = false
