@@ -31,6 +31,18 @@ define([], function() {
 		static productsRegex(){
 			return '/api/client/productsregex'
 		}
+
+		static productImagesApi() {
+			return '/api/client/productimage'
+		}
+
+		static productImages(imageFile) {
+			var path = '/images/products'
+			if (imageFile)
+				path += '/' + imageFile
+
+			return path
+		}
 	}
 
 	return Url
