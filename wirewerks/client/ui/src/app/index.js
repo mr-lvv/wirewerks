@@ -8,8 +8,14 @@ define([
 	'./lib/categorycolors',
 	'./lib/routes',
 	'./lib/search',
-	'./lib/resources'
-], function(ng, FastClick, scrollTo, chroma, app, Url, CategoryColors, search, resources) {
+	'./lib/resources',
+	'common/index'
+], function(ng, FastClick, scrollTo, chroma, app, Url, CategoryColors, routes, search, resources, common) {
+	var PartInfo = common.PartInfo
+	var PartNumber = common.PartNumber
+	var PartService = common.PartService
+	var ProductValidation = common.ProductValidation
+
 	app.config(($mdThemingProvider) => {
 		$mdThemingProvider.theme('grey')
 			.primaryPalette('grey')
@@ -172,30 +178,19 @@ define([
 	})
 
 	/**
-	 * Minimum required to distinguish different parts with same id
-	 */
-	class PartInfo {
-		constructor(part, category) {
-			this.part = part
-			this.category = category
-		}
-	}
-
-	/**
 	 *
 	 */
 	class Order {
-		constructor(productResource, $scope, cart, rulesCache, partService, productsRegexCache, $rootScope, $mdDialog) {
+		constructor(productResource, $scope, cart, rulesCache, productsRegexCache, $rootScope, $mdDialog) {
 			this.productResource = productResource
-			this.product = undefined;
-			this.parts = []							// Type PartInfo, not part (to include category..)
+
+			this.initProduct()
+
 			this.productsRegexCache = productsRegexCache
 			this.$rootScope = $rootScope
 
-			this.sections = []
 			this.cart = cart
 			this.partNumber = ""
-			this.partService = partService
 			this.$mdDialog = $mdDialog
 
 			$scope.$watch('order.productId', this._refreshProduct.bind(this))
@@ -207,100 +202,61 @@ define([
 				this.rules = rules
 			})
 
-			this.selection = {}
-			this.validPartsMap = {}
 			this.disableAutopick = false
+		}
+
+		initProduct(product) {
+			this.parts = []							// Type PartInfo, not part (to include category..)
+			this.product = product				// Not actually product, more like productTemplate
+			this.selection = {}					// TODO: not needed (should just be the parts list)
+			this.sections = []
+
+			if (this.rules && this.product) {
+				this.validator = new ProductValidation(this.product, this.rules[this.productId])
+			} else {
+				this.validator = undefined
+			}
 		}
 
 		_refreshProduct() {
 			this.productResource.get(this.productId).then(product => {
 				// If no product found, keep current product displayed
 				if (product) {
-					this.parts = []
-					this.product = product				// Not actually product, more like productTemplate
-					this.selection = {}
-					this.sections = []
+					this.initProduct(product)
 				}
 
 				if(this.partnumber)
 				{
 					//Need to regex that partnumber
 					this.productsRegexCache.byId(this.productId).then(regex => {
-						if(!regex)
-							return
-						var productRegex = new RegExp(regex)
-						if(!productRegex.test(this.partnumber))
-							return
+						var partNumber = new PartNumber(product, regex, this.validator)
 
 						//disable autopick or it will correct errors...
 						this.disableAutopick = true
-						var partnumberCleaned = this.partnumber.replace(/-/g,'')
-						var startIndex = 0
-						var hasErrors = ""
-						product.partGroups.forEach((group) => {
-							group.partCategories.forEach((category) => {
-								if (category.constant) {
-									//move forward
-									startIndex += category.title.length
-								}
-								else
-								{
-									var length = category['length']
-									var value = partnumberCleaned.substr(startIndex, length)
-									for(var i = 0 ; i < category.parts.length; i++) {
-										var part = category.parts[i]
-										var valueToCheck = value
-										if(part.xIsDigit)
-										{
-											valueToCheck = value.replace(/[0-9]/g, "X")
-										}
 
-										if(part.value == valueToCheck)
-										{
-											var valid =  this.valid(category.title, part.value)
-											if(!valid) {
-												hasErrors += "<br>"+category.title
-												break
-											}
-
-											if(part.xIsDigit) {
-
-												if(part.allowDecimal && partnumberCleaned[startIndex+length] == 'D') {
-													//now we have to extract more
-													length = length + 3
-													value = partnumberCleaned.substr(startIndex, length)
-												}
-
-												var cleanedValue = part.allowDecimal ? value.replace('D', '.') : value.replace(/\D/g,'')
-												if(!this.partService.validate(cleanedValue, part))
-													break
-												part.inputValue = value
-												part.inputValueValid = true
-											}
-											var partInfo = new PartInfo(part,category)
-											this.addPart(partInfo)
-
-											this.$rootScope.$emit('order.part.changed', partInfo)
-											break
-										}
-									}
-									startIndex += length
-								}
-							})
+						var parsed = partNumber.parse(this.partnumber)
+						parsed.forEach(partInfo => {
+							this.addPart(partInfo)
 						})
-						if(hasErrors != "") {
-							hasErrors = 'There were parts selected that are not allowed to be.<br>Please re-select:' + hasErrors
+
+						this.disableAutopick = false
+
+						if (parsed.errors) {
+							var message = 'There were parts selected that are not allowed to be.<br>Please re-select:' + parsed.errors
+
 							this.$mdDialog.show(
 								this.$mdDialog.alert()
-									.clickOutsideToClose(true)
-									.title('Product Part Error.')
-									.htmlContent(hasErrors)
-									.ariaLabel('Alert Dialog')
-									.ok('Got it!')
-									.targetEvent(event)
+								.clickOutsideToClose(true)
+								.title('Product Part Error.')
+								.htmlContent(message)
+								.ariaLabel('Alert Dialog')
+								.ok('Got it!')
 							);
 						}
-						this.disableAutopick = false
+
+						if (parsed.length) {
+							this.$rootScope.$emit('order.parts.changed')
+						}
 					})
 				}
 			})
@@ -342,106 +298,38 @@ define([
 		}
 
 		valid(category, part) {
-			return (_.keys(this.selection).length == 0 || (this.validPartsMap[category] && this.validPartsMap[category][part]['valid'] == true))
+			return this.validator.valid(category, part)
 		}
 
 		validateAll() {
-			this.validPartsMap = {}
-			this.product.partGroups.forEach((group) => {
-				group.partCategories.forEach((category) => {
+			if (!this.validator) {return}
 
-					if(!category.parts)
-						return;
-					category.parts.forEach((part) => {
+			this.validator.createValidationMap(this.selection)
 
-						var isValid = this.validate(category.title, part.value)
-						if(!this.validPartsMap[category.title]) {
-							this.validPartsMap[category.title] = {}
-						}
+			//done with the category, we can check if we can autopick
+			if (this.disableAutopick == false) {
+				this.product.partGroups.forEach(group => {
+					group.partCategories.forEach(category => {
+						if (!this.validator.validPartsMap[category.title])
+							return
 
+						if (this.validator.validPartsMap[category.title]['number'] == 1) {
 
-						this.validPartsMap[category.title][part.value] = {}
-						this.validPartsMap[category.title][part.value]['valid'] = isValid
-						if(isValid) {
-							if(!this.validPartsMap[category.title]['number']) {
-								this.validPartsMap[category.title]['number'] = 1
-								this.validPartsMap[category.title]['default'] = part.value
-								this.validPartsMap[category.title][part.value]['part'] = part
-							}
-							else
-								this.validPartsMap[category.title]['number']++
-						}
-					})
-					//done with the category, we can check if we can autopick
-					if(this.disableAutopick == false) {
-						if (this.validPartsMap[category.title]['number'] ==1) {
-
-							var partValue = this.validPartsMap[category.title]['default'];
-							if(this.selection[category.title] == partValue)
+							var partValue = this.validator.validPartsMap[category.title]['default'];
+							if (this.selection[category.title] == partValue)
 								return
 
 							var defaultCategory = category
-							var defaultPart = this.validPartsMap[category.title][partValue]['part']
-							if(defaultPart.xIsDigit)
+							var defaultPart = this.validator.validPartsMap[category.title][partValue]['part']
+							if (defaultPart.xIsDigit)
 								return;
+
 							var defaultPartInfo = new PartInfo(defaultPart, defaultCategory)
 							this.addPart(defaultPartInfo)
 						}
-					}
+					})
 				})
-			})
-		}
-
-		validate(category, part) {
-			if(!this.rules || !this.rules[this.productId] )
-				return true
-
-			if(this.rules[this.productId][category])
-			{
-				var currentRulesArray = this.rules[this.productId][category][part]
-				var defaultRulesArray = this.rules[this.productId][category]["*"]
-
-				if(!currentRulesArray && !defaultRulesArray)
-					return true
-
-				currentRulesArray = currentRulesArray ? currentRulesArray : {}
-				defaultRulesArray = defaultRulesArray ? defaultRulesArray : {}
-
-				for (var key in this.selection){
-					if (this.selection.hasOwnProperty(key)) {
-						var whichRule = currentRulesArray[key] ? currentRulesArray[key] : defaultRulesArray[key]
-						if(whichRule)
-						{
-							//check if AND clause
-							//see if the value affects anything
-							if(whichRule[this.selection[key]]) {
-								//check if there'a an AND clause
-								var andArray = whichRule[this.selection[key]]["&"]
-								if(andArray)
-								{
-									for (var key2 in andArray)
-									{
-										if(andArray.hasOwnProperty(key2))
-										{
-											if(this.selection[andArray[key2].category] &&
-												this.selection[andArray[key2].category] == andArray[key2].value)
-												if(andArray[key2].valid == false)
-													return false
-										}
-									}
-								}
-
-								if (whichRule[this.selection[key]].valid == false)
-									return false
-							}
-							else if(whichRule["*"] && whichRule["*"].valid == false)
-								return false
-						}
-					}
-				}
 			}
-
-			return true
 		}
 
 		addPart(partInfo) {
@@ -722,7 +610,7 @@ define([
 			$scope.$watch(() => this.order, initNav.bind(this))
 
 			$rootScope.$on('part.selected', (event, partInfo) => this._onPartChanged(partInfo.category))
-			$rootScope.$on('order.part.changed', () => this._onPartChanged())
+			$rootScope.$on('order.parts.changed', () => this._onPartChanged())
 		}
 
 		// Category is the category from which a change has been made (can be undefined)
@@ -932,47 +820,14 @@ define([
 	 *
 	 */
 
-
-	app.service('partService',  class PartService {
-		constructor() {
-		}
-		validate(value, part) {
-			//here we can use regexp to check
-			if(!value || value == 0)
-				return false
-
-			var numberOfDigit = this.numberOfDigit(part)
-			if(part.allowDecimal) {
-				if(value.indexOf(".") >= 0) {
-					var decimalPart = value.split(".")[1]
-					if(!decimalPart || decimalPart == 0 )
-						return false
-				}
-
-				var re = new RegExp('^\\d{1,' + numberOfDigit + "}(\\.[0-9][0-9]?)?$");
-				return re.test(value)
-			}
-			else
-			{
-				var re = new RegExp('^\\d{1,' + numberOfDigit + "}$");
-				return re.test(value)
-			}
-		}
-
-		numberOfDigit(part) {
-			return _.countBy(part.value)['X'];
-		}
-	})
-
 	class Part {
-		constructor($rootScope, $scope, partService) {
+		constructor($rootScope, $scope) {
 			this.displayValue=null
 			this.displayValueStr=""
 			this.nbDigitsBeforePeriod=0
 			this.decimal = false
 			this.$rootScope = $rootScope
 			this.$scope = $scope
-			this.partService = partService
 		}
 
 		get partInfo() {
@@ -1020,7 +875,7 @@ define([
 		}
 
 		validate() {
-			return this.partService.validate(this.displayValueStr, this.part)
+			return PartService.instance.validate(this.displayValueStr, this.part)
 		}
 
 		_updateValue()
@@ -1081,7 +936,7 @@ define([
 
 
 		numberOfDigit() {
-			return this.partService.numberOfDigit(this.part)
+			return PartService.instance.numberOfDigit(this.part)
 		}
 
 		valueChange() {
