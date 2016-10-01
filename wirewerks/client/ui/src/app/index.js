@@ -439,17 +439,19 @@ define([
 		simpleOrderNumber() {
 			var partnumber = ''
 			var buffer = ''
-			this.orderNumber().forEach(section => {
-				// Don't add anything past the last actual selected part. (ie: FA-1D shouldn't produce part number FA-1DBCCGGGXXN...)
-				// This is a current limitation that could potentially be removed...
-				buffer += section.label
+			if(this.orderNumber())
+			{
+				this.orderNumber().forEach(section => {
+					// Don't add anything past the last actual selected part. (ie: FA-1D shouldn't produce part number FA-1DBCCGGGXXN...)
+					// This is a current limitation that could potentially be removed...
+					buffer += section.label
 
-				if (section.data.part && !section.constant) {
-					partnumber += buffer
-					buffer = ''
-				}
-			})
-
+					if (section.data.part && !section.constant) {
+						partnumber += buffer
+						buffer = ''
+					}
+				})
+			}
 			return partnumber
 		}
 	}
