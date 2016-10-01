@@ -189,7 +189,7 @@ class Api {
 			if(image)
 				response.status(200).send({image: image.path})
 			else
-				response.status(200).send()
+				response.status(200).send({image : null})
 
 			console.log(`Product image request took ${clock(start)} (ms)`)			// Just in case it becomes overly slow...
 		})

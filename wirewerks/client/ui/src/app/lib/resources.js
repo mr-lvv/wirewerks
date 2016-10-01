@@ -281,7 +281,10 @@ define(['../app', './url'], function(app, Url) {
 			return this.$http.get(url, {params: {productid: partnumber}})
 				.then(this._responseData.bind(this))
 				.then(data => {
-					return data.image
+					if(data.image)
+						return data.image
+					else
+						return undefined
 				})
 		}
 	}

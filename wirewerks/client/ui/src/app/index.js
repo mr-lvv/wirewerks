@@ -1057,7 +1057,10 @@ define([
 			}
 
 			this.productImagesResource.getImageFilename(partnumber).then(imageFile => {
-				this.image = Url.productImages(imageFile)
+				if(imageFile)
+					this.image = Url.productImages(imageFile)
+				else
+					this.image = undefined
 			})
 		}
 	}
