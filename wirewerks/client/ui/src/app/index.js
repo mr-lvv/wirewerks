@@ -720,7 +720,7 @@ define([
 
 
 					var rect = $element[0].getBoundingClientRect();
-					var visibleLeft = rect.left >= 0
+					var visibleLeft = rect.left >= 0 + nav.width()
 					var visibleRight = rect.right <= (window.innerWidth || document.documentElement.clientWidth)
 
 					var visible = visibleLeft && visibleRight
