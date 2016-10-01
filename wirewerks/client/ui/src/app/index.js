@@ -497,7 +497,7 @@ define([
 					.textContent('Product Added To Cart!')
 					.position('bottom right')
 					.hideDelay(3000)
-				);
+				)
 			} else {
 				this.$mdDialog.show(
 					this.$mdDialog.alert()
@@ -854,9 +854,10 @@ define([
 
 		get partInfo() {
 
-			if(this.part.inputValue && !this.inputValue) {
+			if(this.part.inputValue && !this.displayValue) {
 				var temp = this.part.inputValue.replace('D','.')
-				this.inputValue = temp.replace(/[^0-9.]/g, '')
+				this.displayValueStr = temp.replace(/[^0-9.]/g, '')
+				this.displayValue = parseFloat(this.displayValueStr)
 			}
 
 			return new PartInfo(this.part, this.category)
