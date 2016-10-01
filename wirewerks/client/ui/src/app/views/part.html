@@ -5,7 +5,7 @@
 			<md-input-container ng-if="$ctrl.shouldShowXIsDigit()" ng-click="$ctrl.digitClick($event)" md-is-error="!$ctrl.validate()">
 				<label class="no-animate" ng-if="$ctrl.part.inputValue">{{$ctrl.part.inputValue}}</label>
 				<label class="no-animate" ng-if="!$ctrl.part.inputValue">{{$ctrl.part.value}}</label>
-                <input type="number" step="0.01" ng-if="$ctrl.part.allowDecimal" name="mdInputValue" ng-model="$ctrl.displayValue" ng-keydown="$ctrl.limit($event)" ng-change="$ctrl.valueChange()"
+                <input type="number" ignore-mouse-wheel  ng-if="$ctrl.part.allowDecimal" name="mdInputValue" ng-model="$ctrl.displayValue" ng-keydown="$ctrl.limit($event)" ng-change="$ctrl.valueChange()"
                        ng-blur="$ctrl.nextCategory()" aria-label="value" />
 				<input ng-if="!$ctrl.part.allowDecimal" name="mdInputValue" type="tel" ng-model="$ctrl.displayValue" ng-change="$ctrl.valueChange()" ng-keydown="$ctrl.limit($event)"
 					   ng-blur="$ctrl.nextCategory()" aria-label="value" />

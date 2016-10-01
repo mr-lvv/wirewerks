@@ -186,7 +186,10 @@ class Api {
 
 			var image = _.first(ordered)
 
-			response.status(200).send({image: image.path})
+			if(image)
+				response.status(200).send({image: image.path})
+			else
+				response.status(200).send()
 
 			console.log(`Product image request took ${clock(start)} (ms)`)			// Just in case it becomes overly slow...
 		})
