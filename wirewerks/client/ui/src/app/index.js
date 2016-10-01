@@ -716,6 +716,7 @@ define([
 				// Scroll horizontally to new category
 				if (category.type === this.category.type) {
 					var product = $('.productGroups')
+					var nav = $('.md-sidenav-left')
 
 
 					var rect = $element[0].getBoundingClientRect();
@@ -728,7 +729,7 @@ define([
 
 					var move = ""
 					if(!visibleLeft){
-						var goTo = product.scrollLeft() + $element.offset().left - 50
+						var goTo = product.scrollLeft() + $element.offset().left - nav.width() -50
 						move  =  goTo + "px"
 					}
 					else
