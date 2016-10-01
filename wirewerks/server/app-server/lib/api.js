@@ -128,7 +128,7 @@ class Api {
 
 			// Find correct image from product number
 			var productImages = this._getProductImages()
-			var productTemplate = _.cloneDeep(products[product])
+			var productTemplate = _.cloneDeep(products[product])		// Better then clonedeep here would be to not modify product in PartNumber
 
 			if (!productTemplate) {
 				return response.status(400).send({error: true, message: 'Product not found: ' + product})
