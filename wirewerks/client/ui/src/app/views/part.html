@@ -6,9 +6,9 @@
 				<label class="no-animate" ng-if="$ctrl.part.inputValue">{{$ctrl.part.inputValue}}</label>
 				<label class="no-animate" ng-if="!$ctrl.part.inputValue">{{$ctrl.part.value}}</label>
                 <input type="number" ignore-mouse-wheel  ng-if="$ctrl.part.allowDecimal" name="mdInputValue" ng-model="$ctrl.displayValue" ng-keydown="$ctrl.limit($event)" ng-change="$ctrl.valueChange()"
-                       ng-blur="$ctrl.nextCategory()" aria-label="value" />
+                       ng-blur="$ctrl.nextCategory()" aria-label="value" autofocus/>
 				<input ng-if="!$ctrl.part.allowDecimal" name="mdInputValue" type="tel" ng-model="$ctrl.displayValue" ng-change="$ctrl.valueChange()" ng-keydown="$ctrl.limit($event)"
-					   ng-blur="$ctrl.nextCategory()" aria-label="value" />
+					   ng-blur="$ctrl.nextCategory()" aria-label="value" autofocus/>
 			</md-input-container>
 		</form>
 	</header>

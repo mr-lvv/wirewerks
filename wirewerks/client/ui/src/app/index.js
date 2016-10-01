@@ -549,7 +549,8 @@ define([
 					var nextIndex = (i + focusedIndex) % categories.length
 					var category = categories[nextIndex]
 
-					if (!this.order.partForCategory(category)) {
+					var part = this.order.partForCategory(category)
+					if (!part || (part.xIsDigit && (part.inputValueValid == undefined || part.inputValueValid==false))) {
 						return nextIndex
 					}
 				}
@@ -906,11 +907,11 @@ define([
 				this.part.inputValue = undefined
 				this.part.inputValueValid = false
 				this.decimal = false
-				nbDigitsBeforePeriod = 0
+				this.nbDigitsBeforePeriod = 0
 				return
 			}
 
-			if(!this.validate()) {
+			if(!this.validate() || this.displayValue == 0) {
 				this.part.inputValue = undefined
 				this.part.inputValueValid = false
 			} else {
@@ -927,7 +928,7 @@ define([
 				}
 
 				var maxDecimal = 3
-				var inputValue = String(this.displayValue)
+				var inputValue = this.displayValueStr
 				//need to pad with leading zeroes or trailing zeroes
 				var splitValue = inputValue.split(".")
 
