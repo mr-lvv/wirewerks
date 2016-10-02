@@ -236,7 +236,7 @@ define([
 
 						var parsed = partNumber.parse(this.partnumber)
 						parsed.forEach(partInfo => {
-							this.addPart(partInfo)
+							this._addPart(partInfo)
 						})
 
 						this.disableAutopick = false
@@ -339,7 +339,7 @@ define([
 
 							var defaultPartInfo = new PartInfo(defaultPart, defaultCategory)
 							defaultPartInfo.autopick = true
-							this.addPart(defaultPartInfo)
+							this._addPart(defaultPartInfo)
 						}
 					})
 				})
@@ -348,11 +348,20 @@ define([
 			}
 		}
 
-		addPart(partInfo) {
-			if (!partInfo.part.inputValue && this.isPartInOrder(partInfo)) {return}
+		// Interal add
+		_addPart(partInfo) {
+			if (!partInfo.part.inputValue && this.isPartInOrder(partInfo)) {
+				return
+			}
 			this.updatePart(partInfo)
 			this.selection[partInfo.category.title] = partInfo.part.value
 			this.validateAll()
+		}
+
+		// User add part
+		addPart(partInfo) {
+			delete partInfo.autopick			// Since part Info are currently not the same in order and part, this is sort of useless, but the idea is right..
+			this._addPart(partInfo)
 		}
 
 		removePart(partInfo) {
@@ -361,11 +370,20 @@ define([
 			this.validateAll()
 		}
 
-		isPartInOrder(partInfo) {
-			return this.parts.some((orderPart) => {
-				return 	orderPart.part.value === partInfo.part.value &&
-							orderPart.category.type === partInfo.category.type
+		isAutopick(partInfo) {
+			var part = this.getPart(partInfo)
+			return part.autopick
+		}
+
+		getPart(partInfo) {
+			return _.find(this.parts, (orderPart) => {
+				return orderPart.part.value === partInfo.part.value &&
+				orderPart.category.type === partInfo.category.type
 			})
+		}
+
+		isPartInOrder(partInfo) {
+			return this.getPart(partInfo)
 		}
 
 		verifyOrder() {
@@ -856,13 +874,14 @@ define([
 	 */
 
 	class Part {
-		constructor($rootScope, $scope) {
+		constructor($rootScope, $scope, $mdToast) {
 			this.displayValue=null
 			this.displayValueStr=""
 			this.nbDigitsBeforePeriod=0
 			this.decimal = false
 			this.$rootScope = $rootScope
 			this.$scope = $scope
+			this.$mdToast = $mdToast
 		}
 
 		get partInfo() {
@@ -898,7 +917,16 @@ define([
 
 		select() {
 			if (this.order.isPartInOrder(this.partInfo)) {
-				this.order.removePart(this.partInfo)
+				if (this.order.isAutopick(this.partInfo)) {
+					this.$mdToast.show(
+						this.$mdToast.simple()
+						.textContent('This part is constrained by some other part and cannot be removed.')
+						.position('bottom right')
+						.hideDelay(3000)
+					)
+				} else {
+					this.order.removePart(this.partInfo)
+				}
 			} else {
 				this.order.addPart(this.partInfo)
 			}
