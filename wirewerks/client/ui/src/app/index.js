@@ -439,17 +439,19 @@ define([
 		simpleOrderNumber() {
 			var partnumber = ''
 			var buffer = ''
-			this.orderNumber().forEach(section => {
-				// Don't add anything past the last actual selected part. (ie: FA-1D shouldn't produce part number FA-1DBCCGGGXXN...)
-				// This is a current limitation that could potentially be removed...
-				buffer += section.label
+			if(this.orderNumber())
+			{
+				this.orderNumber().forEach(section => {
+					// Don't add anything past the last actual selected part. (ie: FA-1D shouldn't produce part number FA-1DBCCGGGXXN...)
+					// This is a current limitation that could potentially be removed...
+					buffer += section.label
 
-				if (section.data.part && !section.constant) {
-					partnumber += buffer
-					buffer = ''
-				}
-			})
-
+					if (section.data.part && !section.constant) {
+						partnumber += buffer
+						buffer = ''
+					}
+				})
+			}
 			return partnumber
 		}
 	}
@@ -495,7 +497,7 @@ define([
 					.textContent('Product Added To Cart!')
 					.position('bottom right')
 					.hideDelay(3000)
-				);
+				)
 			} else {
 				this.$mdDialog.show(
 					this.$mdDialog.alert()
@@ -547,7 +549,8 @@ define([
 					var nextIndex = (i + focusedIndex) % categories.length
 					var category = categories[nextIndex]
 
-					if (!this.order.partForCategory(category)) {
+					var part = this.order.partForCategory(category)
+					if (!part || (part.xIsDigit && (part.inputValueValid == undefined || part.inputValueValid==false))) {
 						return nextIndex
 					}
 				}
@@ -713,10 +716,11 @@ define([
 				// Scroll horizontally to new category
 				if (category.type === this.category.type) {
 					var product = $('.productGroups')
+					var nav = $('.md-sidenav-left')
 
 
 					var rect = $element[0].getBoundingClientRect();
-					var visibleLeft = rect.left >= 0
+					var visibleLeft = rect.left >= 0 + nav.width()
 					var visibleRight = rect.right <= (window.innerWidth || document.documentElement.clientWidth)
 
 					var visible = visibleLeft && visibleRight
@@ -725,7 +729,7 @@ define([
 
 					var move = ""
 					if(!visibleLeft){
-						var goTo = product.scrollLeft() + $element.offset().left - 50
+						var goTo = product.scrollLeft() + $element.offset().left - nav.width() -50
 						move  =  goTo + "px"
 					}
 					else
@@ -850,9 +854,17 @@ define([
 
 		get partInfo() {
 
-			if(this.part.inputValue && !this.inputValue) {
+			if(this.part.inputValue && !this.displayValue) {
 				var temp = this.part.inputValue.replace('D','.')
-				this.inputValue = temp.replace(/[^0-9.]/g, '')
+				temp = temp.replace(/[^0-9.]/g, '')
+				this.displayValue = parseFloat(temp)
+				this.displayValueStr = this.displayValue.toString()
+				if(this.displayValueStr.indexOf(".") > -1)
+				{
+					this.decimal = true
+					var nbInt = parseInt(this.displayValueStr)
+					this.nbDigitsBeforePeriod = nbInt.toString().length
+				}
 			}
 
 			return new PartInfo(this.part, this.category)
@@ -904,15 +916,14 @@ define([
 				this.part.inputValue = undefined
 				this.part.inputValueValid = false
 				this.decimal = false
-				nbDigitsBeforePeriod = 0
+				this.nbDigitsBeforePeriod = 0
 				return
 			}
 
-			if(!this.validate()) {
+			if(!this.validate() || this.displayValue == 0) {
 				this.part.inputValue = undefined
 				this.part.inputValueValid = false
 			} else {
-
 				function pad(num, size, decimal) {
 					var s = num + "";
 					while (s.length < size) {
@@ -925,7 +936,7 @@ define([
 				}
 
 				var maxDecimal = 3
-				var inputValue = String(this.displayValue)
+				var inputValue = this.displayValueStr
 				//need to pad with leading zeroes or trailing zeroes
 				var splitValue = inputValue.split(".")
 
@@ -979,8 +990,9 @@ define([
 				else
 				{
 					this.displayValueStr = this.displayValueStr.slice(0,-1)
-					if (this.displayValueStr.indexOf(".") < 0) {
+					if (this.displayValueStr.indexOf(".") < 0 && this.decimal == true) {
 						this.decimal = false
+						this._updateValue()
 					}
 				}
 			}
@@ -1055,7 +1067,10 @@ define([
 			}
 
 			this.productImagesResource.getImageFilename(partnumber).then(imageFile => {
-				this.image = Url.productImages(imageFile)
+				if(imageFile)
+					this.image = Url.productImages(imageFile)
+				else
+					this.image = undefined
 			})
 		}
 	}
@@ -1522,6 +1537,19 @@ define([
 		templateUrl: 'app/views/productlistitem.html',
 		bindings: {
 			product: '='
+		}
+	})
+
+	app.directive('ignoreMouseWheel', function ($document) {
+		return {
+			restrict: 'A',
+			link: function (scope, element) {
+				element.bind('mousewheel', function (event) {
+					var scrollAmount = event.originalEvent.wheelDelta * -1 + $document.scrollTop()
+					event.preventDefault();
+					$document.scrollTop(scrollAmount)
+				})
+			}
 		}
 	})
 });
