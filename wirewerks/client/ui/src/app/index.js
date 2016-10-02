@@ -856,8 +856,15 @@ define([
 
 			if(this.part.inputValue && !this.displayValue) {
 				var temp = this.part.inputValue.replace('D','.')
-				this.displayValueStr = temp.replace(/[^0-9.]/g, '')
-				this.displayValue = parseFloat(this.displayValueStr)
+				temp = temp.replace(/[^0-9.]/g, '')
+				this.displayValue = parseFloat(temp)
+				this.displayValueStr = this.displayValue.toString()
+				if(this.displayValueStr.indexOf(".") > -1)
+				{
+					this.decimal = true
+					var nbInt = parseInt(this.displayValueStr)
+					this.nbDigitsBeforePeriod = nbInt.toString().length
+				}
 			}
 
 			return new PartInfo(this.part, this.category)
@@ -917,7 +924,6 @@ define([
 				this.part.inputValue = undefined
 				this.part.inputValueValid = false
 			} else {
-
 				function pad(num, size, decimal) {
 					var s = num + "";
 					while (s.length < size) {
@@ -984,8 +990,9 @@ define([
 				else
 				{
 					this.displayValueStr = this.displayValueStr.slice(0,-1)
-					if (this.displayValueStr.indexOf(".") < 0) {
+					if (this.displayValueStr.indexOf(".") < 0 && this.decimal == true) {
 						this.decimal = false
+						this._updateValue()
 					}
 				}
 			}
