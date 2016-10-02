@@ -292,6 +292,15 @@ define([
 			})
 		}
 
+		_clearAutopick() {
+			// Remove all previous autopick
+			var autopickParts = this.parts.filter(partInfo => partInfo.autopick)
+			autopickParts.forEach(partInfo => {
+				this.removePart(partInfo)
+				delete partInfo.autopick
+			})
+		}
+
 		updatePart(partInfo) {
 			this._removeCategory(partInfo.category)
 			this.sections = []
@@ -308,7 +317,10 @@ define([
 			this.validator.createValidationMap(this.selection)
 
 			//done with the category, we can check if we can autopick
-			if (this.disableAutopick == false) {
+			if (this.disableAutopick == false && !this.isAutopicking) {
+				this.isAutopicking = true				// Prevents infinite loop. Otherwise autopicking will add/remove the same item forever
+				this._clearAutopick()
+
 				this.product.partGroups.forEach(group => {
 					group.partCategories.forEach(category => {
 						if (!this.validator.validPartsMap[category.title])
@@ -326,10 +338,13 @@ define([
 								return;
 
 							var defaultPartInfo = new PartInfo(defaultPart, defaultCategory)
+							defaultPartInfo.autopick = true
 							this.addPart(defaultPartInfo)
 						}
 					})
 				})
+
+				this.isAutopicking = false
 			}
 		}
 
@@ -343,9 +358,7 @@ define([
 		removePart(partInfo) {
 			this._removeCategory(partInfo.category)
 			delete this.selection[partInfo.category.title]
-			this.disableAutopick = true
 			this.validateAll()
-			this.disableAutopick = false
 		}
 
 		isPartInOrder(partInfo) {
