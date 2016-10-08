@@ -196,8 +196,29 @@ ww-product {
 	}
 
 	ww-product-image {
+		.image-container {
+			display: inline-block;		// Only size to cable image size
+			position: relative;
+
+			min-height: 274px;		// Give a minimum size so there's no "jerk" when selecting first part
+		}
+
 		.product-image {
 			max-width: 500px;
+		}
+
+		.connectorA {
+			width: 20%;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+
+		.connectorB {
+			width: 20%;
+			position: absolute;
+			bottom: 0;
+			right: 0;
 		}
 	}
 }

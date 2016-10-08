@@ -16,6 +16,8 @@ define([
 	var PartService = common.PartService
 	var ProductValidation = common.ProductValidation
 
+	var UnknownPartSymbol = common.UnknownPartSymbol
+
 	app.config(($mdThemingProvider) => {
 		$mdThemingProvider.theme('grey')
 			.primaryPalette('grey')
@@ -467,7 +469,7 @@ define([
 			return sections
 		}
 
-		simpleOrderNumber() {
+		simpleOrderNumber(useSymbolForUnknown) {
 			var partnumber = ''
 			var buffer = ''
 			if(this.orderNumber())
@@ -475,7 +477,12 @@ define([
 				this.orderNumber().forEach(section => {
 					// Don't add anything past the last actual selected part. (ie: FA-1D shouldn't produce part number FA-1DBCCGGGXXN...)
 					// This is a current limitation that could potentially be removed...
-					buffer += section.label
+					var isActualPartSection = !section.constant && !section.data.part;
+					if (useSymbolForUnknown && isActualPartSection) {
+						buffer += _.repeat(UnknownPartSymbol, section.label.length)
+					} else {
+						buffer += section.label
+					}
 
 					if (section.data.part && !section.constant) {
 						partnumber += buffer
@@ -1098,7 +1105,7 @@ define([
 	class ProductImage {
 		constructor($scope, productImagesResource) {
 			this.productImagesResource = productImagesResource
-			$scope.$watch(() => this.order.simpleOrderNumber(), this._refreshProduct.bind(this))
+			$scope.$watch(() => this.order.simpleOrderNumber(true), this._refreshProduct.bind(this))
 		}
 
 		_refreshProduct(partnumber) {
@@ -1107,11 +1114,15 @@ define([
 				return
 			}
 
-			this.productImagesResource.getImageFilename(partnumber).then(imageFile => {
-				if(imageFile)
-					this.image = Url.productImages(imageFile)
-				else
-					this.image = undefined
+			this.productImagesResource.getImageFilenames(partnumber).then(groups => {
+				_.values(groups).forEach(imageInfo => {
+					if (imageInfo.image)
+						imageInfo.image = Url.productImages(imageInfo.image)
+					else
+						imageInfo.image = undefined
+				})
+
+				this.groups = groups
 			})
 		}
 	}
