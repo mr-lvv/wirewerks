@@ -1,7 +1,10 @@
 {
-	"FA": [
-		{"id": 0, "name": "cable", "categories": [{"type": "A"}, {"type": "B"}, {"type": "C"}, {"type": "D"}, {"type": "E"}, {"type": "F"}, {"type": "G"}]},
-		{"id": 1, "name": "connectorA", "categories": [{"type": "H"}, {"type": "I"}]},
-		{"id": 2, "name": "connectorB", "categories": [{"type": "J"}, {"type": "K"}]}
-	]
+	"FA": {
+		"groups": [
+			{"id": 0, "name": "cable", "categories": [{"type": "A"}, {"type": "B"}, {"type": "C"}, {"type": "D"}, {"type": "E"}, {"type": "F"}, {"type": "G"}]},
+			{"id": 1, "name": "connectorA", "categories": [{"type": "H"}, {"type": "I"}]},
+			{"id": 2, "name": "connectorB", "categories": [{"type": "J"}, {"type": "K"}]}
+		],
+		"mappings": [{"from": "connectorA", "to": "connectorB"}]
+	}
 }

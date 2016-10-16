@@ -183,6 +183,15 @@
 			this.validator = validator
 		}
 
+		// TODO: Move into a Parts util class. Also duplicated in a number of places...
+		static _partForCategory(category, parts) {
+			if (!category) return
+
+			return _.find(parts, (partInfo) => {
+				return partInfo.category.type === category.type
+			})
+		}
+
 		/**
 		 * Parse part number and creates a list of parts for every category
 		 * @returns Array PartInfo
@@ -290,6 +299,64 @@
 			})
 
 			return result
+		}
+
+		// Return a part number from a list of parts
+		// TODO: Make "SerialNumber" an actual class that would have a .toString method but also a map of all part/partnumber index for each letter
+		// And remove all the strange "orderNumber" and "simpleOrderNumber" in Order class.
+		static partNumber(parts, product, clip, useSymbolForUnknown) {
+			if (!parts) {
+				return ''
+			}
+
+			var partNumber = ''
+			var buffer = ''
+
+			var first = true
+			product.partGroups.forEach(group => {
+				if (!first) {
+					buffer += '-'
+				}
+				first = false
+
+				group.partCategories.forEach((category) => {
+					var partInfo
+
+					if (category.constant) {
+						buffer += category.title
+					}
+					else {
+						partInfo = PartNumber._partForCategory(category, parts)
+
+						var categorySymbol = category.type
+						if (useSymbolForUnknown) {
+							categorySymbol = UnknownPartSymbol
+						}
+
+						var label = _.repeat(categorySymbol, category.length)
+
+						if (partInfo) {
+							if (partInfo.part.xIsDigit) {
+								if (partInfo.part.inputValueValid) {
+									label = partInfo.part.inputValue.toUpperCase()
+								}
+							}
+							else {
+								label = partInfo.part.value.toUpperCase()
+							}
+						}
+
+						buffer += label
+					}
+
+					if (partInfo && !category.constant) {
+						partNumber += buffer
+						buffer = ''
+					}
+				})
+			})
+
+			return partNumber
 		}
 	}
 
