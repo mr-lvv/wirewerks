@@ -121,7 +121,6 @@ class ProductImages {
 				}
 
 				newImages.push(newImageInfo)
-				console.log('New image info: ', imageInfo.partNumber, ' --> ', newImageInfo.partNumber);
 			})
 		})
 

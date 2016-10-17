@@ -195,6 +195,22 @@ ww-product {
 		}
 	}
 
+	$connector-img-size: 37%;
+	$color: rgba(63, 81, 181, 0.2);
+	$size: 3px;
+
+	@mixin contour() {
+
+		box-shadow: $size $size $size 0px $color;
+		border: 1px solid $color;
+	}
+
+	@mixin connector() {
+		width: $connector-img-size;
+		margin: 10px;
+		@include contour();
+	}
+
 	ww-product-image {
 		.image-container {
 			display: inline-block;		// Only size to cable image size
@@ -205,17 +221,18 @@ ww-product {
 
 		.product-image {
 			max-width: 500px;
+			border: 1px solid $color;
 		}
 
 		.connectorA {
-			width: 20%;
+			@include connector();
 			position: absolute;
 			top: 0;
 			left: 0;
 		}
 
 		.connectorB {
-			width: 20%;
+			@include connector();
 			position: absolute;
 			bottom: 0;
 			right: 0;
