@@ -14,6 +14,9 @@
 	}
 }(this, function () {
 
+	// Unknown parts are more precise then "ABC.." in part number because sometimes part numbers's category value is the same as a part
+	var UnknownPartSymbol = '?'
+
 	/**
 	 * Minimum required to distinguish different parts with same id
 	 */
@@ -180,6 +183,15 @@
 			this.validator = validator
 		}
 
+		// TODO: Move into a Parts util class. Also duplicated in a number of places...
+		static _partForCategory(category, parts) {
+			if (!category) return
+
+			return _.find(parts, (partInfo) => {
+				return partInfo.category.type === category.type
+			})
+		}
+
 		/**
 		 * Parse part number and creates a list of parts for every category
 		 * @returns Array PartInfo
@@ -215,67 +227,71 @@
 					var length = category.length
 					var value = partnumberCleaned.substr(startIndex, length)
 
-					var found = category.parts.some(part => {
-						var found = false
-						var valueToCheck = value
-						if (part.xIsDigit) {
-							valueToCheck = value.replace(/[0-9]/g, "X")
-						}
-
-						// Check if part number is valid for this category
-						var valid = false;				// Part number not found for this category
-						if (part.value === valueToCheck) {
-							valid = this.validator.valid(category.title, part.value, this.selection)
-
-							if (valid && part.xIsDigit) {
-								if (part.allowDecimal && partnumberCleaned[startIndex + length] == 'D') {
-									//now we have to extract more
-									length = length + 3
-									value = partnumberCleaned.substr(startIndex, length)
-								}
-
-								var cleanedValue = part.allowDecimal ? value.replace('D', '.') : value.replace(/\D/g, '')
-								if (!PartService.instance.validate(cleanedValue, part))
-									valid = false
-							}
-						}
-
-						// Wildcards are letters that can denote any valid part (ie: ABCDE)
-						var wildcard = false
-						if (!valid && (keepWildcards && value)) {
-							var numberMatch = part.value === valueToCheck		// eg: 'XXN'
-							var categoryMatch = value === category.type || value == _.repeat(category.type, category.length)
-							var isWildCard = numberMatch || categoryMatch
-
-							if (isWildCard) {
-								valid = true
-								wildcard = true
-							}
-						}
-
-						if (valid) {
+					// Simply skip parts that are not set (unknown parts)
+					var isUnknownPart = value === _.repeat(UnknownPartSymbol, length)
+					if (!isUnknownPart) {
+						var found = category.parts.some(part => {
+							var found = false
+							var valueToCheck = value
 							if (part.xIsDigit) {
-								part.inputValue = value
-								part.inputValueValid = true
+								valueToCheck = value.replace(/[0-9]/g, "X")
+							}
 
-								if (wildcard) {
-									part.inputValue = _.repeat('1', PartService.instance.numberOfDigit(part))
+							// Check if part number is valid for this category
+							var valid = false;				// Part number not found for this category
+							if (part.value === valueToCheck) {
+								valid = this.validator.valid(category.title, part.value, this.selection)
+
+								if (valid && part.xIsDigit) {
+									if (part.allowDecimal && partnumberCleaned[startIndex + length] == 'D') {
+										//now we have to extract more
+										length = length + 3
+										value = partnumberCleaned.substr(startIndex, length)
+									}
+
+									var cleanedValue = part.allowDecimal ? value.replace('D', '.') : value.replace(/\D/g, '')
+									if (!PartService.instance.validate(cleanedValue, part))
+										valid = false
 								}
 							}
 
-							var partInfo = new PartInfo(part, category)
-							partInfo.wildcard = wildcard
+							// Wildcards are letters that can denote any valid part (ie: ABCDE)
+							var wildcard = false
+							if (!valid && (keepWildcards && value)) {
+								var numberMatch = part.value === valueToCheck		// eg: 'XXN'
+								var categoryMatch = value === category.type || value == _.repeat(category.type, category.length)
+								var isWildCard = numberMatch || categoryMatch
 
-							this.validator.createValidationMap(this.selection)			// Rebuild validation cache when parts change
-							result.push(partInfo)
-							found = true
+								if (isWildCard) {
+									valid = true
+									wildcard = true
+								}
+							}
+
+							if (valid) {
+								if (part.xIsDigit) {
+									part.inputValue = value
+									part.inputValueValid = true
+
+									if (wildcard) {
+										part.inputValue = _.repeat('1', PartService.instance.numberOfDigit(part))
+									}
+								}
+
+								var partInfo = new PartInfo(part, category)
+								partInfo.wildcard = wildcard
+
+								this.validator.createValidationMap(this.selection)			// Rebuild validation cache when parts change
+								result.push(partInfo)
+								found = true
+							}
+
+							return found
+						})
+
+						if (!found && value) {
+							result.errors[category.title] = {category: category, value: value}		// Value is the part of the partnumber that caused the error
 						}
-
-						return found
-					})
-
-					if (!found && value) {
-						result.errors[category.title] = {category: category, value: value}		// Value is the part of the partnumber that caused the error
 					}
 
 					startIndex += length
@@ -284,12 +300,72 @@
 
 			return result
 		}
+
+		// Return a part number from a list of parts
+		// TODO: Make "SerialNumber" an actual class that would have a .toString method but also a map of all part/partnumber index for each letter
+		// And remove all the strange "orderNumber" and "simpleOrderNumber" in Order class.
+		static partNumber(parts, product, clip, useSymbolForUnknown) {
+			if (!parts) {
+				return ''
+			}
+
+			var partNumber = ''
+			var buffer = ''
+
+			var first = true
+			product.partGroups.forEach(group => {
+				if (!first) {
+					buffer += '-'
+				}
+				first = false
+
+				group.partCategories.forEach((category) => {
+					var partInfo
+
+					if (category.constant) {
+						buffer += category.title
+					}
+					else {
+						partInfo = PartNumber._partForCategory(category, parts)
+
+						var categorySymbol = category.type
+						if (useSymbolForUnknown) {
+							categorySymbol = UnknownPartSymbol
+						}
+
+						var label = _.repeat(categorySymbol, category.length)
+
+						if (partInfo) {
+							if (partInfo.part.xIsDigit) {
+								if (partInfo.part.inputValueValid) {
+									label = partInfo.part.inputValue.toUpperCase()
+								}
+							}
+							else {
+								label = partInfo.part.value.toUpperCase()
+							}
+						}
+
+						buffer += label
+					}
+
+					if (partInfo && !category.constant) {
+						partNumber += buffer
+						buffer = ''
+					}
+				})
+			})
+
+			return partNumber
+		}
 	}
 
 	return {
 		PartInfo: PartInfo,
 		PartNumber: PartNumber,
 		PartService: PartService,
-		ProductValidation: ProductValidation
+		ProductValidation: ProductValidation,
+
+		UnknownPartSymbol: UnknownPartSymbol
 	};
 }));

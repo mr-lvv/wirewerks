@@ -276,13 +276,13 @@ define(['../app', './url'], function(app, Url) {
 			this.$q = $q
 		}
 
-		getImageFilename(partnumber) {
+		getImageFilenames(partnumber) {
 			var url = Url.productImagesApi();
 			return this.$http.get(url, {params: {productid: partnumber}})
 				.then(this._responseData.bind(this))
 				.then(data => {
-					if(data.image)
-						return data.image
+					if(data.groups)
+						return data.groups
 					else
 						return undefined
 				})

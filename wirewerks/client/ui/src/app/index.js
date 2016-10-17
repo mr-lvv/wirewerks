@@ -16,6 +16,8 @@ define([
 	var PartService = common.PartService
 	var ProductValidation = common.ProductValidation
 
+	var UnknownPartSymbol = common.UnknownPartSymbol
+
 	app.config(($mdThemingProvider) => {
 		$mdThemingProvider.theme('grey')
 			.primaryPalette('grey')
@@ -236,7 +238,7 @@ define([
 
 						var parsed = partNumber.parse(this.partnumber)
 						parsed.forEach(partInfo => {
-							this.addPart(partInfo)
+							this._addPart(partInfo)
 						})
 
 						this.disableAutopick = false
@@ -292,6 +294,15 @@ define([
 			})
 		}
 
+		_clearAutopick() {
+			// Remove all previous autopick
+			var autopickParts = this.parts.filter(partInfo => partInfo.autopick)
+			autopickParts.forEach(partInfo => {
+				this.removePart(partInfo)
+				delete partInfo.autopick
+			})
+		}
+
 		updatePart(partInfo) {
 			this._removeCategory(partInfo.category)
 			this.sections = []
@@ -308,7 +319,10 @@ define([
 			this.validator.createValidationMap(this.selection)
 
 			//done with the category, we can check if we can autopick
-			if (this.disableAutopick == false) {
+			if (this.disableAutopick == false && !this.isAutopicking) {
+				this.isAutopicking = true				// Prevents infinite loop. Otherwise autopicking will add/remove the same item forever
+				this._clearAutopick()
+
 				this.product.partGroups.forEach(group => {
 					group.partCategories.forEach(category => {
 						if (!this.validator.validPartsMap[category.title])
@@ -326,33 +340,52 @@ define([
 								return;
 
 							var defaultPartInfo = new PartInfo(defaultPart, defaultCategory)
-							this.addPart(defaultPartInfo)
+							defaultPartInfo.autopick = true
+							this._addPart(defaultPartInfo)
 						}
 					})
 				})
+
+				this.isAutopicking = false
 			}
 		}
 
-		addPart(partInfo) {
-			if (!partInfo.part.inputValue && this.isPartInOrder(partInfo)) {return}
+		// Interal add
+		_addPart(partInfo) {
+			if (!partInfo.part.inputValue && this.isPartInOrder(partInfo)) {
+				return
+			}
 			this.updatePart(partInfo)
 			this.selection[partInfo.category.title] = partInfo.part.value
 			this.validateAll()
 		}
 
+		// User add part
+		addPart(partInfo) {
+			delete partInfo.autopick			// Since part Info are currently not the same in order and part, this is sort of useless, but the idea is right..
+			this._addPart(partInfo)
+		}
+
 		removePart(partInfo) {
 			this._removeCategory(partInfo.category)
 			delete this.selection[partInfo.category.title]
-			this.disableAutopick = true
 			this.validateAll()
-			this.disableAutopick = false
+		}
+
+		isAutopick(partInfo) {
+			var part = this.getPart(partInfo)
+			return part.autopick
+		}
+
+		getPart(partInfo) {
+			return _.find(this.parts, (orderPart) => {
+				return orderPart.part.value === partInfo.part.value &&
+				orderPart.category.type === partInfo.category.type
+			})
 		}
 
 		isPartInOrder(partInfo) {
-			return this.parts.some((orderPart) => {
-				return 	orderPart.part.value === partInfo.part.value &&
-							orderPart.category.type === partInfo.category.type
-			})
+			return this.getPart(partInfo)
 		}
 
 		verifyOrder() {
@@ -436,7 +469,7 @@ define([
 			return sections
 		}
 
-		simpleOrderNumber() {
+		simpleOrderNumber(useSymbolForUnknown) {
 			var partnumber = ''
 			var buffer = ''
 			if(this.orderNumber())
@@ -444,7 +477,12 @@ define([
 				this.orderNumber().forEach(section => {
 					// Don't add anything past the last actual selected part. (ie: FA-1D shouldn't produce part number FA-1DBCCGGGXXN...)
 					// This is a current limitation that could potentially be removed...
-					buffer += section.label
+					var isActualPartSection = !section.constant && !section.data.part;
+					if (useSymbolForUnknown && isActualPartSection) {
+						buffer += _.repeat(UnknownPartSymbol, section.label.length)
+					} else {
+						buffer += section.label
+					}
 
 					if (section.data.part && !section.constant) {
 						partnumber += buffer
@@ -843,13 +881,14 @@ define([
 	 */
 
 	class Part {
-		constructor($rootScope, $scope) {
+		constructor($rootScope, $scope, $mdToast) {
 			this.displayValue=null
 			this.displayValueStr=""
 			this.nbDigitsBeforePeriod=0
 			this.decimal = false
 			this.$rootScope = $rootScope
 			this.$scope = $scope
+			this.$mdToast = $mdToast
 		}
 
 		get partInfo() {
@@ -885,7 +924,16 @@ define([
 
 		select() {
 			if (this.order.isPartInOrder(this.partInfo)) {
-				this.order.removePart(this.partInfo)
+				if (this.order.isAutopick(this.partInfo)) {
+					this.$mdToast.show(
+						this.$mdToast.simple()
+						.textContent('This part is constrained by some other part and cannot be removed.')
+						.position('bottom right')
+						.hideDelay(3000)
+					)
+				} else {
+					this.order.removePart(this.partInfo)
+				}
 			} else {
 				this.order.addPart(this.partInfo)
 			}
@@ -1057,7 +1105,7 @@ define([
 	class ProductImage {
 		constructor($scope, productImagesResource) {
 			this.productImagesResource = productImagesResource
-			$scope.$watch(() => this.order.simpleOrderNumber(), this._refreshProduct.bind(this))
+			$scope.$watch(() => this.order.simpleOrderNumber(true), this._refreshProduct.bind(this))
 		}
 
 		_refreshProduct(partnumber) {
@@ -1066,11 +1114,15 @@ define([
 				return
 			}
 
-			this.productImagesResource.getImageFilename(partnumber).then(imageFile => {
-				if(imageFile)
-					this.image = Url.productImages(imageFile)
-				else
-					this.image = undefined
+			this.productImagesResource.getImageFilenames(partnumber).then(groups => {
+				_.values(groups).forEach(imageInfo => {
+					if (imageInfo.image)
+						imageInfo.image = Url.productImages(imageInfo.image)
+					else
+						imageInfo.image = undefined
+				})
+
+				this.groups = groups
 			})
 		}
 	}
