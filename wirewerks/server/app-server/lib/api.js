@@ -185,6 +185,7 @@ class ProductImages {
 			var info = _.clone(imageInfo)
 			info.matches = 0
 			info.exactMatches = 0
+			info.exactMatchInGroup = 0
 
 			return info
 		})
@@ -210,6 +211,10 @@ class ProductImages {
 					if (imagePart.part.value === partInfo.part.value) {
 						imageInfo.exactMatches++
 						imageInfo.matches++
+
+						if (this._isPartInGroup(group, partInfo)) {
+							imageInfo.exactMatchInGroup++
+						}
 					} else if (imagePart.wildcard) {
 						imageInfo.matches++
 					}
@@ -223,6 +228,9 @@ class ProductImages {
 
 		// Remove if there is not at least one exact match.
 		productImages = productImages.filter(imageInfo => imageInfo.exactMatches > 0)
+
+		// Is there at least one exact match in current group?
+		productImages = productImages.filter(imageInfo => imageInfo.exactMatchInGroup > 0)
 
 		// Does it even have any match (eg: for request FA-1, FA-2 shouldn't produce any image)
 		productImages = productImages.filter(imageInfo => imageInfo.matches)
@@ -290,11 +298,7 @@ class ProductImages {
 		if (requestParts.errors.length) {
 			return {error: true, message: 'Product number invalid: ', errors: requestParts.errors}
 		}
-/*
-		var parts = parser.parse('FA-2BCDEE2GGGLCC')
-		var number = PartNumber.partNumber(parts, productTemplate, true, true)
-		console.log('Number: ', number);
-*/
+
 		var productImages = this._getProductImages(productGroups, productTemplate, parser)
 
 		var images = {}
