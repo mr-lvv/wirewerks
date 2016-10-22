@@ -12,7 +12,7 @@ $padding-md-button-total: $padding-md-button * 2; // Includes up/down (or left/r
 		}
 	}
 
-	md-icon {
+	md-icon, img {
 		&.s#{$size} {
 			max-width: $size + 0px;
 			min-width: $size + 0px;

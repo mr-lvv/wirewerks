@@ -107,6 +107,7 @@ define([
 	 */
 	class wwApp {
 		constructor($timeout, $routeParams, $scope, $location, app, $mdSidenav, productsIdsCache) {
+			this.SingleProductMode = app.SingleProductMode
 
 			this.productsIds = []
 			//Should optimize for each product
@@ -164,12 +165,18 @@ define([
 		bindings: {}
 	})
 
+	var appModule = app;
+
 	/**
 	 *
 	 */
 	class Home {
 		constructor(app) {
 			this.app = app
+
+			if (appModule.SingleProductMode) {
+				app.goToProducts()
+			}
 		}
 	}
 
@@ -532,7 +539,7 @@ define([
 
 				this.$mdToast.show(
 					this.$mdToast.simple()
-					.textContent('Product Added To Cart!')
+					.textContent('Product Added To Bill Of Materials!')
 					.position('bottom right')
 					.hideDelay(3000)
 				)
@@ -541,7 +548,7 @@ define([
 					this.$mdDialog.alert()
 						.clickOutsideToClose(true)
 						.title('Product Selection Incomplete.')
-						.textContent('You need to choose a part for every section before adding the product to cart.')
+						.textContent('You need to choose a part for every section before adding the product to bill of materials.')
 						.ariaLabel('Alert Dialog')
 						.ok('Got it!')
 						.targetEvent(event)
@@ -656,8 +663,10 @@ define([
 	/**
 	 *
 	 */
-	class Product {
+	class wwProduct {
 		constructor($scope, $rootScope, Nav) {
+			this.SingleProductMode = app.SingleProductMode
+
 			function initNav() {
 				if (this.product && this.order) {
 					this.nav = new Nav()
@@ -699,7 +708,7 @@ define([
 	}
 
 	app.component('wwProduct', {
-		controller: Product,
+		controller: wwProduct,
 		templateUrl: 'app/views/product.html',
 		require: {
 			order: '^wwOrder'

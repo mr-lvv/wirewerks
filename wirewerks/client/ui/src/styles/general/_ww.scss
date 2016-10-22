@@ -40,6 +40,25 @@ ww-app {
 	md-toolbar.header {
 		display: block;
 
+		.wirewerks-logo {
+			max-height: 30px;
+		}
+
+		.spheres-logo {
+			max-height: 45px;
+			margin-right: 10px;
+		}
+
+		@media (max-width: 600px) {
+			.wirewerks-logo {
+				max-height: 16px;
+			}
+
+			.spheres-logo {
+				max-height: 25px;
+			}
+		}
+
 		.md-toolbar-tools {
 		}
 

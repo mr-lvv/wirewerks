@@ -1,5 +1,5 @@
 define([], function() {
-	return angular.module('ww', [
+	var app = angular.module('ww', [
 		'ngCookies',
 		'ngResource',
 		'ngSanitize',
@@ -9,4 +9,8 @@ define([], function() {
 		'ngRoute',
 		'ngFileSaver'
 	])
+	app.SingleProductMode = true
+
+
+	return app
 });
