@@ -1115,7 +1115,7 @@ define([
 	class ProductImage {
 		constructor($scope, productImagesResource) {
 			this.productImagesResource = productImagesResource
-			$scope.$watch(() => this.order.simpleOrderNumber(true), this._refreshProduct.bind(this))
+			$scope.$watch(() => this.partNumber, this._refreshProduct.bind(this))
 		}
 
 		_refreshProduct(partnumber) {
@@ -1139,11 +1139,9 @@ define([
 
 	app.component('wwProductImage', {
 		controller: ProductImage,
-		require: {
-			order: '^wwOrder'
-		},
 		templateUrl: 'app/views/productimage.html',
 		bindings: {
+			partNumber: '=?'
 		}
 	})
 

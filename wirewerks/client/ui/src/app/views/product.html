@@ -22,7 +22,8 @@
 				<md-button class="datasheet md-raised" ng-href="{{$ctrl.getDataSheetLink()}}" ng-if="$ctrl.product.dataSheetLink" target="_blank">Data sheet</md-button>
 			</product-header>
 
-			<ww-product-image></ww-product-image>
+			<ww-product-image part-number="$ctrl.order.simpleOrderNumber(true)"></ww-product-image>
+
 			<md-content class="productGroups">
 				<ww-part-groups>
 					<ww-part-group group="group" ng-repeat="group in $ctrl.validGroups()"></ww-part-group>
