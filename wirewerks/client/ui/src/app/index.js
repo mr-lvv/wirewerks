@@ -958,7 +958,8 @@ define([
 
 		_updateValue()
 		{
-			if(this.displayValue == null)
+			//this is backspace and delete keys
+			if(this.displayValue == null || this.displayValue.length == 0)
 			{
 				this.displayValueStr = ""
 				this.part.inputValue = undefined
@@ -1044,7 +1045,7 @@ define([
 					}
 				}
 			}
-			else if(keyCode >= 48 && keyCode<=57)
+			else if(keyCode >= 48 && keyCode<=57 || (keyCode >= 96 && keyCode <= 105))
 			{
 				var maxLength = this.numberOfDigit()
 				if(this.part.allowDecimal && this.decimal) {

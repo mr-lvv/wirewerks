@@ -188,6 +188,10 @@ ww-product {
 			font-size: $font-size-medium;
 			color: slategrey;
 
+			.md-button {
+				text-transform: none !important;
+			}
+
 			.part {
 				color: white;
 				padding: 0 $padding-normal;
