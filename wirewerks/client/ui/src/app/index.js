@@ -958,7 +958,8 @@ define([
 
 		_updateValue()
 		{
-			if(this.displayValue == null)
+			//this is backspace and delete keys
+			if(this.displayValue == null || this.displayValue.length == 0)
 			{
 				this.displayValueStr = ""
 				this.part.inputValue = undefined
