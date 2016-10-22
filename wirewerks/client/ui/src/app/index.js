@@ -1044,7 +1044,7 @@ define([
 					}
 				}
 			}
-			else if(keyCode >= 48 && keyCode<=57)
+			else if(keyCode >= 48 && keyCode<=57 || (keyCode >= 96 && keyCode <= 105))
 			{
 				var maxLength = this.numberOfDigit()
 				if(this.part.allowDecimal && this.decimal) {
