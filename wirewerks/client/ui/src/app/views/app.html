@@ -1,8 +1,8 @@
 <md-toolbar class="header">
 		<div class="md-toolbar-tools">
 
-			<img class="spheres-logo" src="images/wirewerks/logo_spheres.png">
-			<img class="wirewerks-logo" src="images/wirewerks/logo_wirewerks.png">
+			<a href="http://www.wirewerks.com"><img class="spheres-logo" src="images/wirewerks/logo_spheres.png"></a>
+			<a href="http://www.wirewerks.com"><img class="wirewerks-logo" src="images/wirewerks/logo_wirewerks.png"></a>
 
 			<md-button class="md-icon-button menu s32" ng-click="$ctrl.toggleNavigation()" hide-gt-md ng-if="SingleProductMode">
 				<md-icon md-svg-icon="images/svg/general/menu.svg" class="s32" aria-label="label"></md-icon>
@@ -16,8 +16,8 @@
 
 			<span flex></span>
 
-			<md-button class="md-icon-button cart s32" ng-click="$ctrl.app.toggleCart()">
-				<img src="images/wirewerks/logo_25_years.png" class="s32" aria-label="label">
+			<md-button class="md-icon-button cart s64" ng-click="$ctrl.app.toggleCart()">
+				<img src="images/wirewerks/bom_logo.png" class="s64" aria-label="label">
 			</md-button>
 			<span class="badge" ng-show="$ctrl.app.getCartNbItem() > 0" ng-click="$ctrl.app.toggleCart()">{{$ctrl.app.getCartNbItem()}}</span>
 		</div>
