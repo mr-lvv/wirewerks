@@ -1,4 +1,4 @@
-<md-select ng-hide="true" ng-model="$ctrl.selected" placeholder="Select section" class="md-no-underline" ng-model-options="{trackBy: '$value.id'}">
+<md-select ng-model="$ctrl.selected" placeholder="Select section" class="md-no-underline" ng-model-options="{trackBy: '$value.id'}">
 	<md-option ng-value=""><em>Any</em></md-option>
 	<md-option ng-value="section" ng-repeat="section in $ctrl.sections">Section {{section.id}} - {{section.label}}</md-option>
 </md-select>
