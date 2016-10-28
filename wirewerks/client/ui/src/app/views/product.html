@@ -23,11 +23,15 @@
 				<md-button class="datasheet md-raised" ng-href="{{$ctrl.getDataSheetLink()}}" ng-if="$ctrl.product.dataSheetLink" target="_blank">Data sheet</md-button>
 			</product-header>
 
+			<!-- hide pendant que je travail
 			<ww-product-image part-number="$ctrl.order.simpleOrderNumber(true)"></ww-product-image>
+			-->
 
 			<md-content class="productGroups">
 				<ww-part-groups>
-					<ww-part-group group="group" ng-repeat="group in $ctrl.validGroups()"></ww-part-group>
+					<ww-carousel>
+						<ww-part-category class="carousel-item" category="category" group="$ctrl.group" ng-repeat="category in $ctrl.validCategories()"></ww-part-category>
+					</ww-carousel>
 				</ww-part-groups>
 			</md-content>
 

@@ -309,7 +309,7 @@ ww-part-category {
 	.part-column {
 		box-shadow: 1px 4px 10px -3px gray;
 		margin: 0 1px;
-		max-width: 200px;
+//		max-width: 200px;
 
 		selection-overlay {
 			background: rgba(10, 0, 40, 0.6);				// Category with no selection
@@ -633,4 +633,18 @@ em {
 
 ww-product-list-item {
 	display: block;
+}
+
+ww-carousel {
+	display: block;
+	position: relative;
+	width: 100%;
+
+	.container {}
+
+	.carousel-item {
+		position: absolute;
+		z-index: 10;
+		min-width: 250px;
+	}
 }
