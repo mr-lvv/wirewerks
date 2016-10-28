@@ -768,8 +768,6 @@ define([
 						part.color = category.color.brighten(1.5)
 					})
 				}
-
-				this._setStyle($element)
 			})
 
 			$rootScope.$on('nav.focus', (event, category) => {
@@ -807,17 +805,13 @@ define([
 							left: '+=100'
 						})
 
-					this._setStyle($element)
+					$scope.$emit('carousel.focus', $element)
 				}
 			})
-		}
 
-		_setStyle($element) {
-			if (this.isNavFocused()) {
-				$element.css({'z-index': 100})
-			} else {
-				$element.css({'z-index': 10})
-			}
+			$scope.$on('carousel.focused', (event, element) => {
+				this.product.nav.setFocus(this.category)
+			})
 		}
 
 		_navFocusDistance() {
@@ -831,12 +825,16 @@ define([
 			return this._navFocusDistance() * 1.25
 		}
 
-		style() {
+		headerStyle() {
 			if (!this.category) {return}
 
 			var color = this.category.color
 			if (!this.isPicked())
 				color = color.darken(1.1)
+
+			if (!this.isNavFocused()) {
+				color = color.brighten(3).desaturate(1.2)
+			}
 
 			var style = {background: color.css()}
 			var navZoom = this._navZoom()

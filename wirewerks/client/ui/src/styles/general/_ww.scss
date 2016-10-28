@@ -316,7 +316,7 @@ ww-part-category {
 		}
 
 		category-header {
-			opacity: 0.25;
+//			opacity: 0.25;
 		}
 
 		&.picked {
@@ -644,7 +644,9 @@ ww-carousel {
 
 	.carousel-item {
 		position: absolute;
-		z-index: 10;
 		min-width: 250px;
+
+		&.carousel-focused {
+		}
 	}
 }

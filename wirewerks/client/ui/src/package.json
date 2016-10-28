@@ -28,6 +28,7 @@
     "jquery.scrollto": "^2.1.2",
     "lodash": "^4.15.0",
     "offline-js": "^0.7.18",
-    "systemjs": "^0.19.37"
+    "systemjs": "^0.19.37",
+    "css-element-queries": "0.3.2"
   }
 }

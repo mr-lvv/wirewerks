@@ -1,31 +1,117 @@
-define(['../app'], function(app) {
-
+define(['../app', 'css-element-queries'], function(app, ResizeSensor) {
 	class wwCarousel {
-		constructor($scope, $element) {
+		constructor($scope, $element, $timeout) {
 			this.$element = $element
+			this.$scope = $scope
+			this.$timeout = $timeout
 			this.container = this.$element.find('.container')
 
 			// TODO: Remove delay before setup
 			// TODO: make sure new/removed elements cause re-setup
 			// TODO: if carousel width changes, should update positions
 			setTimeout(() => this.setup(), 200)
+
+			// Set focus on an element
+			$scope.$on('carousel.focus', (event, element) => {
+				this._setFocus(element, true)
+			})
+		}
+
+		_setFocus(element, skipBroadcast) {
+			this._clearAllFocus()
+			var elem = $(element)
+			elem.addClass('carousel-focused')
+			elem.focus()
+
+			// Get element's scope
+			if (element && !skipBroadcast) {
+				var scope = elem.scope()
+				scope.$broadcast('carousel.focused', elem)
+			}
+		}
+
+		_clearAllFocus() {
+			this.items.each((index, element) => this._removeFocus(element))
+		}
+
+		_removeFocus(element) {
+			$(element).removeClass('carousel-focused')
+		}
+
+		_isFocused(element) {
+			return $(element).hasClass('carousel-focused')
+		}
+
+		_findFocusedItem(setIfNone) {
+			var focused = _.find(this.items.toArray(), (element, index) => this._isFocused(element))
+
+			if (!focused && setIfNone) {
+				focused = this.items.first()
+				this._setFocus(focused)
+			}
+
+			return focused
+		}
+
+		_itemIndex(element) {
+			var index
+			_.some(this.items.toArray(), (element, itemIndex) => {
+				if (this._isFocused(element))
+					index = itemIndex
+			})
+
+			return index
 		}
 
 		_calculateItemDistanceFromFocus() {
-			// for each item:
-			//		set position away from focused
-			//		set percentage away from focused
-			
-		}
+			var focused = this._findFocusedItem(true)
+			var focusedIndex = this._itemIndex(focused)
+			if (!focused || focusedIndex === undefined) {return console.warn('Should not have no focused items')}		// Just in case...
 
-		_setContainerHeight() {
-			var height = 200			// Minimum height
+			var itemCount = this.items.length
+			var peak = Math.max(focusedIndex + 1, itemCount - focusedIndex)		// Max # of items (left or right)
+
+			var itemDistances = []
+			itemDistances.focusedIndex = focusedIndex
+			itemDistances.focus = focus
+			itemDistances.peak = peak
+
 			this.items.each((index, element) => {
-				var elementHeight = $(element).outerHeight(true)
-				height = Math.max(height, elementHeight)
+				var distance = {element: element, index: index, distance: 0, inverseDistance: 0, direction: 'left'}
+
+				if (index < focusedIndex) {
+					distance.distance = focusedIndex - index
+					distance.inverseDistance = index
+					distance.direction = 'left'
+				} else {
+					distance.distance = index - focusedIndex
+					distance.direction = 'right'
+					distance.inverseDistance = distance.distance
+				}
+
+				distance.absolute = (peak - distance.distance) - 1
+
+				itemDistances.push(distance)
 			})
 
-			this.container.height(height + 'px')
+			return itemDistances
+		}
+
+		_setContainerHeight(distances) {
+			distances = distances || this._calculateItemDistanceFromFocus()
+
+			var maxItemHeight = 200			// Minimum height
+			var buffer = 10							// Small buffer just in case I'm slightly wrong in a decimal somewhere
+
+			this.items.each((index, element) => {
+				var elementHeight = $(element).outerHeight(true)
+				maxItemHeight = Math.max(maxItemHeight, elementHeight)
+			})
+
+			var vshapeHeight = distances.peak * wwCarousel.StepHeight
+			var finalHeight = maxItemHeight + buffer + vshapeHeight
+
+			this.container.height(finalHeight + 'px')
 		}
 
 		_spaceItemsHorizontally() {
@@ -44,7 +130,7 @@ define(['../app'], function(app) {
 
 			var current = 0
 			this.items.each((index, element) => {
-				$(element).css({top: 0, left: current})
+				$(element).css({left: current})
 				current += space
 			})
 		}
@@ -52,31 +138,56 @@ define(['../app'], function(app) {
 		_spaceItemsVertically() {
 			if (!this.items.length) {return}
 
+			var distances = this._calculateItemDistanceFromFocus()
+			distances.forEach(distance => {
+				var zindex = distance.absolute + wwCarousel.BaseZIndex
+				$(distance.element).css({top: distance.absolute * wwCarousel.StepHeight + 'px', 'z-index': zindex})
+			})
 
+			this._setContainerHeight(distances)
 		}
 
 		_placeItems() {
-			this._calculateItemDistanceFromFocus()
 			this._spaceItemsHorizontally()
 			this._spaceItemsVertically()
 		}
 
+		_trackFocus() {
+			var self = this
+			this.items.focusin(function(event) {
+				self.$timeout(() => {
+					self._setFocus(this)
+					self._spaceItemsVertically()
+				})
+			})
+		}
+
 		setup() {
 			this.items = this.$element.find('.carousel-item')
-			console.log('# Elements:', this.items.length);
+			//console.log('# Elements:', this.items.length);
 
-			this._setContainerHeight()
+			// When element changes
+			this._trackFocus()
+
+			new ResizeSensor(this.items, unknownArg => {
+				this._setContainerHeight()
+			});
+
+			// When element focus changes
 			this._placeItems()
 		}
 
 
 		static get ItemsWidth() {return 200}
+		static get BaseZIndex() {return 10}
+		static get StepHeight() {return 10}			// # pixel difference between each items
 	}
 
 	app.component('wwCarousel', {
 		controller: wwCarousel,
 		transclude: true,
 		templateUrl: 'app/views/carousel.html',
-		bindings: {}
+		bindings: {
+		}
 	})
 });
