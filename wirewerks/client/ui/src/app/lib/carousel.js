@@ -14,6 +14,18 @@ define(['../app', 'css-element-queries'], function(app, ResizeSensor) {
 			// Set focus on an element
 			$scope.$on('carousel.focus', (event, element) => {
 				this._setFocus(element, true)
+				this._spaceItemsVertically()
+			})
+
+			var debouncedPlaceItems = _.debounce(() => this._placeItems(), 250)
+
+			new ResizeSensor($($element), unknownArg => {
+				debouncedPlaceItems()			// Use debounce in case window resizing cause a ton of events.
+			});
+
+			// Can be terrible for performance, google for alternative, better ways! but works for now...
+			$(window).resize((element) => {
+				debouncedPlaceItems()			// Use debounce in case window resizing cause a ton of events.
 			})
 		}
 
@@ -89,6 +101,7 @@ define(['../app', 'css-element-queries'], function(app, ResizeSensor) {
 					distance.inverseDistance = distance.distance
 				}
 
+				distance.isFocused = index === focusedIndex
 				distance.absolute = (peak - distance.distance) - 1
 
 				itemDistances.push(distance)
@@ -141,6 +154,9 @@ define(['../app', 'css-element-queries'], function(app, ResizeSensor) {
 			var distances = this._calculateItemDistanceFromFocus()
 			distances.forEach(distance => {
 				var zindex = distance.absolute + wwCarousel.BaseZIndex
+				if (distance.isFocused)
+					zindex = wwCarousel.FocusedZIndex
+
 				$(distance.element).css({top: distance.absolute * wwCarousel.StepHeight + 'px', 'z-index': zindex})
 			})
 
@@ -181,6 +197,7 @@ define(['../app', 'css-element-queries'], function(app, ResizeSensor) {
 		static get ItemsWidth() {return 200}
 		static get BaseZIndex() {return 10}
 		static get StepHeight() {return 10}			// # pixel difference between each items
+		static get FocusedZIndex() {return 75}
 	}
 
 	app.component('wwCarousel', {

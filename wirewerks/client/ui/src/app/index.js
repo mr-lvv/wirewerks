@@ -832,10 +832,6 @@ define([
 			if (!this.isPicked())
 				color = color.darken(1.1)
 
-			if (!this.isNavFocused()) {
-				color = color.brighten(3).desaturate(1.2)
-			}
-
 			var style = {background: color.css()}
 			var navZoom = this._navZoom()
 			if (navZoom) {
@@ -848,7 +844,7 @@ define([
 		columnStyle() {
 			var style = {}
 			if (this.isNavFocused()) {
-				/* No longer needed in carousel
+				/* No longer needed in carousel since everything is with a set width
 				 style['min-width'] = 200;
 				style['max-width'] = 200;
 				 */
