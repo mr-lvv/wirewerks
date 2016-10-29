@@ -309,14 +309,14 @@ ww-part-category {
 	.part-column {
 		box-shadow: 1px 4px 10px -3px gray;
 		margin: 0 1px;
-		max-width: 200px;
+//		max-width: 200px;
 
 		selection-overlay {
 			background: rgba(10, 0, 40, 0.6);				// Category with no selection
 		}
 
 		category-header {
-			opacity: 0.25;
+//			opacity: 0.25;
 		}
 
 		&.picked {
@@ -633,4 +633,40 @@ em {
 
 ww-product-list-item {
 	display: block;
+}
+
+ww-carousel {
+	$focused-item-z: 75;
+
+	display: block;
+	position: relative;
+	width: 100%;
+
+	.container {}
+
+	.bg-overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		pointer-events: none;
+		z-index: $focused-item-z - 5;
+
+		&.light {
+			background: rgba(255, 255, 255, 0.7);
+		}
+
+		&.dark {
+			background: rgba(0, 0, 0, 0.7);
+		}
+	}
+
+	.carousel-item {
+		position: absolute;
+		min-width: 250px;
+
+		&.carousel-focused {
+		}
+	}
 }

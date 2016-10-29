@@ -9,8 +9,9 @@ define([
 	'./lib/routes',
 	'./lib/search',
 	'./lib/resources',
-	'common/index'
-], function(ng, FastClick, scrollTo, chroma, app, Url, CategoryColors, routes, search, resources, common) {
+	'common/index',
+	'./lib/carousel'
+], function(ng, FastClick, scrollTo, chroma, app, Url, CategoryColors, routes, search, resources, common, carousel) {
 	var PartInfo = common.PartInfo
 	var PartNumber = common.PartNumber
 	var PartService = common.PartService
@@ -705,6 +706,17 @@ define([
 
 			return groups
 		}
+
+		validCategories() {
+			if (!this.product) return
+
+			var categories = []
+			this.product.partGroups.forEach(group => {
+				var cat = validCategories(group)
+				categories = _.concat(categories, cat)
+			})
+			return categories
+		}
 	}
 
 	app.component('wwProduct', {
@@ -792,7 +804,13 @@ define([
 							duration: 300,
 							left: '+=100'
 						})
+
+					$scope.$emit('carousel.focus', $element)
 				}
+			})
+
+			$scope.$on('carousel.focused', (event, element) => {
+				this.product.nav.setFocus(this.category)
 			})
 		}
 
@@ -807,7 +825,7 @@ define([
 			return this._navFocusDistance() * 1.25
 		}
 
-		style() {
+		headerStyle() {
 			if (!this.category) {return}
 
 			var color = this.category.color
@@ -826,10 +844,11 @@ define([
 		columnStyle() {
 			var style = {}
 			if (this.isNavFocused()) {
-				style['min-width'] = 200;
+				/* No longer needed in carousel since everything is with a set width
+				 style['min-width'] = 200;
 				style['max-width'] = 200;
+				 */
 			}
-
 			return style
 		}
 
