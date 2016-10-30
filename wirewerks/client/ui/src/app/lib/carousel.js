@@ -1,5 +1,8 @@
 define(['../app', 'css-element-queries', 'hammer'], function(app, ResizeSensor, Hammer) {
-	console.log('Hammer:' , Hammer);
+	function loop(v, n) {
+		return ((v % n) + n) % n;
+	}
+
 	class wwCarousel {
 		constructor($scope, $element, $timeout) {
 			this.$element = $element
@@ -35,23 +38,53 @@ define(['../app', 'css-element-queries', 'hammer'], function(app, ResizeSensor, 
 			var container = $element.find('.container')
 			var hammer = new Hammer(container.get(0), {});
 			hammer.on('swipe', (event) => {
-				if (event.direction === Hammer.DIRECTION_LEFT) {
-				} else {
-				}
+				// Apply angular digest to anything that goes here
+				$timeout(() => {
+					if (event.direction === Hammer.DIRECTION_LEFT) {
+						this._selectNext()
+					} else {
+						this._selectPrevious()
+					}
+				})
 			})
 		}
 
-		_setFocus(element, skipBroadcast) {
+		_select(offset) {
+			var focused = this._findFocusedItem(true)
+			var focusedIndex = this._itemIndex(focused)
+
+			var length = this.items.length || 1
+			var target = focusedIndex + offset
+			var itemIndex = loop(target, length)
+			var element = this.items[itemIndex]
+
+			this._selectElement(element)
+		}
+
+		_selectNext() {
+			this._select(1)
+		}
+
+		_selectPrevious() {
+			this._select(-1)
+		}
+
+		_selectElement(element, skipBroadcast) {
+			element = $(element)
+
 			this._clearAllFocus()
-			var elem = $(element)
-			elem.addClass('carousel-focused')
-			elem.focus()
+			element.addClass('carousel-focused')
+			element.focus()
 
 			// Get element's scope
 			if (element && !skipBroadcast) {
-				var scope = elem.scope()
-				scope.$broadcast('carousel.focused', elem)
+				var scope = element.scope()
+				scope.$broadcast('carousel.focused', element)
 			}
+		}
+
+		_setFocus(element, skipBroadcast) {
+			this._selectElement(element, skipBroadcast)
 		}
 
 		_clearAllFocus() {
