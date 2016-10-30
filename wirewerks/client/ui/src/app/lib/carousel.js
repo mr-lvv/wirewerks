@@ -1,4 +1,5 @@
-define(['../app', 'css-element-queries'], function(app, ResizeSensor) {
+define(['../app', 'css-element-queries', 'hammer'], function(app, ResizeSensor, Hammer) {
+	console.log('Hammer:' , Hammer);
 	class wwCarousel {
 		constructor($scope, $element, $timeout) {
 			this.$element = $element
@@ -29,6 +30,14 @@ define(['../app', 'css-element-queries'], function(app, ResizeSensor) {
 			// Can be terrible for performance, google for alternative, better ways! but works for now...
 			$(window).resize((element) => {
 				debouncedPlaceItems()			// Use debounce in case window resizing cause a ton of events.
+			})
+
+			var container = $element.find('.container')
+			var hammer = new Hammer(container.get(0), {});
+			hammer.on('swipe', (event) => {
+				if (event.direction === Hammer.DIRECTION_LEFT) {
+				} else {
+				}
 			})
 		}
 
