@@ -642,7 +642,14 @@ ww-carousel {
 	position: relative;
 	width: 100%;
 
-	.container {}
+	.container {
+		position: relative;
+		overflow: hidden;
+	}
+
+	.items-container {
+		height: 100%;
+	}
 
 	.bg-overlay {
 		position: absolute;
@@ -664,7 +671,6 @@ ww-carousel {
 
 	.carousel-item {
 		position: absolute;
-		min-width: 250px;
 
 		&.carousel-focused {
 		}
