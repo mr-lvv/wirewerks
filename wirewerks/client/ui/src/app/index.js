@@ -880,12 +880,13 @@ define([
 		// Get parts to show for this category
 		getParts() {
 			var parts = this.category.parts
+			return parts
+		}
 
-			if (!this.isNavFocused()) {
-				parts = _.filter(parts, part => {
-					return this.order.isPartInOrder(new PartInfo(part, this.category))
-				})
-			}
+		getSelectedParts() {
+			var parts =  this.category.parts.filter(part => {
+				return this.order.isPartInOrder(new PartInfo(part, this.category))
+			})
 
 			return parts
 		}

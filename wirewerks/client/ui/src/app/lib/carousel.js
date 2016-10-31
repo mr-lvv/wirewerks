@@ -1,4 +1,4 @@
-define(['../app', 'css-element-queries', 'hammer'], function(app, ResizeSensor, Hammer) {
+define(['../app', 'css-element-queries', 'hammer', 'popmotion'], function(app, ResizeSensor, Hammer, motion) {
 	function loop(v, n) {
 		return ((v % n) + n) % n;
 	}
@@ -9,22 +9,21 @@ define(['../app', 'css-element-queries', 'hammer'], function(app, ResizeSensor, 
 			this.$scope = $scope
 			this.$timeout = $timeout
 			this.container = this.$element.find('.container')
-			this.autoChooseMode = true									// Choose mode based on container size
-			this.mode = wwCarousel.Modes.Row
+			this.autoChooseMode = false									// Choose mode based on container size
+			this.loop = false
+			this.mode = wwCarousel.Modes.Center
 
 			// TODO: Remove delay before setup.
 			// TODO: make sure new/removed elements cause re-setup.
 			// TODO: if carousel width changes, should update positions.
-			// BUG: sometimes selecting a part doesn't switch to next item.
 			setTimeout(() => this.setup(), 200)
 
 			// Set focus on an element
 			$scope.$on('carousel.focus', (event, element) => {
 				this._setFocus(element, true)
-				this._placeItems()
 			})
 
-			var debouncedPlaceItems = _.debounce(() => this._placeItems(), 250)
+			var debouncedPlaceItems = _.debounce(() => this._placeItems(), 100)
 
 			new ResizeSensor($($element), unknownArg => {
 				debouncedPlaceItems()			// Use debounce in case window resizing cause a ton of events.
@@ -38,7 +37,7 @@ define(['../app', 'css-element-queries', 'hammer'], function(app, ResizeSensor, 
 			var container = $element.find('.container')
 			var hammer = new Hammer(container.get(0), {});
 			hammer.on('swipe', (event) => {
-				// Apply angular digest to anything that goes here
+				// Apply angular digest to anything that goes herepop
 				$timeout(() => {
 					if (event.direction === Hammer.DIRECTION_LEFT) {
 						this._selectNext()
@@ -49,28 +48,46 @@ define(['../app', 'css-element-queries', 'hammer'], function(app, ResizeSensor, 
 			})
 		}
 
-		_select(offset) {
+		_getItem(offset) {
 			var focused = this._findFocusedItem(true)
 			var focusedIndex = this._itemIndex(focused)
 
 			var length = this.items.length || 1
 			var target = focusedIndex + offset
-			var itemIndex = loop(target, length)
+			var itemIndex
+			if (this.loop) {
+				itemIndex = loop(target, length)
+			} else {
+				itemIndex = Math.max(0, Math.min(this.items.length - 1, target))
+			}
 			var element = this.items[itemIndex]
 
-			this._selectElement(element)
+			return element
 		}
 
 		_selectNext() {
-			this._select(1)
+			var next = this._getItem(1)
+			this._setFocus(next)
 		}
 
 		_selectPrevious() {
-			this._select(-1)
+			var previous = this._getItem(-1)
+			this._setFocus(previous)
+		}
+
+		_setFocus(element, skipBroadcast) {
+			if (this._isFocused(element)) {
+				return
+			}
+
+			this._selectElement(element, skipBroadcast)
+			this._placeItems()
 		}
 
 		_selectElement(element, skipBroadcast) {
 			element = $(element)
+			this._previousSelected = this._selected
+			this._selected = element
 
 			this._clearAllFocus()
 			element.addClass('carousel-focused')
@@ -81,10 +98,8 @@ define(['../app', 'css-element-queries', 'hammer'], function(app, ResizeSensor, 
 				var scope = element.scope()
 				scope.$broadcast('carousel.focused', element)
 			}
-		}
 
-		_setFocus(element, skipBroadcast) {
-			this._selectElement(element, skipBroadcast)
+			return true
 		}
 
 		_clearAllFocus() {
@@ -104,7 +119,7 @@ define(['../app', 'css-element-queries', 'hammer'], function(app, ResizeSensor, 
 
 			if (!focused && setIfNone) {
 				focused = this.items.first()
-				this._setFocus(focused)
+				this._selectElement(focused)
 			}
 
 			return focused
@@ -136,7 +151,15 @@ define(['../app', 'css-element-queries', 'hammer'], function(app, ResizeSensor, 
 			itemDistances.peak = peak
 
 			this.items.each((index, element) => {
-				var distance = {element: element, index: index, distance: 0, inverseDistance: 0, direction: 'left', directionMultiplier: 1}
+				var distance = {
+					element: element,
+					index: index,
+					distance: 0,
+					inverseDistance: 0,
+					direction: 'left',
+					directionMultiplier: 1,
+					target: {x: 0, y: 0}
+				}
 
 				if (index < focusedIndex) {
 					distance.distance = focusedIndex - index
@@ -224,9 +247,8 @@ define(['../app', 'css-element-queries', 'hammer'], function(app, ResizeSensor, 
 				// 					so limit the space to the item size (Math.min).
 
 				var current = 0
-				this.items.each((index, element) => {
-					var position = Math.min(current, info.containerLeftover) // Never overflow container.
-					$(element).css({left: position})
+				distances.forEach(distance => {
+					distance.target.x = Math.min(current, info.containerLeftover) // Never overflow container.
 					current += containerInfo.spaceX
 				})
 			} else if (this.mode === wwCarousel.Modes.Center) {
@@ -235,8 +257,7 @@ define(['../app', 'css-element-queries', 'hammer'], function(app, ResizeSensor, 
 				// Make sure the focused element is always centered
 				var centeredPosition = info.containerLeftover / 2
 				distances.forEach(distance => {
-					var position = (distance.distance *distance.directionMultiplier * wwCarousel.Options.StepWidth) + centeredPosition
-					$(distance.element).css({left: position})
+					distance.target.x = (distance.distance * distance.directionMultiplier * wwCarousel.Options.StepWidth) + centeredPosition
 				})
 			} else {console.error('Unknown mode: ', this.mode)}
 		}
@@ -263,13 +284,12 @@ define(['../app', 'css-element-queries', 'hammer'], function(app, ResizeSensor, 
 
 			if (this.mode === wwCarousel.Modes.Row) {
 				distances.forEach(distance => {
-					$(distance.element).css({top: distance.absolute * wwCarousel.Options.StepHeight + 'px'})
+					distance.target.y = distance.absolute * wwCarousel.Options.StepHeight
 				})
 			} else if (this.mode === wwCarousel.Modes.Center) {
 				distances.forEach(distance => {
 					var vshapeOffset = wwCarousel.Options.MinimumItemsShownHeight
-					var position = (-1 * (distance.distance * wwCarousel.Options.StepHeight)) + vshapeOffset
-					$(distance.element).css({top: position + 'px'})
+					distance.target.y = (-1 * (distance.distance * wwCarousel.Options.StepHeight)) + vshapeOffset
 				})
 			} else {console.error('Unknown mode:', this.mode)}
 
@@ -294,14 +314,43 @@ define(['../app', 'css-element-queries', 'hammer'], function(app, ResizeSensor, 
 			this._spaceItemsHorizontally(distances, containerInfo)
 			this._spaceItemsVertically(distances)
 			this._setZIndex(distances)
+
+			var duration
+			if (!this._initialized) {
+				duration = 0
+				this._initialized = true
+			}
+
+			distances.forEach(distance => {
+				var tween = motion.tween({
+					values: {
+						x: {
+							to: distance.target.x
+						},
+						y: {
+							to: distance.target.y
+						}
+					}
+				})
+
+				if (duration !== undefined)
+					tween.duration = duration
+
+				tween.on(distance.element).start()
+			})
 		}
 
 		_trackFocus() {
 			var self = this
 			this.items.focusin(function(event) {
+				// Since setFocus will be async, we cannot guarantee it will have same _selected once it's executed.
+				// Therefore, we should bail out now and not rely on _setFocus checking against selection to ignore its own operation.
+				if (self._selected.is(this)) {
+					return
+				}
+
 				self.$timeout(() => {
 					self._setFocus(this)
-					self._placeItems()
 				})
 			})
 		}

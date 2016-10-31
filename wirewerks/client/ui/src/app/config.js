@@ -27,7 +27,8 @@ System.config({
 		chroma: 'node_modules/chroma-js/chroma.min',
 		'angular-file-saver': 'node_modules/angular-file-saver/dist/angular-file-saver.bundle.min.js',
 		'offline': 'node_modules/offline-js/offline.min.js',
-		'css-element-queries': "node_modules/css-element-queries/src/ResizeSensor"
+		'css-element-queries': "node_modules/css-element-queries/src/ResizeSensor",
+		popmotion: '3rd/popmotion/popmotion.global.min'
 	},
 
 	meta: {
