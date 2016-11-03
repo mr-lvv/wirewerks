@@ -58,9 +58,8 @@ define([
 			this.view = views.home
 			this.filters = {section: undefined}
 			this.cart = cart
-
+			this.SingleProductMode = true
 			// Search filters (ie: section, etc...)
-
 		}
 
 		goToHome() {
@@ -107,10 +106,8 @@ define([
 	 *
 	 */
 	class wwApp {
-		constructor($timeout, $routeParams, $scope, $location, app, $mdSidenav, productsIdsCache) {
+		constructor($routeParams, $scope, app, $mdSidenav, productsIdsCache) {
 			this.SingleProductMode = app.SingleProductMode
-
-			this.productsIds = []
 			//Should optimize for each product
 
 
@@ -132,7 +129,6 @@ define([
 				}
 
 				productsIdsCache.get().then(productsIds => {
-					this.productsIds = productsIds
 					//here find out which id it is
 					var theId = _.find(productsIds, function(o) {
 						return _.startsWith(id.replace(/-/g,''), o)
