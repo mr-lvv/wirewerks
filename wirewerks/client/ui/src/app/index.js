@@ -1059,7 +1059,7 @@ define([
 				element.blur()
 				return
 			}
-			var keyCode = $event.keyCode
+			var keyCode = $event.which || $event.keyCode || 0
 			if( keyCode == 8 || keyCode == 46 )
 			{
 				//this is backspace and delete keys
@@ -1085,8 +1085,11 @@ define([
 				{
 					$event.preventDefault()
 				}
-				else
-					this.displayValueStr += String.fromCharCode($event.which)
+				else {
+					if(keyCode >= 96 && keyCode <= 105)
+						keyCode -= 48;
+					this.displayValueStr += String.fromCharCode(keyCode)
+				}
 			}
 			else if(keyCode == 190 && this.part.allowDecimal)
 			{
