@@ -232,6 +232,9 @@
 	<% var counter = 0;
 	for (var prop in parts)
 	{
+		if (counter == 8) { %>
+		<div style="page-break-after:always;"></div>
+		<% counter =0; }
 		counter++;
 		if (Object.prototype.hasOwnProperty.call(parts, prop)) { %>
 		<div class="part">
@@ -251,9 +254,6 @@
 
 			<div class="partQty"><%= parts[prop].quantity %></div>
 		</div>
-	<% if (counter == 8) { %>
-		<div style="page-break-after:always;"></div>
-	<% counter =0; } %>
 	<%   }
 	} %>
 
