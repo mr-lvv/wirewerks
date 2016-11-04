@@ -34,7 +34,7 @@
                     "label": "OS2"
                   }
                 ],
-                "description": "",
+                "description": "Single Mode OS2 ",
                 "finePrint": "",
                 "shortDescription": "",
                 "value": "1"
@@ -50,7 +50,7 @@
                     "label": "62.5/125\u03bcm OM1"
                   }
                 ],
-                "description": "",
+                "description": "Multimode 62.5/125\u03bcm OM1 ",
                 "finePrint": "",
                 "shortDescription": "",
                 "value": "2"
@@ -66,7 +66,7 @@
                     "label": "50/125\u03bcm OM2"
                   }
                 ],
-                "description": "",
+                "description": "Multimode 50/125\u03bcm OM2 ",
                 "finePrint": "",
                 "shortDescription": "",
                 "value": "3"
@@ -82,7 +82,7 @@
                     "label": "50/125\u03bcm OM3"
                   }
                 ],
-                "description": "",
+                "description": "Multimode 50/125\u03bcm OM3 ",
                 "finePrint": "",
                 "shortDescription": "",
                 "value": "4"
@@ -98,7 +98,7 @@
                     "label": "50/125\u03bcm OM4"
                   }
                 ],
-                "description": "",
+                "description": "Multimode 50/125\u03bcm OM4 ",
                 "finePrint": "",
                 "shortDescription": "",
                 "value": "5"
@@ -118,7 +118,7 @@
                     "label": "OS2"
                   }
                 ],
-                "description": "",
+                "description": "BI Single Mode OS2 ",
                 "finePrint": "",
                 "shortDescription": "",
                 "value": "E"
@@ -138,7 +138,7 @@
                     "label": "50/125\u03bcm OM2"
                   }
                 ],
-                "description": "",
+                "description": "BI Multimode 50/125\u03bcm OM2 ",
                 "finePrint": "",
                 "shortDescription": "",
                 "value": "B"
@@ -158,7 +158,7 @@
                     "label": "50/125\u03bcm OM3"
                   }
                 ],
-                "description": "",
+                "description": "BI Multimode 50/125\u03bcm OM3 ",
                 "finePrint": "",
                 "shortDescription": "",
                 "value": "C"
@@ -178,7 +178,7 @@
                     "label": "50/125\u03bcm OM4"
                   }
                 ],
-                "description": "",
+                "description": "BI Multimode 50/125\u03bcm OM4 ",
                 "finePrint": "",
                 "shortDescription": "",
                 "value": "D"
@@ -198,7 +198,7 @@
                     "label": "Distribution"
                   }
                 ],
-                "description": "",
+                "description": "Distribution ",
                 "finePrint": "",
                 "shortDescription": "",
                 "value": "D"
@@ -210,7 +210,7 @@
                     "label": "Breakout"
                   }
                 ],
-                "description": "",
+                "description": "Breakout ",
                 "finePrint": "",
                 "shortDescription": "",
                 "value": "B"
@@ -222,7 +222,7 @@
                     "label": "Loose Tube"
                   }
                 ],
-                "description": "",
+                "description": "Loose Tube ",
                 "finePrint": "",
                 "shortDescription": "",
                 "value": "L"
@@ -234,7 +234,7 @@
                     "label": "Ribbon"
                   }
                 ],
-                "description": "",
+                "description": "Ribbon ",
                 "finePrint": "",
                 "shortDescription": "",
                 "value": "R"
@@ -250,7 +250,7 @@
                     "label": "Distribution"
                   }
                 ],
-                "description": "",
+                "description": "Mini Distribution ",
                 "finePrint": "",
                 "shortDescription": "",
                 "value": "M"
@@ -266,7 +266,7 @@
                     "label": "Distribution"
                   }
                 ],
-                "description": "",
+                "description": "Unjacketed Distribution ",
                 "finePrint": "",
                 "shortDescription": "",
                 "value": "C"
@@ -279,10 +279,10 @@
                   },
                   {
                     "bold": false,
-                    "label": "Ribbon"
+                    "label": ""
                   }
                 ],
-                "description": "",
+                "description": "Unjacketed Ribbon ",
                 "finePrint": "",
                 "shortDescription": "",
                 "value": "Q"
@@ -302,7 +302,7 @@
                     "label": "OFNP"
                   }
                 ],
-                "description": "",
+                "description": "OFNP ",
                 "finePrint": "",
                 "shortDescription": "",
                 "value": "P"
@@ -314,7 +314,7 @@
                     "label": "OFNR"
                   }
                 ],
-                "description": "",
+                "description": "OFNR ",
                 "finePrint": "",
                 "shortDescription": "",
                 "value": "R"
@@ -326,7 +326,7 @@
                     "label": "Outdoor"
                   }
                 ],
-                "description": "",
+                "description": "Outdoor ",
                 "finePrint": "",
                 "shortDescription": "",
                 "value": "O"
@@ -339,10 +339,10 @@
                   },
                   {
                     "bold": false,
-                    "label": "OFNP"
+                    "label": ""
                   }
                 ],
-                "description": "",
+                "description": "Indoor/Outdoor OFNP ",
                 "finePrint": "",
                 "shortDescription": "",
                 "value": "N"
@@ -358,7 +358,7 @@
                     "label": "OFNR"
                   }
                 ],
-                "description": "",
+                "description": "Indoor/Outdoor OFNR ",
                 "finePrint": "",
                 "shortDescription": "",
                 "value": "L"
@@ -390,7 +390,7 @@
                     "label": "Non Armoured"
                   }
                 ],
-                "description": "",
+                "description": "Non Armoured ",
                 "finePrint": "",
                 "shortDescription": "",
                 "value": "N"
@@ -402,7 +402,7 @@
                     "label": "BX Type"
                   }
                 ],
-                "description": "",
+                "description": "BX Type ",
                 "finePrint": "",
                 "shortDescription": "",
                 "value": "B"
@@ -414,7 +414,7 @@
                     "label": "Light Armour"
                   }
                 ],
-                "description": "",
+                "description": "Light Armour ",
                 "finePrint": "",
                 "shortDescription": "",
                 "value": "L"
@@ -446,7 +446,7 @@
                     "label": "2 fiber"
                   }
                 ],
-                "description": "",
+                "description": "2F, ",
                 "finePrint": "",
                 "shortDescription": "",
                 "value": "02"
@@ -458,7 +458,7 @@
                     "label": "4 fiber"
                   }
                 ],
-                "description": "",
+                "description": "4F, ",
                 "finePrint": "",
                 "shortDescription": "",
                 "value": "04"
@@ -470,7 +470,7 @@
                     "label": "6 fiber"
                   }
                 ],
-                "description": "",
+                "description": "6F, ",
                 "finePrint": "",
                 "shortDescription": "",
                 "value": "06"
@@ -482,7 +482,7 @@
                     "label": "8 fiber"
                   }
                 ],
-                "description": "",
+                "description": "8F, ",
                 "finePrint": "",
                 "shortDescription": "",
                 "value": "08"
@@ -494,7 +494,7 @@
                     "label": "12 fiber"
                   }
                 ],
-                "description": "",
+                "description": "12F, ",
                 "finePrint": "",
                 "shortDescription": "",
                 "value": "12"
@@ -506,7 +506,7 @@
                     "label": "18 fiber"
                   }
                 ],
-                "description": "",
+                "description": "18F, ",
                 "finePrint": "",
                 "shortDescription": "",
                 "value": "18"
@@ -518,7 +518,7 @@
                     "label": "24 fiber"
                   }
                 ],
-                "description": "",
+                "description": "24F, ",
                 "finePrint": "",
                 "shortDescription": "",
                 "value": "24"
@@ -530,7 +530,7 @@
                     "label": "36 fiber"
                   }
                 ],
-                "description": "",
+                "description": "36F, ",
                 "finePrint": "",
                 "shortDescription": "",
                 "value": "36"
@@ -542,7 +542,7 @@
                     "label": "48 fiber"
                   }
                 ],
-                "description": "",
+                "description": "48F, ",
                 "finePrint": "",
                 "shortDescription": "",
                 "value": "48"
@@ -554,7 +554,7 @@
                     "label": "72 fiber"
                   }
                 ],
-                "description": "",
+                "description": "72F, ",
                 "finePrint": "",
                 "shortDescription": "",
                 "value": "72"
@@ -566,7 +566,7 @@
                     "label": "96 fiber"
                   }
                 ],
-                "description": "",
+                "description": "96F, ",
                 "finePrint": "",
                 "shortDescription": "",
                 "value": "96"
@@ -578,7 +578,7 @@
                     "label": "144 fiber"
                   }
                 ],
-                "description": "",
+                "description": "144F, ",
                 "finePrint": "",
                 "shortDescription": "",
                 "value": "C4"
@@ -598,7 +598,7 @@
                     "label": "900 \u03bcm"
                   }
                 ],
-                "description": "",
+                "description": "Lead 900 \u03bcm, ",
                 "finePrint": "",
                 "shortDescription": "",
                 "value": "9"
@@ -610,7 +610,7 @@
                     "label": "2 mm"
                   }
                 ],
-                "description": "",
+                "description": "Lead 2mm, ",
                 "finePrint": "",
                 "shortDescription": "",
                 "value": "2"
@@ -622,7 +622,7 @@
                     "label": "3 mm"
                   }
                 ],
-                "description": "",
+                "description": "Lead 3mm, ",
                 "finePrint": "",
                 "shortDescription": "",
                 "value": "3"
@@ -658,7 +658,7 @@
                     "label": "in inches"
                   }
                 ],
-                "description": "",
+                "description": " inch ",
                 "finePrint": "",
                 "shortDescription": "",
                 "value": "XXN",
@@ -675,7 +675,7 @@
                     "label": "in meters"
                   }
                 ],
-                "description": "",
+                "description": " metre ",
                 "finePrint": "",
                 "shortDescription": "",
                 "value": "XXM",
@@ -712,7 +712,7 @@
                     "label": "LC"
                   }
                 ],
-                "description": "",
+                "description": "LC/",
                 "finePrint": "",
                 "shortDescription": "",
                 "value": "LC"
@@ -724,7 +724,7 @@
                     "label": "SC"
                   }
                 ],
-                "description": "",
+                "description": "SC/",
                 "finePrint": "",
                 "shortDescription": "",
                 "value": "SC"
@@ -736,7 +736,7 @@
                     "label": "ST"
                   }
                 ],
-                "description": "",
+                "description": "ST/",
                 "finePrint": "",
                 "shortDescription": "",
                 "value": "ST"
@@ -748,7 +748,7 @@
                     "label": "FC"
                   }
                 ],
-                "description": "",
+                "description": "FC/",
                 "finePrint": "",
                 "shortDescription": "",
                 "value": "FC"
@@ -760,7 +760,7 @@
                     "label": "MTRJ female"
                   }
                 ],
-                "description": "",
+                "description": "MTRJ female/",
                 "finePrint": "",
                 "shortDescription": "",
                 "value": "MT"
@@ -772,7 +772,7 @@
                     "label": "MTRJ male"
                   }
                 ],
-                "description": "",
+                "description": "MTRJ male/",
                 "finePrint": "",
                 "shortDescription": "",
                 "value": "MB"
@@ -788,7 +788,7 @@
                     "label": "Female Type A"
                   }
                 ],
-                "description": "",
+                "description": "12 Fiber MPO Female Type A/",
                 "finePrint": "**",
                 "shortDescription": "",
                 "value": "MP"
@@ -804,7 +804,7 @@
                     "label": "Male Type A"
                   }
                 ],
-                "description": "",
+                "description": "12 Fiber MPO Male Type A/",
                 "finePrint": "**",
                 "shortDescription": "",
                 "value": "MA"
@@ -820,7 +820,7 @@
                     "label": "Female Type A"
                   }
                 ],
-                "description": "",
+                "description": "24 Fiber MPO Female Type A/",
                 "finePrint": "",
                 "shortDescription": "",
                 "value": "PP"
@@ -836,7 +836,7 @@
                     "label": "Male Type A"
                   }
                 ],
-                "description": "",
+                "description": "24 Fiber MPO Male Type A/",
                 "finePrint": "",
                 "shortDescription": "",
                 "value": "PA"
@@ -856,7 +856,7 @@
                     "label": "APC"
                   }
                 ],
-                "description": "",
+                "description": "APC - ",
                 "finePrint": "",
                 "shortDescription": "",
                 "value": "A"
@@ -868,7 +868,7 @@
                     "label": "UPC"
                   }
                 ],
-                "description": "",
+                "description": "UPC - ",
                 "finePrint": "",
                 "shortDescription": "",
                 "value": "B"
@@ -884,7 +884,7 @@
                     "label": "(multimode)"
                   }
                 ],
-                "description": "",
+                "description": "PC - ",
                 "finePrint": "",
                 "shortDescription": "",
                 "value": "C"
@@ -904,7 +904,7 @@
                     "label": "LC"
                   }
                 ],
-                "description": "",
+                "description": "LC/",
                 "finePrint": "",
                 "shortDescription": "",
                 "value": "LC"
@@ -916,7 +916,7 @@
                     "label": "SC"
                   }
                 ],
-                "description": "",
+                "description": "SC/",
                 "finePrint": "",
                 "shortDescription": "",
                 "value": "SC"
@@ -928,7 +928,7 @@
                     "label": "ST"
                   }
                 ],
-                "description": "",
+                "description": "ST/",
                 "finePrint": "",
                 "shortDescription": "",
                 "value": "ST"
@@ -940,7 +940,7 @@
                     "label": "FC"
                   }
                 ],
-                "description": "",
+                "description": "FC/",
                 "finePrint": "",
                 "shortDescription": "",
                 "value": "FC"
@@ -952,7 +952,7 @@
                     "label": "MTRJ female"
                   }
                 ],
-                "description": "",
+                "description": "MTRJ female/",
                 "finePrint": "",
                 "shortDescription": "",
                 "value": "MT"
@@ -964,7 +964,7 @@
                     "label": "MTRJ male"
                   }
                 ],
-                "description": "",
+                "description": "MTRJ male/",
                 "finePrint": "",
                 "shortDescription": "",
                 "value": "MB"
@@ -980,7 +980,7 @@
                     "label": "Female Type A"
                   }
                 ],
-                "description": "",
+                "description": "12 Fiber MPO Female Type A/",
                 "finePrint": "**",
                 "shortDescription": "",
                 "value": "MP"
@@ -996,7 +996,7 @@
                     "label": "Male Type A"
                   }
                 ],
-                "description": "",
+                "description": "12 Fiber MPO Male Type A/",
                 "finePrint": "**",
                 "shortDescription": "",
                 "value": "MA"
@@ -1012,7 +1012,7 @@
                     "label": "Female Type A"
                   }
                 ],
-                "description": "",
+                "description": "24 Fiber MPO Female Type A/",
                 "finePrint": "",
                 "shortDescription": "",
                 "value": "PP"
@@ -1028,7 +1028,7 @@
                     "label": "Male Type A"
                   }
                 ],
-                "description": "",
+                "description": "24 Fiber MPO Male Type A/",
                 "finePrint": "",
                 "shortDescription": "",
                 "value": "PA"
@@ -1044,7 +1044,7 @@
                     "label": "(no connector)"
                   }
                 ],
-                "description": "",
+                "description": "Pigtail, ",
                 "finePrint": "",
                 "shortDescription": "",
                 "value": "OE"
@@ -1064,7 +1064,7 @@
                     "label": "APC"
                   }
                 ],
-                "description": "",
+                "description": "APC, ",
                 "finePrint": "",
                 "shortDescription": "",
                 "value": "A"
@@ -1076,7 +1076,7 @@
                     "label": "UPC"
                   }
                 ],
-                "description": "",
+                "description": "UPC, ",
                 "finePrint": "",
                 "shortDescription": "",
                 "value": "B"
@@ -1092,7 +1092,7 @@
                     "label": "(multimode)"
                   }
                 ],
-                "description": "",
+                "description": "PC, ",
                 "finePrint": "",
                 "shortDescription": "",
                 "value": "C"
@@ -1136,7 +1136,7 @@
                     "label": "1 Pulling Eye"
                   }
                 ],
-                "description": "",
+                "description": "1 Pulling Eye, ",
                 "finePrint": "",
                 "shortDescription": "",
                 "value": "1"
@@ -1148,7 +1148,7 @@
                     "label": "2 Pulling Eyes"
                   }
                 ],
-                "description": "",
+                "description": "2 Pulling Eyes, ",
                 "finePrint": "",
                 "shortDescription": "",
                 "value": "2"
@@ -1164,7 +1164,7 @@
                     "label": "1 Pulling Eye"
                   }
                 ],
-                "description": "",
+                "description": "Staggered with 1 Pulling Eye, ",
                 "finePrint": "",
                 "shortDescription": "",
                 "value": "3"
@@ -1180,7 +1180,7 @@
                     "label": "2 Pulling Eyes"
                   }
                 ],
-                "description": "",
+                "description": "Staggered with 2 Pulling Eyes, ",
                 "finePrint": "",
                 "shortDescription": "",
                 "value": "4"
@@ -1204,7 +1204,7 @@
                     "label": "in meters"
                   }
                 ],
-                "description": "",
+                "description": "M",
                 "finePrint": "",
                 "shortDescription": "",
                 "value": "XXX",

@@ -114,7 +114,9 @@
 	}
 
 	.partNumberDescription {
-
+		display: -webkit-box;
+		width:450px;
+		-webkit-box-flex: vertical;
 		padding-top: 2px;
 		padding-bottom: 2px;
 		padding-left: 5px;
@@ -241,15 +243,15 @@
 						<img class="product-image connectorB" src=<%= productImageRoot %><%= parts[prop].connectorB %>  >
 					</div>
 				</div>
-				<div>
+				<div class="partNumberDesc">
 					<div class="partNumber"><a href="http://sg.wirewerks.com/state/product/<%= prop %>"><%= prop %></a> </div>
-					<div class="partNumberDescription">Description: <%= parts[prop].description %></div>
+					<div class="partNumberDescription"><%= parts[prop].description %></div>
 				</div>
 			</div>
 
 			<div class="partQty"><%= parts[prop].quantity %></div>
 		</div>
-	<% if (counter == 10) { %>
+	<% if (counter == 8) { %>
 		<div style="page-break-after:always;"></div>
 	<% counter =0; } %>
 	<%   }
