@@ -414,7 +414,12 @@ class Api {
 			}
 
 			this._createBom(data, (error, html) => {
-				pdf.create(html).toBuffer(function (err, buffer) {
+				pdf.create(html, {"border": {
+					"top": "0.20in",            // default is 0, units: mm, cm, in, px
+					"right": "0.25in",
+					"bottom": "0.20in",
+					"left": "0.25in"
+				}}).toBuffer(function (err, buffer) {
 					response.setHeader('Content-Length', Buffer.byteLength(buffer));
 					response.setHeader('Content-Type', 'application/pdf');
 					response.setHeader('Content-Disposition', 'attachment; filename=test');
@@ -443,10 +448,12 @@ class Api {
 		var logoUrl = localUrl + '/images/general/wirewerks-beta.png'
 		var logoUrl2 = localUrl + '/images/wirewerks/logo_spheres_small.png'
 		var productImageRoot = localUrl + "/images/products/"
+		var fontsRoot = localUrl + "/fonts/"
 
 		data.logo = logoUrl
 		data.logo2 = logoUrl2
 		data.productImageRoot = productImageRoot
+		data.fontsRoot = fontsRoot
 		var templatePath = path.join(this._clientFolder() + '/bom/bom.ejs')
 
 		ejs.renderFile(templatePath, data, (error, html) => {
