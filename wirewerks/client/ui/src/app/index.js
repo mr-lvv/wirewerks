@@ -914,8 +914,31 @@ define([
 			this.$rootScope = $rootScope
 			this.$scope = $scope
 			this.$mdToast = $mdToast
+
+			//this should only be on selected parts loop though
+			//how to check class selected?
+			$scope.$watch(() => this.part.inputValue, this._refreshDisplayValue.bind(this))
 		}
 
+		_refreshDisplayValue(inputValue) {
+			if (!inputValue) {
+				return
+			}
+
+			var temp = inputValue.replace('D','.')
+			temp = temp.replace(/[^0-9.]/g, '')
+			temp = parseFloat(temp)
+			if(this.displayValue == temp)
+				return
+			this.displayValue = temp
+			this.displayValueStr = this.displayValue.toString()
+			if(this.displayValueStr.indexOf(".") > -1)
+			{
+				this.decimal = true
+				var nbInt = parseInt(this.displayValueStr)
+				this.nbDigitsBeforePeriod = nbInt.toString().length
+			}
+		}
 		get partInfo() {
 
 			if(this.part.inputValue && !this.displayValue) {
@@ -1127,7 +1150,8 @@ define([
 		bindings: {
 			part: '=?',
 			group: '=?',
-			category: '=?'
+			category: '=?',
+			selected: '=?'
 		}
 	})
 
