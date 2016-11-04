@@ -32,7 +32,7 @@ var testBom = {
 		"KW-ZZZ-BLK-BK": {
 			"quantity": 1,
 			"name": "KW-ZZZ-BLK-BK",
-			"description": "the description",
+			"description": "Single Mode OS2 Distribution OFNP Non Armoured 2F, Lead 900 μm, 04 inch LC/APC - LC/APC, 333M",
 			"connectorA":"FA-ABCDEE9GGGLCA.png",
 			"connectorB":"FA-ABCDEE9GGGLCA.png",
 			"cable":"FA-1DRN129XXN.png"
@@ -40,7 +40,7 @@ var testBom = {
 		"FA-1BPB02921N-SCALCA0-032": {
 			"quantity": 1,
 			"name": "FA-1BPB02921N-SCALCA0-032",
-			"description": "the description",
+			"description": "Single Mode OS2 Distribution OFNP Non Armoured 2F, Lead 900 μm, 04 inch LC/APC - LC/APC, 333Mn",
 			"connectorA":"FA-ABCDEE9GGGLCA.png",
 			"connectorB":"FA-ABCDEE9GGGLCA.png",
 			"cable":"FA-1DRN129XXN.png"
@@ -48,7 +48,7 @@ var testBom = {
 		"WNC-A9S04LCA343-3232": {
 			"quantity": 1,
 			"name": "WNC-A9S04LCA343-3232",
-			"description": "the description",
+			"description": "Single Mode OS2 Distribution OFNP Non Armoured 2F, Lead 900 μm, 04 inch LC/APC - LC/APC, 333M",
 			"connectorA":"FA-ABCDEE9GGGLCA.png",
 			"connectorB":"FA-ABCDEE9GGGLCA.png",
 			"cable":"FA-1DRN129XXN.png"
@@ -56,7 +56,7 @@ var testBom = {
 		"FA-2BRB04Z32N-LCALCA0-323D23": {
 			"quantity": 15,
 			"name": "FA-2BRB04Z32N-LCALCA0-323D23",
-			"description": "the description",
+			"description": "Single Mode OS2 Distribution OFNP Non Armoured 2F, Lead 900 μm, 04 inch LC/APC - LC/APC, 333M",
 			"connectorA":"FA-ABCDEE9GGGLCA.png",
 			"connectorB":"FA-ABCDEE9GGGLCA.png",
 			"cable":"FA-1DRN129XXN.png"

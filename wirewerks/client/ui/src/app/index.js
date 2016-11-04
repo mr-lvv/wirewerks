@@ -401,7 +401,23 @@ define([
 		}
 
 		addToCart() {
-			this.cart.addToCart(this.partNumber, this.product.title)
+			var description = ""
+			this.sections.every((section) => {
+
+				if(!section.constant)
+				{
+					if(section.data.part.part.xIsDigit)
+					{
+						description += section.data.part.part.inputValue.replace(/^0+/, '').replace("D", ".").replace(/[^0-9.]/g,'');
+					}
+					description += section.data.part.part.description
+				}
+
+				return true
+			})
+
+			//description = description.toUpperCase()
+			this.cart.addToCart(this.partNumber, description)
 		}
 
 		orderNumber() {
@@ -425,7 +441,6 @@ define([
 					if (category.constant) {
 						sections.push({
 							label: category.title,
-							data: this.product,
 							constant : true
 						})
 						this.partNumber += category.title
@@ -488,7 +503,7 @@ define([
 						buffer += section.label
 					}
 
-					if (section.data.part && !section.constant) {
+					if ( !section.constant && section.data.part) {
 						partnumber += buffer
 						buffer = ''
 					}
