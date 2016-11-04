@@ -417,7 +417,7 @@ class Api {
 				pdf.create(html, {"border": {
 					"top": "0.20in",            // default is 0, units: mm, cm, in, px
 					"right": "0.25in",
-					"bottom": "0.20in",
+					"bottom": "0in",
 					"left": "0.25in"
 				}}).toBuffer(function (err, buffer) {
 					response.setHeader('Content-Length', Buffer.byteLength(buffer));

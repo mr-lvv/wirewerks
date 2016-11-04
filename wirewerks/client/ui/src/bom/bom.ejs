@@ -140,7 +140,6 @@
 		-webkit-box-orient: vertical;
 		-webkit-box-pack: start;
 		color: gray;
-		font-size:18px;
 	}
 
 	.footerRightParent {
@@ -149,13 +148,15 @@
 		-webkit-box-pack: end;
 		-webkit-box-flex: 3;
 	}
-	.footerRight {
+	.footerVertical {
 		display: -webkit-box;
 		-webkit-box-orient: vertical;
 		-webkit-box-pack: end;
 		color: gray;
 	}
-
+	.footerPages {
+		font-size : 12px;
+	}
 	.footerEmail {
 		text-align: right;
 	}
@@ -258,11 +259,16 @@
 
 <div id="pageFooter">
 	<div class="footer">
-		<div class="footerLeft">
-			www.wirewerks.com
+		<div class="footerVertical">
+			<div class="footerLeft">
+				www.wirewerks.com
+			</div>
+			<div class="footerPages">
+				page {{page}} of {{pages}}
+			</div>
 		</div>
 		<div class="footerRightParent">
-			<div class="footerRight">
+			<div class="footerVertical">
 				<div class="footerEmail">
 					sales@wirewerks.com
 				</div>
@@ -271,6 +277,5 @@
 				</div>
 			</div>
 		</div>
-
 	</div>
 </div>
