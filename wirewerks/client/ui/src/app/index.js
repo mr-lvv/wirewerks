@@ -914,8 +914,31 @@ define([
 			this.$rootScope = $rootScope
 			this.$scope = $scope
 			this.$mdToast = $mdToast
+
+			//this should only be on selected parts loop though
+			//how to check class selected?
+			$scope.$watch(() => this.part.inputValue, this._refreshDisplayValue.bind(this))
 		}
 
+		_refreshDisplayValue(inputValue) {
+			if (!inputValue) {
+				return
+			}
+
+			var temp = inputValue.replace('D','.')
+			temp = temp.replace(/[^0-9.]/g, '')
+			temp = parseFloat(temp)
+			if(this.displayValue == temp)
+				return
+			this.displayValue = temp
+			this.displayValueStr = this.displayValue.toString()
+			if(this.displayValueStr.indexOf(".") > -1)
+			{
+				this.decimal = true
+				var nbInt = parseInt(this.displayValueStr)
+				this.nbDigitsBeforePeriod = nbInt.toString().length
+			}
+		}
 		get partInfo() {
 
 			if(this.part.inputValue && !this.displayValue) {
@@ -1127,7 +1150,8 @@ define([
 		bindings: {
 			part: '=?',
 			group: '=?',
-			category: '=?'
+			category: '=?',
+			selected: '=?'
 		}
 	})
 
@@ -1428,6 +1452,7 @@ define([
 			this.products = undefined
 			this.email = undefined
 			this.client = undefined
+			this.cartName = "myCart3"
 		}
 
 
@@ -1458,12 +1483,12 @@ define([
 		}
 
 		updateQuantity(products) {
-			localStorage.setItem("myCart2", JSON.stringify(products))
+			localStorage.setItem(this.cartName, JSON.stringify(products))
 			this.products = products;
 		}
 		getAllCart() {
 			if(!this.products)
-				this.products = JSON.parse(localStorage.getItem("myCart2"))
+				this.products = JSON.parse(localStorage.getItem(this.cartName))
 			return this.products
 		}
 
@@ -1480,8 +1505,6 @@ define([
 		}
 
 		addToCart(completePartNumber, description) {
-			//window.localStorate
-			//alert("added to cart: "+ completePartNumber)
 
 			var products = this.getAllCart()
 			if (!products)
@@ -1490,10 +1513,17 @@ define([
 			if(products[completePartNumber])
 				products[completePartNumber].quantity++
 			else {
+				var connectorA =$('.product-image.connectorA')[0].src.split("/").pop()
+				var connectorB = $('.product-image.connectorB')[0].src.split("/").pop()
+				var cable = $('.product-image.cable')[0].src.split("/").pop()
 				products[completePartNumber] = {}
 				products[completePartNumber].quantity = 1
 				products[completePartNumber].name = completePartNumber
 				products[completePartNumber].description = description
+				products[completePartNumber].connectorA = connectorA
+				products[completePartNumber].connectorB =  connectorB
+				products[completePartNumber].cable = cable
+
 			}
 
 			this.updateQuantity(products)
@@ -1505,7 +1535,7 @@ define([
 				return
 
 			delete products[completePartNumber]
-			localStorage.setItem("myCart2", JSON.stringify(products))
+			localStorage.setItem(this.cartName, JSON.stringify(products))
 			this.products = products;
 		}
 	})
