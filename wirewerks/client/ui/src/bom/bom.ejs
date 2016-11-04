@@ -1,90 +1,254 @@
 <style>
-	img {
-		display: block;
-		margin: 0 auto;
-		opacity:1;
-		border-bottom-color: transparent;
-	}
 
-	h3 {
-		left: 5mm;
-	}
 
-	.part {
-		display: flex;
-		justify-content: space-between;
-		display: -webkit-box;
-		-webkit-box-orient: horizontal;
-		-webkit-box-pack: justify;
-		left: 5mm;
-		right: 5mm;
-		padding-bottom: 1mm;
-		padding-top: 1mm;
-		border-bottom-style: solid;
-		border-bottom-width: 0.5px;
-		border-bottom-color: rgb(245, 245, 245);
-	}
 
 	.address {
 		display: flex;
-		display: -webkit-box;
 		justify-content: space-between;
-		-webkit-box-orient: horizontal;
-		-webkit-box-pack: justify;
 	}
 
-
-	.partDescription {
-		display: flex;
-		justify-content: space-between;
+	.partTitle {
 		display: -webkit-box;
 		-webkit-box-orient: horizontal;
-		-webkit-box-pack: justify;
 		top: 3mm;
 		bottom: 3mm;
 		left: 5mm;
 		right: 5mm;
 		border-bottom-style: solid;
 		border-bottom-width: 3px;
+		border-top-style: solid;
+		border-top-width: 3px;
+		border-color: #558ED4;
+		padding-top: 2px;
+		padding-bottom: 2px;
+		padding-left: 5px;
+		padding-right: 5px;
+		font-weight: bold;
+	}
+
+
+	.partTitleRight{
+		display: -webkit-box;
+		-webkit-box-pack: end;
+		-webkit-box-flex: 2;
 	}
 
 	.warning {
 		color : red;
 	}
 
+	.top {
+		display: -webkit-box;
+	}
+
+	.top .left {
+		display: -webkit-box;
+	}
+
+	.title{
+		display: -webkit-box;
+		-webkit-box-align: center;
+		height:40px;
+		color:gray;
+	}
+	 .title h2 {
+		margin: 0;
+
+	}
+	.logo2 {
+
+	}
+
+	.logo {
+		display: -webkit-box;
+		-webkit-box-align: center;
+		-webkit-box-pack: end;
+		-webkit-box-flex: 2;
+	}
+
+	h4 {
+		margin: 0;
+	}
+
+	.part {
+		display: -webkit-box;
+		-webkit-box-orient: horizontal;
+		left: 5px;
+		right: 5px;
+		padding-bottom: 10px;
+		padding-top: 10px;
+		border-bottom-style: solid;
+		border-bottom-width: 0px;
+		border-bottom-color: rgb(245, 245, 245);
+	}
+
+	.partImage img {
+		height:60px;
+	}
+
+	.partNumberGroup {
+		display: -webkit-box;
+		-webkit-box-orient: horizontal;
+	}
+
+	.partQty {
+		padding-top: 5px;
+		padding-right : 5px;
+		display: -webkit-box;
+
+		-webkit-box-pack: end;
+		-webkit-box-flex: 2;
+	}
+
+	.clientInfo {
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+
+	.partNumberDescription {
+		padding-top: 2px;
+		padding-bottom: 2px;
+		padding-left: 5px;
+		padding-right: 5px;
+		font-size: 12px;
+	}
+
+	a:link {
+		color:black;
+		text-decoration: none;
+	}
+
+
+	.footer {
+		display: -webkit-box;
+		-webkit-box-orient: horizontal;
+	}
+
+	.footerLeft {
+		display: -webkit-box;
+		-webkit-box-pack: start;
+		color: gray;
+	}
+
+	.footerRightParent {
+		display: -webkit-box;
+		-webkit-box-orient: horizontal;
+		-webkit-box-pack: end;
+		-webkit-box-flex: 3;
+	}
+	.footerRight {
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		color: gray;
+	}
+
+	.footerEmail {
+		text-align: right;
+	}
+
+	.ww-product-image {
+		display: inline-block;
+		margin: auto;
+
+	}
+
+	.image-container {
+		display: inline-block;
+		position: relative;
+		max-width: 60px;
+		max-height: 60px;
+	}
+
+	.ww-product-image .product-image {
+		max-width: 60px;
+		max-height: 60px;
+	}
+
+	.ww-product-image .connectorA {
+		width: 20px;
+		margin: 0px;
+		box-shadow: 2px 2px 2px 0px rgba(63, 81, 181, 0.2);
+		position: absolute;
+		top: 0;
+		left: 0; }
+	.ww-product-image .connectorB {
+		width: 20px;
+		margin-right: 2px;
+		margin-bottom: 2px;
+		box-shadow: 2px 2px 2px 0px rgba(63, 81, 181, 0.2);
+		position: absolute;
+		bottom: 0;
+		right: 0; }
+
 </style>
 
-	<img src="<%= logo %>" width="75%" align="middle">
-	<h1 align="center"><%= title %></h1>
+	<div class="top">
+		<div class="left">
+			<div class="logo2">
+				<img src="<%= logo2 %>" width="40px" height="40px" >
+			</div>
+			<div class="title">
+				<h2><%= title %></h2>
+			</div>
+		</div>
 
-	<h3>Client Name: <%= client %> </h3>
-	<h3>Email: <%= email %> </h3>
+		<div class="logo">
+			<img src="<%= logo %>" height="20px" width="200px">
+		</div>
+	</div>
 
-	<div class="partDescription">
-		<div class="left">Part Number</div>
-		<div class="right">Quantity</div>
+
+	<div class="clientInfo">
+		<div class="clientname">
+			<h4>Contact Name: <%= client %> </h4>
+		</div>
+		<div class="email">
+			<h4>Email: <%= email %> </h4>
+		</div>
+	</div>
+
+
+	<div class="partTitle">
+		<div class="partTitleLeft">Item Number</div>
+		<div class="partTitleRight">Quantity</div>
 	</div>
 	<% for (var prop in parts) {
 	if (Object.prototype.hasOwnProperty.call(parts, prop)) { %>
 	<div class="part">
-		<div class="left"><a href="http://sg.wirewerks.com/state/product/<%= prop %>"><%= prop %></a> </div>
-		<div class="right"><%= parts[prop].quantity %></div>
+		<div class="partNumberGroup">
+			<div class="ww-product-image">
+				<div class="image-container">
+					<img class="product-image connectorA" src=<%= productImageRoot %><%= parts[prop].connectorA %> >
+					<img class="product-image cable" src=<%= productImageRoot %><%= parts[prop].cable %>  >
+					<img class="product-image connectorB" src=<%= productImageRoot %><%= parts[prop].connectorB %>  >
+				</div>
+			</div>
+			<div>
+				<div class="partNumber"><a href="http://sg.wirewerks.com/state/product/<%= prop %>"><%= prop %></a> </div>
+				<div class="partNumberDescription">Description: <%= parts[prop].description %></div>
+			</div>
+		</div>
+
+		<div class="partQty"><%= parts[prop].quantity %></div>
 	</div>
 	<%   }
 	} %>
 
-<div id="pageFooter-last">
-	<img class='logo' src="<%= logo %>" width="10%"/>
-	<div>
-		<a href="http://www.wirewerks.com">Wirewerks</a>
-	</div>
-	<div>
-		Head Office & Regional Field Sales Offices
-	</div>
-	<div class="address">
-		<a href="https://www.google.com/maps/place/10280+Chemin+de+la+Côte-de-Liesse,+Lachine,+QC+H8T+1A3">10280 Ch. de la Côte-de-liesse, Lachine Québec, H8T 1A3, Canada</a>
-	</div>
-	<div>
-		Toll Free Phone Number: 1-888-993-4237
+<div id="pageFooter">
+	<div class="footer">
+		<div class="footerLeft">
+			<h3>www.wirewerks.com</h3>
+		</div>
+		<div class="footerRightParent">
+			<div class="footerRight">
+				<div class="footerEmail">
+					sales@wirewerks.com
+				</div>
+				<div class="footerTelephone">
+					Telephone: 1-888-993-4237, Fax: 1-888-893-4237
+				</div>
+			</div>
+		</div>
+
 	</div>
 </div>

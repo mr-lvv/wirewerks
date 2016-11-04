@@ -32,25 +32,38 @@ var testBom = {
 		"KW-ZZZ-BLK-BK": {
 			"quantity": 1,
 			"name": "KW-ZZZ-BLK-BK",
-			"description": "the description"
+			"description": "the description",
+			"connectorA":"FA-ABCDEE9GGGLCA.png",
+			"connectorB":"FA-ABCDEE9GGGLCA.png",
+			"cable":"FA-1DRN129XXN.png"
 		},
 		"FA-1BPB02921N-SCALCA0-032": {
 			"quantity": 1,
 			"name": "FA-1BPB02921N-SCALCA0-032",
-			"description": "the description"
+			"description": "the description",
+			"connectorA":"FA-ABCDEE9GGGLCA.png",
+			"connectorB":"FA-ABCDEE9GGGLCA.png",
+			"cable":"FA-1DRN129XXN.png"
 		},
 		"WNC-A9S04LCA343-3232": {
 			"quantity": 1,
 			"name": "WNC-A9S04LCA343-3232",
-			"description": "the description"
+			"description": "the description",
+			"connectorA":"FA-ABCDEE9GGGLCA.png",
+			"connectorB":"FA-ABCDEE9GGGLCA.png",
+			"cable":"FA-1DRN129XXN.png"
 		},
 		"FA-2BRB04Z32N-LCALCA0-323D23": {
 			"quantity": 15,
 			"name": "FA-2BRB04Z32N-LCALCA0-323D23",
-			"description": "the description"
+			"description": "the description",
+			"connectorA":"FA-ABCDEE9GGGLCA.png",
+			"connectorB":"FA-ABCDEE9GGGLCA.png",
+			"cable":"FA-1DRN129XXN.png"
 		}
 	},
 	"logo": "http://localhost:3000/images/general/wirewerks-beta.png",
+	"logo2" : "http://localhost:3000/images/wirewerks/logo_spheres_small.png",
 	"email": "dfssfd@sdm.com",
 	"client": "ds"
 }
@@ -426,8 +439,14 @@ class Api {
 	}
 
 	_createBom(data, callback) {
-		var logoUrl = 'http://localhost:' + this.config.port + '/images/general/wirewerks-beta.png'
+		var localUrl = 'http://localhost:' + this.config.port
+		var logoUrl = localUrl + '/images/general/wirewerks-beta.png'
+		var logoUrl2 = localUrl + '/images/wirewerks/logo_spheres_small.png'
+		var productImageRoot = localUrl + "/images/products/"
+
 		data.logo = logoUrl
+		data.logo2 = logoUrl2
+		data.productImageRoot = productImageRoot
 		var templatePath = path.join(this._clientFolder() + '/bom/bom.ejs')
 
 		ejs.renderFile(templatePath, data, (error, html) => {

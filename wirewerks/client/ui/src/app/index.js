@@ -1428,6 +1428,7 @@ define([
 			this.products = undefined
 			this.email = undefined
 			this.client = undefined
+			this.cartName = "myCart3"
 		}
 
 
@@ -1458,12 +1459,12 @@ define([
 		}
 
 		updateQuantity(products) {
-			localStorage.setItem("myCart2", JSON.stringify(products))
+			localStorage.setItem(this.cartName, JSON.stringify(products))
 			this.products = products;
 		}
 		getAllCart() {
 			if(!this.products)
-				this.products = JSON.parse(localStorage.getItem("myCart2"))
+				this.products = JSON.parse(localStorage.getItem(this.cartName))
 			return this.products
 		}
 
@@ -1480,8 +1481,6 @@ define([
 		}
 
 		addToCart(completePartNumber, description) {
-			//window.localStorate
-			//alert("added to cart: "+ completePartNumber)
 
 			var products = this.getAllCart()
 			if (!products)
@@ -1490,10 +1489,17 @@ define([
 			if(products[completePartNumber])
 				products[completePartNumber].quantity++
 			else {
+				var connectorA =$('.product-image.connectorA')[0].src.split("/").pop()
+				var connectorB = $('.product-image.connectorB')[0].src.split("/").pop()
+				var cable = $('.product-image.cable')[0].src.split("/").pop()
 				products[completePartNumber] = {}
 				products[completePartNumber].quantity = 1
 				products[completePartNumber].name = completePartNumber
 				products[completePartNumber].description = description
+				products[completePartNumber].connectorA = connectorA
+				products[completePartNumber].connectorB =  connectorB
+				products[completePartNumber].cable = cable
+
 			}
 
 			this.updateQuantity(products)
@@ -1505,7 +1511,7 @@ define([
 				return
 
 			delete products[completePartNumber]
-			localStorage.setItem("myCart2", JSON.stringify(products))
+			localStorage.setItem(this.cartName, JSON.stringify(products))
 			this.products = products;
 		}
 	})
