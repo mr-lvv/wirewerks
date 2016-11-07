@@ -1528,8 +1528,8 @@ define([
 			if(products[completePartNumber])
 				products[completePartNumber].quantity++
 			else {
-				var connectorA =$('.product-image.connectorA')[0].src.split("/").pop()
-				var connectorB = $('.product-image.connectorB')[0].src.split("/").pop()
+				var connectorA =$('.product-image.connectorA')[0]?$('.product-image.connectorA')[0].src.split("/").pop(): undefined
+				var connectorB = $('.product-image.connectorB')[0]? $('.product-image.connectorB')[0].src.split("/").pop() : undefined
 				var cable = $('.product-image.cable')[0].src.split("/").pop()
 				products[completePartNumber] = {}
 				products[completePartNumber].quantity = 1
