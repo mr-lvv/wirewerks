@@ -103,6 +103,10 @@ define(['../app', 'css-element-queries', 'hammer', 'popmotion'], function(app, R
 		}
 
 		_clearAllFocus() {
+			if(!this.items) {
+				return
+			}
+
 			this.items.each((index, element) => this._removeFocus(element))
 		}
 
@@ -136,7 +140,7 @@ define(['../app', 'css-element-queries', 'hammer', 'popmotion'], function(app, R
 		}
 
 		_calculateItemDistanceFromFocus() {
-			if (!this.items.length) {return}
+			if (!this.items || !this.items.length) {return}
 
 			var focused = this._findFocusedItem(true)
 			var focusedIndex = this._itemIndex(focused)
@@ -308,6 +312,8 @@ define(['../app', 'css-element-queries', 'hammer', 'popmotion'], function(app, R
 
 		_placeItems() {
 			var distances = this._calculateItemDistanceFromFocus()
+			if (!distances) {return}
+
 			var containerInfo = this._containerInfo()
 
 			this._setMode(containerInfo)
