@@ -11,7 +11,7 @@ var config = {
 
 var paths = {
 	dist: './dist',
-	styles: './src/styles/',
+	styles: path.join('.', 'src', 'styles'),
 
 	common: {
 		source: '../../common',
@@ -19,10 +19,17 @@ var paths = {
 	}
 }
 
+function copyFile(source, target) {
+	if (fs.existsSync(source)) {
+		fs.copySync(source, target)
+	}
+}
+
 function linkCommon() {
 	unlinkCommon()
 	if (!fs.existsSync(paths.common.target)) {
-		fs.linkSync(paths.common.source, paths.common.target, 's')
+		// Need to use absolute path (node js 6.4.0 bug) to create junctions on windows...
+		fs.symlinkSync(path.resolve(paths.common.source), path.resolve(paths.common.target), 'junction');
 	}
 }
 
@@ -67,7 +74,7 @@ function buildCss() {
 	var filename = 'main.scss'
 	var output = 'main.css'
 
-	var exec = '../../../../server/ww-libsass/node_sass/node_modules/.bin/node-sass'
+	var exec = path.join('..', '..', '..', '..', 'server', 'ww-libsass', 'node_sass', 'node_modules', '.bin', 'node-sass')
 	var args = ` --output-style nested --source-map true ${filename} ${output}`;
 	var cmd = exec + args
 
@@ -75,21 +82,21 @@ function buildCss() {
 	var result = child_process.execSync(cmd, {cwd: paths.styles})
 	console.log(result.toString());
 
-	fs.copySync('./src/styles/main.css', './dist/styles/main.css')
+	copyFile('./src/styles/main.css', './dist/styles/main.css')
 }
 
 function buildPostCss() {
-	var cmd = '../../../../server/ww-libsass/node_modules/.bin/postcss'
+	var cmd = path.join('..', '..', '..', '..', 'server', 'ww-libsass', 'node_modules', '.bin', 'postcss')
 	var args = ` --config .postcss.json`;
 
 	console.log('Building css prefix: ', cmd);
 	var result = child_process.execSync(cmd + args, {cwd: paths.styles})
 	console.log(result.toString());
 
-	fs.copySync('./src/styles/main_production.css', './src/styles/main.css')							// Copy over current main.css in case we copy everything from 'src' later...
-	fs.copySync('./src/styles/main_production.css.map', './src/styles/main.css.map')			//
-	fs.copySync('./src/styles/main_production.css', './dist/styles/main.css')
-	fs.copySync('./src/styles/main_production.css.map', './dist/styles/main.css.map')
+	copyFile('./src/styles/main_production.css', './src/styles/main.css')							// Copy over current main.css in case we copy everything from 'src' later...
+	copyFile('./src/styles/main_production.css.map', './src/styles/main.css.map')			//
+	copyFile('./src/styles/main_production.css', './dist/styles/main.css')
+	copyFile('./src/styles/main_production.css.map', './dist/styles/main.css.map')
 }
 
 function build() {
