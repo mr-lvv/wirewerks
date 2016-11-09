@@ -358,7 +358,6 @@ ww-part-category {
 		}
 	}
 
-
 	.content {
 		position: relative;
 
@@ -702,6 +701,20 @@ ww-carousel {
 		position: absolute;
 
 		&.carousel-focused {
+		}
+	}
+}
+
+ww-carousel {
+	.degraded {
+		ww-part {
+			transition: none;
+		}
+
+		content {
+			ww-part {
+				transition: none;
+			}
 		}
 	}
 }

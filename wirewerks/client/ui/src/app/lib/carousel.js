@@ -3,6 +3,10 @@ define(['../app', 'css-element-queries', 'hammer', 'popmotion'], function(app, R
 		return ((v % n) + n) % n;
 	}
 
+	function isExplorer() {
+		return bowser.msie || bowser.msedge
+	}
+
 	class wwCarousel {
 		constructor($scope, $element, $timeout) {
 			this.$element = $element
@@ -46,6 +50,10 @@ define(['../app', 'css-element-queries', 'hammer', 'popmotion'], function(app, R
 					}
 				})
 			})
+		}
+
+		isSlowBrowser() {
+			return isExplorer()
 		}
 
 		_getItem(offset) {
@@ -342,7 +350,11 @@ define(['../app', 'css-element-queries', 'hammer', 'popmotion'], function(app, R
 				if (duration !== undefined)
 					tween.duration = duration
 
-				tween.on(distance.element).start()
+				if (this.isSlowBrowser()) {
+					$(distance.element).css({left: distance.target.x, top: distance.target.y})
+				} else {
+					tween.on(distance.element).start()
+				}
 			})
 		}
 

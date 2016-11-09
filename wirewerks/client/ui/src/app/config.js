@@ -46,5 +46,3 @@ System.config({
 		lodash: {exports: "_", format: "global"}
 	}
 });
-
-
