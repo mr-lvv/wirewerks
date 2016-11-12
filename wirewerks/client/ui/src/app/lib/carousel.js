@@ -3,8 +3,12 @@ define(['../app', 'css-element-queries', 'hammer', 'popmotion'], function(app, R
 		return ((v % n) + n) % n;
 	}
 
+	function isExplorer() {
+		return bowser.msie || bowser.msedge
+	}
+
 	class wwCarousel {
-		constructor($scope, $element, $timeout) {
+		constructor($scope, $element, $timeout, $interval) {
 			this.$element = $element
 			this.$scope = $scope
 			this.$timeout = $timeout
@@ -16,14 +20,25 @@ define(['../app', 'css-element-queries', 'hammer', 'popmotion'], function(app, R
 			// TODO: Remove delay before setup.
 			// TODO: make sure new/removed elements cause re-setup.
 			// TODO: if carousel width changes, should update positions.
-			setTimeout(() => this.setup(), 200)
+			// Not doing much: this._placementCheckCounter = $interval(() => this._placementCheck, 300)
+
+			// COMPETE HACK! Makes setup look slooooooooooow on IE, but prevent
+			// have a mess. Need to find better fix
+			var waitBeforeSetup = 100
+			if (this.isSlowBrowser()) {
+				waitBeforeSetup = 500
+			}
+			$timeout(() => this.setup(), waitBeforeSetup)
+
 
 			// Set focus on an element
 			$scope.$on('carousel.focus', (event, element) => {
 				this._setFocus(element, true)
 			})
 
-			var debouncedPlaceItems = _.debounce(() => this._placeItems(), 100)
+			var debouncedPlaceItems = _.debounce(() => {
+				$timeout(() => this._placeItems())
+			}, 100)
 
 			new ResizeSensor($($element), unknownArg => {
 				debouncedPlaceItems()			// Use debounce in case window resizing cause a ton of events.
@@ -46,6 +61,22 @@ define(['../app', 'css-element-queries', 'hammer', 'popmotion'], function(app, R
 					}
 				})
 			})
+
+			$scope.$on('$destroy', () => {this._placementCheck()})
+		}
+
+		// Check if the number of items has changed, and re-do setup if it has..
+		_placementCheck() {
+			var items = this._getItems()
+			var current = this._items ? this._items.length : 0;
+
+			if (items.length != current) {
+				this.setup()
+			}
+		}
+
+		isSlowBrowser() {
+			return isExplorer()
 		}
 
 		_getItem(offset) {
@@ -103,6 +134,10 @@ define(['../app', 'css-element-queries', 'hammer', 'popmotion'], function(app, R
 		}
 
 		_clearAllFocus() {
+			if(!this.items) {
+				return
+			}
+
 			this.items.each((index, element) => this._removeFocus(element))
 		}
 
@@ -136,7 +171,7 @@ define(['../app', 'css-element-queries', 'hammer', 'popmotion'], function(app, R
 		}
 
 		_calculateItemDistanceFromFocus() {
-			if (!this.items.length) {return}
+			if (!this.items || !this.items.length) {return}
 
 			var focused = this._findFocusedItem(true)
 			var focusedIndex = this._itemIndex(focused)
@@ -308,6 +343,8 @@ define(['../app', 'css-element-queries', 'hammer', 'popmotion'], function(app, R
 
 		_placeItems() {
 			var distances = this._calculateItemDistanceFromFocus()
+			if (!distances) {return}
+
 			var containerInfo = this._containerInfo()
 
 			this._setMode(containerInfo)
@@ -336,7 +373,12 @@ define(['../app', 'css-element-queries', 'hammer', 'popmotion'], function(app, R
 				if (duration !== undefined)
 					tween.duration = duration
 
-				tween.on(distance.element).start()
+				if (this.isSlowBrowser()) {
+					//console.log('Element', distance.element, distance.target.x, distance.target.y);
+					$(distance.element).css({left: distance.target.x + 'px', top: distance.target.y + 'px'})
+				} else {
+					tween.on(distance.element).start()
+				}
 			})
 		}
 
@@ -359,8 +401,12 @@ define(['../app', 'css-element-queries', 'hammer', 'popmotion'], function(app, R
 			this.items.each((index, element) => $(element).css({'min-width': wwCarousel.Options.ItemsWidth}))
 		}
 
+		_getItems() {
+			return this.$element.find('.carousel-item')
+		}
+
 		setup() {
-			this.items = this.$element.find('.carousel-item')
+			this.items = this._getItems()
 
 			this._setItemsStyle()
 			//console.log('# Elements:', this.items.length);
