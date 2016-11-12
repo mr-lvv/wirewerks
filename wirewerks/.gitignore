@@ -23,13 +23,9 @@ coverage
 build/Release
 
 # Dependency directory
-node_modules
-!dist_final/*
-!dist_final/
-!dist_final/node_modules
-!dist_final/node_modules/
-!dist_final/node_modules/**
-!dist_final/node_modules/*
+server/**/node_modules
+client/ui/src/node_modules
+client/ui/node_modules
 
 
 # Debug log from npm
