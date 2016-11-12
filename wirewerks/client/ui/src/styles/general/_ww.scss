@@ -707,11 +707,13 @@ ww-carousel {
 
 ww-carousel {
 	.degraded {
-		ww-part {
+		ww-part-category .part-column.nav-focused ww-part {
 			transition: none;
 		}
+	}
 
-		content {
+	ww-part-category {
+		.content {
 			ww-part {
 				transition: none;
 			}

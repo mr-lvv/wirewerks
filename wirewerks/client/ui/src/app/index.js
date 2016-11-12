@@ -846,7 +846,7 @@ define([
 			var style = {background: color.css()}
 			var navZoom = this._navZoom()
 			if (navZoom) {
-				style.zoom = (navZoom * 100) + '%'
+				style['font-size'] = (navZoom * 100) + '%'
 			}
 
 			return style
