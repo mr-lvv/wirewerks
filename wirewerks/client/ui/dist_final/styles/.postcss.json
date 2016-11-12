@@ -1,5 +1,0 @@
-{
-	"use": ["autoprefixer"],
-	"input": "main.css",
-	"output": "main_production.css"
-}
