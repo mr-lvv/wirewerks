@@ -130,6 +130,11 @@ function build() {
 		console.log('Build error');
 		console.log(err);
 	})
+	.then(function() {
+		// Make sure CSS is present prior to copy...
+		buildCss()
+		buildPostCss()
+	})
 	.finally(function () {
 		unlinkCommon()
 	})
