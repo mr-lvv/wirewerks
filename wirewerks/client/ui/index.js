@@ -150,6 +150,7 @@ function build() {
 	})
 	.finally(function () {
 		unlinkCommon()
+		console.log('Build Completed!');
 	})
 }
 
@@ -189,6 +190,7 @@ function preBuild(callback) {
 		}
 
 		fs.copySync('./src', './dist', options)
+		callback()
 	})
 }
 
@@ -204,7 +206,12 @@ try
 		linkCommon()
 		fs.removeSync(paths.dist)
 		preBuild(() => {
-			build();
+			try {
+				console.log('Building...');
+				build();
+			} catch (error) {
+				console.error(error);
+			}
 		})
 	}
 

@@ -24,7 +24,7 @@ define(['../app', 'css-element-queries', 'hammer', 'popmotion'], function(app, R
 
 			// COMPETE HACK! Makes setup look slooooooooooow on IE, but prevent
 			// have a mess. Need to find better fix
-			var waitBeforeSetup = 100
+			var waitBeforeSetup = 200
 			if (this.isSlowBrowser()) {
 				waitBeforeSetup = 500
 			}
