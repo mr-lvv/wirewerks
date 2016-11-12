@@ -1,0 +1,48 @@
+<md-toolbar class="header">
+		<div class="md-toolbar-tools">
+			<md-button class="md-icon-button home s32" ng-click="$ctrl.app.goToHome()" ng-if="$ctrl.SingleProductMode">
+				<md-icon md-svg-icon="images/svg/general/home.svg" class="s32" aria-label="label"></md-icon>
+			</md-button>
+
+			<a href="http://www.wirewerks.com"><img class="spheres-logo" src="images/wirewerks/logo_spheres_small.png"></a>
+			<a href="http://www.wirewerks.com"><img class="wirewerks-logo" src="images/wirewerks/logo_wirewerks.png"></a>
+
+			<md-button class="md-icon-button menu s32" ng-click="$ctrl.toggleNavigation()" hide-gt-md ng-if="!$ctrl.SingleProductMode">
+				<md-icon md-svg-icon="images/svg/general/menu.svg" class="s32" aria-label="label"></md-icon>
+			</md-button>
+
+			<md-button class="md-icon-button home s32" ng-click="$ctrl.app.goToHome()" ng-if="!$ctrl.SingleProductMode">
+				<md-icon md-svg-icon="images/svg/general/home.svg" class="s32" aria-label="label"></md-icon>
+			</md-button>
+
+			<ww-product-selection product-id="$ctrl.id" ng-if="!$ctrl.SingleProductMode"></ww-product-selection>
+
+			<span flex></span>
+
+			<md-button class="md-icon-button cart s80" ng-click="$ctrl.app.toggleCart()">
+				<img src="images/wirewerks/bom_logo.png" class="s80" aria-label="label">
+			</md-button>
+			<span class="badge" ng-show="$ctrl.app.getCartNbItem() > 0" ng-click="$ctrl.app.toggleCart()">{{$ctrl.app.getCartNbItem()}}</span>
+		</div>
+</md-toolbar>
+
+<md-content>
+	<ng-switch on="$ctrl.app.view">
+		<ww-cart ng-switch-when="cart"></ww-cart>
+		<ww-order ng-switch-when="product" product-id="$ctrl.foundId" partnumber="$ctrl.partnumber"></ww-order>
+		<ww-home ng-switch-default></ww-home>
+	</ng-switch>
+</md-content>
+
+<md-toolbar class="app-footer md-tall md-hue-1">
+	<div class="top">
+		<h2 class="md-toolbar-tools">
+			<a href="http://sg.wirewerks.com">Wirewerks Solution Guide.</a>
+		</h2>
+	</div>
+
+	<div class="bottom">
+		<md-divider>&nbsp;</md-divider>
+		<a class="copyright md-caption">© 2016 The LAN Wirewerks Research Laboratories Inc.</a>
+	</div>
+</md-toolbar>

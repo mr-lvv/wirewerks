@@ -115,7 +115,6 @@ function buildPostCss(callback) {
 			copyFile('./src/styles/main_production.css', './dist/styles/main.css')
 			copyFile('./src/styles/main_production.css.map', './dist/styles/main.css.map')
 
-			copyFile('./src/styles/main_final.css', './dist/styles/main.css')			// For testing purposes
 			console.log('Post Css completed.');
 
 			callback();

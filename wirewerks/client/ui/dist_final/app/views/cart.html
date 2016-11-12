@@ -1,0 +1,46 @@
+<div>
+	<div class="empty" ng-if="$ctrl.isEmpty()">
+		<h1 class="md-headline">Your bill of materials is empty.</h1>
+	</div>
+
+	<form name="form" autocomplete="off">
+		<div class="cart"  ng-show="!$ctrl.isEmpty()">
+			<div class="cartClientInfo">
+				<md-input-container>
+					<input name="client" type="text" ng-model="$ctrl.client" placeholder="Client Name" aria-label="client Info" required>
+				</md-input-container>
+
+				<md-input-container>
+					<input name="email" type="email" ng-model="$ctrl.email" placeholder="E-mail" aria-label="email" ng-pattern="$ctrl.emailValidation" required>
+				</md-input-container>
+				<div class="cartSubmit">
+					<md-button class="md-raised" ng-class="$ctrl.getSubmitClasses()" ng-click="$ctrl.getPdf()">Download PDF</md-button>
+				</div>
+			</div>
+			<div class="cartItemHeader">
+				<div class="cartItemHeaderPart">Part Number</div>
+				<div class="cartItemHeaderQuantity">Quantity</div>
+			</div>
+			<div class="cartItem" ng-repeat="product in $ctrl.getProducts()">
+				<div class="cartItemImage">
+					<ww-product-image part-number="product.name"></ww-product-image>
+				</div>
+				<div class="cartItemDescription" ng-click="$ctrl.goTo(product.name)">
+					<div class="cartItemName">{{product.name}}</div>
+					<div class="cartItemDesc">{{product.description}}</div>
+				</div>
+				<div class="cartItemPrice"></div>
+				<div class="cartItemQuantity" layout layout-align="center center" >
+					<md-select ng-model="product.quantity" class="md-no-underline" required aria-label="quantity">
+						<md-option ng-repeat="value in $ctrl.quantityChoice" value="{{value}}">
+							{{value}}
+						</md-option>
+					</md-select>
+				</div>
+				<div class="cartItemRemove">
+					<md-button ng-click="$ctrl.removeFromCart(product.name)">Remove</md-button>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
