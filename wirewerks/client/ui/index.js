@@ -50,8 +50,8 @@ function unlinkCommon() {
 }
 
 function babelBuild(callback) {
-	var minified = false, //config.minified
-	console.log('Bulid Minified is : ', minified);
+	var minified = false //config.minified
+	console.log('Build Minified is : ', minified);
 
 	babel.transformFile("./dist/app/main.js", {
 		ast: false,
