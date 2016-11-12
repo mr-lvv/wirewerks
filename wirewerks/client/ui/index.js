@@ -16,8 +16,14 @@ var paths = {
 	common: {
 		source: '../../common',
 		target: './src/common'
-	}
+	},
+
+	libsass_fromStyles: path.join('..', '..', '..', '..', 'server', 'ww-libsass'),
+	libsass: path.join('..', '..', 'server', 'ww-libsass')
 }
+
+var libsass = require(paths.libsass);
+
 
 function copyFile(source, target) {
 	if (fs.existsSync(source)) {
@@ -49,7 +55,7 @@ function babelBuild(callback) {
 		compact: false,
 
 		//inputSourceMap: ''
-		minified: config.minified,
+		minified: false, //config.minified,
 		// sourcemaps: true,
 		comments: false
 	}, function (err, result) {
@@ -74,7 +80,7 @@ function buildCss() {
 	var filename = 'main.scss'
 	var output = 'main.css'
 
-	var exec = path.join('..', '..', '..', '..', 'server', 'ww-libsass', 'node_sass', 'node_modules', '.bin', 'node-sass')
+	var exec = path.join(paths.libsass_fromStyles, 'node_sass', 'node_modules', '.bin', 'node-sass')
 	var args = ` --output-style nested --source-map true ${filename} ${output}`;
 	var cmd = exec + args
 
@@ -85,18 +91,30 @@ function buildCss() {
 	copyFile('./src/styles/main.css', './dist/styles/main.css')
 }
 
-function buildPostCss() {
-	var cmd = path.join('..', '..', '..', '..', 'server', 'ww-libsass', 'node_modules', '.bin', 'postcss')
-	var args = ` --config .postcss.json`;
+function buildPostCss(callback) {
+	callback = callback || function() {}
 
-	console.log('Building css prefix: ', cmd);
-	var result = child_process.execSync(cmd + args, {cwd: paths.styles})
-	console.log(result.toString());
+	var cssFile = path.join(paths.styles, 'main.css')
+	var cssFileTarget = path.join(paths.styles, 'main_production.css')
+	var cssFileTargetMap = path.join(paths.styles, 'main_production.css.map')
+	var css = fs.readFileSync(cssFile)
 
-	copyFile('./src/styles/main_production.css', './src/styles/main.css')							// Copy over current main.css in case we copy everything from 'src' later...
-	copyFile('./src/styles/main_production.css.map', './src/styles/main.css.map')			//
-	copyFile('./src/styles/main_production.css', './dist/styles/main.css')
-	copyFile('./src/styles/main_production.css.map', './dist/styles/main.css.map')
+	console.log('Building css prefix: ', cssFile);
+	var autoprefix = libsass.autoprefixer({browsers: ['> 1%', 'IE 9']})	// Must match file content in src/styles/browserlist
+	libsass.postcss([autoprefix, libsass.cssnano()])
+		.process(css, {from: cssFile, to: cssFileTarget})
+		.then(result => {
+			fs.writeFileSync(cssFileTarget, result.css.toString())
+			fs.writeFileSync(cssFileTargetMap, result.map.toString())
+
+			copyFile('./src/styles/main_production.css', './src/styles/main.css')							// Copy over current main.css in case we copy everything from 'src' later...
+			copyFile('./src/styles/main_production.css.map', './src/styles/main.css.map')			//
+			copyFile('./src/styles/main_production.css', './dist/styles/main.css')
+			copyFile('./src/styles/main_production.css.map', './dist/styles/main.css.map')
+			console.log('Post Css completed.');
+
+			callback();
+		});
 }
 
 function build() {
@@ -130,49 +148,48 @@ function build() {
 		console.log('Build error');
 		console.log(err);
 	})
-	.then(function() {
-		// Make sure CSS is present prior to copy...
-		buildCss()
-		buildPostCss()
-	})
 	.finally(function () {
 		unlinkCommon()
 	})
 }
 
-function preBuild() {
+function buildAllCss(callback) {
 	// Make sure CSS is present prior to copy...
 	buildCss()
-	buildPostCss()
+	buildPostCss(callback)
+}
 
-	// Copy all files
-	var pathFilter = ['src/node_modules', ".scss", 'src/common']
-	var validNodeModules = ['bowser', 'systemjs']
+function preBuild(callback) {
+	buildAllCss(() => {
+		// Copy all files
+		var pathFilter = ['src/node_modules', ".scss", 'src/common']
+		var validNodeModules = ['bowser', 'systemjs']
 
-	var options = {
-		stopOnErr: true,
-		filter: function(filename) {
+		var options = {
+			stopOnErr: true,
+			filter: function (filename) {
 
-			var isInvalid = pathFilter.some((pathFilter) => {
-				if (filename.indexOf(pathFilter) !== -1) {
-					var validModule = validNodeModules.some((filter) =>{
-						return filename.indexOf(filter) !== -1
-					})
+				var isInvalid = pathFilter.some((pathFilter) => {
+					if (filename.indexOf(pathFilter) !== -1) {
+						var validModule = validNodeModules.some((filter) => {
+							return filename.indexOf(filter) !== -1
+						})
 
-					if (!validModule) {
-						return true					// Filter out
+						if (!validModule) {
+							return true					// Filter out
+						}
 					}
-				}
-			})
+				})
 
-			if (isInvalid)
-				return false
+				if (isInvalid)
+					return false
 
-			return true;		// Copy file
+				return true;		// Copy file
+			}
 		}
-	}
 
-	fs.copySync('./src', './dist', options)
+		fs.copySync('./src', './dist', options)
+	})
 }
 
 try
@@ -180,16 +197,15 @@ try
 	// Build mode
 	if (argv.css) {
 		console.log('Building Css Only.');
-		buildCss()
-		buildPostCss()
+		buildAllCss(() => {console.log('Css build Completed!');})
 	} else {
 		// Full Build
 
 		linkCommon()
 		fs.removeSync(paths.dist)
-		preBuild()
-
-		build();
+		preBuild(() => {
+			build();
+		})
 	}
 
 } catch (error) {
