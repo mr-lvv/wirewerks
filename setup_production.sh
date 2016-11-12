@@ -8,4 +8,4 @@ echo *** Copying Common ***
 cp -R ../../common ./src/common
 
 echo *** Creating Distribution Builld ***
-echo node index.js
+node index.js

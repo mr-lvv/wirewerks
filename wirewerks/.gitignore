@@ -23,10 +23,6 @@ coverage
 build/Release
 
 # Dependency directory
-server/**/node_modules
-client/ui/src/node_modules
-client/ui/node_modules
-
 
 # Debug log from npm
 npm-debug.log
