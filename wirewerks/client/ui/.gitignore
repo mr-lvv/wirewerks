@@ -1,6 +1,1 @@
-dist/
-
-# Build automatically
-main.css
-main_production.css
-*.map
+dist_build

@@ -1,0 +1,4 @@
+# Build automatically
+main.css
+main_production.css
+*.map
