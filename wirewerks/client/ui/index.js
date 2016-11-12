@@ -103,7 +103,7 @@ function buildPostCss(callback) {
 	var css = fs.readFileSync(cssFile)
 
 	console.log('Building css prefix: ', cssFile);
-	var autoprefix = libsass.autoprefixer({browsers: ['> 0.1%', 'IE 9']})	// Must match file content in src/styles/browserlist
+	var autoprefix = libsass.autoprefixer({browsers: ['> 1%', 'IE 9']})	// Must match file content in src/styles/browserlist
 	libsass.postcss([autoprefix, libsass.cssnano()])
 		.process(css, {from: cssFile, to: cssFileTarget})
 		.then(result => {
