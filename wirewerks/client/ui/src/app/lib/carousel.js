@@ -13,10 +13,9 @@ define(['../app', 'css-element-queries', 'hammer', 'popmotion'], function(app, R
 			this.loop = false
 			this.mode = wwCarousel.Modes.Center
 
-			// TODO: Remove delay before setup.
-			// TODO: make sure new/removed elements cause re-setup.
-			// TODO: if carousel width changes, should update positions.
-			setTimeout(() => this.setup(), 200)
+			$scope.$on('carousel.setup', () => {
+				this.setup()
+			})
 
 			// Set focus on an element
 			$scope.$on('carousel.focus', (event, element) => {
