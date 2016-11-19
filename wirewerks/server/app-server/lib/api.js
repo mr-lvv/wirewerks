@@ -109,32 +109,33 @@ class ProductImages {
 	_applyGroupMappingsToImages(productGroups, images, parser, productTemplate) {
 		var newImages = []
 
-		productGroups.mappings.forEach(mapping => {
-			// Get groups from mapping
-			var groupFrom = _.find(productGroups.groups, group => group.name === mapping.from)
-			var groupTo = _.find(productGroups.groups, group => group.name === mapping.to)
+		if(productGroups && productGroups.mappings)
+			productGroups.mappings.forEach(mapping => {
+				// Get groups from mapping
+				var groupFrom = _.find(productGroups.groups, group => group.name === mapping.from)
+				var groupTo = _.find(productGroups.groups, group => group.name === mapping.to)
 
-			images.forEach(imageInfo => {
-				if (imageInfo.group.name !== groupFrom.name) {return}
+				images.forEach(imageInfo => {
+					if (imageInfo.group.name !== groupFrom.name) {return}
 
-				//
-				// Create new image info for map
+					//
+					// Create new image info for map
 
-				// Create same part number, but replace "from" categories with ?? and add same parts in "to" categories
-				var parts = imageInfo.parts.map(this._mapPart.bind(this, groupFrom, groupTo))
-				var number = PartNumber.partNumber(parts, productTemplate, true, true)
+					// Create same part number, but replace "from" categories with ?? and add same parts in "to" categories
+					var parts = imageInfo.parts.map(this._mapPart.bind(this, groupFrom, groupTo))
+					var number = PartNumber.partNumber(parts, productTemplate, true, true)
 
-				var newImageInfo = {
-					partNumber: number,
-					path: imageInfo.path,										// Keep same image file
+					var newImageInfo = {
+						partNumber: number,
+						path: imageInfo.path,										// Keep same image file
 
-					productGroups: imageInfo.productGroups,
-					group: groupTo,
-					parts: parts
-				}
+						productGroups: imageInfo.productGroups,
+						group: groupTo,
+						parts: parts
+					}
 
-				newImages.push(newImageInfo)
-			})
+					newImages.push(newImageInfo)
+				})
 		})
 
 		images = _.concat(images, newImages)
@@ -164,12 +165,13 @@ class ProductImages {
 		var result
 
 		// Find last group that has parts
-		imageInfo.productGroups.groups.forEach(group => {
-			var hasParts = imageInfo.parts.some(this._isPartInGroup.bind(this, group))
-			if (hasParts) {
-				result = group
-			}
-		})
+		if(imageInfo && imageInfo.productGroups && imageInfo.productGroups.groups)
+			imageInfo.productGroups.groups.forEach(group => {
+				var hasParts = imageInfo.parts.some(this._isPartInGroup.bind(this, group))
+				if (hasParts) {
+					result = group
+				}
+			})
 
 		return result
 	}
@@ -315,12 +317,13 @@ class ProductImages {
 
 		var images = {}
 
-		productGroups.groups.forEach(group => {
-			var image = this._getImageForParts(productImages, requestParts, group)
-			if (image) {
-				images[group.name] = {image: image}
-			}
-		})
+		if(productGroups && productGroups.groups)
+			productGroups.groups.forEach(group => {
+				var image = this._getImageForParts(productImages, requestParts, group)
+				if (image) {
+					images[group.name] = {image: image}
+				}
+			})
 
 		return images
 	}
