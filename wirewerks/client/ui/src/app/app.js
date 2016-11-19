@@ -9,7 +9,7 @@ define([], function() {
 		'ngRoute',
 		'ngFileSaver'
 	])
-	app.SingleProductMode = true
+	app.SingleProductMode = false
 
 
 	return app
