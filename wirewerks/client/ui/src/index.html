@@ -22,8 +22,8 @@
 	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 	  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-	  //ga('create', 'UA-23312684-1', 'auto');		// Wirewerks
-	  ga('create', 'UA-84326548-1', 'auto');
+	  ga('create', 'UA-23312684-1', 'auto');		// Wirewerks
+	  //ga('create', 'UA-84326548-1', 'auto');		// MrLvv
 	  ga('send', 'pageview');
 	</script>
 
@@ -33,7 +33,6 @@
 	<!-- 2. Load our 'modules' -->
 	<script src="/node_modules/systemjs/dist/system.js"></script>
 	<script src="/app/config.js"></script>
-	<script>System.import('ww/main.js')</script>
 
 	<base href="/">
 </head>
@@ -43,6 +42,8 @@
 	<ng-view class="placeholder"></ng-view>
 
 	<ww-app>Loading...</ww-app>
+
+	<script>System.import('ww/main.js')</script>
 </body>
 
 </html>

@@ -1,6 +1,4 @@
-dist/
+/dist
 
-# Build automatically
-main.css
-main_production.css
-*.map
+/src/node_modules
+/node_modules
