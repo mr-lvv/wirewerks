@@ -8,13 +8,13 @@
   },
   "license": "ISC",
   "dependencies": {
-    "babel-core": "^6.14.0",
-    "babel-plugin-transform-es2015-classes": "^6.14.0",
-    "babel-polyfill": "^6.13.0",
-    "babel-preset-es2015": "^6.14.0",
-    "fs-extra": "^0.30.0",
-    "lodash": "^4.15.0",
-    "yargs": "^5.0.0",
-    "systemjs-builder": "^0.15.30"
+    "babel-core": "6.14.0",
+    "babel-plugin-transform-es2015-classes": "6.14.0",
+    "babel-polyfill": "6.13.0",
+    "babel-preset-es2015": "6.14.0",
+    "fs-extra": "0.30.0",
+    "lodash": "4.15.0",
+    "yargs": "5.0.0",
+    "systemjs-builder": "0.15.30"
   }
 }

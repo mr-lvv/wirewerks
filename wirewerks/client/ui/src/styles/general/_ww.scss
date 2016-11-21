@@ -358,7 +358,6 @@ ww-part-category {
 		}
 	}
 
-
 	.content {
 		position: relative;
 
@@ -702,6 +701,22 @@ ww-carousel {
 		position: absolute;
 
 		&.carousel-focused {
+		}
+	}
+}
+
+ww-carousel {
+	.degraded {
+		ww-part-category .part-column.nav-focused ww-part {
+			transition: none;
+		}
+	}
+
+	ww-part-category {
+		.content {
+			ww-part {
+				transition: none;
+			}
 		}
 	}
 }
