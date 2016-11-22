@@ -17,9 +17,25 @@ define(['../app', 'css-element-queries', 'hammer', 'popmotion'], function(app, R
 			this.loop = false
 			this.mode = wwCarousel.Modes.Center
 
+<<<<<<< HEAD
+			// TODO: Remove delay before setup.
+			// TODO: make sure new/removed elements cause re-setup.
+			// TODO: if carousel width changes, should update positions.
+			// Not doing much: this._placementCheckCounter = $interval(() => this._placementCheck, 300)
+
+			// COMPETE HACK! Makes setup look slooooooooooow on IE, but prevent
+			// have a mess. Need to find better fix
+			var waitBeforeSetup = 200
+			if (this.isSlowBrowser()) {
+				waitBeforeSetup = 500
+			}
+			$timeout(() => this.setup(), waitBeforeSetup)
+
+=======
 			$scope.$on('carousel.setup', () => {
 				this.setup()
 			})
+>>>>>>> c114dda... fix for caroussel
 
 			// Set focus on an element
 			$scope.$on('carousel.focus', (event, element) => {
