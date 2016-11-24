@@ -37,7 +37,7 @@ define([], function() {
 		}
 
 		static productImages(imageFile) {
-			var path = '/images/products'
+			var path = 'https://s3.amazonaws.com/wirewerks-sg-images'
 			if (imageFile)
 				path += '/' + imageFile
 
