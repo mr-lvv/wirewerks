@@ -6,14 +6,15 @@
   "main": "./index.js",
   "private": true,
   "dependencies": {
+    "aws-sdk": "^2.7.7",
     "body-parser": "1.15.2",
     "compression": "1.6.2",
     "cors": "2.7.1",
+    "ejs": "2.5.2",
     "express": "4.14.0",
+    "html-pdf": "2.1.0",
     "lodash": "4.15.0",
     "resource-router-middleware": "0.6.0",
-    "yargs": "5.0.0",
-    "html-pdf": "2.1.0",
-    "ejs":"2.5.2"
+    "yargs": "5.0.0"
   }
 }
