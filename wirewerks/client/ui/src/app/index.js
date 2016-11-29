@@ -58,7 +58,7 @@ define([
 			this.view = views.home
 			this.filters = {section: undefined}
 			this.cart = cart
-			this.SingleProductMode = true
+			this.SingleProductMode = false
 			// Search filters (ie: section, etc...)
 		}
 
