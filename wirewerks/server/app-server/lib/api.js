@@ -4,6 +4,7 @@ var sections = require('./sections.json')
 var rules = require('./rules.json')
 var regexsearch=require('./regexsearch.json')
 var _ = require('lodash')
+var images = require('./images.json')
 var pdf = require('html-pdf');
 var fs = require('fs');
 var path = require('path');
@@ -11,6 +12,8 @@ var ejs = require('ejs');
 var PartNumber = require_common('index').PartNumber
 var ProductValidation = require_common('index').ProductValidation
 var groups = require('./groups.json')
+var AWS = require('aws-sdk')
+var s3Client = new AWS.S3();
 
 function clock(start) {
 	if (!start) return process.hrtime();
@@ -73,22 +76,37 @@ class ProductImages {
 		this._clientFolder = clientFolder
 	}
 
+
+	//AWS stuff
+	_getProductImageFiles(cb) {
+		if (!this._productImages) {
+			var _this = this
+			this._productImages = []
+			function listAllKeys(marker) {
+				s3Client.listObjects({Bucket: "wirewerks-sg-images", MaxKeys: 10000, Marker: marker}, function (err, data) {
+
+					//data.Contents is an array of objects
+
+					_this._productImages = _this._productImages.concat(data.Contents.map(file => {
+						return {partNumber: path.basename(file.Key, '.png'), path: file.Key}
+					}))
+
+					if (data.IsTruncated) {
+						listAllKeys(data.NextMarker)
+					} else {
+						cb(_this._productImages)
+					}
+				})
+			}
+			listAllKeys()
+		}
+		else
+			cb(this._productImages)
+	}
+
 	_imageFolder() {
 		var imageFolder = path.join(this._clientFolder + '/images/products')
 		return imageFolder
-	}
-
-	_getProductImageFiles() {
-		if (!this._productImages) {
-			var files = fs.readdirSync(this._imageFolder());
-			files = files.filter(file => {return path.extname(file) === '.png'})
-			this._productImages = files.map(file => {
-				return {partNumber: path.basename(file, '.png'), path: file}
-			})
-		}
-
-		return this._productImages
-
 	}
 
 	_mapPart(groupFrom, groupTo, partInfo) {
@@ -109,32 +127,33 @@ class ProductImages {
 	_applyGroupMappingsToImages(productGroups, images, parser, productTemplate) {
 		var newImages = []
 
-		productGroups.mappings.forEach(mapping => {
-			// Get groups from mapping
-			var groupFrom = _.find(productGroups.groups, group => group.name === mapping.from)
-			var groupTo = _.find(productGroups.groups, group => group.name === mapping.to)
+		if(productGroups && productGroups.mappings)
+			productGroups.mappings.forEach(mapping => {
+				// Get groups from mapping
+				var groupFrom = _.find(productGroups.groups, group => group.name === mapping.from)
+				var groupTo = _.find(productGroups.groups, group => group.name === mapping.to)
 
-			images.forEach(imageInfo => {
-				if (imageInfo.group.name !== groupFrom.name) {return}
+				images.forEach(imageInfo => {
+					if (imageInfo.group.name !== groupFrom.name) {return}
 
-				//
-				// Create new image info for map
+					//
+					// Create new image info for map
 
-				// Create same part number, but replace "from" categories with ?? and add same parts in "to" categories
-				var parts = imageInfo.parts.map(this._mapPart.bind(this, groupFrom, groupTo))
-				var number = PartNumber.partNumber(parts, productTemplate, true, true)
+					// Create same part number, but replace "from" categories with ?? and add same parts in "to" categories
+					var parts = imageInfo.parts.map(this._mapPart.bind(this, groupFrom, groupTo))
+					var number = PartNumber.partNumber(parts, productTemplate, true, true)
 
-				var newImageInfo = {
-					partNumber: number,
-					path: imageInfo.path,										// Keep same image file
+					var newImageInfo = {
+						partNumber: number,
+						path: imageInfo.path,										// Keep same image file
 
-					productGroups: imageInfo.productGroups,
-					group: groupTo,
-					parts: parts
-				}
+						productGroups: imageInfo.productGroups,
+						group: groupTo,
+						parts: parts
+					}
 
-				newImages.push(newImageInfo)
-			})
+					newImages.push(newImageInfo)
+				})
 		})
 
 		images = _.concat(images, newImages)
@@ -142,34 +161,37 @@ class ProductImages {
 		return images
 	}
 
-	_getProductImages(productGroups, productTemplate, parser) {
-		var images = this._getProductImageFiles()
+	_getProductImages(productGroups, productTemplate, parser, cb) {
+		var _this = this
+		function callback(images) {
+			// Add all parts for each imageInfo
+			images = images.map(imageInfo => {
 
-		// Add all parts for each imageInfo
-		images = images.map(imageInfo => {
+				imageInfo.productGroups = productGroups
+				imageInfo.parts = parser.parse(imageInfo.partNumber, true)			// Could cache this since it's probably really slow
+				imageInfo.group = _this._groupFromImageInfo(imageInfo)				// Tag which group each image is from
 
-			imageInfo.productGroups = productGroups
-			imageInfo.parts = parser.parse(imageInfo.partNumber, true)			// Could cache this since it's probably really slow
-			imageInfo.group = this._groupFromImageInfo(imageInfo)				// Tag which group each image is from
+				return imageInfo
+			})
 
-			return imageInfo
-		})
+			images = _this._applyGroupMappingsToImages(productGroups, images, parser, productTemplate)
 
-		images = this._applyGroupMappingsToImages(productGroups, images, parser, productTemplate)
-
-		return images
+			cb(images)
+		}
+		this._getProductImageFiles(callback)
 	}
 
 	_groupFromImageInfo(imageInfo) {
 		var result
 
 		// Find last group that has parts
-		imageInfo.productGroups.groups.forEach(group => {
-			var hasParts = imageInfo.parts.some(this._isPartInGroup.bind(this, group))
-			if (hasParts) {
-				result = group
-			}
-		})
+		if(imageInfo && imageInfo.productGroups && imageInfo.productGroups.groups)
+			imageInfo.productGroups.groups.forEach(group => {
+				var hasParts = imageInfo.parts.some(this._isPartInGroup.bind(this, group))
+				if (hasParts) {
+					result = group
+				}
+			})
 
 		return result
 	}
@@ -279,9 +301,9 @@ class ProductImages {
 	 * @param id String Eg: FA-1D
 	 * @returns {*}
 	 */
-	getImagesFromProductId(id) {
+	getImagesFromProductId(id, cb) {
 		if (!id) {
-			return {error: true, message: 'No Product specfifed.'}
+			cb({error: true, message: 'No Product specfifed.'})
 		}
 
 		id = id.toUpperCase()												// Normalize product id
@@ -311,18 +333,21 @@ class ProductImages {
 			return {error: true, message: 'Product number invalid: ', errors: requestParts.errors}
 		}
 
-		var productImages = this._getProductImages(productGroups, productTemplate, parser)
+		var _this = this
+		function callback(productImages)
+		{
+			var images = {}
 
-		var images = {}
-
-		productGroups.groups.forEach(group => {
-			var image = this._getImageForParts(productImages, requestParts, group)
-			if (image) {
-				images[group.name] = {image: image}
-			}
-		})
-
-		return images
+			if(productGroups && productGroups.groups)
+				productGroups.groups.forEach(group => {
+					var image = _this._getImageForParts(productImages, requestParts, group)
+					if (image) {
+						images[group.name] = {image: image}
+					}
+				})
+			cb(images)
+		}
+		this._getProductImages(productGroups, productTemplate, parser, callback)
 	}
 }
 
@@ -383,6 +408,22 @@ class Api {
 			response.status(200).send(regexsearch);
 		});
 
+		client.get("/productimages", (request, response) => {
+			var id = request.query.productid
+			if(id && images[id])
+				response.status(200).send(images[id]);
+			else
+				response.status(200).send([]);
+		})
+
+		client.get("/productimagesgroups", (request, response) => {
+			var id = request.query.productid
+			if(id && groups[id])
+				response.status(200).send(groups[id]);
+			else
+				response.status(200).send([]);
+		})
+
 		/**
 		// 1.	Strip product number (FA-)
 		// 2.	find closest match
@@ -394,15 +435,19 @@ class Api {
 			var start = clock()
 
 			var id = request.query.productid
-			var images = this.productImages.getImagesFromProductId(id)
 
-			if (images.error) {
-				return response.status(400).send(images)
-			} else {
-				response.status(200).send({groups: images})
+			function cb (images)
+			{
+				if (images.error) {
+					return response.status(400).send(images)
+				} else {
+					response.status(200).send({groups: images})
+				}
+
+				console.log(`Product image request took ${clock(start)} (ms)`)			// Just in case it becomes overly slow...
 			}
 
-			console.log(`Product image request took ${clock(start)} (ms)`)			// Just in case it becomes overly slow...
+			this.productImages.getImagesFromProductId(id, cb)
 		})
 
 		client.post("/bom", (request, response) => {
@@ -434,6 +479,28 @@ class Api {
 			this._createBom(testBom, (err, html) => {
 				response.status(200).send(html)
 			})
+		})
+
+		client.get('/internal/test/images', (request, response) => {
+			console.log("asdf")
+			var productImages = []
+			function listAllKeys(marker) {
+				s3Client.listObjects({Bucket: "wirewerks-sg-images", MaxKeys: 10000, Marker: marker}, function (err, data) {
+
+					//data.Contents is an array of objects
+
+					productImages = productImages.concat(data.Contents.map(file => {
+						return {partNumber: path.basename(file.Key, '.png'), path: file.Key}
+					}))
+
+					if (data.IsTruncated) {
+						listAllKeys(data.NextMarker)
+					} else {
+						response.status(200).send(productImages)
+					}
+				})
+			}
+			listAllKeys()
 		})
 
 		app.use('/api/client', client);

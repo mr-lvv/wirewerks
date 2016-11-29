@@ -196,12 +196,23 @@
 		 * Parse part number and creates a list of parts for every category
 		 * @returns Array PartInfo
 		 */
-		parse(partnumber, keepWildcards) {
+		parse(partnumber, keepWildcards, cb) {
 			if (!this.regex)
-				return []
+			{
+				if(cb)
+					cb([])
+				else
+					return []
+			}
+
 
 			if (!this.validator)
-				return []
+			{
+				if(cb)
+					cb([])
+				else
+					return []
+			}
 
 			// TODO: see if we can put it back
 			//var productRegex = new RegExp(this.regex)
@@ -298,7 +309,10 @@
 				})
 			})
 
-			return result
+			if(cb)
+				cb(result)
+			else
+				return result
 		}
 
 		// Return a part number from a list of parts
