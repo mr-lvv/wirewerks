@@ -1733,7 +1733,7 @@ define([
 				return image.path
 		}
 
-		_getProductImagesEnd(product, id, cb) {
+		_getProductImagesEnd(id, cb) {
 			var _this = this
 
 
@@ -1805,14 +1805,14 @@ define([
 									return imageInfo
 								})
 								this.productID = product
-								this._getProductImagesEnd(product, id, cb)
+								this._getProductImagesEnd(id, cb)
 							})
 						})
 					})
 				})
 			}
 			else
-				this._getProductImagesEnd(product, id, cb)
+				this._getProductImagesEnd(id, cb)
 		}
 	})
 
