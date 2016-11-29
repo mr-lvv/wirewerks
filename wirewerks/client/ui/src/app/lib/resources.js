@@ -138,6 +138,38 @@ define(['../app', './url'], function(app, Url) {
 	}
 	app.service('productsRegexCache', ProductsRegexCache)
 
+	class ProductImagesCache {
+		constructor($q, productImagesResource) {
+			this.resource = productImagesResource
+			this._cache = {}
+			this._cacheGroups = {}
+			this.$q = $q
+		}
+
+		get(productId, force) {
+			if (this._cache[productId] || force) {
+				return this.$q.when(this._cache[productId])
+			}
+
+			return this.resource.getProductImages(productId).then(productsImages => {
+				this._cache[productId] = productsImages
+				return this._cache[productId]
+			})
+		}
+
+		groups(productId, force) {
+			if (this._cacheGroups[productId] || force) {
+				return this.$q.when(this._cacheGroups[productId])
+			}
+
+			return this.resource.getProductImagesGroups(productId).then(productsImages => {
+				this._cacheGroups[productId] = productsImages
+				return this._cacheGroups[productId]
+			})
+		}
+	}
+	app.service('productImagesCache', ProductImagesCache)
+
 	/**
 	 *
 	 */
@@ -286,6 +318,16 @@ define(['../app', './url'], function(app, Url) {
 					else
 						return undefined
 				})
+		}
+
+		getProductImages(productID) {
+			var url = Url.productImages2();
+			return this.$http.get(url, {params: {productid: productID}}).then(this._responseData.bind(this))
+		}
+
+		getProductImagesGroups(productID) {
+			var url = Url.productImagesGroups();
+			return this.$http.get(url, {params: {productid: productID}}).then(this._responseData.bind(this))
 		}
 	}
 	app.service('productImagesResource', ProductsImages)
