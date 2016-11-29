@@ -1171,8 +1171,8 @@ define([
 	})
 
 	class ProductImage {
-		constructor($scope, productImagesResource) {
-			this.productImagesResource = productImagesResource
+		constructor($scope, productimagessvc) {
+			this.images = productimagessvc
 			$scope.$watch(() => this.partNumber, this._refreshProduct.bind(this))
 		}
 
@@ -1182,7 +1182,8 @@ define([
 				return
 			}
 
-			this.productImagesResource.getImageFilenames(partnumber).then(groups => {
+			var _this = this
+			function callback(groups) {
 				_.values(groups).forEach(imageInfo => {
 					if (imageInfo.image)
 						imageInfo.image = Url.productImages(imageInfo.image)
@@ -1190,8 +1191,11 @@ define([
 						imageInfo.image = undefined
 				})
 
-				this.groups = groups
-			})
+				_this.groups = groups
+			}
+			this.images.getProductImages(partnumber, callback)
+
+
 		}
 	}
 
@@ -1552,6 +1556,263 @@ define([
 			delete products[completePartNumber]
 			localStorage.setItem(this.cartName, JSON.stringify(products))
 			this.products = products;
+		}
+	})
+
+
+	app.service('productimagessvc',  class ProductImagesSvc {
+		constructor(productImagesCache, productsCache, rulesCache, productsRegexCache) {
+			this.productImagesCache = productImagesCache
+			this.productsCache = productsCache
+			this.rules = {}
+			rulesCache.get().then(rules => {
+				this.rules = rules
+			})
+
+			this.productsRegexCache = productsRegexCache
+
+
+			this.productGroups = undefined
+			this.productTemplate = undefined
+			this.parser = undefined
+			this.productID = undefined
+			this.images = undefined
+		}
+		_mapPart(groupFrom, groupTo, partInfo) {
+			var result = _.cloneDeep(partInfo)
+
+			groupFrom.categories.some((category, index) => {
+				if (category.type === partInfo.category.type) {
+					result.category.type = groupTo.categories[index].type			// If this isn't enough, then we would need to find the actual category and replace it entirely..
+					return true
+				}
+
+				return false			// Keep looping
+			})
+
+			return result
+		}
+		_applyGroupMappingsToImages(productGroups, images, productTemplate) {
+			var newImages = []
+
+			if(productGroups && productGroups.mappings)
+				productGroups.mappings.forEach(mapping => {
+					// Get groups from mapping
+					var groupFrom = _.find(productGroups.groups, group => group.name === mapping.from)
+					var groupTo = _.find(productGroups.groups, group => group.name === mapping.to)
+
+					images.forEach(imageInfo => {
+						if (imageInfo.group.name !== groupFrom.name) {return}
+
+						//
+						// Create new image info for map
+
+						// Create same part number, but replace "from" categories with ?? and add same parts in "to" categories
+						var parts = imageInfo.parts.map(this._mapPart.bind(this, groupFrom, groupTo))
+						var number = PartNumber.partNumber(parts, productTemplate, true, true)
+
+						var newImageInfo = {
+							partNumber: number,
+							path: imageInfo.path,										// Keep same image file
+
+							productGroups: imageInfo.productGroups,
+							group: groupTo,
+							parts: parts
+						}
+
+						newImages.push(newImageInfo)
+					})
+				})
+
+			images = _.concat(images, newImages)
+
+			return images
+		}
+
+		_groupFromImageInfo(imageInfo) {
+			var result = undefined
+
+			// Find last group that has parts
+			if(imageInfo && imageInfo.productGroups && imageInfo.productGroups.groups)
+				imageInfo.productGroups.groups.forEach(group => {
+					var hasParts = imageInfo.parts.some(this._isPartInGroup.bind(this, group))
+					if (hasParts) {
+						result = group
+					}
+				})
+
+			return result
+		}
+
+		_isPartInGroup(group, partInfo) {
+			return group.categories.some(category => category.type === partInfo.category.type)
+		}
+
+		_getProductImages(productGroups, productTemplate, cb) {
+
+			var images = this._applyGroupMappingsToImages(productGroups, this.images, productTemplate)
+			cb(images)
+
+		}
+
+		_getImageForParts(productImages, requestParts, group) {
+			// Remove all images that are not related to current group
+			productImages = productImages.filter(imageInfo => imageInfo.group.name === group.name)
+
+			// Add all parts for each imageInfo
+			productImages = productImages.map(imageInfo => {
+				var info = _.clone(imageInfo)
+				info.matches = 0
+				info.exactMatches = 0
+				info.exactMatchInGroup = 0
+
+				return info
+			})
+
+			// Remove those that don't have any parts (since some were filtered)
+			productImages = productImages.filter(imageInfo => imageInfo.parts.length)
+
+			// Remove those that only have wildcard matches for all parts
+			productImages = productImages.filter(imageInfo => {
+				return imageInfo.parts.some(partInfo => !partInfo.wildcard)
+			})
+
+			// Tag the number of matching parts for each imageInfo
+			requestParts.forEach(partInfo => {
+				productImages.forEach(imageInfo => {
+					// Get the matching part for this category
+					var imagePart = _.find(imageInfo.parts, part => {
+						return part.category.type === partInfo.category.type
+					})
+
+					if (imagePart) {
+						// Is it an exact match?
+						if (imagePart.part.value === partInfo.part.value) {
+							imageInfo.exactMatches++
+							imageInfo.matches++
+
+							if (this._isPartInGroup(group, partInfo)) {
+								imageInfo.exactMatchInGroup++
+							}
+						} else if (imagePart.wildcard) {
+							imageInfo.matches++
+						}
+					}
+				})
+			})
+
+			// Remove those that have more matching parts then the requested part number
+			// This is to prevent FA-1B to be found as a better match then FA-1 for FA-1
+			productImages = productImages.filter(imageInfo => !(imageInfo.parts.length > requestParts.length))
+
+			// Remove if there is not at least one exact match.
+			productImages = productImages.filter(imageInfo => imageInfo.exactMatches > 0)
+
+			// Is there at least one exact match in current group?
+			productImages = productImages.filter(imageInfo => imageInfo.exactMatchInGroup > 0)
+
+			// Does it even have any match (eg: for request FA-1, FA-2 shouldn't produce any image)
+			productImages = productImages.filter(imageInfo => imageInfo.matches)
+
+			// Find the image that has the most parts matching
+			var ordered = _.orderBy(productImages, [
+				function numberOfMatchingParts(o) {
+					return o.matches
+				},
+				function numberOfExactMatchingParts(o) {
+					return o.exactMatches
+				},
+				function numberExactMatches(o) {
+					return _.filter(o.parts, part => !part.wildcard).length
+				}
+			], 'desc')
+
+			var image = _.first(ordered)
+
+			if (image)
+				return image.path
+		}
+
+		_getProductImagesEnd(id, cb) {
+			var _this = this
+
+
+			function callback(productImages) {
+				function callback2(requestParts)
+				{
+					var images = {}
+					if (requestParts.errors.length)
+						console.warn({error: true, message: 'Product number invalid: ', errors: requestParts.errors})
+
+					if (!requestParts.errors.length && _this.productGroups && _this.productGroups.groups)
+						_this.productGroups.groups.forEach(group => {
+							var image = _this._getImageForParts(productImages, requestParts, group)
+							if (image) {
+								images[group.name] = {image: image}
+							}
+						})
+					if (images)
+						cb(images)
+					else
+						cb(undefined)
+				}
+				_this.parser.parse(id, undefined, callback2)			// Only get requested parts (no wildcard)
+			}
+			this._getProductImages(this.productGroups, this.productTemplate, callback)
+		}
+
+		getProductImages(id, cb) {
+			if (!id) {
+				return({error: true, message: 'No Product specfifed.'})
+			}
+
+			id = id.toUpperCase()												// Normalize product id
+			var productTokens = id.split(/-(.+)?/)						// Split on first occurence of '-'
+			var product = productTokens[0]
+			var productId = productTokens[1].replace('-', '')		// Remove '-' as there are none in filenames
+
+			if (!product || !productId) {
+				return {error: true, message: 'Product id is malformed. It needs to be FA-XXXXXXXXXXXX.'}
+			}
+
+
+			if(this.productID != product)
+			{
+				//TO FIX: everything in here is product ID related: example: FA.
+				//We could run this only when we switch page...
+				this.productsCache.byId(product).then(productTemplate => {
+
+					if (!productTemplate) {
+						return {error: true, message: 'Product not found: ' + product}
+					}
+
+					this.productTemplate = productTemplate
+					this.productImagesCache.groups(product).then(productGroups => {
+						this.productGroups = productGroups
+						var validator = new ProductValidation(productTemplate, this.rules[productTemplate.part])
+
+						this.productsRegexCache.get().then(regexsearch => {
+							var productRegex = regexsearch[productTemplate.part]
+							this.parser = new PartNumber(productTemplate, productRegex, validator)
+
+							this.productImagesCache.get(product).then(images => {
+								this.images = images.map(imageInfo => {
+
+									imageInfo.productGroups = productGroups
+									imageInfo.parts = this.parser.parse(imageInfo.partNumber, true)			// Could cache this since it's probably really slow
+									imageInfo.group = this._groupFromImageInfo(imageInfo)				// Tag which group each image is from
+
+									return imageInfo
+								})
+								this.productID = product
+								this._getProductImagesEnd(id, cb)
+							})
+						})
+					})
+				})
+			}
+			else
+				this._getProductImagesEnd(id, cb)
 		}
 	})
 
