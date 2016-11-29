@@ -1571,6 +1571,12 @@ define([
 
 			this.productsRegexCache = productsRegexCache
 
+
+			this.productGroups = undefined
+			this.productTemplate = undefined
+			this.parser = undefined
+			this.productID = undefined
+			this.images = undefined
 		}
 		_mapPart(groupFrom, groupTo, partInfo) {
 			var result = _.cloneDeep(partInfo)
@@ -1586,7 +1592,7 @@ define([
 
 			return result
 		}
-		_applyGroupMappingsToImages(productGroups, images, parser, productTemplate) {
+		_applyGroupMappingsToImages(productGroups, images, productTemplate) {
 			var newImages = []
 
 			if(productGroups && productGroups.mappings)
@@ -1642,22 +1648,11 @@ define([
 			return group.categories.some(category => category.type === partInfo.category.type)
 		}
 
-		_getProductImages(productID, productGroups, productTemplate, parser, cb) {
-			var _this = this
+		_getProductImages(productGroups, productTemplate, cb) {
 
-			this.productImagesCache.get(productID).then(images => {
-				images = images.map(imageInfo => {
+			var images = this._applyGroupMappingsToImages(productGroups, this.images, productTemplate)
+			cb(images)
 
-					imageInfo.productGroups = productGroups
-					imageInfo.parts = parser.parse(imageInfo.partNumber, true)			// Could cache this since it's probably really slow
-					imageInfo.group = this._groupFromImageInfo(imageInfo)				// Tag which group each image is from
-
-					return imageInfo
-				})
-
-				images = _this._applyGroupMappingsToImages(productGroups, images, parser, productTemplate)
-				cb(images)
-			})
 		}
 
 		_getImageForParts(productImages, requestParts, group) {
@@ -1738,8 +1733,35 @@ define([
 				return image.path
 		}
 
-		getProductImages(id, cb) {
+		_getProductImagesEnd(product, id, cb) {
+			var _this = this
+
+
+			function callback(productImages) {
+				function callback2(requestParts)
 			{
+					var images = {}
+					if (requestParts.errors.length)
+						console.warn({error: true, message: 'Product number invalid: ', errors: requestParts.errors})
+
+					if (!requestParts.errors.length && _this.productGroups && _this.productGroups.groups)
+						_this.productGroups.groups.forEach(group => {
+							var image = _this._getImageForParts(productImages, requestParts, group)
+							if (image) {
+								images[group.name] = {image: image}
+							}
+						})
+					if (images)
+						cb(images)
+					else
+						cb(undefined)
+				}
+				_this.parser.parse(id, undefined, callback2)			// Only get requested parts (no wildcard)
+			}
+			this._getProductImages(this.productGroups, this.productTemplate, callback)
+		}
+
+		getProductImages(id, cb) {
 				if (!id) {
 					return({error: true, message: 'No Product specfifed.'})
 				}
@@ -1754,44 +1776,43 @@ define([
 				}
 
 				// Find correct image from product number
+			if(this.productID != product)
+			{
+				//TO FIX: everything in here is product ID related: example: FA.
+				//We could run this only when we switch page...
 				this.productsCache.byId(product).then(productTemplate => {
 
 					if (!productTemplate) {
 						return {error: true, message: 'Product not found: ' + product}
 					}
 
+					this.productTemplate = productTemplate
 					this.productImagesCache.groups(product).then(productGroups => {
+						this.productGroups = productGroups
 						var validator = new ProductValidation(productTemplate, this.rules[productTemplate.part])
 
 						this.productsRegexCache.get().then(regexsearch => {
 							var productRegex = regexsearch[productTemplate.part]
-							var parser = new PartNumber(productTemplate, productRegex, validator)
+							this.parser = new PartNumber(productTemplate, productRegex, validator)
 
-							var requestParts = parser.parse(id)			// Only get requested parts (no wildcard)
-							if (requestParts.errors.length) {
-								return {error: true, message: 'Product number invalid: ', errors: requestParts.errors}
-							}
-							var _this = this
-							function callback(productImages) {
-								var images = {}
+							this.productImagesCache.get(product).then(images => {
+								this.images = images.map(imageInfo => {
 
-								if (productGroups && productGroups.groups)
-									productGroups.groups.forEach(group => {
-										var image = _this._getImageForParts(productImages, requestParts, group)
-										if (image) {
-											images[group.name] = {image: image}
-										}
-									})
-								if (images)
-									cb(images)
-								else
-									cb(undefined)
-							}
-							this._getProductImages(product, productGroups, productTemplate, parser, callback)
+									imageInfo.productGroups = productGroups
+									imageInfo.parts = this.parser.parse(imageInfo.partNumber, true)			// Could cache this since it's probably really slow
+									imageInfo.group = this._groupFromImageInfo(imageInfo)				// Tag which group each image is from
+
+									return imageInfo
+								})
+								this.productID = product
+								this._getProductImagesEnd(product, id, cb)
+							})
 						})
 					})
 				})
 			}
+			else
+				this._getProductImagesEnd(product, id, cb)
 		}
 	})
 
