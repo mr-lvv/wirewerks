@@ -4,6 +4,7 @@ var sections = require('./sections.json')
 var rules = require('./rules.json')
 var regexsearch=require('./regexsearch.json')
 var _ = require('lodash')
+var images = require('./images.json')
 var pdf = require('html-pdf');
 var fs = require('fs');
 var path = require('path');
@@ -407,6 +408,22 @@ class Api {
 			response.status(200).send(regexsearch);
 		});
 
+		client.get("/productimages", (request, response) => {
+			var id = request.query.productid
+			if(id && images[id])
+				response.status(200).send(images[id]);
+			else
+				response.status(200).send([]);
+		})
+
+		client.get("/productimagesgroups", (request, response) => {
+			var id = request.query.productid
+			if(id && groups[id])
+				response.status(200).send(groups[id]);
+			else
+				response.status(200).send([]);
+		})
+
 		/**
 		// 1.	Strip product number (FA-)
 		// 2.	find closest match
@@ -462,6 +479,28 @@ class Api {
 			this._createBom(testBom, (err, html) => {
 				response.status(200).send(html)
 			})
+		})
+
+		client.get('/internal/test/images', (request, response) => {
+			console.log("asdf")
+			var productImages = []
+			function listAllKeys(marker) {
+				s3Client.listObjects({Bucket: "wirewerks-sg-images", MaxKeys: 10000, Marker: marker}, function (err, data) {
+
+					//data.Contents is an array of objects
+
+					productImages = productImages.concat(data.Contents.map(file => {
+						return {partNumber: path.basename(file.Key, '.png'), path: file.Key}
+					}))
+
+					if (data.IsTruncated) {
+						listAllKeys(data.NextMarker)
+					} else {
+						response.status(200).send(productImages)
+					}
+				})
+			}
+			listAllKeys()
 		})
 
 		app.use('/api/client', client);

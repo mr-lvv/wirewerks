@@ -36,6 +36,14 @@ define([], function() {
 			return '/api/client/productimage'
 		}
 
+		static productImages2() {
+			return '/api/client/productimages'
+		}
+
+		static productImagesGroups() {
+			return '/api/client/productimagesgroups'
+		}
+
 		static productImages(imageFile) {
 			var path = 'https://s3.amazonaws.com/wirewerks-sg-images'
 			if (imageFile)
