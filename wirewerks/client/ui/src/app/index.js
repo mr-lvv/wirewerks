@@ -58,7 +58,7 @@ define([
 			this.view = views.home
 			this.filters = {section: undefined}
 			this.cart = cart
-			this.SingleProductMode = true
+			this.SingleProductMode = false
 			// Search filters (ie: section, etc...)
 		}
 
@@ -1532,9 +1532,9 @@ define([
 			if(products[completePartNumber])
 				products[completePartNumber].quantity++
 			else {
-				var connectorA =$('.product-image.connectorA')[0]?$('.product-image.connectorA')[0].src.split("/").pop(): undefined
-				var connectorB = $('.product-image.connectorB')[0]? $('.product-image.connectorB')[0].src.split("/").pop() : undefined
-				var cable = $('.product-image.cable')[0]?$('.product-image.cable')[0].src.split("/").pop():undefined
+				var connectorA =$('.product-image.connectorA')[0]?$('.product-image.connectorA')[0].src: undefined
+				var connectorB = $('.product-image.connectorB')[0]? $('.product-image.connectorB')[0].src : undefined
+				var cable = $('.product-image.cable')[0]?$('.product-image.cable')[0].src:undefined
 				products[completePartNumber] = {}
 				products[completePartNumber].quantity = 1
 				products[completePartNumber].name = completePartNumber
@@ -1733,7 +1733,7 @@ define([
 				return image.path
 		}
 
-		_getProductImagesEnd(product, id, cb) {
+		_getProductImagesEnd(id, cb) {
 			var _this = this
 
 
@@ -1805,14 +1805,14 @@ define([
 									return imageInfo
 								})
 								this.productID = product
-								this._getProductImagesEnd(product, id, cb)
+								this._getProductImagesEnd(id, cb)
 							})
 						})
 					})
 				})
 			}
 			else
-				this._getProductImagesEnd(product, id, cb)
+				this._getProductImagesEnd(id, cb)
 		}
 	})
 
