@@ -4,8 +4,10 @@
 				<md-icon md-svg-icon="images/svg/general/home.svg" class="s32" aria-label="label"></md-icon>
 			</md-button>
 
-			<a href="http://www.wirewerks.com"><img class="spheres-logo" src="images/wirewerks/logo_spheres_small.png"></a>
-			<a href="http://www.wirewerks.com"><img class="wirewerks-logo" src="images/wirewerks/logo_wirewerks.png"></a>
+			<div ng-show="$ctrl.SingleProductMode">
+				<a href="http://www.wirewerks.com"><img class="spheres-logo" src="images/wirewerks/logo_spheres_small.png"></a>
+				<a href="http://www.wirewerks.com"><img class="wirewerks-logo" src="images/wirewerks/logo_wirewerks.png"></a>
+			</div>
 
 			<md-button class="md-icon-button menu s32" ng-click="$ctrl.toggleNavigation()" hide-gt-md ng-if="!$ctrl.SingleProductMode">
 				<md-icon md-svg-icon="images/svg/general/menu.svg" class="s32" aria-label="label"></md-icon>
