@@ -242,6 +242,10 @@ ww-product {
 		max-width: 500px;
 		min-height: 274px; // Give a minimum size so there's no "jerk" when selecting first part
 
+		@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+			/* IE10+ CSS styles go here */
+			width: 500px !important;
+		}
 		.image-container {
 		}
 
