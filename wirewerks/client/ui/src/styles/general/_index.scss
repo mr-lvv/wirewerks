@@ -16,10 +16,6 @@ $padding-md-button-total: $padding-md-button * 2; // Includes up/down (or left/r
 		&.s#{$size} {
 			max-width: $size + 0px;
 			min-width: $size + 0px;
-			@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-				/* IE10+ CSS styles go here */
-				height: 100% !important;
-			}
 			height: auto;
 		}
 	}
