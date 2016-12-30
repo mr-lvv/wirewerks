@@ -1714,7 +1714,7 @@ define([
 						var isMatch = isPartValueSame || imagePart.wildcard
 						var isWildCardNumber = imagePart.wildcard && partInfo.part.xIsDigit
 						var isPartInGroup = this._isPartInGroup(group, partInfo)
-						var isRealMatch = isPartInGroup && (isWildCardNumber || !imagePart.wildcard)
+						var isRealMatch = isPartValueSame && isPartInGroup && (isWildCardNumber || !imagePart.wildcard)
 
 						if (isMatch) {
 							imageInfo.matches++
@@ -1722,6 +1722,10 @@ define([
 							// Is it an exact match?
 							if (isPartValueSame) {
 								imageInfo.exactMatches++
+
+								if (isPartInGroup) {
+									imageInfo.exactMatchInGroup++
+								}
 							}
 
 							if (isPartInGroup) {
@@ -1738,6 +1742,8 @@ define([
 
 			// Remove those that have more matching parts then the requested part number
 			// This is to prevent FA-1B to be found as a better match then FA-1 for FA-1
+			// 		Doesn't work since FA-ABCDE-LC will have more part then FA-1D-LC. So should instead show nothing.
+			//		Need to ask what to do in this case. Show no image?
 			productImages = productImages.filter(imageInfo => !(imageInfo.parts.length > requestParts.length))
 
 			// Remove if there is not at least one exact match.
@@ -1753,7 +1759,9 @@ define([
 			// New fallback logic. If the match isn't perfect, then use 'unknown' image
 			productImages = productImages.filter(imageInfo => imageInfo.realMatchesInGroup === groupRequestParts.length)
 
-			if (!productImages.length && groupRequestParts.length)
+			// Only show default image for main image, not connectors.
+			var isEmpty = !productImages.length && groupRequestParts.length
+			if (isEmpty && group.name === 'cable')
 				return 'FA-ABCDEEFGGG-HHIJJKL-NNN.png';
 
 
