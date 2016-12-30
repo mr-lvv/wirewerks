@@ -1592,6 +1592,7 @@ define([
 
 			return result
 		}
+
 		_applyGroupMappingsToImages(productGroups, images, productTemplate) {
 			var newImages = []
 
@@ -1655,9 +1656,30 @@ define([
 
 		}
 
+		/* May not be useful...
+		_getHardcodedImage(productImages, requestParts, group) {
+			// For FA
+			if (requestParts.some(partInfo => partInfo.category.title === "FIBER TYPE" && partInfo.category.type === 'A')) {
+				// If it's a Fiber type 2, use this image..
+				if (group.name === 'cable') {
+					if (requestParts.some(partInfo => partInfo.category.type === 'E' && partInfo.part.value === '02')) {
+						return {path: 'SPECIAL_FA_FIBER02.png'}
+					}
+				}
+			}
+		}
+		*/
+
 		_getImageForParts(productImages, requestParts, group) {
 			// Remove all images that are not related to current group
 			productImages = productImages.filter(imageInfo => imageInfo.group.name === group.name)
+			var groupRequestParts = requestParts.filter(partInfo => this._isPartInGroup(group, partInfo))
+
+			/*
+			var hardcodedImage = this._getHardcodedImage(productImages, requestParts, group)
+			if (hardcodedImage)
+				return hardcodedImage.path
+			*/
 
 			// Add all parts for each imageInfo
 			productImages = productImages.map(imageInfo => {
@@ -1665,6 +1687,8 @@ define([
 				info.matches = 0
 				info.exactMatches = 0
 				info.exactMatchInGroup = 0
+				info.matchesInGroup = 0
+				info.realMatchesInGroup = 0
 
 				return info
 			})
@@ -1686,16 +1710,31 @@ define([
 					})
 
 					if (imagePart) {
-						// Is it an exact match?
-						if (imagePart.part.value === partInfo.part.value) {
-							imageInfo.exactMatches++
+						var isPartValueSame = imagePart.part.value === partInfo.part.value
+						var isMatch = isPartValueSame || imagePart.wildcard
+						var isWildCardNumber = imagePart.wildcard && partInfo.part.xIsDigit
+						var isPartInGroup = this._isPartInGroup(group, partInfo)
+						var isRealMatch = isPartValueSame && isPartInGroup && (isWildCardNumber || !imagePart.wildcard)
+
+						if (isMatch) {
 							imageInfo.matches++
 
-							if (this._isPartInGroup(group, partInfo)) {
-								imageInfo.exactMatchInGroup++
+							// Is it an exact match?
+							if (isPartValueSame) {
+								imageInfo.exactMatches++
+
+								if (isPartInGroup) {
+									imageInfo.exactMatchInGroup++
+								}
 							}
-						} else if (imagePart.wildcard) {
-							imageInfo.matches++
+
+							if (isPartInGroup) {
+								imageInfo.matchesInGroup++
+							}
+
+							if (isRealMatch) {
+								imageInfo.realMatchesInGroup++
+							}
 						}
 					}
 				})
@@ -1703,6 +1742,8 @@ define([
 
 			// Remove those that have more matching parts then the requested part number
 			// This is to prevent FA-1B to be found as a better match then FA-1 for FA-1
+			// 		Doesn't work since FA-ABCDE-LC will have more part then FA-1D-LC. So should instead show nothing.
+			//		Need to ask what to do in this case. Show no image?
 			productImages = productImages.filter(imageInfo => !(imageInfo.parts.length > requestParts.length))
 
 			// Remove if there is not at least one exact match.
@@ -1713,6 +1754,16 @@ define([
 
 			// Does it even have any match (eg: for request FA-1, FA-2 shouldn't produce any image)
 			productImages = productImages.filter(imageInfo => imageInfo.matches)
+
+
+			// New fallback logic. If the match isn't perfect, then use 'unknown' image
+			productImages = productImages.filter(imageInfo => imageInfo.realMatchesInGroup === groupRequestParts.length)
+
+			// Only show default image for main image, not connectors.
+			var isEmpty = !productImages.length && groupRequestParts.length
+			if (isEmpty && group.name === 'cable')
+				return 'FA-ABCDEEFGGG-HHIJJKL-NNN.png';
+
 
 			// Find the image that has the most parts matching
 			var ordered = _.orderBy(productImages, [
