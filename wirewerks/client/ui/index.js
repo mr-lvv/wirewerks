@@ -102,11 +102,12 @@ function buildPostCss(callback) {
 	var cssFileTargetMap = path.join(paths.styles, 'main_production.css.map')
 	var css = fs.readFileSync(cssFile)
 
-	console.log('Building css prefix: ', cssFile);
+	console.log('Building css prefix: ', cssFile, ' --> ', cssFileTarget);
 	var autoprefix = libsass.autoprefixer({browsers: ['> 1%', 'IE 9']})	// Must match file content in src/styles/browserlist
 	libsass.postcss([autoprefix, libsass.cssnano()])
 		.process(css, {from: cssFile, to: cssFileTarget})
 		.then(result => {
+			console.log('Css prefix built. ');
 			fs.writeFileSync(cssFileTarget, result.css.toString())
 			fs.writeFileSync(cssFileTargetMap, result.map.toString())
 
@@ -118,6 +119,8 @@ function buildPostCss(callback) {
 			console.log('Post Css completed.');
 
 			callback();
+		}).catch(error => {
+			console.error('Error building css: ', error)
 		});
 }
 
