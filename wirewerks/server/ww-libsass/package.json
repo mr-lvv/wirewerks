@@ -9,6 +9,7 @@
     "cssnano": "3.8.0",
     "pleeease-cli": "4.0.0",
     "postcss-cli": "2.1.0",
-    "precss": "0.3.0"
+    "precss": "0.3.0",
+    "browserslist": "1.5.2"
   }
 }
