@@ -270,7 +270,7 @@
 							var wildcard = false
 							if (!valid && (keepWildcards && value)) {
 								var numberMatch = part.value === valueToCheck		// eg: 'XXN'
-								var categoryMatch = value === category.type || value == _.repeat(category.type, category.length)
+								var categoryMatch = value == _.repeat("$", category.length)
 								var isWildCard = numberMatch || categoryMatch
 
 								if (isWildCard) {
