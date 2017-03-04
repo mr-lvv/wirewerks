@@ -82,7 +82,7 @@ for i in xrange(2,len(mylist)):
         #it's an attribute
         attribute = {}
         attribute['label'] = mylist[i]
-        if mylist[i] == "Bend Insensitive":
+        if mylist[i] == "Bend Insensitive" or mylist[i] == "OFNR" or mylist[i] == "OFNP" or mylist[i] == "OS2" or mylist[i] == "OM1" or mylist[i] == "OM2" or mylist[i] == "OM3" or mylist[i] == "OM4":
             attribute['bold'] = True
         else:
             attribute['bold'] = False

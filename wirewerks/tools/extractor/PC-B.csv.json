@@ -1,0 +1,248 @@
+{
+    "finePrint": "", 
+    "length": 1, 
+    "parts": [
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "2 Fiber Zip 3 mm OFNR"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "A"
+        }, 
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "2 Fiber Zip 3 mm OFNP"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "B"
+        }, 
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "1 Fiber 3 mm OFNR"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "C"
+        }, 
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "1 Fiber 3 mm OFNP"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "D"
+        }, 
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "2 Fiber Zip 2 mm OFNR"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "E"
+        }, 
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "2 Fiber Zip 2 mm OFNP"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "F"
+        }, 
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "1 Fiber 2 mm OFNR"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "G"
+        }, 
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "1 Fiber 2 mm OFNP"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "H"
+        }, 
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "2 Fiber Zip 1.8 mm OFNR"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "I"
+        }, 
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "2 Fiber Zip 1.8 mm OFNP"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "J"
+        }, 
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "1 Fiber Tight Buffer 900 \u03bcm"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "K"
+        }, 
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "1 Fiber Coated 250 \u03bcm"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "L"
+        }, 
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "1 Fiber 1.6mm OFNR"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "M"
+        }, 
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "1 Fiber 1.6mm OFNP"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "N"
+        }, 
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "2 Fiber Zip 1.6mm OFNR"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "P"
+        }, 
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "2 Fiber Zip 1.6mm OFNP"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "Q"
+        }, 
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "2 Fiber Round 3 mm OFNR"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "T"
+        }, 
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "2 Fiber Round 3 mm OFNP"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "U"
+        }, 
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "1 Fiber 1.2 mm OFNR"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "5"
+        }, 
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "2 Fiber 1.2 mm OFNR"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "7"
+        }
+    ], 
+    "title": "CABLE TYPE", 
+    "type": "B"
+}
