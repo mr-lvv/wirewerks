@@ -3939,16 +3939,9 @@
             "type": "D"
           },
           {
-            "finePrint": "",
+            "finePrint": "*",
             "length": 2,
             "parts": [
-              {
-                "attributes": [],
-                "description": "",
-                "finePrint": "*",
-                "shortDescription": "",
-                "value": "XX"
-              },
               {
                 "attributes": [
                   {
@@ -4202,7 +4195,7 @@
                 "value": "OE"
               }
             ],
-            "title": "CC",
+            "title": "CONNECTOR SIDE B",
             "type": "E"
           },
           {
