@@ -83,18 +83,18 @@ class ProductImages {
 			var _this = this
 			this._productImages = []
 			function listAllKeys(marker) {
-				s3Client.listObjects({Bucket: "wirewerks-sg-images", MaxKeys: 10000, Marker: marker}, function (err, data) {
+				s3Client.listObjects({Bucket: "wirewerks-sg-images", MaxKeys: 100000, Marker: marker}, function (err, data) {
 
 					//data.Contents is an array of objects
-
-					_this._productImages = _this._productImages.concat(data.Contents.map(file => {
-						return {partNumber: path.basename(file.Key, '.png'), path: file.Key}
-					}))
+					productImages = productImages.concat(data.Contents.map(file => {
+							return {partNumber: path.basename(file.Key, '.png'), path: file.Key}
+						}))
 
 					if (data.IsTruncated) {
-						listAllKeys(data.NextMarker)
+						var contents = data.Contents
+						listAllKeys(contents[contents.length-1].Key)
 					} else {
-						cb(_this._productImages)
+						response.status(200).send(productImages)
 					}
 				})
 			}
@@ -482,19 +482,18 @@ class Api {
 		})
 
 		client.get('/internal/test/images', (request, response) => {
-			console.log("asdf")
 			var productImages = []
 			function listAllKeys(marker) {
-				s3Client.listObjects({Bucket: "wirewerks-sg-images", MaxKeys: 10000, Marker: marker}, function (err, data) {
+				s3Client.listObjects({Bucket: "wirewerks-sg-images", MaxKeys: 100000, Marker: marker}, function (err, data) {
 
 					//data.Contents is an array of objects
-
 					productImages = productImages.concat(data.Contents.map(file => {
 						return {partNumber: path.basename(file.Key, '.png'), path: file.Key}
 					}))
 
 					if (data.IsTruncated) {
-						listAllKeys(data.NextMarker)
+						var contents = data.Contents
+						listAllKeys(contents[contents.length-1].Key)
 					} else {
 						response.status(200).send(productImages)
 					}

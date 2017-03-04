@@ -46,20 +46,6 @@
       }
     },
     "CABLE TYPE": {
-      "R": {
-        "LEAD OD":
-        {
-          "9" : {"valid" : true},
-          "*" : {"valid" : false}
-        }
-      },
-      "M": {
-        "LEAD OD":
-        {
-          "9" : {"valid" : true},
-          "*" : {"valid" : false}
-        }
-      },
       "C": {
         "FIRE RATING": {
           "C" : {"valid" : true},
@@ -138,8 +124,6 @@
       "9": {
         "CABLE TYPE":
         {
-          "R" : {"valid" : true},
-          "M" : {"valid" : true},
           "C" : {"valid" : true},
           "Q" : {"valid" : true}
         }
@@ -153,8 +137,6 @@
       },
       "*": {
         "CABLE TYPE": {
-          "R" : {"valid" : false},
-          "M" : {"valid" : false},
           "C" : {"valid" : false},
           "Q" : {"valid" : false}
         },
