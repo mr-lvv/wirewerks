@@ -3,7 +3,7 @@
 	"version": "0.0.1",
 	"description": "Wirewerks solution guide server",
 	"engines": {
-		"node": "6.4.0"
+		"node": "6.11.1"
 	},
 	"main": "wirewerks/server/app-server/index.js",
 	"scripts": {
