@@ -1,0 +1,541 @@
+[
+    {
+        "partNumber": "KW-CZZ-BNC-YY",
+        "dataSheet": "PDS-0048",
+        "description": "BNC Couplers 75Ω",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "KW-CZZ-BNC-",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_color",
+                "type": "color",
+                "placeholder": "YY",
+                "description": "COLOR",
+                "color": "light-orange",
+                "options": [
+                    {
+                        "value": "BK",
+                        "description": "Black"
+                    },
+                    {
+                        "value": "WH",
+                        "description": "White"
+                    },
+                    {
+                        "value": "AL",
+                        "description": "Almond"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "partNumber": "KW-CZZ-BNS-YY",
+        "dataSheet": "PDS-0048",
+        "description": "BNC Couplers 50Ω",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "KW-CZZ-BNS-",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_color",
+                "type": "color",
+                "placeholder": "YY",
+                "description": "COLOR",
+                "color": "light-orange",
+                "options": [
+                    {
+                        "value": "BK",
+                        "description": "Black"
+                    },
+                    {
+                        "value": "WH",
+                        "description": "White"
+                    },
+                    {
+                        "value": "AL",
+                        "description": "Almond"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "partNumber": "KW-CZZ-FTC-YY",
+        "dataSheet": "PDS-0048",
+        "description": "F Couplers 3&nbsp;GHz",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "KW-CZZ-FTC-",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_color",
+                "type": "color",
+                "placeholder": "YY",
+                "description": "COLOR",
+                "color": "light-orange",
+                "options": [
+                    {
+                        "value": "BK",
+                        "description": "Black"
+                    },
+                    {
+                        "value": "WH",
+                        "description": "White"
+                    },
+                    {
+                        "value": "AL",
+                        "description": "Almond"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "partNumber": "KW-CZZ-RFX-YY",
+        "dataSheet": "PDS-0048",
+        "description": "RCA to F-Type Couplers",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "KW-CZZ-RF",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_dielectric",
+                "type": "color",
+                "placeholder": "X",
+                "description": "DIELECTRIC",
+                "color": "light-orange",
+                "options": [
+                    {
+                        "value": "R",
+                        "description": "Red"
+                    },
+                    {
+                        "value": "W",
+                        "description": "White"
+                    },
+                    {
+                        "value": "B",
+                        "description": "Blue"
+                    },
+                    {
+                        "value": "G",
+                        "description": "Green"
+                    },
+                    {
+                        "value": "Y",
+                        "description": "Yellow"
+                    }
+                ]
+            },
+            {
+                "id": "_constant2",
+                "type": "constant",
+                "placeholder": "-",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_color",
+                "type": "color",
+                "placeholder": "YY",
+                "description": "COLOR",
+                "color": "light-green",
+                "options": [
+                    {
+                        "value": "BK",
+                        "description": "Black"
+                    },
+                    {
+                        "value": "WH",
+                        "description": "White"
+                    },
+                    {
+                        "value": "AL",
+                        "description": "Almond"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "partNumber": "KW-CZZ-RCX-YY",
+        "dataSheet": "PDS-0048",
+        "description": "RCA to RCA Couplers",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "KW-CZZ-RC",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_dielectric",
+                "type": "color",
+                "placeholder": "X",
+                "description": "DIELECTRIC",
+                "color": "light-orange",
+                "options": [
+                    {
+                        "value": "R",
+                        "description": "Red"
+                    },
+                    {
+                        "value": "W",
+                        "description": "White"
+                    },
+                    {
+                        "value": "B",
+                        "description": "Blue"
+                    },
+                    {
+                        "value": "G",
+                        "description": "Green"
+                    },
+                    {
+                        "value": "Y",
+                        "description": "Yellow"
+                    }
+                ]
+            },
+            {
+                "id": "_constant2",
+                "type": "constant",
+                "placeholder": "-",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_color",
+                "type": "color",
+                "placeholder": "YY",
+                "description": "COLOR",
+                "color": "light-green",
+                "options": [
+                    {
+                        "value": "BK",
+                        "description": "Black"
+                    },
+                    {
+                        "value": "WH",
+                        "description": "White"
+                    },
+                    {
+                        "value": "AL",
+                        "description": "Almond"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "partNumber": "KW-RCA110-X-WH",
+        "dataSheet": "PDS-0048",
+        "description": "RCA to 110 IDC Couplers",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "KW-RCA110-",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_dielectric",
+                "type": "color",
+                "placeholder": "X",
+                "description": "DIELECTRIC",
+                "color": "light-orange",
+                "options": [
+                    {
+                        "value": "R",
+                        "description": "Red"
+                    },
+                    {
+                        "value": "W",
+                        "description": "White"
+                    },
+                    {
+                        "value": "Y",
+                        "description": "Yellow"
+                    }
+                ]
+            },
+            {
+                "id": "_constant2",
+                "type": "constant",
+                "placeholder": "-WH",
+                "color": "default",
+                "options": []
+            }
+        ]
+    },
+    {
+        "partNumber": "KW-FWW-ZZZ-YY",
+        "dataSheet": "PDS-0048",
+        "description": "Keystone Fiber Optic Couplers",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "KW-F",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_fiberType",
+                "type": "select",
+                "placeholder": "WW",
+                "description": "FIBER TYPE",
+                "color": "light-orange",
+                "options": [
+                    {
+                        "value": "S1",
+                        "description": "Single Mode"
+                    },
+                    {
+                        "value": "S2",
+                        "description": "Single Mode APC"
+                    },
+                    {
+                        "value": "M1",
+                        "description": "Multimode"
+                    },
+                    {
+                        "value": "M3",
+                        "description": "Multimode OM3"
+                    }
+                ]
+            },
+            {
+                "id": "_constant2",
+                "type": "constant",
+                "placeholder": "-",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_connector",
+                "type": "select",
+                "placeholder": "ZZZ",
+                "description": "CONNECTOR",
+                "color": "light-green",
+                "options": [
+                    {
+                        "value": "LC",
+                        "description": "LC",
+                        "conditions": []
+                    },
+                    {
+                        "value": "SC",
+                        "description": "SC",
+                        "conditions": []
+                    },
+                    {
+                        "value": "ST",
+                        "description": "ST",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "S1",
+                                    "M1"
+                                ],
+                                "partId": "_fiberType"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "_constant3",
+                "type": "constant",
+                "placeholder": "Z-",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_color",
+                "type": "color",
+                "placeholder": "YY",
+                "description": "COLOR",
+                "color": "light-red",
+                "options": [
+                    {
+                        "value": "BK",
+                        "description": "Black"
+                    },
+                    {
+                        "value": "WH",
+                        "description": "White"
+                    },
+                    {
+                        "value": "AL",
+                        "description": "Almond"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "partNumber": "KW-CZZ-HDF-YY",
+        "dataSheet": "PDS-0053",
+        "description": "HDMI Couplers",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "KW-CZZ-HDF-",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_color",
+                "type": "color",
+                "placeholder": "YY",
+                "description": "COLOR",
+                "color": "light-orange",
+                "options": [
+                    {
+                        "value": "WH",
+                        "description": "White"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "partNumber": "HD500-NNN",
+        "dataSheet": "PDS-0062",
+        "description": "HDMI Cables with Ethernet",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "HD500-",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_length",
+                "type": "select",
+                "placeholder": "NNN",
+                "description": "LENGTH",
+                "color": "light-orange",
+                "options": [
+                    {
+                        "value": "003",
+                        "description": "3 Feet"
+                    },
+                    {
+                        "value": "006",
+                        "description": "6 Feet"
+                    },
+                    {
+                        "value": "010",
+                        "description": "10 Feet"
+                    },
+                    {
+                        "value": "012",
+                        "description": "12 Feet"
+                    },
+                    {
+                        "value": "015",
+                        "description": "15 Feet"
+                    },
+                    {
+                        "value": "025",
+                        "description": "25 Feet"
+                    },
+                    {
+                        "value": "030",
+                        "description": "30 Feet"
+                    },
+                    {
+                        "value": "050",
+                        "description": "50 Feet"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "partNumber": "KW-CZZ-BPM-YY",
+        "dataSheet": "PDS-0048",
+        "description": "Speaker Binding Posts",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "KW-CZZ-BPM-",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_color",
+                "type": "color",
+                "placeholder": "YY",
+                "description": "COLOR",
+                "color": "light-orange",
+                "options": [
+                    {
+                        "value": "BK",
+                        "description": "Black"
+                    },
+                    {
+                        "value": "WH",
+                        "description": "White"
+                    },
+                    {
+                        "value": "AL",
+                        "description": "Almond"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "partNumber": "KW-35T-YY",
+        "dataSheet": "PDS-0048",
+        "description": "3.5mm Stereo Socket To Terminal Block Module",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "KW-35T-",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_color",
+                "type": "color",
+                "placeholder": "YY",
+                "description": "COLOR",
+                "color": "light-orange",
+                "options": [
+                    {
+                        "value": "WH",
+                        "description": "White"
+                    }
+                ]
+            }
+        ]
+    }
+]

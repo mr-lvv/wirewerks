@@ -1,0 +1,2 @@
+var cartNavCtrl = function () {
+};

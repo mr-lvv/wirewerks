@@ -1,16 +1,5 @@
 define([], function() {
-	var app = angular.module('ww', [
-		'ngCookies',
-		'ngResource',
-		'ngSanitize',
-		'ngAria',
-		'ngAnimate',
-		'ngMaterial',
-		'ngRoute',
-		'ngFileSaver'
-	])
-	app.SingleProductMode = true
+	var app = angular.module('ww', ['ngSanitize', 'ngCookies', 'ui.router', 'LocalStorageModule']);
 
-
-	return app
+	return app;
 });

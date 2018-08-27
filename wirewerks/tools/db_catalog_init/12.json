@@ -1,0 +1,928 @@
+[
+    {
+        "partNumber": "SP1-ABBCDEFFFGHHHIJJKLLM",
+        "dataSheet": "PDS-0097",
+        "description": "Fused Biconic Taper Optical Splitters",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "SP1-",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_configuration",
+                "type": "select",
+                "placeholder": "A",
+                "description": "CONFIGURATION",
+                "color": "deep-orange",
+                "options": [
+                    {
+                        "value": "A",
+                        "description": "1x2"
+                    },
+                    {
+                        "value": "H",
+                        "description": "2x2"
+                    }
+                ]
+            },
+            {
+                "id": "_couplingRatio",
+                "type": "select",
+                "placeholder": "BB",
+                "description": "COUPLING RATIO",
+                "color": "light-green",
+                "options": [
+                    {
+                        "value": "01",
+                        "description": "1/99"
+                    },
+                    {
+                        "value": "02",
+                        "description": "2/98"
+                    },
+                    {
+                        "value": "03",
+                        "description": "3/97"
+                    },
+                    {
+                        "value": "04",
+                        "description": "4/96"
+                    },
+                    {
+                        "value": "UP",
+                        "description": "Up To"
+                    },
+                    {
+                        "value": "50",
+                        "description": "50/50"
+                    },
+                    {
+                        "value": "EV",
+                        "description": "Even"
+                    }
+                ]
+            },
+            {
+                "id": "_wavelength",
+                "type": "select",
+                "placeholder": "C",
+                "description": "WAVELENGTH",
+                "color": "light-red",
+                "options": [
+                    {
+                        "value": "1",
+                        "description": "1310 nm (single window)"
+                    },
+                    {
+                        "value": "2",
+                        "description": "1550 nm (single window)"
+                    },
+                    {
+                        "value": "3",
+                        "description": "1310/1550 nm (dual window)"
+                    },
+                    {
+                        "value": "4",
+                        "description": "1310/1490/1550 nm (triple window)"
+                    }
+                ]
+            },
+            {
+                "id": "_fiberPerformance",
+                "type": "select",
+                "placeholder": "D",
+                "description": "FIBER PERFORMANCE",
+                "color": "light-blue",
+                "options": [
+                    {
+                        "value": "1",
+                        "description": "Single Mode OS2"
+                    }
+                ]
+            },
+            {
+                "id": "_inputFiberType",
+                "type": "select",
+                "placeholder": "E",
+                "description": "INPUT FIBER TYPE",
+                "color": "light-purple",
+                "options": [
+                    {
+                        "value": "1",
+                        "description": "250 μm"
+                    },
+                    {
+                        "value": "2",
+                        "description": "2 mm"
+                    },
+                    {
+                        "value": "3",
+                        "description": "3 mm"
+                    },
+                    {
+                        "value": "9",
+                        "description": "900 μm"
+                    }
+                ]
+            },
+            {
+                "id": "_inputFiberLength",
+                "type": "select",
+                "placeholder": "FFF",
+                "description": "INPUT FIBER LENGTH",
+                "color": "light-yellow",
+                "options": [
+                    {
+                        "value": "0D5",
+                        "description": "0.5 Meters"
+                    },
+                    {
+                        "value": "001",
+                        "description": "1 Meter"
+                    },
+                    {
+                        "value": "1D5",
+                        "description": "1.5 Meters"
+                    },
+                    {
+                        "value": "002",
+                        "description": "2 Meters"
+                    }
+                ]
+            },
+            {
+                "id": "_outputFiberType",
+                "type": "select",
+                "placeholder": "G",
+                "description": "OUTPUT FIBER TYPE",
+                "color": "deep-blue",
+                "options": [
+                    {
+                        "value": "1",
+                        "description": "250 μm"
+                    },
+                    {
+                        "value": "2",
+                        "description": "2 mm"
+                    },
+                    {
+                        "value": "3",
+                        "description": "3 mm"
+                    },
+                    {
+                        "value": "9",
+                        "description": "900 μm"
+                    }
+                ]
+            },
+            {
+                "id": "_outputFiberLength",
+                "type": "select",
+                "placeholder": "HHH",
+                "description": "OUTPUT FIBER LENGTH",
+                "color": "deep-green",
+                "options": [
+                    {
+                        "value": "0D5",
+                        "description": "0.5 Meters"
+                    },
+                    {
+                        "value": "001",
+                        "description": "1 Meter"
+                    },
+                    {
+                        "value": "1D5",
+                        "description": "1.5 Meters"
+                    },
+                    {
+                        "value": "002",
+                        "description": "2 Meters"
+                    }
+                ]
+            },
+            {
+                "id": "_package",
+                "type": "select",
+                "placeholder": "I",
+                "description": "PACKAGE",
+                "color": "deep-red",
+                "options": [
+                    {
+                        "value": "A",
+                        "description": "Stainless steel tube for 250 μm fiber"
+                    },
+                    {
+                        "value": "B",
+                        "description": "Stainless steel tube for 900 μm fiber"
+                    },
+                    {
+                        "value": "C",
+                        "description": "ABS module for 2 & 3 mm fiber"
+                    }
+                ]
+            },
+            {
+                "id": "_inputConnector",
+                "type": "select",
+                "placeholder": "JJ",
+                "description": "INPUT CONNECTOR",
+                "color": "deep-yellow",
+                "options": [
+                    {
+                        "value": "SC",
+                        "description": "SC"
+                    },
+                    {
+                        "value": "LC",
+                        "description": "LC"
+                    },
+                    {
+                        "value": "OE",
+                        "description": "Pigtail (no&nbsp;connector)"
+                    }
+                ]
+            },
+            {
+                "id": "_inputPolish",
+                "type": "select",
+                "placeholder": "K",
+                "description": "INPUT POLISH",
+                "color": "deep-purple",
+                "options": [
+                    {
+                        "value": "A",
+                        "description": "APC Single Mode"
+                    },
+                    {
+                        "value": "B",
+                        "description": "UPC Single Mode"
+                    },
+                    {
+                        "value": "D",
+                        "description": "No Polish"
+                    }
+                ]
+            },
+            {
+                "id": "_outputConnector",
+                "type": "select",
+                "placeholder": "LL",
+                "description": "OUTPUT CONNECTOR",
+                "color": "pink",
+                "options": [
+                    {
+                        "value": "SC",
+                        "description": "SC"
+                    },
+                    {
+                        "value": "LC",
+                        "description": "LC"
+                    },
+                    {
+                        "value": "OE",
+                        "description": "Pigtail (no&nbsp;connector)"
+                    }
+                ]
+            },
+            {
+                "id": "_outputPolish",
+                "type": "select",
+                "placeholder": "M",
+                "description": "OUTPUT POLISH",
+                "color": "sky-blue",
+                "options": [
+                    {
+                        "value": "A",
+                        "description": "APC Single Mode"
+                    },
+                    {
+                        "value": "B",
+                        "description": "UPC Single Mode"
+                    },
+                    {
+                        "value": "D",
+                        "description": "No Polish"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "partNumber": "SP2-ABCCCDEEEFGGHIIJ",
+        "dataSheet": "PDS-0094",
+        "description": "Planar Lightwave Circuit Optical Splitters",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "SP2-",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_configuration",
+                "type": "select",
+                "placeholder": "A",
+                "description": "CONFIGURATION",
+                "color": "deep-orange",
+                "options": [
+                    {
+                        "value": "C",
+                        "description": "1 x 4"
+                    },
+                    {
+                        "value": "D",
+                        "description": "1 x 8"
+                    },
+                    {
+                        "value": "E",
+                        "description": "1 x 16"
+                    },
+                    {
+                        "value": "F",
+                        "description": "1 x 32"
+                    },
+                    {
+                        "value": "J",
+                        "description": "2 x 4"
+                    },
+                    {
+                        "value": "K",
+                        "description": "2 x 8"
+                    },
+                    {
+                        "value": "L",
+                        "description": "2 x 16"
+                    },
+                    {
+                        "value": "M",
+                        "description": "2 x 32"
+                    }
+                ]
+            },
+            {
+                "id": "_inputFiberType",
+                "type": "select",
+                "placeholder": "B",
+                "description": "INPUT FIBER TYPE",
+                "color": "light-green",
+                "options": [
+                    {
+                        "value": "1",
+                        "description": "250 μm loose tube"
+                    },
+                    {
+                        "value": "2",
+                        "description": "2 mm jacket"
+                    },
+                    {
+                        "value": "3",
+                        "description": "3 mm jacket"
+                    },
+                    {
+                        "value": "4",
+                        "description": "250 μm ribbon"
+                    },
+                    {
+                        "value": "9",
+                        "description": "900 μm buffer"
+                    }
+                ]
+            },
+            {
+                "id": "_inputFiberLength",
+                "type": "select",
+                "placeholder": "CCC",
+                "description": "INPUT FIBER LENGTH",
+                "color": "light-red",
+                "options": [
+                    {
+                        "value": "0D5",
+                        "description": "0.5 Meters"
+                    },
+                    {
+                        "value": "001",
+                        "description": "1 Meter"
+                    },
+                    {
+                        "value": "1D5",
+                        "description": "1.5 Meters"
+                    },
+                    {
+                        "value": "002",
+                        "description": "2 Meters"
+                    }
+                ]
+            },
+            {
+                "id": "_outputFiberType",
+                "type": "select",
+                "placeholder": "D",
+                "description": "OUTPUT FIBER TYPE",
+                "color": "light-blue",
+                "options": [
+                    {
+                        "value": "2",
+                        "description": "2 mm jacket"
+                    },
+                    {
+                        "value": "3",
+                        "description": "3 mm jacket"
+                    },
+                    {
+                        "value": "4",
+                        "description": "250 μm ribbon"
+                    },
+                    {
+                        "value": "9",
+                        "description": "900 μm buffer"
+                    }
+                ]
+            },
+            {
+                "id": "_outputFiberLength",
+                "type": "select",
+                "placeholder": "EEE",
+                "description": "OUTPUT FIBER LENGTH",
+                "color": "light-purple",
+                "options": [
+                    {
+                        "value": "0D5",
+                        "description": "0.5 Meters"
+                    },
+                    {
+                        "value": "001",
+                        "description": "1 Meter"
+                    },
+                    {
+                        "value": "1D5",
+                        "description": "1.5 Meters"
+                    },
+                    {
+                        "value": "002",
+                        "description": "2 Meters"
+                    },
+                    {
+                        "value": "FN1",
+                        "description": "0.5 m (250 μm ribbon) + 0.5 m (900 μm fanout)"
+                    },
+                    {
+                        "value": "FN2",
+                        "description": "0.5 m (250 μm ribbon) + 1 m (900 μm fanout)"
+                    },
+                    {
+                        "value": "FN3",
+                        "description": "1 m (250 μm ribbon) + 0.5 m (900 μm fanout)"
+                    },
+                    {
+                        "value": "FN4",
+                        "description": "1 m (250 μm ribbon) + 1 m (900 μm fanout)"
+                    }
+                ]
+            },
+            {
+                "id": "_package",
+                "type": "select",
+                "placeholder": "F",
+                "description": "PACKAGE",
+                "color": "light-yellow",
+                "options": [
+                    {
+                        "value": "D",
+                        "description": "Mini steel module 250 μm ribbon, for 1x4~1x8 & 2x4~2x8"
+                    },
+                    {
+                        "value": "E",
+                        "description": "Mini steel module 250 μm ribbon, for 1x16~1x32 & 2x16~2x32"
+                    },
+                    {
+                        "value": "F",
+                        "description": "ABS flat module 900 μm, 2 mm & 3 mm, for 1x4~1x32 & 2x4~2x32"
+                    }
+                ]
+            },
+            {
+                "id": "_inputConnector",
+                "type": "select",
+                "placeholder": "GG",
+                "description": "INPUT CONNECTOR",
+                "color": "deep-blue",
+                "options": [
+                    {
+                        "value": "SC",
+                        "description": "SC"
+                    },
+                    {
+                        "value": "LC",
+                        "description": "LC"
+                    },
+                    {
+                        "value": "OE",
+                        "description": "Pigtail (no&nbsp;connector)"
+                    }
+                ]
+            },
+            {
+                "id": "_inputPolish",
+                "type": "select",
+                "placeholder": "H",
+                "description": "INPUT POLISH",
+                "color": "deep-green",
+                "options": [
+                    {
+                        "value": "A",
+                        "description": "APC Single Mode"
+                    },
+                    {
+                        "value": "B",
+                        "description": "UPC Single Mode"
+                    },
+                    {
+                        "value": "D",
+                        "description": "No Polish"
+                    }
+                ]
+            },
+            {
+                "id": "_outputConnector",
+                "type": "select",
+                "placeholder": "II",
+                "description": "OUTPUT CONNECTOR",
+                "color": "deep-red",
+                "options": [
+                    {
+                        "value": "SC",
+                        "description": "SC"
+                    },
+                    {
+                        "value": "LC",
+                        "description": "LC"
+                    },
+                    {
+                        "value": "OE",
+                        "description": "Pigtail (no&nbsp;connector)"
+                    }
+                ]
+            },
+            {
+                "id": "_outputPolish",
+                "type": "select",
+                "placeholder": "J",
+                "description": "OUTPUT POLISH",
+                "color": "deep-yellow",
+                "options": [
+                    {
+                        "value": "A",
+                        "description": "APC Single Mode"
+                    },
+                    {
+                        "value": "B",
+                        "description": "UPC Single Mode"
+                    },
+                    {
+                        "value": "D",
+                        "description": "No Polish"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "partNumber": "SP3-ABCCDEEF",
+        "dataSheet": "PDS-0096",
+        "description": "LGX Planar Lightwave Circuit (PLC) Optical Splitters",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "SP3-",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_configuration",
+                "type": "select",
+                "placeholder": "A",
+                "description": "CONFIGURATION",
+                "color": "deep-orange",
+                "options": [
+                    {
+                        "value": "C",
+                        "description": "1x4"
+                    },
+                    {
+                        "value": "D",
+                        "description": "1x8"
+                    },
+                    {
+                        "value": "E",
+                        "description": "1x16"
+                    },
+                    {
+                        "value": "F",
+                        "description": "1x32"
+                    },
+                    {
+                        "value": "J",
+                        "description": "2x4"
+                    },
+                    {
+                        "value": "K",
+                        "description": "2x8"
+                    },
+                    {
+                        "value": "L",
+                        "description": "2x16"
+                    },
+                    {
+                        "value": "M",
+                        "description": "2x32"
+                    }
+                ]
+            },
+            {
+                "id": "_package",
+                "type": "select",
+                "placeholder": "B",
+                "description": "COUPLING RATIO",
+                "color": "light-green",
+                "options": [
+                    {
+                        "value": "G",
+                        "description": "LGX 1 wide for 1x4 and 2x4"
+                    },
+                    {
+                        "value": "H",
+                        "description": "LGX 2 wide for 1x8 and 2x8"
+                    },
+                    {
+                        "value": "I",
+                        "description": "LGX 3 wide for 1x16 and 2x16"
+                    },
+                    {
+                        "value": "J",
+                        "description": "LGX 4 wide for 1x32 and 2x32"
+                    }
+                ]
+            },
+            {
+                "id": "_inputConnector",
+                "type": "select",
+                "placeholder": "CC",
+                "description": "INPUT CONNECTOR",
+                "color": "light-red",
+                "options": [
+                    {
+                        "value": "SC",
+                        "description": "SC"
+                    },
+                    {
+                        "value": "LC",
+                        "description": "LC"
+                    }
+                ]
+            },
+            {
+                "id": "_inputPolish",
+                "type": "select",
+                "placeholder": "D",
+                "description": "INPUT POLISH",
+                "color": "light-blue",
+                "options": [
+                    {
+                        "value": "A",
+                        "description": "APC Single Mode"
+                    },
+                    {
+                        "value": "B",
+                        "description": "UPC Single Mode"
+                    }
+                ]
+            },
+            {
+                "id": "_outputConnector",
+                "type": "select",
+                "placeholder": "EE",
+                "description": "OUTPUT CONNECTOR",
+                "color": "light-purple",
+                "options": [
+                    {
+                        "value": "SC",
+                        "description": "SC"
+                    },
+                    {
+                        "value": "LC",
+                        "description": "LC"
+                    }
+                ]
+            },
+            {
+                "id": "_outputPolish",
+                "type": "select",
+                "placeholder": "F",
+                "description": "OUTPUT POLISH",
+                "color": "light-yellow",
+                "options": [
+                    {
+                        "value": "A",
+                        "description": "APC Single Mode"
+                    },
+                    {
+                        "value": "B",
+                        "description": "UPC Single Mode"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "partNumber": "SP4-ABBCDEFFGHHI",
+        "dataSheet": "PDS-0098",
+        "description": "LGX Fused Biconic Taper Optical Splitters",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "SP4-",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_configuration",
+                "type": "select",
+                "placeholder": "A",
+                "description": "CONFIGURATION",
+                "color": "deep-orange",
+                "options": [
+                    {
+                        "value": "A",
+                        "description": "1x2"
+                    },
+                    {
+                        "value": "H",
+                        "description": "2x2"
+                    }
+                ]
+            },
+            {
+                "id": "_couplingRatio",
+                "type": "select",
+                "placeholder": "BB",
+                "description": "COUPLING RATIO",
+                "color": "light-green",
+                "options": [
+                    {
+                        "value": "01",
+                        "description": "1/99"
+                    },
+                    {
+                        "value": "02",
+                        "description": "2/98"
+                    },
+                    {
+                        "value": "03",
+                        "description": "3/97"
+                    },
+                    {
+                        "value": "04",
+                        "description": "4/96"
+                    },
+                    {
+                        "value": "UP",
+                        "description": "Up To"
+                    },
+                    {
+                        "value": "50",
+                        "description": "50/50"
+                    },
+                    {
+                        "value": "EV",
+                        "description": "Even"
+                    }
+                ]
+            },
+            {
+                "id": "_wavelength",
+                "type": "select",
+                "placeholder": "C",
+                "description": "WAVELENGTH",
+                "color": "light-red",
+                "options": [
+                    {
+                        "value": "1",
+                        "description": "1310 nm (single window)"
+                    },
+                    {
+                        "value": "2",
+                        "description": "1550 nm (single window)"
+                    },
+                    {
+                        "value": "3",
+                        "description": "1310/1550 nm (dual window)"
+                    },
+                    {
+                        "value": "4",
+                        "description": "1310/1490/1550 nm (triple window)"
+                    }
+                ]
+            },
+            {
+                "id": "_fiberPerformance",
+                "type": "select",
+                "placeholder": "D",
+                "description": "FIBER PERFORMANCE",
+                "color": "light-blue",
+                "options": [
+                    {
+                        "value": "1",
+                        "description": "Single Mode OS2"
+                    }
+                ]
+            },
+            {
+                "id": "_package",
+                "type": "select",
+                "placeholder": "E",
+                "description": "INPUT FIBER TYPE",
+                "color": "light-purple",
+                "options": [
+                    {
+                        "value": "G",
+                        "description": "LGX 1 wide for 1x2 and 2x2"
+                    }
+                ]
+            },
+            {
+                "id": "_inputConnector",
+                "type": "select",
+                "placeholder": "FF",
+                "description": "INPUT CONNECTOR",
+                "color": "light-yellow",
+                "options": [
+                    {
+                        "value": "SC",
+                        "description": "SC"
+                    },
+                    {
+                        "value": "LC",
+                        "description": "LC"
+                    }
+                ]
+            },
+            {
+                "id": "_inputPolish",
+                "type": "select",
+                "placeholder": "G",
+                "description": "INPUT POLISH",
+                "color": "deep-blue",
+                "options": [
+                    {
+                        "value": "A",
+                        "description": "APC Single Mode"
+                    },
+                    {
+                        "value": "B",
+                        "description": "UPC Single Mode"
+                    }
+                ]
+            },
+            {
+                "id": "_outputConnector",
+                "type": "select",
+                "placeholder": "HH",
+                "description": "OUTPUT CONNECTOR",
+                "color": "deep-green",
+                "options": [
+                    {
+                        "value": "SC",
+                        "description": "SC"
+                    },
+                    {
+                        "value": "LC",
+                        "description": "LC"
+                    }
+                ]
+            },
+            {
+                "id": "_outputPolish",
+                "type": "select",
+                "placeholder": "I",
+                "description": "OUTPUT POLISH",
+                "color": "deep-red",
+                "options": [
+                    {
+                        "value": "A",
+                        "description": "APC Single Mode"
+                    },
+                    {
+                        "value": "B",
+                        "description": "UPC Single Mode"
+                    }
+                ]
+            }
+        ]
+    }
+]

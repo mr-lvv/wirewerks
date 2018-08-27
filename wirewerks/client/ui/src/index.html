@@ -12,8 +12,10 @@
 	<link rel="canonical" href="https://wirewerks.com"/>
 	<link rel="alternate" href="https://wirewerks.com" hreflang="en"/>
 
+	<!-- Styles -->
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
-	<link rel="stylesheet" href="/styles/main.css">
+	<link rel="stylesheet" href="/styles/wwStyles.css">
 
 	<!-- Google Analytics -->
 	<script>
@@ -34,16 +36,21 @@
 	<script src="/node_modules/systemjs/dist/system.js"></script>
 	<script src="/app/config.js"></script>
 
+	<script>System.import('ww/main.js')</script>
+	
 	<base href="/">
 </head>
 
 <!-- 3. Display the application -->
 <body>
-	<ng-view class="placeholder"></ng-view>
+	<header ng-include="'app/views/header.html'"></header>
+	<div class="content container">
+		<div class="jumbotron shadow">
+			<div ui-view="nav"></div>
+			<div ui-view="content"></div>
+		</div>
+	</div>
 
-	<ww-app>Loading...</ww-app>
-
-	<script>System.import('ww/main.js')</script>
 </body>
 
 </html>

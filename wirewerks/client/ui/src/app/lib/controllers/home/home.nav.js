@@ -1,0 +1,2 @@
+var homeNavCtrl = function () {
+};

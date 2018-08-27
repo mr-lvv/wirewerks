@@ -1,0 +1,560 @@
+[
+    {
+        "partNumber": "NWDM-ABBWAVECDEFF",
+        "dataSheet": "n/a",
+        "description": "NEXT STEP™ WDM 4CH MULTIPLEXERS",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "NWDM-",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_applications",
+                "type": "select",
+                "placeholder": "A",
+                "description": "APPLICATIONS",
+                "color": "deep-orange",
+                "options": [
+                    {
+                        "value": "3",
+                        "description": "MUX or DEMUX"
+                    },
+                    {
+                        "value": "4",
+                        "description": "MUX and DEMUX"
+                    }
+                ]
+            },
+            {
+                "id": "_numberOfChannels",
+                "type": "select",
+                "placeholder": "BB",
+                "description": "NUMBER OF CHANNELS",
+                "color": "light-green",
+                "options": [
+                    {
+                        "value": "40",
+                        "description": "4 Channels"
+                    },
+                    {
+                        "value": "41",
+                        "description": "4 Channels + 1310"
+                    },
+                    {
+                        "value": "42",
+                        "description": "4 Channels + EXP"
+                    },
+                    {
+                        "value": "43",
+                        "description": "4 Channels + EX + 1310"
+                    },
+                    {
+                        "value": "44",
+                        "description": "4 Channels + 1550"
+                    },
+                    {
+                        "value": "45",
+                        "description": "4 Channels + EX + 1550"
+                    }
+                ]
+            },
+            {
+                "id": "_cwdmChannel",
+                "type": "select",
+                "placeholder": "WAVE",
+                "description": "CWDM CHANNEL",
+                "color": "light-red",
+                "options": [
+                    {
+                        "value": "4001",
+                        "description": "1431, 1451, 1471, 1491"
+                    },
+                    {
+                        "value": "4002",
+                        "description": "1511, 1531, 1591, 1611"
+                    },
+                    {
+                        "value": "4003",
+                        "description": "1471, 1491, 1511, 1531"
+                    },
+                    {
+                        "value": "4004",
+                        "description": "1551, 1571, 1591, 1611"
+                    },
+                    {
+                        "value": "4005",
+                        "description": "1511, 1571, 1591, 1611"
+                    }
+                ]
+            },
+            {
+                "id": "_commonAccessibility",
+                "type": "select",
+                "placeholder": "C",
+                "description": "COMMON ACCESSIBILITY",
+                "color": "light-blue",
+                "options": [
+                    {
+                        "value": "1",
+                        "description": "Front Access"
+                    },
+                    {
+                        "value": "2",
+                        "description": "Back Access SC/APC"
+                    },
+                    {
+                        "value": "3",
+                        "description": "Back Access SC/UPC"
+                    },
+                    {
+                        "value": "4",
+                        "description": "Back Access SC/APC DX"
+                    },
+                    {
+                        "value": "5",
+                        "description": "Back Access SC/UPC DX"
+                    }
+                ]
+            },
+            {
+                "id": "_expPortAccessibility",
+                "type": "select",
+                "placeholder": "D",
+                "description": "EXP PORT ACCESSIBILITY",
+                "color": "light-purple",
+                "options": [
+                    {
+                        "value": "1",
+                        "description": "Front Access"
+                    },
+                    {
+                        "value": "2",
+                        "description": "Back Access"
+                    },
+                    {
+                        "value": "Z",
+                        "description": "Not Applicable"
+                    }
+                ]
+            },
+            {
+                "id": "_tapPort",
+                "type": "select",
+                "placeholder": "E",
+                "description": "TAP PORT",
+                "color": "light-yellow",
+                "options": [
+                    {
+                        "value": "1",
+                        "description": "1/99 TAP Port"
+                    },
+                    {
+                        "value": "2",
+                        "description": "2/98 TAP Port"
+                    },
+                    {
+                        "value": "5",
+                        "description": "5/95 TAP Port"
+                    },
+                    {
+                        "value": "Z",
+                        "description": "No TAP Port"
+                    }
+                ]
+            },
+            {
+                "id": "_frontConnector",
+                "type": "select",
+                "placeholder": "FF",
+                "description": "FRONT CONNECTOR",
+                "color": "deep-blue",
+                "options": [
+                    {
+                        "value": "LA",
+                        "description": "LC/APC"
+                    },
+                    {
+                        "value": "LB",
+                        "description": "LC/UPC"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "partNumber": "NWDM-ABBWAVECDEFF",
+        "dataSheet": "n/a",
+        "description": "NEXT STEP™ WDM 4CH MULTIPLEXERS",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "NWDM-",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_applications",
+                "type": "select",
+                "placeholder": "A",
+                "description": "APPLICATIONS",
+                "color": "deep-orange",
+                "options": [
+                    {
+                        "value": "3",
+                        "description": "MUX or DEMUX"
+                    },
+                    {
+                        "value": "4",
+                        "description": "MUX and DEMUX"
+                    }
+                ]
+            },
+            {
+                "id": "_numberOfChannels",
+                "type": "select",
+                "placeholder": "BB",
+                "description": "NUMBER OF CHANNELS",
+                "color": "light-green",
+                "options": [
+                    {
+                        "value": "40",
+                        "description": "4 Channels"
+                    },
+                    {
+                        "value": "41",
+                        "description": "4 Channels + 1310"
+                    },
+                    {
+                        "value": "42",
+                        "description": "4 Channels + EXP"
+                    },
+                    {
+                        "value": "43",
+                        "description": "4 Channels + EX + 1310"
+                    },
+                    {
+                        "value": "44",
+                        "description": "4 Channels + 1550"
+                    },
+                    {
+                        "value": "45",
+                        "description": "4 Channels + EX + 1550"
+                    }
+                ]
+            },
+            {
+                "id": "_cwdmChannel",
+                "type": "select",
+                "placeholder": "WAVE",
+                "description": "CWDM CHANNEL",
+                "color": "light-red",
+                "options": [
+                    {
+                        "value": "4001",
+                        "description": "1431, 1451, 1471, 1491"
+                    },
+                    {
+                        "value": "4002",
+                        "description": "1511, 1531, 1591, 1611"
+                    },
+                    {
+                        "value": "4003",
+                        "description": "1471, 1491, 1511, 1531"
+                    },
+                    {
+                        "value": "4004",
+                        "description": "1551, 1571, 1591, 1611"
+                    },
+                    {
+                        "value": "4005",
+                        "description": "1511, 1571, 1591, 1611"
+                    }
+                ]
+            },
+            {
+                "id": "_commonAccessibility",
+                "type": "select",
+                "placeholder": "C",
+                "description": "COMMON ACCESSIBILITY",
+                "color": "light-blue",
+                "options": [
+                    {
+                        "value": "1",
+                        "description": "Front Access"
+                    },
+                    {
+                        "value": "2",
+                        "description": "Back Access SC/APC"
+                    },
+                    {
+                        "value": "3",
+                        "description": "Back Access SC/UPC"
+                    },
+                    {
+                        "value": "4",
+                        "description": "Back Access SC/APC DX"
+                    },
+                    {
+                        "value": "5",
+                        "description": "Back Access SC/UPC DX"
+                    }
+                ]
+            },
+            {
+                "id": "_expPortAccessibility",
+                "type": "select",
+                "placeholder": "D",
+                "description": "EXP PORT ACCESSIBILITY",
+                "color": "light-purple",
+                "options": [
+                    {
+                        "value": "1",
+                        "description": "Front Access"
+                    },
+                    {
+                        "value": "2",
+                        "description": "Back Access"
+                    },
+                    {
+                        "value": "Z",
+                        "description": "Not Applicable"
+                    }
+                ]
+            },
+            {
+                "id": "_tapPort",
+                "type": "select",
+                "placeholder": "E",
+                "description": "TAP PORT",
+                "color": "light-yellow",
+                "options": [
+                    {
+                        "value": "1",
+                        "description": "1/99 TAP Port"
+                    },
+                    {
+                        "value": "2",
+                        "description": "2/98 TAP Port"
+                    },
+                    {
+                        "value": "5",
+                        "description": "5/95 TAP Port"
+                    },
+                    {
+                        "value": "Z",
+                        "description": "No TAP Port"
+                    }
+                ]
+            },
+            {
+                "id": "_frontConnector",
+                "type": "select",
+                "placeholder": "FF",
+                "description": "FRONT CONNECTOR",
+                "color": "deep-blue",
+                "options": [
+                    {
+                        "value": "LA",
+                        "description": "LC/APC"
+                    },
+                    {
+                        "value": "LB",
+                        "description": "LC/UPC"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "partNumber": "CWDM1-AABCCDEE",
+        "dataSheet": "n/a",
+        "description": "1CH MULTIPLEXERS FILTER",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "CWDM1-",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_wavelengthPassingBand",
+                "type": "select",
+                "placeholder": "AA",
+                "description": "WAVELENGTH PASSING BAND",
+                "color": "deep-orange",
+                "columns": 2,
+                "options": [
+                    {
+                        "value": "27",
+                        "description": "1271"
+                    },
+                    {
+                        "value": "29",
+                        "description": "1291"
+                    },
+                    {
+                        "value": "31",
+                        "description": "1311"
+                    },
+                    {
+                        "value": "33",
+                        "description": "1331"
+                    },
+                    {
+                        "value": "35",
+                        "description": "1351"
+                    },
+                    {
+                        "value": "37",
+                        "description": "1371"
+                    },
+                    {
+                        "value": "39",
+                        "description": "1391"
+                    },
+                    {
+                        "value": "41",
+                        "description": "1411"
+                    },
+                    {
+                        "value": "43",
+                        "description": "1431"
+                    },
+                    {
+                        "value": "45",
+                        "description": "1451"
+                    },
+                    {
+                        "value": "47",
+                        "description": "1471"
+                    },
+                    {
+                        "value": "49",
+                        "description": "1491"
+                    },
+                    {
+                        "value": "51",
+                        "description": "1511"
+                    },
+                    {
+                        "value": "53",
+                        "description": "1531"
+                    },
+                    {
+                        "value": "55",
+                        "description": "1551"
+                    },
+                    {
+                        "value": "57",
+                        "description": "1571"
+                    },
+                    {
+                        "value": "59",
+                        "description": "1591"
+                    },
+                    {
+                        "value": "61",
+                        "description": "1611"
+                    }
+                ]
+            },
+            {
+                "id": "_bufferSize",
+                "type": "select",
+                "placeholder": "B",
+                "description": "BUFFER SIZE",
+                "color": "light-green",
+                "options": [
+                    {
+                        "value": "1",
+                        "description": "250 μm"
+                    },
+                    {
+                        "value": "9",
+                        "description": "900 μm"
+                    },
+                    {
+                        "value": "2",
+                        "description": "2 mm"
+                    },
+                    {
+                        "value": "3",
+                        "description": "3 mm"
+                    }
+                ]
+            },
+            {
+                "id": "_inputOutputConnector",
+                "type": "select",
+                "placeholder": "CC",
+                "description": "INPUT/OUTPUT CONNECTOR",
+                "color": "light-red",
+                "options": [
+                    {
+                        "value": "SC",
+                        "description": "SC"
+                    },
+                    {
+                        "value": "LC",
+                        "description": "LC"
+                    },
+                    {
+                        "value": "FC",
+                        "description": "FC"
+                    },
+                    {
+                        "value": "ST",
+                        "description": "ST"
+                    },
+                    {
+                        "value": "ZZ",
+                        "description": "None"
+                    }
+                ]
+            },
+            {
+                "id": "_polishType",
+                "type": "select",
+                "placeholder": "D",
+                "description": "POLISH TYPE",
+                "color": "light-blue",
+                "options": [
+                    {
+                        "value": "A",
+                        "description": "APC"
+                    },
+                    {
+                        "value": "B",
+                        "description": "UPC"
+                    },
+                    {
+                        "value": "Z",
+                        "description": "None"
+                    }
+                ]
+            },
+            {
+                "id": "_fiberLength",
+                "type": "select",
+                "placeholder": "EE",
+                "description": "FIBER LENGTH",
+                "color": "light-purple",
+                "options": [
+                    {
+                        "value": "10",
+                        "description": "1 Meter"
+                    },
+                    {
+                        "value": "15",
+                        "description": "1.5 Meters"
+                    }
+                ]
+            }
+        ]
+    }
+]

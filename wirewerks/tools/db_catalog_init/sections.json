@@ -1,0 +1,87 @@
+[
+    {
+        "type": "Copper Products",
+        "name": "Bulk Copper Cables",
+        "number": 1
+    },
+    {
+        "type": "Copper Products",
+        "name": "Keywerks Modules",
+        "number": 2
+    },
+    {
+        "type": "Copper Products",
+        "name": "Copper Patch Cords and Pigtails",
+        "number": 3
+    },
+    {
+        "type": "Copper Products",
+        "name": "Copper Patch Panels",
+        "number": 4
+    },
+    {
+        "type": "Copper Products",
+        "name": "Outlets",
+        "number": 5
+    },
+    {
+        "type": "Copper Products",
+        "name": "Multimedia",
+        "number": 6
+    },
+    {
+        "type": "Copper Products",
+        "name": "Copper Tools",
+        "number": 7
+    },
+    {
+        "type": "Fiber Products",
+        "name": "Fiber Cable Assemblies",
+        "number": 8
+    },
+    {
+        "type": "Fiber Products",
+        "name": "Adapters and Attenuators",
+        "number": 9
+    },
+    {
+        "type": "Fiber Products",
+        "name": "Field Terminable Connectors",
+        "number": 10
+    },
+    {
+        "type": "Fiber Products",
+        "name": "Fiber Patch Cords and Pigtails",
+        "number": 11
+    },
+    {
+        "type": "Fiber Products",
+        "name": "Fiber Splitters",
+        "number": 12
+    },
+    {
+        "type": "Fiber Products",
+        "name": "Wavelength Multiplexers",
+        "number": 13
+    },
+    {
+        "type": "Fiber Products",
+        "name": "Fiber Patch Panels",
+        "number": 14
+    },
+    {
+        "type": "Fiber Products",
+        "name": "Fusion and Splicing",
+        "number": 15
+    },
+    {
+        "type": "Fiber Products",
+        "name": "Fiber Tools",
+        "number": 16
+    },
+    {
+        "type": "Other",
+        "name": "Active Devices",
+        "number": 17
+    }
+]

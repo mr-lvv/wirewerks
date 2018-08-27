@@ -15,15 +15,15 @@
 }(this, function () {
 
 	// Unknown parts are more precise then "ABC.." in part number because sometimes part numbers's category value is the same as a part
-	var UnknownPartSymbol = '?'
+	var UnknownPartSymbol = '?';
 
 	/**
 	 * Minimum required to distinguish different parts with same id
 	 */
 	class PartInfo {
 		constructor(part, category) {
-			this.part = part
-			this.category = category
+			this.part = part;
+			this.category = category;
 		}
 	}
 
@@ -37,22 +37,22 @@
 		validate(value, part) {
 			//here we can use regexp to check
 			if (!value || value == 0)
-				return false
+				return false;
 
 			var numberOfDigit = this.numberOfDigit(part)
 			if (part.allowDecimal) {
 				if (value.indexOf(".") >= 0) {
 					var decimalPart = value.split(".")[1]
 					if (!decimalPart || decimalPart == 0)
-						return false
+						return false;
 				}
 
 				var re = new RegExp('^\\d{1,' + numberOfDigit + "}(\\.[0-9][0-9]?)?$");
-				return re.test(value)
+				return re.test(value);
 			}
 			else {
 				var re = new RegExp('^\\d{1,' + numberOfDigit + "}$");
-				return re.test(value)
+				return re.test(value);
 			}
 		}
 
@@ -60,7 +60,7 @@
 			return _.countBy(part.value)['X'];
 		}
 
-		static get instance() {return PartService._instance ? PartService._instance : PartService._instance = new PartService}
+		static get instance() { return PartService._instance ? PartService._instance : PartService._instance = new PartService(); }
 	}
 
 	/**
@@ -68,10 +68,10 @@
 	 */
 	class ProductValidation {
 		constructor(product, rule) {
-			this.product = product
-			this.rule = rule						// Rule for this product
-			this.validPartsMap = {}
-			this.selection = {}				// Last used selection (cached)
+			this.product = product;
+			this.rule = rule;						// Rule for this product
+			this.validPartsMap = {};
+			this.selection = {};				// Last used selection (cached)
 		}
 
 		/**
@@ -84,17 +84,17 @@
 		 */
 		validate(category, part, selection) {
 			if (!this.rule)
-				return true
+				return true;
 
 			if (this.rule[category]) {
-				var currentRulesArray = this.rule[category][part]
-				var defaultRulesArray = this.rule[category]["*"]
+				var currentRulesArray = this.rule[category][part];
+				var defaultRulesArray = this.rule[category]["*"];
 
 				if (!currentRulesArray && !defaultRulesArray)
-					return true
+					return true;
 
-				currentRulesArray = currentRulesArray ? currentRulesArray : {}
-				defaultRulesArray = defaultRulesArray ? defaultRulesArray : {}
+				currentRulesArray = currentRulesArray ? currentRulesArray : {};
+				defaultRulesArray = defaultRulesArray ? defaultRulesArray : {};
 
 				for (var key in selection) {
 					if (selection.hasOwnProperty(key)) {
@@ -104,33 +104,33 @@
 							//see if the value affects anything
 							if (whichRule[selection[key]]) {
 								//check if there'a an AND clause
-								var andArray = whichRule[selection[key]]["&"]
+								var andArray = whichRule[selection[key]]["&"];
 								if (andArray) {
 									for (var key2 in andArray) {
 										if (andArray.hasOwnProperty(key2)) {
 											if (selection[andArray[key2].category] &&
-											selection[andArray[key2].category] == andArray[key2].value)
+												selection[andArray[key2].category] == andArray[key2].value)
 												if (andArray[key2].valid == false)
-													return false
+													return false;
 										}
 									}
 								}
 
 								if (whichRule[selection[key]].valid == false)
-									return false
+									return false;
 							}
 							else if (whichRule["*"] && whichRule["*"].valid == false)
-								return false
+								return false;
 						}
 					}
 				}
 			}
 
-			return true
+			return true;
 		}
 
 		createValidationMap(selection) {
-			this.validPartsMap = {}
+			this.validPartsMap = {};
 
 			this.product.partGroups.forEach((group) => {
 				group.partCategories.forEach((category) => {
@@ -145,16 +145,16 @@
 						}
 
 
-						this.validPartsMap[category.title][part.value] = {}
-						this.validPartsMap[category.title][part.value]['valid'] = isValid
+						this.validPartsMap[category.title][part.value] = {};
+						this.validPartsMap[category.title][part.value]['valid'] = isValid;
 						if (isValid) {
 							if (!this.validPartsMap[category.title]['number']) {
-								this.validPartsMap[category.title]['number'] = 1
-								this.validPartsMap[category.title]['default'] = part.value
-								this.validPartsMap[category.title][part.value]['part'] = part
+								this.validPartsMap[category.title]['number'] = 1;
+								this.validPartsMap[category.title]['default'] = part.value;
+								this.validPartsMap[category.title][part.value]['part'] = part;
 							}
 							else
-								this.validPartsMap[category.title]['number']++
+								this.validPartsMap[category.title]['number']++;
 						}
 					})
 				})
@@ -165,7 +165,7 @@
 
 		// Using cached map
 		valid(category, part) {
-			return _.keys(this.selection).length === 0 || (this.validPartsMap[category] && this.validPartsMap[category][part]['valid'] === true)
+			return _.keys(this.selection).length === 0 || (this.validPartsMap[category] && this.validPartsMap[category][part]['valid'] === true);
 		}
 	}
 
@@ -178,17 +178,17 @@
 	 */
 	class PartNumber {
 		constructor(product, productRegex, validator) {
-			this.product = product
-			this.regex = productRegex
-			this.validator = validator
+			this.product = product;
+			this.regex = productRegex;
+			this.validator = validator;
 		}
 
 		// TODO: Move into a Parts util class. Also duplicated in a number of places...
 		static _partForCategory(category, parts) {
-			if (!category) return
+			if (!category) return;
 
 			return _.find(parts, (partInfo) => {
-				return partInfo.category.type === category.type
+				return partInfo.category.type === category.type;
 			})
 		}
 
@@ -197,21 +197,19 @@
 		 * @returns Array PartInfo
 		 */
 		parse(partnumber, keepWildcards, cb) {
-			if (!this.regex)
-			{
-				if(cb)
+			if (!this.regex) {
+				if (cb)
 					cb([])
 				else
 					return []
 			}
 
 
-			if (!this.validator)
-			{
-				if(cb)
-					cb([])
+			if (!this.validator) {
+				if (cb)
+					cb([]);
 				else
-					return []
+					return [];
 			}
 
 			// TODO: see if we can put it back
@@ -219,31 +217,31 @@
 			//if (!productRegex.test(partnumber))
 			//	return []
 
-			var result = []
+			var result = [];
 
-			this.selection = {}
+			this.selection = {};
 			this.validator.createValidationMap(this.selection)
 
-			var partnumberCleaned = partnumber.replace(/-/g, '')
-			var startIndex = 0
-			result.errors = {}			// Key is category where errors happen. Value is info object.
+			var partnumberCleaned = partnumber.replace(/-/g, '');
+			var startIndex = 0;
+			result.errors = {};		// Key is category where errors happen. Value is info object.
 			this.product.partGroups.forEach((group) => {
 				group.partCategories.forEach((category) => {
 					if (category.constant) {
 						//move forward
-						startIndex += category.title.length
-						return
+						startIndex += category.title.length;
+						return;
 					}
 
-					var length = category.length
-					var value = partnumberCleaned.substr(startIndex, length)
+					var length = category.length;
+					var value = partnumberCleaned.substr(startIndex, length);
 
 					// Simply skip parts that are not set (unknown parts)
 					var isUnknownPart = value === _.repeat(UnknownPartSymbol, length)
 					if (!isUnknownPart) {
 						var found = category.parts.some(part => {
-							var found = false
-							var valueToCheck = value
+							var found = false;
+							var valueToCheck = value;
 							if (part.xIsDigit) {
 								valueToCheck = value.replace(/[0-9]/g, "X")
 							}
@@ -256,33 +254,33 @@
 								if (valid && part.xIsDigit) {
 									if (part.allowDecimal && partnumberCleaned[startIndex + length] == 'D') {
 										//now we have to extract more
-										length = length + 3
+										length = length + 3;
 										value = partnumberCleaned.substr(startIndex, length)
 									}
 
 									var cleanedValue = part.allowDecimal ? value.replace('D', '.') : value.replace(/\D/g, '')
 									if (!PartService.instance.validate(cleanedValue, part))
-										valid = false
+										valid = false;
 								}
 							}
 
 							// Wildcards are letters that can denote any valid part (ie: ABCDE)
-							var wildcard = false
+							var wildcard = false;
 							if (!valid && (keepWildcards && value)) {
 								var numberMatch = part.value === valueToCheck		// eg: 'XXN'
 								var categoryMatch = value == _.repeat("$", category.length)
 								var isWildCard = numberMatch || categoryMatch
 
 								if (isWildCard) {
-									valid = true
-									wildcard = true
+									valid = true;
+									wildcard = true;
 								}
 							}
 
 							if (valid) {
 								if (part.xIsDigit) {
-									part.inputValue = value
-									part.inputValueValid = true
+									part.inputValue = value;
+									part.inputValueValid = true;
 
 									if (wildcard) {
 										part.inputValue = _.repeat('1', PartService.instance.numberOfDigit(part))
@@ -290,29 +288,29 @@
 								}
 
 								var partInfo = new PartInfo(part, category)
-								partInfo.wildcard = wildcard
+								partInfo.wildcard = wildcard;
 
 								this.validator.createValidationMap(this.selection)			// Rebuild validation cache when parts change
 								result.push(partInfo)
-								found = true
+								found = true;
 							}
 
-							return found
-						})
+							return found;
+						});
 
 						if (!found && value) {
-							result.errors[category.title] = {category: category, value: value}		// Value is the part of the partnumber that caused the error
+							result.errors[category.title] = { category: category, value: value }		// Value is the part of the partnumber that caused the error
 						}
 					}
 
-					startIndex += length
-				})
-			})
+					startIndex += length;
+				});
+			});
 
-			if(cb)
+			if (cb)
 				cb(result)
 			else
-				return result
+				return result;
 		}
 
 		// Return a part number from a list of parts
@@ -320,31 +318,31 @@
 		// And remove all the strange "orderNumber" and "simpleOrderNumber" in Order class.
 		static partNumber(parts, product, clip, useSymbolForUnknown) {
 			if (!parts) {
-				return ''
+				return '';
 			}
 
-			var partNumber = ''
-			var buffer = ''
+			var partNumber = '';
+			var buffer = '';
 
 			var first = true
 			product.partGroups.forEach(group => {
 				if (!first) {
-					buffer += '-'
+					buffer += '-';
 				}
-				first = false
+				first = false;
 
 				group.partCategories.forEach((category) => {
-					var partInfo
+					var partInfo;
 
 					if (category.constant) {
-						buffer += category.title
+						buffer += category.title;
 					}
 					else {
 						partInfo = PartNumber._partForCategory(category, parts)
 
-						var categorySymbol = category.type
+						var categorySymbol = category.type;
 						if (useSymbolForUnknown) {
-							categorySymbol = UnknownPartSymbol
+							categorySymbol = UnknownPartSymbol;
 						}
 
 						var label = _.repeat(categorySymbol, category.length)
@@ -360,17 +358,17 @@
 							}
 						}
 
-						buffer += label
+						buffer += label;
 					}
 
 					if (partInfo && !category.constant) {
-						partNumber += buffer
-						buffer = ''
+						partNumber += buffer;
+						buffer = '';
 					}
-				})
-			})
+				});
+			});
 
-			return partNumber
+			return partNumber;
 		}
 	}
 

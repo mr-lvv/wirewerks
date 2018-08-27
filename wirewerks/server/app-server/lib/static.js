@@ -1,5 +1,5 @@
 var path = require('path');
-var express =require('express');
+var express = require('express');
 var fs = require('fs');
 
 class StaticFiles {
@@ -31,13 +31,15 @@ class StaticFiles {
 		this._app = app;
 		this.paths = {
 			client: path.join(__dirname, '../../../client/ui/' + config.clientFolder),
-			common: path.join(__dirname, '../../../common'),
-		}
+			common: path.join(__dirname, '../../../common')
+		};
 
-		this.staticserve('/', this.paths.client)
-		this.staticserve('/state', this.paths.client)
-		this.staticserve('/state/*', this.paths.client)
-		this.staticserve('/common', this.paths.common)
+		//this.staticserve(/^(?!api\/client).*$/, this.paths.client);
+		//this.staticserve('/*', this.paths.client);
+		this.staticserve('/', this.paths.client);
+		this.staticserve('/state', this.paths.client);
+		this.staticserve('/state/*', this.paths.client);
+		this.staticserve('/common', this.paths.common);
 	}
 }
 

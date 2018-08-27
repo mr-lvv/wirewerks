@@ -1,0 +1,95 @@
+<!-- COPPER -->
+<div class="row row-eq-height copper">
+    
+    <!-- COPPER HEADER -->
+    <div class="home-header-col col-xs-1">
+        <div class="home-header-container bg-copper">
+            <label class="home-header sideway">
+                COPPER PRODUCTS
+            </label>
+        </div>
+    </div>
+    
+    <!-- COPPER SECTIONS -->
+    <div class="home-sections-col col-xs-11">               
+        
+        <!-- Centers items vertically when header is taller than sections height -->
+        <div class="row vertical-align-table">                        
+            <div class="vertical-align-cell">
+                
+                <!-- INDIVIDUAL COPPER SECTION -->
+                <div class="home-section-col col-md-4 col-sm-6 col-xs-12 transition-smooth" ng-repeat="section in sections | filter:{ type: 'copper' }"  ui-sref="products.section({sectionNumber: '{{section.number}}'})">                         
+                    <div class="home-section-wrapper">
+                        <div class="home-section-container">
+                            <img class="home-section-img" ng-src="images/icons/{{section.number}}.png">                                  
+                            <label class="home-section-label">{{section.description}}</label>                            
+                        </div>
+                    </div>
+                </div>
+            </div>   
+        </div>
+    </div>
+</div>
+<!-- COPPER SECTION END-->
+<!-- FIBER -->
+<div class="row row-eq-height fiber">
+
+    <!-- FIBER HEADER -->
+    <div class="home-header-col col-xs-1">
+        <div class="home-header-container bg-fiber">
+            <label class="home-header sideway">
+                FIBER PRODUCTS
+            </label>
+        </div>
+    </div>
+
+    <!-- FIBER SECTIONS -->
+    <div class="home-sections-col col-xs-11">
+
+        <!-- Centers items vertically when header is taller than sections height -->
+        <div class="row vertical-align-table">
+            <div class="vertical-align-cell">
+
+                <!-- INDIVIDUAL FIBER SECTION -->
+                <div class="home-section-col col-md-4 col-sm-6 col-xs-12 transition-smooth" ng-repeat="section in sections | filter:{ type: 'fiber' }" ui-sref="products.section({sectionNumber: '{{section.number}}'})">
+                    <div class="home-section-wrapper">
+                        <div class="home-section-container">
+                            <img class="home-section-img" ng-src="images/icons/{{section.number}}.png">
+                            <label class="home-section-label">{{section.description}}</label>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<!-- FIBER SECTION END-->
+<!-- OTHER SECTION -->
+<div class="row row-eq-height other">
+    <!-- OTHER HEADER -->
+    <div class="home-header-col col-xs-1">
+        <div class="home-header-container bg-other">
+            <label class="home-header sideway">
+                <!-- OTHER PRODUCTS -->
+            </label>
+        </div>
+    </div>
+    <!-- OTHER MENU -->
+    <div class="home-sections-col col-xs-11">
+        <div class="row">
+            <!-- INDIVIDUAL OTHER SECTION -->
+            <div class="home-section-col col-md-4 col-sm-6 col-xs-12 transition-smooth" ng-repeat="section in sections | filter:{ type: 'other' }" ui-sref="products.section({sectionNumber: '{{section.number}}'})">
+                <div class="home-section-wrapper">
+                    <div class="home-section-container">
+                        <img class="home-section-img" ng-src="images/icons/{{section.number}}.png">
+                        <label class="home-section-label">{{section.description}}</label>
+                    </div>
+                </div>
+            </div>
+        </div>              
+    </div>
+</div>
+<!-- OTHER SECTION END-->

@@ -1,0 +1,1256 @@
+[
+    {
+        "partNumber": "MS-LCABB",
+        "dataSheet": "PDS-0130",
+        "description": "LC Mating Sleeve Adapter",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "MS-LC",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_sleeve",
+                "type": "select",
+                "placeholder": "A",
+                "description": "SLEEVE",
+                "color": "deep-orange",
+                "options": [
+                    {
+                        "value": "1",
+                        "description": "Zirconia Ceramic",
+                        "conditions": []
+                    },
+                    {
+                        "value": "2",
+                        "description": "Phosphor Bronze",
+                        "conditions": []
+                    }
+                ]
+            },
+            {
+                "id": "_bodyType",
+                "type": "select",
+                "placeholder": "BB",
+                "description": "BODY TYPE",
+                "color": "light-green",
+                "columns": 3,
+                "optionsGroup1Title": "BODY&nbsp;TYPE – SINGLE&nbsp;MODE",
+                "optionsGroup2Title": "BODY&nbsp;TYPE – MULTIMODE",
+                "options": [
+                    {
+                        "value": "SS",
+                        "description": "Simplex Blue",
+                        "group": 1
+                    },
+                    {
+                        "value": "AS",
+                        "description": "APC Simplex&nbsp;Green",
+                        "group": 1
+                    },
+                    {
+                        "value": "SF",
+                        "description": "Duplex Flanged&nbsp;Blue",
+                        "group": 1
+                    },
+                    {
+                        "value": "AF",
+                        "description": "APC duplex Flanged&nbsp;Green",
+                        "group": 1
+                    },
+                    {
+                        "value": "SQ",
+                        "description": "Quad Flanged&nbsp;Blue",
+                        "group": 1
+                    },
+                    {
+                        "value": "AQ",
+                        "description": "APC Quad Flanged&nbsp;Green",
+                        "group": 1
+                    },
+                    {
+                        "value": "MS",
+                        "description": "Simplex Beige",
+                        "group": 2
+                    },
+                    {
+                        "value": "3S",
+                        "description": "OM3/OM4 Simplex&nbsp;Aqua",
+                        "group": 2
+                    },
+                    {
+                        "value": "MF",
+                        "description": "Duplex Flanged&nbsp;Beige",
+                        "group": 2
+                    },
+                    {
+                        "value": "3F",
+                        "description": "OM3/OM4 Duplex Flanged&nbsp;Aqua",
+                        "group": 2
+                    },
+                    {
+                        "value": "MQ",
+                        "description": "Quad Flanged&nbsp;Beige",
+                        "group": 2
+                    },
+                    {
+                        "value": "3Q",
+                        "description": "OM3/OM4 Quad Flanged&nbsp;Aqua",
+                        "group": 2
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "partNumber": "MS-SCABBCD",
+        "dataSheet": "PDS-0130",
+        "description": "SC Mating Sleeve Adapter",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "MS-SC",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_sleeve",
+                "type": "select",
+                "placeholder": "A",
+                "description": "SLEEVE",
+                "color": "deep-orange",
+                "options": [
+                    {
+                        "value": "1",
+                        "description": "Zirconia Ceramic",
+                        "conditions": []
+                    },
+                    {
+                        "value": "2",
+                        "description": "Phosphor Bronze",
+                        "conditions": []
+                    }
+                ]
+            },
+            {
+                "id": "_bodyType",
+                "type": "select",
+                "placeholder": "BB",
+                "description": "BODY TYPE",
+                "color": "light-green",
+                "columns": 2,
+                "optionsGroup1Title": "BODY&nbsp;TYPE – SINGLE&nbsp;MODE",
+                "optionsGroup2Title": "BODY&nbsp;TYPE – MULTIMODE",
+                "options": [
+                    {
+                        "value": "SS",
+                        "description": "Simplex Blue",
+                        "group": 1
+                    },
+                    {
+                        "value": "AS",
+                        "description": "APC Simplex&nbsp;Green",
+                        "group": 1
+                    },
+                    {
+                        "value": "SD",
+                        "description": "Duplex SC footprint&nbsp;Blue",
+                        "group": 1
+                    },
+                    {
+                        "value": "AD",
+                        "description": "APC Duplex SC footprint&nbsp;Green",
+                        "group": 1
+                    },
+                    {
+                        "value": "MS",
+                        "description": "Simplex Beige",
+                        "group": 2
+                    },
+                    {
+                        "value": "3S",
+                        "description": "OM3/OM4 Simplex&nbsp;Aqua",
+                        "group": 2
+                    },
+                    {
+                        "value": "MD",
+                        "description": "Duplex Beige",
+                        "group": 2
+                    },
+                    {
+                        "value": "3D",
+                        "description": "OM3/OM4 Duplex&nbsp;Aqua",
+                        "group": 2
+                    }
+                ]
+            },
+            {
+                "id": "_housing",
+                "type": "select",
+                "placeholder": "C",
+                "description": "HOUSING",
+                "color": "light-red",
+                "options": [
+                    {
+                        "value": "P",
+                        "description": "Thermoplastic",
+                        "conditions": []
+                    },
+                    {
+                        "value": "M",
+                        "description": "Metal",
+                        "conditions": []
+                    }
+                ]
+            },
+            {
+                "id": "_design",
+                "type": "select",
+                "placeholder": "D",
+                "description": "DESIGN",
+                "color": "light-blue",
+                "options": [
+                    {
+                        "value": "0",
+                        "description": "No Flange",
+                        "conditions": []
+                    },
+                    {
+                        "value": "1",
+                        "description": "Flanged",
+                        "conditions": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "partNumber": "MS-FCABBC",
+        "dataSheet": "PDS-0130",
+        "description": "FC Mating Sleeve Adapter",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "MS-FC",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_sleeve",
+                "type": "select",
+                "placeholder": "A",
+                "description": "SLEEVE",
+                "color": "deep-orange",
+                "options": [
+                    {
+                        "value": "1",
+                        "description": "Zirconia Ceramic",
+                        "conditions": []
+                    },
+                    {
+                        "value": "2",
+                        "description": "Phosphor Bronze",
+                        "conditions": []
+                    }
+                ]
+            },
+            {
+                "id": "_design",
+                "type": "select",
+                "placeholder": "BB",
+                "description": "DESIGN",
+                "color": "light-green",
+                "options": [
+                    {
+                        "value": "SB",
+                        "description": "Square Solid&nbsp;Body"
+                    },
+                    {
+                        "value": "TP",
+                        "description": "Square 2-piece&nbsp;Body"
+                    },
+                    {
+                        "value": "DS",
+                        "description": "D Shape"
+                    }
+                ]
+            },
+            {
+                "id": "_housing",
+                "type": "select",
+                "placeholder": "C",
+                "description": "HOUSING",
+                "color": "light-red",
+                "options": [
+                    {
+                        "value": "1",
+                        "description": "Single Mode",
+                        "conditions": []
+                    },
+                    {
+                        "value": "2",
+                        "description": "Multimode",
+                        "conditions": []
+                    },
+                    {
+                        "value": "3",
+                        "description": "APC (Single&nbsp;Mode)",
+                        "conditions": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "partNumber": "MS-MPA",
+        "dataSheet": "PDS-0130",
+        "description": "MPO Mating Sleeve Adapter",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "MS-MP",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_design",
+                "type": "select",
+                "placeholder": "A",
+                "description": "DESIGN",
+                "color": "deep-orange",
+                "options": [
+                    {
+                        "value": "O",
+                        "description": "Flanged"
+                    },
+                    {
+                        "value": "N",
+                        "description": "No Flange"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "partNumber": "MS-MTAA",
+        "dataSheet": "PDS-0130",
+        "description": "MTRJ Mating Sleeve Adapter",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "MS-MP",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_design",
+                "type": "select",
+                "placeholder": "AA",
+                "description": "DESIGN",
+                "color": "deep-orange",
+                "options": [
+                    {
+                        "value": "RJ",
+                        "description": "SC&nbsp;footprint Flanged"
+                    },
+                    {
+                        "value": "RS",
+                        "description": "Standard&nbsp;footprint Flanged"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "partNumber": "MS-STABBC",
+        "dataSheet": "PDS-0130",
+        "description": "ST Mating Sleeve Adapter",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "MS-ST",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_sleeve",
+                "type": "select",
+                "placeholder": "A",
+                "description": "SLEEVE",
+                "color": "deep-orange",
+                "options": [
+                    {
+                        "value": "1",
+                        "description": "Zirconia Ceramic",
+                        "conditions": []
+                    },
+                    {
+                        "value": "2",
+                        "description": "Phosphor Bronze",
+                        "conditions": []
+                    }
+                ]
+            },
+            {
+                "id": "_performanceAndConfiguration",
+                "type": "select",
+                "placeholder": "BB",
+                "description": "PERFORMANCE & CONFIGURATION",
+                "color": "light-green",
+                "options": [
+                    {
+                        "value": "SS",
+                        "description": "Single&nbsp;Mode Simplex"
+                    },
+                    {
+                        "value": "SD",
+                        "description": "SinglevMode Duplex"
+                    },
+                    {
+                        "value": "MS",
+                        "description": "Multimode Simplex"
+                    },
+                    {
+                        "value": "MD",
+                        "description": "Multimode Duplex"
+                    }
+                ]
+            },
+            {
+                "id": "_housing",
+                "type": "select",
+                "placeholder": "C",
+                "description": "HOUSING",
+                "color": "light-red",
+                "options": [
+                    {
+                        "value": "P",
+                        "description": "Thermoplastic"
+                    },
+                    {
+                        "value": "M",
+                        "description": "Metal"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "partNumber": "HA-ABCCCDDDEF",
+        "dataSheet": "PDS-0128",
+        "description": "Hybrid Adapter",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "HA-",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_sleeve",
+                "type": "select",
+                "placeholder": "A",
+                "description": "SLEEVE",
+                "color": "deep-orange",
+                "options": [
+                    {
+                        "value": "1",
+                        "description": "Zirconia Ceramic",
+                        "conditions": []
+                    },
+                    {
+                        "value": "2",
+                        "description": "Phosphor Bronze",
+                        "conditions": []
+                    }
+                ]
+            },
+            {
+                "id": "_performance",
+                "type": "select",
+                "placeholder": "B",
+                "description": "PERFORMANCE",
+                "color": "light-green",
+                "options": [
+                    {
+                        "value": "1",
+                        "description": "Single Mode"
+                    },
+                    {
+                        "value": "2",
+                        "description": "Multimode"
+                    },
+                    {
+                        "value": "3",
+                        "description": "APC Single&nbsp;Mode"
+                    }
+                ]
+            },
+            {
+                "id": "_interface1",
+                "type": "select",
+                "placeholder": "CCC",
+                "description": "INTERFACE 1",
+                "color": "light-red",
+                "options": [
+                    {
+                        "value": "SCM",
+                        "description": "SC Male"
+                    },
+                    {
+                        "value": "SCF",
+                        "description": "SC Female"
+                    },
+                    {
+                        "value": "STM",
+                        "description": "ST Male"
+                    },
+                    {
+                        "value": "STF",
+                        "description": "ST Female"
+                    },
+                    {
+                        "value": "FCM",
+                        "description": "FC Male"
+                    },
+                    {
+                        "value": "FCF",
+                        "description": "FC Female"
+                    },
+                    {
+                        "value": "LCM",
+                        "description": "LC Male"
+                    },
+                    {
+                        "value": "LCF",
+                        "description": "LC Female"
+                    }
+                ]
+            },
+            {
+                "id": "_interface2",
+                "type": "select",
+                "placeholder": "DDD",
+                "description": "INTERFACE 2",
+                "color": "light-blue",
+                "options": [
+                    {
+                        "value": "SCF",
+                        "description": "SC Female"
+                    },
+                    {
+                        "value": "STF",
+                        "description": "ST Female"
+                    },
+                    {
+                        "value": "FCF",
+                        "description": "FC Female"
+                    },
+                    {
+                        "value": "LCF",
+                        "description": "LC Female"
+                    }
+                ]
+            },
+            {
+                "id": "_configuration",
+                "type": "select",
+                "placeholder": "E",
+                "description": "CONFIGURATION",
+                "color": "light-purple",
+                "options": [
+                    {
+                        "value": "S",
+                        "description": "Simplex"
+                    },
+                    {
+                        "value": "D",
+                        "description": "Duplex"
+                    }
+                ]
+            },
+            {
+                "id": "_housing",
+                "type": "select",
+                "placeholder": "F",
+                "description": "HOUSING",
+                "color": "light-yellow",
+                "options": [
+                    {
+                        "value": "P",
+                        "description": "Thermoplastic"
+                    },
+                    {
+                        "value": "M",
+                        "description": "Metal"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "partNumber": "WFA-ABCCDE-NN",
+        "dataSheet": "PDS-0129",
+        "description": "Attenuators",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "WFA-",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_attenuatorType",
+                "type": "select",
+                "placeholder": "A",
+                "description": "ATTENUATOR TYPE",
+                "color": "deep-orange",
+                "options": [
+                    {
+                        "value": "A",
+                        "description": "Optical Pad attenuator (male&nbsp;to&nbsp;female)"
+                    },
+                    {
+                        "value": "B",
+                        "description": "Bulkhead attenuator (female&nbsp;to&nbsp;female)"
+                    }
+                ]
+            },
+            {
+                "id": "_fiberType",
+                "type": "select",
+                "placeholder": "B",
+                "description": "FIBER TYPE",
+                "color": "light-green",
+                "options": [
+                    {
+                        "value": "1",
+                        "description": "Single Mode"
+                    },
+                    {
+                        "value": "2",
+                        "description": "62.5/125μm Multimode&nbsp;OM1"
+                    },
+                    {
+                        "value": "3",
+                        "description": "50/125μm Multimode&nbsp;OM2"
+                    }
+                ]
+            },
+            {
+                "id": "_interfaceType",
+                "type": "select",
+                "placeholder": "CC",
+                "description": "INTERFACE TYPE",
+                "color": "light-red",
+                "options": [
+                    {
+                        "value": "LC",
+                        "description": "LC"
+                    },
+                    {
+                        "value": "SC",
+                        "description": "SC"
+                    },
+                    {
+                        "value": "ST",
+                        "description": "ST"
+                    },
+                    {
+                        "value": "FC",
+                        "description": "FC"
+                    }
+                ]
+            },
+            {
+                "id": "_interfacePolish",
+                "type": "select",
+                "placeholder": "D",
+                "description": "INTERFACE POLISH",
+                "color": "light-blue",
+                "options": [
+                    {
+                        "value": "1",
+                        "description": "APC"
+                    },
+                    {
+                        "value": "2",
+                        "description": "UPC"
+                    },
+                    {
+                        "value": "3",
+                        "description": "PC (multimode)"
+                    }
+                ]
+            },
+            {
+                "id": "_wavelength",
+                "type": "select",
+                "placeholder": "E",
+                "description": "WAVELENGTH",
+                "color": "light-purple",
+                "options": [
+                    {
+                        "value": "A",
+                        "description": "Dual&nbsp;1310/1550&nbsp;nm (Single mode)"
+                    },
+                    {
+                        "value": "B",
+                        "description": "1300&nbsp;nm (Multimode)"
+                    },
+                    {
+                        "value": "C",
+                        "description": "850&nbsp;nm (Multimode)"
+                    }
+                ]
+            },
+            {
+                "id": "_constant2",
+                "type": "constant",
+                "placeholder": "-",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_attenuation",
+                "type": "select",
+                "placeholder": "NN",
+                "description": "ATTENUATION",
+                "color": "light-yellow",
+                "columns": 2,
+                "options": [
+                    {
+                        "value": "01",
+                        "description": "1 dB"
+                    },
+                    {
+                        "value": "02",
+                        "description": "2 dB"
+                    },
+                    {
+                        "value": "03",
+                        "description": "3 dB"
+                    },
+                    {
+                        "value": "04",
+                        "description": "4 dB"
+                    },
+                    {
+                        "value": "05",
+                        "description": "5 dB"
+                    },
+                    {
+                        "value": "06",
+                        "description": "6 dB"
+                    },
+                    {
+                        "value": "07",
+                        "description": "7 dB"
+                    },
+                    {
+                        "value": "08",
+                        "description": "8 dB"
+                    },
+                    {
+                        "value": "09",
+                        "description": "9 dB"
+                    },
+                    {
+                        "value": "10",
+                        "description": "10 dB"
+                    },
+                    {
+                        "value": "15",
+                        "description": "15 dB"
+                    },
+                    {
+                        "value": "20",
+                        "description": "20 dB"
+                    },
+                    {
+                        "value": "25",
+                        "description": "25 dB"
+                    },
+                    {
+                        "value": "30",
+                        "description": "30 dB"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "partNumber": "DM-ABCCDEE",
+        "dataSheet": "PDS-0034",
+        "description": "LGX Distribution Module",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "DM-",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_fiberType",
+                "type": "select",
+                "placeholder": "A",
+                "description": "FIBER TYPE",
+                "color": "deep-orange",
+                "options": [
+                    {
+                        "value": "1",
+                        "description": "Single&nbsp;Mode OS2",
+                        "conditions": []
+                    },
+                    {
+                        "value": "2",
+                        "description": "Multimode 62.5/125μm&nbsp;OM1",
+                        "conditions": []
+                    },
+                    {
+                        "value": "3",
+                        "description": "Multimode 50/125μm&nbsp;OM2",
+                        "conditions": []
+                    },
+                    {
+                        "value": "4",
+                        "description": "Multimode 50/125μm&nbsp;OM3",
+                        "conditions": []
+                    },
+                    {
+                        "value": "5",
+                        "description": "Multimode 50/125μm&nbsp;OM4",
+                        "conditions": []
+                    }
+                ]
+            },
+            {
+                "id": "_backInterface",
+                "type": "select",
+                "placeholder": "B",
+                "description": "BACK INTERFACE",
+                "color": "light-green",
+                "options": [
+                    {
+                        "value": "M",
+                        "description": "MPO Male"
+                    }
+                ]
+            },
+            {
+                "id": "_frontInterface",
+                "type": "select",
+                "placeholder": "CC",
+                "description": "FRONT INTERFACE",
+                "color": "light-red",
+                "options": [
+                    {
+                        "value": "SC",
+                        "description": "SC"
+                    },
+                    {
+                        "value": "ST",
+                        "description": "ST"
+                    },
+                    {
+                        "value": "LC",
+                        "description": "LC"
+                    },
+                    {
+                        "value": "FC",
+                        "description": "FC"
+                    }
+                ]
+            },
+            {
+                "id": "_polish",
+                "type": "select",
+                "placeholder": "D",
+                "description": "POLISH",
+                "color": "light-blue",
+                "options": [
+                    {
+                        "value": "A",
+                        "description": "APC"
+                    },
+                    {
+                        "value": "B",
+                        "description": "UPC"
+                    },
+                    {
+                        "value": "C",
+                        "description": "PC (multimode)"
+                    }
+                ]
+            },
+            {
+                "id": "_fiberCount",
+                "type": "select",
+                "placeholder": "EE",
+                "description": "FIBER COUNT",
+                "color": "light-purple",
+                "options": [
+                    {
+                        "value": "06",
+                        "description": "6 Fibers"
+                    },
+                    {
+                        "value": "12",
+                        "description": "12 Fibers"
+                    },
+                    {
+                        "value": "24",
+                        "description": "2&nbsp;x&nbsp;12 Fibers"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "partNumber": "AS-WBCCD",
+        "dataSheet": "PDS-0027",
+        "description": "LGX Adapter Strips",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "AS-W",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_adapterType",
+                "type": "select",
+                "placeholder": "B",
+                "description": "ADAPTER TYPE",
+                "color": "light-green",
+                "options": [
+                    {
+                        "value": "L",
+                        "description": "LC"
+                    },
+                    {
+                        "value": "C",
+                        "description": "SC"
+                    },
+                    {
+                        "value": "R",
+                        "description": "MTRJ"
+                    },
+                    {
+                        "value": "T",
+                        "description": "ST"
+                    },
+                    {
+                        "value": "F",
+                        "description": "FC"
+                    },
+                    {
+                        "value": "M",
+                        "description": "MPO"
+                    }
+                ]
+            },
+            {
+                "id": "_fiberCount",
+                "type": "select",
+                "placeholder": "CC",
+                "description": "FIBER COUNT",
+                "color": "light-red",
+                "options": [
+                    {
+                        "value": "06",
+                        "description": "6 Fibers"
+                    },
+                    {
+                        "value": "12",
+                        "description": "12 Fibers"
+                    },
+                    {
+                        "value": "24",
+                        "description": "24 Fibers"
+                    },
+                    {
+                        "value": "96",
+                        "description": "96 Fibers"
+                    }
+                ]
+            },
+            {
+                "id": "_performance",
+                "type": "select",
+                "placeholder": "D",
+                "description": "PERFORMANCE",
+                "color": "light-blue",
+                "options": [
+                    {
+                        "value": "M",
+                        "description": "62.5/125 and 50/125 μm Multimode phosphor bronze sleeve, beige",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "L",
+                                    "C",
+                                    "R",
+                                    "T",
+                                    "F"
+                                ],
+                                "partId": "_adapterType"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "G",
+                        "description": "50/125 μm OM3/OM4 Multimode zirconia ceramic sleeve, aqua",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "L",
+                                    "C",
+                                    "R",
+                                    "T",
+                                    "F"
+                                ],
+                                "partId": "_adapterType"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "S",
+                        "description": "UPC Single mode zirconia ceramic sleeve, blue",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "L",
+                                    "C",
+                                    "R",
+                                    "T",
+                                    "F"
+                                ],
+                                "partId": "_adapterType"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "A",
+                        "description": "APC Single mode zirconia ceramic sleeve, green",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "L",
+                                    "C",
+                                    "R",
+                                    "T",
+                                    "F"
+                                ],
+                                "partId": "_adapterType"
+                            }
+                        ]
+                    },
+                    {
+                        "value": " ",
+                        "description": "MPO Selected",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "M"
+                                ],
+                                "partId": "_adapterType"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "partNumber": "NS-PM-WBCCD",
+        "dataSheet": "PDS-0192",
+        "description": "NEXT STEP™ Patch Modules",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "NS-PM-W",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_connector",
+                "type": "select",
+                "placeholder": "B",
+                "description": "CONNECTOR",
+                "color": "light-green",
+                "options": [
+                    {
+                        "value": "L",
+                        "description": "LC"
+                    },
+                    {
+                        "value": "C",
+                        "description": "SC"
+                    }
+                ]
+            },
+            {
+                "id": "_numberOfConnectors",
+                "type": "select",
+                "placeholder": "CC",
+                "description": "NUMBER OF CONNECTORS",
+                "color": "light-red",
+                "options": [
+                    {
+                        "value": "06",
+                        "description": "6 Connectors"
+                    },
+                    {
+                        "value": "12",
+                        "description": "12 Connectors"
+                    }
+                ]
+            },
+            {
+                "id": "_coreSize",
+                "type": "select",
+                "placeholder": "D",
+                "description": "CORE SIZE",
+                "color": "light-blue",
+                "options": [
+                    {
+                        "value": "M",
+                        "description": "OM1/OM2 MM, Beige, Phosphor Bronze"
+                    },
+                    {
+                        "value": "G",
+                        "description": "OM3/OM4 MM, Aqua, Zirconia Ceramic"
+                    },
+                    {
+                        "value": "S",
+                        "description": "Single Mode, UPC, Blue, Zirconia Ceramic"
+                    },
+                    {
+                        "value": "A",
+                        "description": "Single Mode, APC, Green, Zirconia Ceramic"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "partNumber": "NS-DM-ABCCDEE",
+        "dataSheet": "PDS-0191",
+        "description": "NEXT STEP™ Distribution Modules",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "NS-DM-",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_coreSize",
+                "type": "select",
+                "placeholder": "A",
+                "description": "CORE SIZE",
+                "color": "deep-orange",
+                "options": [
+                    {
+                        "value": "1",
+                        "description": "Single Mode OS2, 9/125um"
+                    },
+                    {
+                        "value": "2",
+                        "description": "Multimode OM1, 62.5/125μm"
+                    },
+                    {
+                        "value": "3",
+                        "description": "Multimode OM2, 50/125μm"
+                    },
+                    {
+                        "value": "4",
+                        "description": "Multimode OM3, 50/125μm"
+                    },
+                    {
+                        "value": "5",
+                        "description": "Multimode OM4, 50/125μm"
+                    }
+                ]
+            },
+            {
+                "id": "_mpoConnector",
+                "type": "select",
+                "placeholder": "B",
+                "description": "MPO CONNECTOR",
+                "color": "light-green",
+                "options": [
+                    {
+                        "value": "F",
+                        "description": "Female"
+                    },
+                    {
+                        "value": "M",
+                        "description": "Male"
+                    }
+                ]
+            },
+            {
+                "id": "_frontConnector",
+                "type": "select",
+                "placeholder": "CC",
+                "description": "FRONT CONNECTOR",
+                "color": "light-red",
+                "options": [
+                    {
+                        "value": "LC",
+                        "description": "LC"
+                    }
+                ]
+            },
+            {
+                "id": "_polish",
+                "type": "select",
+                "placeholder": "D",
+                "description": "POLISH",
+                "color": "light-blue",
+                "options": [
+                    {
+                        "value": "A",
+                        "description": "APC"
+                    },
+                    {
+                        "value": "B",
+                        "description": "UPC"
+                    },
+                    {
+                        "value": "C",
+                        "description": "PC"
+                    }
+                ]
+            },
+            {
+                "id": "_numberOfFibers",
+                "type": "select",
+                "placeholder": "EE",
+                "description": "NUMBER OF FIBERS",
+                "color": "light-purple",
+                "options": [
+                    {
+                        "value": "12",
+                        "description": "12 Fibers"
+                    }
+                ]
+            }
+        ]
+    }
+]

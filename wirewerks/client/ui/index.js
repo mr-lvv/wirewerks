@@ -1,9 +1,9 @@
-var path = require("path")
-var Builder = require('systemjs-builder')
-var babel = require("babel-core")
-var fs = require('fs-extra')
-var lodash = require('lodash')
-var child_process = require('child_process')
+var path = require("path");
+var Builder = require('systemjs-builder');
+var babel = require("babel-core");
+var fs = require('fs-extra');
+var lodash = require('lodash');
+var child_process = require('child_process');
 var argv = require('yargs').argv;
 var config = {
 	minified: !argv.dev
@@ -27,7 +27,7 @@ var libsass = require(paths.libsass);
 
 function copyFile(source, target) {
 	if (fs.existsSync(source)) {
-		fs.copySync(source, target)
+		fs.copySync(source, target);
 	}
 }
 
@@ -88,14 +88,14 @@ function buildCss() {
 	var cmd = exec + args
 
 	console.log('Building css: ', cmd);
-	var result = child_process.execSync(cmd, {cwd: paths.styles})
+	var result = child_process.execSync(cmd, { cwd: paths.styles })
 	console.log(result.toString());
 
 	copyFile('./src/styles/main.css', './dist/styles/main.css')
 }
 
 function buildPostCss(callback) {
-	callback = callback || function() {}
+	callback = callback || function () { }
 
 	var cssFile = path.join(paths.styles, 'main.css')
 	var cssFileTarget = path.join(paths.styles, 'main_production.css')
@@ -103,9 +103,9 @@ function buildPostCss(callback) {
 	var css = fs.readFileSync(cssFile)
 
 	console.log('Building css prefix: ', cssFile, ' --> ', cssFileTarget);
-	var autoprefix = libsass.autoprefixer({browsers: ['> 1%', 'IE 9']})	// Must match file content in src/styles/browserlist
+	var autoprefix = libsass.autoprefixer({ browsers: ['> 1%', 'IE 9'] })	// Must match file content in src/styles/browserlist
 	libsass.postcss([autoprefix, libsass.cssnano()])
-		.process(css, {from: cssFile, to: cssFileTarget})
+		.process(css, { from: cssFile, to: cssFileTarget })
 		.then(result => {
 			console.log('Css prefix built. ');
 			fs.writeFileSync(cssFileTarget, result.css.toString())
@@ -145,20 +145,20 @@ function build() {
 
 	/*{minify: true, sourceMaps: true, lowResSourceMaps: true}*/
 	builder
-	.bundle('app/main.js', paths.dist + '/app/main.js')
-	.then(function () {
-		babelBuild(function() {
-			console.log('Build complete');
+		.bundle('app/main.js', paths.dist + '/app/main.js')
+		.then(function () {
+			babelBuild(function () {
+				console.log('Build complete');
+			})
 		})
-	})
-	.catch(function (err) {
-		console.log('Build error');
-		console.log(err);
-	})
-	.finally(function () {
-		unlinkCommon()
-		console.log('Build Completed!');
-	})
+		.catch(function (err) {
+			console.log('Build error');
+			console.log(err);
+		})
+		.finally(function () {
+			unlinkCommon()
+			console.log('Build Completed!');
+		})
 }
 
 function buildAllCss(callback) {
@@ -180,7 +180,7 @@ function preBuild(callback) {
 				var isInvalid = pathFilter.some((pathFilter) => {
 					if (filename.indexOf(pathFilter) !== -1) {
 						var validModule = validNodeModules.some((filter) => {
-							return filename.indexOf(filter) !== -1
+							return filename.indexOf(filter) !== -1;
 						})
 
 						if (!validModule) {
@@ -190,28 +190,27 @@ function preBuild(callback) {
 				})
 
 				if (isInvalid)
-					return false
+					return false;
 
 				return true;		// Copy file
 			}
 		}
 
-		fs.copySync('./src', './dist', options)
-		callback()
+		fs.copySync('./src', './dist', options);
+		callback();
 	})
 }
 
-try
-{
+try {
 	// Build mode
 	if (argv.css) {
 		console.log('Building Css Only.');
-		buildAllCss(() => {console.log('Css build Completed!');})
+		buildAllCss(() => { console.log('Css build Completed!'); })
 	} else {
 		// Full Build
 
-		linkCommon()
-		fs.removeSync(paths.dist)
+		linkCommon();
+		fs.removeSync(paths.dist);
 		preBuild(() => {
 			try {
 				console.log('Building...');

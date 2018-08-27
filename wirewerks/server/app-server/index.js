@@ -1,7 +1,17 @@
-var argv = require('yargs').argv;
-global.require_common = function(path) {return require('../../common/')}
-global._ = require('lodash')
+var mongoose = require("mongoose");
 
-var Server = require('./lib/server');
-var server = new Server();
-server.start(argv.env);
+mongoose.connect('mongodb://localhost/wirewerksdb', function () {
+    console.log("Connecting to mongodb...");
+})
+    .then(() => {
+        var argv = require('yargs').argv;
+        var Server = require('./lib/server');
+        var server = new Server();
+        return server.start(argv.env);
+    })
+    .catch(err => { // mongoose connection error will be handled here
+        console.error('App starting error:', err.stack);
+        process.exit(1);
+    });
+
+mongoose.Promise = global.Promise;

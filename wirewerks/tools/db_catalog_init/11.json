@@ -1,0 +1,527 @@
+[
+    {
+        "partNumber": "PC-ABCCDEEF-NNN",
+        "dataSheet": "PDS-0022",
+        "description": "Patch Cords",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "PC-",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_fiberType",
+                "type": "select",
+                "placeholder": "A",
+                "description": "FIBER TYPE",
+                "color": "deep-orange",
+                "options": [
+                    {
+                        "value": "1",
+                        "description": "Single&nbsp;Mode OS2",
+                        "conditions": []
+                    },
+                    {
+                        "value": "2",
+                        "description": "Multimode 62.5/125μm&nbsp;OM1",
+                        "conditions": []
+                    },
+                    {
+                        "value": "3",
+                        "description": "Multimode 50/125μm&nbsp;OM2",
+                        "conditions": []
+                    },
+                    {
+                        "value": "4",
+                        "description": "Multimode 50/125μm&nbsp;OM3",
+                        "conditions": []
+                    },
+                    {
+                        "value": "5",
+                        "description": "Multimode 50/125μm&nbsp;OM4",
+                        "conditions": []
+                    },
+                    {
+                        "value": "B",
+                        "description": "Multimode 50/125μm&nbsp;OM2 Bend&nbsp;Insensitive",
+                        "conditions": []
+                    },
+                    {
+                        "value": "C",
+                        "description": "Multimode 50/125μm&nbsp;OM3 Bend&nbsp;Insensitive",
+                        "conditions": []
+                    },
+                    {
+                        "value": "D",
+                        "description": "Multimode 50/125μm&nbsp;OM4 Bend&nbsp;Insensitive",
+                        "conditions": []
+                    },
+                    {
+                        "value": "E",
+                        "description": "Single&nbsp;Mode&nbsp;OS2 Bend&nbsp;Insensitive Yellow&nbsp;Jacket",
+                        "conditions": []
+                    },
+                    {
+                        "value": "H",
+                        "description": "Single&nbsp;Mode&nbsp;OS2 Bend&nbsp;Insensitive Dark&nbsp;Blue&nbsp;Jacket",
+                        "conditions": []
+                    }
+                ]
+            },
+            {
+                "id": "_cableType",
+                "type": "select",
+                "placeholder": "B",
+                "description": "CABLE TYPE",
+                "color": "light-green",
+                "columns": 2,
+                "options": [
+                    {
+                        "value": "A",
+                        "description": "2 Fibers Zip 3 mm OFNR"
+                    },
+                    {
+                        "value": "B",
+                        "description": "2 Fibers Zip 3 mm OFNP"
+                    },
+                    {
+                        "value": "C",
+                        "description": "1 Fiber 3 mm OFNR"
+                    },
+                    {
+                        "value": "D",
+                        "description": "1 Fiber 3 mm OFNP"
+                    },
+                    {
+                        "value": "E",
+                        "description": "2 Fibers Zip 2 mm OFNR"
+                    },
+                    {
+                        "value": "F",
+                        "description": "2 Fibers Zip 2 mm OFNP"
+                    },
+                    {
+                        "value": "G",
+                        "description": "1 Fiber 2 mm OFNR"
+                    },
+                    {
+                        "value": "H",
+                        "description": "1 Fiber 2 mm OFNP"
+                    },
+                    {
+                        "value": "I",
+                        "description": "2 Fibers Zip 1.8 mm OFNR"
+                    },
+                    {
+                        "value": "J",
+                        "description": "2 Fibers Zip 1.8 mm OFNP"
+                    },
+                    {
+                        "value": "K",
+                        "description": "1 Fiber Tight Buffer 900 μm"
+                    },
+                    {
+                        "value": "L",
+                        "description": "1 Fiber Coated 250 μm"
+                    },
+                    {
+                        "value": "M",
+                        "description": "1 Fiber 1.6mm OFNR"
+                    },
+                    {
+                        "value": "N",
+                        "description": "1 Fiber 1.6mm OFNP"
+                    },
+                    {
+                        "value": "P",
+                        "description": "2 Fibers Zip 1.6mm OFNR"
+                    },
+                    {
+                        "value": "Q",
+                        "description": "2 Fibers Zip 1.6mm OFNP"
+                    },
+                    {
+                        "value": "T",
+                        "description": "2 Fibers Round 3 mm OFNR"
+                    },
+                    {
+                        "value": "U",
+                        "description": "2 Fibers Round 3 mm OFNP"
+                    },
+                    {
+                        "value": "5",
+                        "description": "1 Fiber 1.2 mm OFNR"
+                    },
+                    {
+                        "value": "7",
+                        "description": "2 Fibers 1.2 mm OFNR"
+                    }
+                ]
+            },
+            {
+                "id": "_connectorSideA",
+                "type": "select",
+                "placeholder": "CC",
+                "description": "CONNECTOR SIDE&nbsp;A",
+                "color": "light-red",
+                "columns": 2,
+                "options": [
+                    {
+                        "value": "LC",
+                        "description": "LC Metal Body"
+                    },
+                    {
+                        "value": "LP",
+                        "description": "LC Plastic Body"
+                    },
+                    {
+                        "value": "SC",
+                        "description": "SC"
+                    },
+                    {
+                        "value": "ST",
+                        "description": "ST"
+                    },
+                    {
+                        "value": "FC",
+                        "description": "FC"
+                    },
+                    {
+                        "value": "MT",
+                        "description": "MTRJ Female"
+                    },
+                    {
+                        "value": "MB",
+                        "description": "MTRJ Male"
+                    },
+                    {
+                        "value": "S5",
+                        "description": "SMA905"
+                    },
+                    {
+                        "value": "S6",
+                        "description": "SMA906"
+                    },
+                    {
+                        "value": "E2",
+                        "description": "E2000"
+                    },
+                    {
+                        "value": "ES",
+                        "description": "ESCON"
+                    },
+                    {
+                        "value": "FD",
+                        "description": "FDDI"
+                    },
+                    {
+                        "value": "D4",
+                        "description": "D4"
+                    },
+                    {
+                        "value": "MU",
+                        "description": "MU"
+                    },
+                    {
+                        "value": "LU",
+                        "description": "LC Uniboot"
+                    },
+                    {
+                        "value": "LF",
+                        "description": "LC Flexible boot"
+                    },
+                    {
+                        "value": "LS",
+                        "description": "LC Short boot"
+                    },
+                    {
+                        "value": "LM",
+                        "description": "Mini LC"
+                    },
+                    {
+                        "value": "SF",
+                        "description": "SC Flexible boot"
+                    },
+                    {
+                        "value": "SS",
+                        "description": "SC Short boot"
+                    }
+                ]
+            },
+            {
+                "id": "_polishSideA",
+                "type": "select",
+                "placeholder": "D",
+                "description": "POLISH SIDE&nbsp;A",
+                "color": "light-blue",
+                "options": [
+                    {
+                        "value": "A",
+                        "description": "APC"
+                    },
+                    {
+                        "value": "B",
+                        "description": "UPC"
+                    },
+                    {
+                        "value": "C",
+                        "description": "PC (multimode)"
+                    }
+                ]
+            },
+            {
+                "id": "_connectorSideB",
+                "type": "select",
+                "placeholder": "EE",
+                "description": "CONNECTOR SIDE&nbsp;B",
+                "color": "light-purple",
+                "columns": 2,
+                "options": [
+                    {
+                        "value": "LC",
+                        "description": "LC Metal Body"
+                    },
+                    {
+                        "value": "LP",
+                        "description": "LC Plastic Body"
+                    },
+                    {
+                        "value": "SC",
+                        "description": "SC"
+                    },
+                    {
+                        "value": "ST",
+                        "description": "ST"
+                    },
+                    {
+                        "value": "FC",
+                        "description": "FC"
+                    },
+                    {
+                        "value": "MT",
+                        "description": "MTRJ Female"
+                    },
+                    {
+                        "value": "MB",
+                        "description": "MTRJ Male"
+                    },
+                    {
+                        "value": "S5",
+                        "description": "SMA905"
+                    },
+                    {
+                        "value": "S6",
+                        "description": "SMA906"
+                    },
+                    {
+                        "value": "E2",
+                        "description": "E2000"
+                    },
+                    {
+                        "value": "ES",
+                        "description": "ESCON"
+                    },
+                    {
+                        "value": "FD",
+                        "description": "FDDI"
+                    },
+                    {
+                        "value": "D4",
+                        "description": "D4"
+                    },
+                    {
+                        "value": "MU",
+                        "description": "MU"
+                    },
+                    {
+                        "value": "LU",
+                        "description": "LC Uniboot"
+                    },
+                    {
+                        "value": "LF",
+                        "description": "LC Flexible boot"
+                    },
+                    {
+                        "value": "LS",
+                        "description": "LC Short boot"
+                    },
+                    {
+                        "value": "LM",
+                        "description": "Mini LC"
+                    },
+                    {
+                        "value": "SF",
+                        "description": "SC Flexible boot"
+                    },
+                    {
+                        "value": "SS",
+                        "description": "SC Short boot"
+                    },
+                    {
+                        "value": "OE",
+                        "description": "Pigtail (no&nbsp;connector)"
+                    }
+                ]
+            },
+            {
+                "id": "_polishSideB",
+                "type": "select",
+                "placeholder": "F",
+                "description": "POLISH SIDE&nbsp;B",
+                "color": "light-yellow",
+                "options": [
+                    {
+                        "value": "A",
+                        "description": "APC"
+                    },
+                    {
+                        "value": "B",
+                        "description": "UPC"
+                    },
+                    {
+                        "value": "C",
+                        "description": "PC (multimode)"
+                    },
+                    {
+                        "value": "D",
+                        "description": "Not Applicable"
+                    }
+                ]
+            },
+            {
+                "id": "_constant2",
+                "type": "constant",
+                "placeholder": "-",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_length",
+                "type": "numeric",
+                "placeholder": "NNN",
+                "description": "LENGTH",
+                "color": "deep-yellow",
+                "integersLength": 3,
+                "decimalsLength": 2,
+                "options": [
+                    {
+                        "description": "Meters",
+                        "conditions": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "partNumber": "MC-ABBCC-NNN",
+        "dataSheet": "PDS-0029",
+        "description": "Mode Conditioning Patch Cords",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "MC-",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_fiberType",
+                "type": "select",
+                "placeholder": "A",
+                "description": "FIBER TYPE",
+                "color": "deep-orange",
+                "options": [
+                    {
+                        "value": "2",
+                        "description": "Multimode 62.5/125μm&nbsp;OM1",
+                        "conditions": []
+                    },
+                    {
+                        "value": "3",
+                        "description": "Multimode 50/125μm&nbsp;OM2",
+                        "conditions": []
+                    }
+                ]
+            },
+            {
+                "id": "_offsetConnectorType",
+                "type": "select",
+                "placeholder": "BB",
+                "description": "OFFSET CONNECTOR TYPE",
+                "color": "light-green",
+                "options": [
+                    {
+                        "value": "LC",
+                        "description": "LC"
+                    },
+                    {
+                        "value": "ST",
+                        "description": "ST"
+                    },
+                    {
+                        "value": "SC",
+                        "description": "SC"
+                    },
+                    {
+                        "value": "FC",
+                        "description": "FC"
+                    }
+                ]
+            },
+            {
+                "id": "_connectorType",
+                "type": "select",
+                "placeholder": "CC",
+                "description": "CONNECTOR TYPE",
+                "color": "light-red",
+                "columns": 2,
+                "options": [
+                    {
+                        "value": "LC",
+                        "description": "LC"
+                    },
+                    {
+                        "value": "ST",
+                        "description": "ST"
+                    },
+                    {
+                        "value": "SC",
+                        "description": "SC"
+                    },
+                    {
+                        "value": "FC",
+                        "description": "FC"
+                    },
+                    {
+                        "value": "MT",
+                        "description": "MTRJ"
+                    }
+                ]
+            },
+            {
+                "id": "_constant2",
+                "type": "constant",
+                "placeholder": "-",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_length",
+                "type": "numeric",
+                "placeholder": "NNN",
+                "description": "LENGTH",
+                "color": "deep-yellow",
+                "integersLength": 3,
+                "decimalsLength": 0,
+                "options": [
+                    {
+                        "description": "Meters",
+                        "conditions": []
+                    }
+                ]
+            }
+        ]
+    }
+]
