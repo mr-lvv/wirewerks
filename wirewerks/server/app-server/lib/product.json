@@ -1,0 +1,4515 @@
+{
+  "FA": {
+    "title": "CABLE ASSEMBLIES",
+    "subTitle": "Fiber Optic",
+    "description": "Build your Fiber Optic Cable Assembly",
+    "shortDescription": "",
+    "longDescription": "",
+    "notes": "Other options are available upon request: •Connectors •Cable Constructions •Fire Ratings •MPO Wiring Schemes •Polish •Staggered Leads",
+    "dataSheetLink": "PDS-0023",
+    "part": "FA",
+    "partGroups": [
+      {
+        "partCategories": [
+          {
+            "title": "FA",
+            "constant": true
+          }
+        ]
+      },
+      {
+        "partCategories": [
+          {
+            "finePrint": "",
+            "length": 1,
+            "parts": [
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Single Mode"
+                  },
+                  {
+                    "bold": false,
+                    "label": "OS2"
+                  }
+                ],
+                "description": "Single Mode OS2 ",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "1"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Multimode"
+                  },
+                  {
+                    "bold": false,
+                    "label": "62.5/125\u03bcm OM1"
+                  }
+                ],
+                "description": "Multimode 62.5/125\u03bcm OM1 ",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "2"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Multimode"
+                  },
+                  {
+                    "bold": false,
+                    "label": "50/125\u03bcm OM2"
+                  }
+                ],
+                "description": "Multimode 50/125\u03bcm OM2 ",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "3"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Multimode"
+                  },
+                  {
+                    "bold": false,
+                    "label": "50/125\u03bcm OM3"
+                  }
+                ],
+                "description": "Multimode 50/125\u03bcm OM3 ",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "4"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Multimode"
+                  },
+                  {
+                    "bold": false,
+                    "label": "50/125\u03bcm OM4"
+                  }
+                ],
+                "description": "Multimode 50/125\u03bcm OM4 ",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "5"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": true,
+                    "label": "Bend Insensitive"
+                  },
+                  {
+                    "bold": false,
+                    "label": "Single Mode"
+                  },
+                  {
+                    "bold": false,
+                    "label": "OS2"
+                  }
+                ],
+                "description": "BI Single Mode OS2 ",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "E"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": true,
+                    "label": "Bend Insensitive"
+                  },
+                  {
+                    "bold": false,
+                    "label": "Multimode"
+                  },
+                  {
+                    "bold": false,
+                    "label": "50/125\u03bcm OM2"
+                  }
+                ],
+                "description": "BI Multimode 50/125\u03bcm OM2 ",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "B"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": true,
+                    "label": "Bend Insensitive"
+                  },
+                  {
+                    "bold": false,
+                    "label": "Multimode"
+                  },
+                  {
+                    "bold": false,
+                    "label": "50/125\u03bcm OM3"
+                  }
+                ],
+                "description": "BI Multimode 50/125\u03bcm OM3 ",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "C"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": true,
+                    "label": "Bend Insensitive"
+                  },
+                  {
+                    "bold": false,
+                    "label": "Multimode"
+                  },
+                  {
+                    "bold": false,
+                    "label": "50/125\u03bcm OM4"
+                  }
+                ],
+                "description": "BI Multimode 50/125\u03bcm OM4 ",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "D"
+              }
+            ],
+            "title": "FIBER TYPE",
+            "type": "A"
+          },
+          {
+            "finePrint": "",
+            "length": 1,
+            "parts": [
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Distribution"
+                  }
+                ],
+                "description": "Distribution ",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "D"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Breakout"
+                  }
+                ],
+                "description": "Breakout ",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "B"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Loose Tube"
+                  }
+                ],
+                "description": "Loose Tube ",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "L"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Ribbon"
+                  }
+                ],
+                "description": "Ribbon ",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "R"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Mini"
+                  },
+                  {
+                    "bold": false,
+                    "label": "Distribution"
+                  }
+                ],
+                "description": "Mini Distribution ",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "M"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Unjacketed"
+                  },
+                  {
+                    "bold": false,
+                    "label": "Distribution"
+                  }
+                ],
+                "description": "Unjacketed Distribution ",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "C"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Unjacketed"
+                  },
+                  {
+                    "bold": false,
+                    "label": ""
+                  }
+                ],
+                "description": "Unjacketed Ribbon ",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "Q"
+              }
+            ],
+            "title": "CABLE TYPE",
+            "type": "B"
+          },
+          {
+            "finePrint": "",
+            "length": 1,
+            "parts": [
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "OFNP"
+                  }
+                ],
+                "description": "OFNP ",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "P"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "OFNR"
+                  }
+                ],
+                "description": "OFNR ",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "R"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Outdoor"
+                  }
+                ],
+                "description": "Outdoor ",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "O"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Indoor/Outdoor"
+                  },
+                  {
+                    "bold": false,
+                    "label": ""
+                  }
+                ],
+                "description": "Indoor/Outdoor OFNP ",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "N"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Indoor/Outdoor"
+                  },
+                  {
+                    "bold": false,
+                    "label": "OFNR"
+                  }
+                ],
+                "description": "Indoor/Outdoor OFNR ",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "L"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Not Applicable"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "C"
+              }
+            ],
+            "title": "FIRE RATING",
+            "type": "C"
+          },
+          {
+            "finePrint": "",
+            "length": 1,
+            "parts": [
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Non Armoured"
+                  }
+                ],
+                "description": "Non Armoured ",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "N"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "BX Type"
+                  }
+                ],
+                "description": "BX Type ",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "B"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Light Armour"
+                  }
+                ],
+                "description": "Light Armour ",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "L"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Not Applicable"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "C"
+              }
+            ],
+            "title": "ARMOUR TYPE",
+            "type": "D"
+          },
+          {
+            "finePrint": "",
+            "length": 2,
+            "parts": [
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "2 fiber"
+                  }
+                ],
+                "description": "2F, ",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "02"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "4 fiber"
+                  }
+                ],
+                "description": "4F, ",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "04"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "6 fiber"
+                  }
+                ],
+                "description": "6F, ",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "06"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "8 fiber"
+                  }
+                ],
+                "description": "8F, ",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "08"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "12 fiber"
+                  }
+                ],
+                "description": "12F, ",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "12"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "18 fiber"
+                  }
+                ],
+                "description": "18F, ",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "18"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "24 fiber"
+                  }
+                ],
+                "description": "24F, ",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "24"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "36 fiber"
+                  }
+                ],
+                "description": "36F, ",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "36"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "48 fiber"
+                  }
+                ],
+                "description": "48F, ",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "48"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "72 fiber"
+                  }
+                ],
+                "description": "72F, ",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "72"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "96 fiber"
+                  }
+                ],
+                "description": "96F, ",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "96"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "144 fiber"
+                  }
+                ],
+                "description": "144F, ",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "C4"
+              }
+            ],
+            "title": "FIBER COUNT",
+            "type": "E"
+          },
+          {
+            "finePrint": "",
+            "length": 1,
+            "parts": [
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "900 \u03bcm"
+                  }
+                ],
+                "description": "Lead 900 \u03bcm, ",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "9"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "2 mm"
+                  }
+                ],
+                "description": "Lead 2mm, ",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "2"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "3 mm"
+                  }
+                ],
+                "description": "Lead 3mm, ",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "3"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Not Applicable"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "Z"
+              }
+            ],
+            "title": "LEAD OD",
+            "type": "F"
+          },
+          {
+            "finePrint": "",
+            "length": 3,
+            "parts": [
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Length"
+                  },
+                  {
+                    "bold": false,
+                    "label": "in inches"
+                  }
+                ],
+                "description": " inch ",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "XXN",
+                "xIsDigit": true
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Length"
+                  },
+                  {
+                    "bold": false,
+                    "label": "in meters"
+                  }
+                ],
+                "description": " metre ",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "XXM",
+                "xIsDigit": true
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Not Applicable"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "ZZZ"
+              }
+            ],
+            "title": "LEAD LENGTH",
+            "type": "G"
+          }
+        ]
+      },
+      {
+        "partCategories": [
+          {
+            "finePrint": "*",
+            "length": 2,
+            "parts": [
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "LC"
+                  }
+                ],
+                "description": "LC/",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "LC"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "SC"
+                  }
+                ],
+                "description": "SC/",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "SC"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "ST"
+                  }
+                ],
+                "description": "ST/",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "ST"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "FC"
+                  }
+                ],
+                "description": "FC/",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "FC"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "MTRJ female"
+                  }
+                ],
+                "description": "MTRJ female/",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "MT"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "MTRJ male"
+                  }
+                ],
+                "description": "MTRJ male/",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "MB"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "12 Fiber MPO"
+                  },
+                  {
+                    "bold": false,
+                    "label": "Female Type A"
+                  }
+                ],
+                "description": "12 Fiber MPO Female Type A/",
+                "finePrint": "**",
+                "shortDescription": "",
+                "value": "MP"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "12 Fiber MPO"
+                  },
+                  {
+                    "bold": false,
+                    "label": "Male Type A"
+                  }
+                ],
+                "description": "12 Fiber MPO Male Type A/",
+                "finePrint": "**",
+                "shortDescription": "",
+                "value": "MA"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "24 Fiber MPO"
+                  },
+                  {
+                    "bold": false,
+                    "label": "Female Type A"
+                  }
+                ],
+                "description": "24 Fiber MPO Female Type A/",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "PP"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "24 Fiber MPO"
+                  },
+                  {
+                    "bold": false,
+                    "label": "Male Type A"
+                  }
+                ],
+                "description": "24 Fiber MPO Male Type A/",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "PA"
+              }
+            ],
+            "title": "CONNECTOR SIDE A",
+            "type": "H"
+          },
+          {
+            "finePrint": "",
+            "length": 1,
+            "parts": [
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "APC"
+                  }
+                ],
+                "description": "APC - ",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "A"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "UPC"
+                  }
+                ],
+                "description": "UPC - ",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "B"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "PC"
+                  },
+                  {
+                    "bold": false,
+                    "label": "(multimode)"
+                  }
+                ],
+                "description": "PC - ",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "C"
+              }
+            ],
+            "title": "POLISH SIDE A",
+            "type": "I"
+          },
+          {
+            "finePrint": "*",
+            "length": 2,
+            "parts": [
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "LC"
+                  }
+                ],
+                "description": "LC/",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "LC"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "SC"
+                  }
+                ],
+                "description": "SC/",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "SC"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "ST"
+                  }
+                ],
+                "description": "ST/",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "ST"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "FC"
+                  }
+                ],
+                "description": "FC/",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "FC"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "MTRJ female"
+                  }
+                ],
+                "description": "MTRJ female/",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "MT"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "MTRJ male"
+                  }
+                ],
+                "description": "MTRJ male/",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "MB"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "12 Fiber MPO"
+                  },
+                  {
+                    "bold": false,
+                    "label": "Female Type A"
+                  }
+                ],
+                "description": "12 Fiber MPO Female Type A/",
+                "finePrint": "**",
+                "shortDescription": "",
+                "value": "MP"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "12 Fiber MPO"
+                  },
+                  {
+                    "bold": false,
+                    "label": "Male Type A"
+                  }
+                ],
+                "description": "12 Fiber MPO Male Type A/",
+                "finePrint": "**",
+                "shortDescription": "",
+                "value": "MA"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "24 Fiber MPO"
+                  },
+                  {
+                    "bold": false,
+                    "label": "Female Type A"
+                  }
+                ],
+                "description": "24 Fiber MPO Female Type A/",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "PP"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "24 Fiber MPO"
+                  },
+                  {
+                    "bold": false,
+                    "label": "Male Type A"
+                  }
+                ],
+                "description": "24 Fiber MPO Male Type A/",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "PA"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Pigtail"
+                  },
+                  {
+                    "bold": false,
+                    "label": "(no connector)"
+                  }
+                ],
+                "description": "Pigtail, ",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "OE"
+              }
+            ],
+            "title": "CONNECTOR SIDE B",
+            "type": "J"
+          },
+          {
+            "finePrint": "",
+            "length": 1,
+            "parts": [
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "APC"
+                  }
+                ],
+                "description": "APC, ",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "A"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "UPC"
+                  }
+                ],
+                "description": "UPC, ",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "B"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "PC"
+                  },
+                  {
+                    "bold": false,
+                    "label": "(multimode)"
+                  }
+                ],
+                "description": "PC, ",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "C"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Not Applicable"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "D"
+              }
+            ],
+            "title": "POLISH SIDE B",
+            "type": "K"
+          },
+          {
+            "finePrint": "",
+            "length": 1,
+            "parts": [
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "None"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "0"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "1 Pulling Eye"
+                  }
+                ],
+                "description": "1 Pulling Eye, ",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "1"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "2 Pulling Eyes"
+                  }
+                ],
+                "description": "2 Pulling Eyes, ",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "2"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Staggered with"
+                  },
+                  {
+                    "bold": false,
+                    "label": "1 Pulling Eye"
+                  }
+                ],
+                "description": "Staggered with 1 Pulling Eye, ",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "3"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Staggered with"
+                  },
+                  {
+                    "bold": false,
+                    "label": "2 Pulling Eyes"
+                  }
+                ],
+                "description": "Staggered with 2 Pulling Eyes, ",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "4"
+              }
+            ],
+            "title": "PULLING EYE",
+            "type": "L"
+          }
+        ]
+      },
+      {
+        "partCategories": [
+          {
+            "finePrint": "",
+            "length": 3,
+            "parts": [
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "in meters"
+                  }
+                ],
+                "description": "M",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "XXX",
+                "xIsDigit": true,
+                "allowDecimal": true
+              }
+            ],
+            "title": "LENGTH",
+            "type": "N"
+          }
+        ]
+      }
+    ],
+    "icon": "section8.svg",
+    "section": 8,
+    "finePrints": "* If more than one connector type, then place in alphabetical order, i.e. LC before SC, to avoid duplicate of part number creation for the same product. ** By default, cable assemblies with MPO connectors are manufactured with a Type A configuration. If an assembly is connectorized on both sides with an MPO connector, configuration types cannot be mixed. Examples: If a Type A is chosen on one end, the other end MUST also be of Type A configuration."
+  },
+  "WNC": {
+    "title": "NODE ASSEMBLIES",
+    "subTitle": "Fiber Optic",
+    "description": "Build your Fiber Optic Node Service Cable Assembly",
+    "shortDescription": "",
+    "longDescription": "",
+    "notes": "",
+    "dataSheetLink": "PDS-0011",
+    "part": "WNC",
+    "partGroups": [
+      {
+        "partCategories": [
+          {
+            "title": "WNC",
+            "constant": true
+          }
+        ]
+      },
+      {
+        "partCategories": [
+          {
+            "finePrint": "",
+            "length": 1,
+            "parts": [
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Armoured"
+                  },
+                  {
+                    "bold": false,
+                    "label": "Outdoor Loose"
+                  },
+                  {
+                    "bold": false,
+                    "label": "Tube"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "A"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Armoured"
+                  },
+                  {
+                    "bold": false,
+                    "label": "Outdoor Loose"
+                  },
+                  {
+                    "bold": false,
+                    "label": "Tube Dry"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "B"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Non-Armoured"
+                  },
+                  {
+                    "bold": false,
+                    "label": "Outdoor Loose"
+                  },
+                  {
+                    "bold": false,
+                    "label": "Tube"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "N"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Non-Armoured"
+                  },
+                  {
+                    "bold": false,
+                    "label": "Outdoor Loose"
+                  },
+                  {
+                    "bold": false,
+                    "label": "Tube Dry"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "O"
+              }
+            ],
+            "title": "CABLE TYPE",
+            "type": "A"
+          },
+          {
+            "finePrint": "",
+            "length": 2,
+            "parts": [
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "900 \u03bcm"
+                  },
+                  {
+                    "bold": false,
+                    "label": "Single Mode"
+                  },
+                  {
+                    "bold": false,
+                    "label": "(TIA-598-C)"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "9S"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "2 mm"
+                  },
+                  {
+                    "bold": false,
+                    "label": "Single Mode"
+                  },
+                  {
+                    "bold": false,
+                    "label": "(Yellow)"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "2S"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "3 mm"
+                  },
+                  {
+                    "bold": false,
+                    "label": "Single Mode"
+                  },
+                  {
+                    "bold": false,
+                    "label": "(Yellow)"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "3S"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "2mm"
+                  },
+                  {
+                    "bold": false,
+                    "label": "Single Mode"
+                  },
+                  {
+                    "bold": false,
+                    "label": "(TIA-598-C)"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "28"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "3 mm"
+                  },
+                  {
+                    "bold": false,
+                    "label": "Single Mode"
+                  },
+                  {
+                    "bold": false,
+                    "label": "(TIA-598-C)"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "38"
+              }
+            ],
+            "title": "LEAD TYPE",
+            "type": "B"
+          },
+          {
+            "finePrint": "",
+            "length": 2,
+            "parts": [
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "2 Fiber"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "02"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "4 Fiber"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "04"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "6 Fiber"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "06"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "8 Fiber"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "08"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "10 Fiber"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "10"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "12 Fiber"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "12"
+              }
+            ],
+            "title": "FIBER COUNT",
+            "type": "C"
+          },
+          {
+            "finePrint": "",
+            "length": 2,
+            "parts": [
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "LC"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "LC"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "SC"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "SC"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "ST"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "ST"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "FC"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "FC"
+              }
+            ],
+            "title": "CONNECTOR TYPE",
+            "type": "D"
+          },
+          {
+            "finePrint": "",
+            "length": 1,
+            "parts": [
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "APC"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "A"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "UPC"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "U"
+              }
+            ],
+            "title": "POLISH",
+            "type": "E"
+          },
+          {
+            "finePrint": "",
+            "length": 3,
+            "parts": [
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Length in meters"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "XXX",
+                "xIsDigit": true
+              }
+            ],
+            "title": "FIBER LEADS LENGTH",
+            "type": "F"
+          }
+        ]
+      },
+      {
+        "partCategories": [
+          {
+            "finePrint": "",
+            "length": 4,
+            "parts": [
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Length in meters"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "XXXX",
+                "xIsDigit": true
+              }
+            ],
+            "title": "ASSEMBLY LENGTH",
+            "type": "N"
+          }
+        ]
+      }
+    ],
+    "icon": "section8.svg",
+    "section": 8,
+    "finePrints": ""
+  },
+  "IP": {
+    "title": "IP68 CABLE ASSEMBLIES",
+    "subTitle": "Fiber Optic",
+    "description": "Build your IP68 Fiber Optic Cable Assembly",
+    "shortDescription": "",
+    "longDescription": "",
+    "notes": "Other options are available upon request: •Connectors •Cable Constructions •Fire Ratings •MPO Wiring Schemes •Polish",
+    "dataSheetLink": "PDS-0185",
+    "part": "IP",
+    "partGroups": [
+      {
+        "partCategories": [
+          {
+            "title": "IP",
+            "constant": true
+          }
+        ]
+      },
+      {
+        "partCategories": [
+          {
+            "finePrint": "",
+            "length": 1,
+            "parts": [
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Single Mode"
+                  },
+                  {
+                    "bold": false,
+                    "label": "OS2"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "1"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Multimode"
+                  },
+                  {
+                    "bold": false,
+                    "label": "62.5/125\u03bcm OM1"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "2"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Multimode"
+                  },
+                  {
+                    "bold": false,
+                    "label": "50/125\u03bcm OM2"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "3"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Multimode"
+                  },
+                  {
+                    "bold": false,
+                    "label": "50/125\u03bcm OM3"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "4"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Multimode"
+                  },
+                  {
+                    "bold": false,
+                    "label": "50/125\u03bcm OM4"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "5"
+              }
+            ],
+            "title": "FIBER TYPE",
+            "type": "A"
+          },
+          {
+            "finePrint": "",
+            "length": 1,
+            "parts": [
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "1 fiber Outdoor"
+                  },
+                  {
+                    "bold": false,
+                    "label": "tactical cable"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "A"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "2 fiber Outdoor"
+                  },
+                  {
+                    "bold": false,
+                    "label": "tactical cable"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "B"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "12 fiber Outdoor"
+                  },
+                  {
+                    "bold": false,
+                    "label": "tactical cable"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "C"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "ONFR 1 fiber"
+                  },
+                  {
+                    "bold": false,
+                    "label": "Indoor/Outdoor"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "D"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "ONFR 2 fiber"
+                  },
+                  {
+                    "bold": false,
+                    "label": "Indoor/Outdoor"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "E"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "ONFR 12 fiber"
+                  },
+                  {
+                    "bold": false,
+                    "label": "Indoor/Outdoor"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "F"
+              }
+            ],
+            "title": "CABLE TYPE",
+            "type": "B"
+          },
+          {
+            "finePrint": "*",
+            "length": 2,
+            "parts": [
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "LC"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "LC"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "SC"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "SC"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "12F MPO Female"
+                  },
+                  {
+                    "bold": false,
+                    "label": "Type A"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "MP"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "12F MPO Male"
+                  },
+                  {
+                    "bold": false,
+                    "label": "Type A"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "MA"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "12F MPO Female"
+                  },
+                  {
+                    "bold": false,
+                    "label": "Type B"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "BP"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "12F MPO Male"
+                  },
+                  {
+                    "bold": false,
+                    "label": "Type B"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "BA"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "12F MPO Female"
+                  },
+                  {
+                    "bold": false,
+                    "label": "Type C"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "CP"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "12F MPO Male"
+                  },
+                  {
+                    "bold": false,
+                    "label": "Type C"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "CA"
+              }
+            ],
+            "title": "CONNECTOR SIDE A",
+            "type": "C"
+          },
+          {
+            "finePrint": "",
+            "length": 1,
+            "parts": [
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "APC"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "A"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "UPC"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "B"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "PC (Multimode)"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "C"
+              }
+            ],
+            "title": "POLISH SIDE A",
+            "type": "D"
+          },
+          {
+            "finePrint": "*",
+            "length": 2,
+            "parts": [
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "LC"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "LC"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "SC"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "SC"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "12F MPO Female"
+                  },
+                  {
+                    "bold": false,
+                    "label": "Type A"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "MP"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "12F MPO Male"
+                  },
+                  {
+                    "bold": false,
+                    "label": "Type A"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "MA"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "12F MPO Female"
+                  },
+                  {
+                    "bold": false,
+                    "label": "Type B"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "BP"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "12F MPO Male"
+                  },
+                  {
+                    "bold": false,
+                    "label": "Type B"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "BA"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "12F MPO Female"
+                  },
+                  {
+                    "bold": false,
+                    "label": "Type C"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "CP"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "12F MPO Male"
+                  },
+                  {
+                    "bold": false,
+                    "label": "Type C"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "CA"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Pigtail"
+                  },
+                  {
+                    "bold": false,
+                    "label": "(no connector)"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "OE"
+              }
+            ],
+            "title": "CONNECTOR SIDE B",
+            "type": "E"
+          },
+          {
+            "finePrint": "",
+            "length": 1,
+            "parts": [
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "APC"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "A"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "UPC"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "B"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "PC (Multimode)"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "C"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Not Applicable"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "D"
+              }
+            ],
+            "title": "POLISH SIDE B",
+            "type": "F"
+          },
+          {
+            "finePrint": "",
+            "length": 1,
+            "parts": [
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "None"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "0"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "1 Pulling eye"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "1"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "2 Pulling eyes"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "2"
+              }
+            ],
+            "title": "PULLING EYE",
+            "type": "G"
+          }
+        ]
+      },
+      {
+        "partCategories": [
+          {
+            "finePrint": "***",
+            "length": 3,
+            "parts": [
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "in meters"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "XXX",
+                "xIsDigit": true,
+                "allowDecimal": true
+              }
+            ],
+            "title": "LENGTH",
+            "type": "N"
+          }
+        ]
+      }
+    ],
+    "icon": "section8.svg",
+    "section": 8,
+    "finePrints": "* If more than one connector type, then place in alphabetical order, i.e. LC before SC, to avoid duplicate of part number creation for the same product. ** By default, cable assemblies with MPO connectors are manufactured with a Type A configuration. If an assembly is connectorized on both sides with an MPO connector, configuration types cannot be mixed. Examples: If a Type A is chosen on one end, the other end MUST also be of Type A configuration. *** If a decimal is required, add “D00” right after the non-decimal value and without leaving any space between. The “00” in “D00” must be replaced by the required value. Example: an assembly with an overall length of 105.55 meters shall read as 105D55."
+  },
+  "DC": {
+    "title": "DROP CASSETTE",
+    "subTitle": "Fiber Optic",
+    "description": "Build your Drop Cassette",
+    "shortDescription": "",
+    "longDescription": "",
+    "notes": "EXAMPLE: DC - 1TM06SCU0-003M FODCA, SM OS2, 6 fiber flat drop non-armored toneable, SC/UPC, 3m, middle position outlet",
+    "dataSheetLink": "PDS-0130",
+    "part": "DC",
+    "partGroups": [
+      {
+        "partCategories": [
+          {
+            "title": "DC",
+            "constant": true
+          }
+        ]
+      },
+      {
+        "partCategories": [
+          {
+            "finePrint": "",
+            "length": 1,
+            "parts": [
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "OS2 single mode"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "1"
+              }
+            ],
+            "title": "FIBER TYPE",
+            "type": "A"
+          },
+          {
+            "finePrint": "",
+            "length": 1,
+            "parts": [
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "FLAT DROP"
+                  },
+                  {
+                    "bold": false,
+                    "label": "Non-Armored"
+                  },
+                  {
+                    "bold": false,
+                    "label": "Toneable Cable"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "T"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "FLAT DROP"
+                  },
+                  {
+                    "bold": false,
+                    "label": "Non-Armored"
+                  },
+                  {
+                    "bold": false,
+                    "label": "Non-Toneable"
+                  },
+                  {
+                    "bold": false,
+                    "label": "Cable"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "N"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Distribution"
+                  },
+                  {
+                    "bold": false,
+                    "label": "OFNR"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "R"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Distribution"
+                  },
+                  {
+                    "bold": false,
+                    "label": "OFNP"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "P"
+              }
+            ],
+            "title": "CABLE TYPE",
+            "type": "B"
+          },
+          {
+            "finePrint": "*",
+            "length": 1,
+            "parts": [
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "left"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "L"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "middle"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "M"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "right"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "R"
+              }
+            ],
+            "title": "OUTLET POSITION",
+            "type": "C"
+          },
+          {
+            "finePrint": "",
+            "length": 2,
+            "parts": [
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "6 fibers"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "06"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "12 fibers"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "12"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "24 fibers"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "24"
+              }
+            ],
+            "title": "FIBER COUNT",
+            "type": "D"
+          },
+          {
+            "finePrint": "",
+            "length": 2,
+            "parts": [
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "SC"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "SC"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "LC"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "LC"
+              }
+            ],
+            "title": "CONNECTOR TYPE",
+            "type": "E"
+          },
+          {
+            "finePrint": "",
+            "length": 1,
+            "parts": [
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "APC"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "A"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "UPC"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "U"
+              }
+            ],
+            "title": "POLISH",
+            "type": "F"
+          },
+          {
+            "finePrint": "",
+            "length": 1,
+            "parts": [
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "none"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "0"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "1 pulling eye"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "1"
+              }
+            ],
+            "title": "ACCESSORY",
+            "type": "G"
+          }
+        ]
+      },
+      {
+        "partCategories": [
+          {
+            "finePrint": "",
+            "length": 3,
+            "parts": [
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "number of unit"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "XXX",
+                "xIsDigit": true
+              }
+            ],
+            "title": "ASSEMBLY LENGTH",
+            "type": "N"
+          },
+          {
+            "finePrint": "",
+            "length": 1,
+            "parts": [
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "meters"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "M"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "feet"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "F"
+              }
+            ],
+            "title": "LENGTH UNIT",
+            "type": "U"
+          }
+        ]
+      }
+    ],
+    "icon": "section8.svg",
+    "section": 8,
+    "finePrints": ""
+  },
+  "65402P": {
+    "title": "UTP CABLES",
+    "subTitle": "CAT UTP 4-PAIR, 1000 FEET",
+    "categories": [
+      "CAT6A",
+      "CMP",
+      "CAT6A PLENUM"
+    ],
+    "description": "Our range of Ethernet UTP Cables available in Standard Categories for data, video and voice applications.",
+    "shortDescription": "",
+    "longDescription": "",
+    "notes": "Other colors available upon request",
+    "dataSheetLink": "PDS-0155",
+    "part": "65402P",
+    "partGroups": [
+      {
+        "partCategories": [
+          {
+            "title": "6540",
+            "constant": true
+          }
+        ]
+      },
+      {
+        "partCategories": [
+          {
+            "title": "2P",
+            "constant": true
+          },
+          {
+            "finePrint": "",
+            "length": 2,
+            "parts": [
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Blue"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "BL"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "white"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "WH"
+              }
+            ],
+            "title": "COLOR",
+            "type": "Y"
+          }
+        ]
+      },
+      {
+        "partCategories": [
+          {
+            "title": "L305",
+            "constant": true
+          }
+        ]
+      }
+    ],
+    "icon": "section1.svg",
+    "section": 1,
+    "finePrints": ""
+  },
+  "65402R": {
+    "title": "UTP CABLES",
+    "subTitle": "CAT UTP 4-PAIR, 1000 FEET",
+    "categories": [
+      "CAT6A",
+      "CMR",
+      "CAT6A RISER"
+    ],
+    "description": "Our range of Ethernet UTP Cables available in Standard Categories for data, video and voice applications.",
+    "shortDescription": "",
+    "longDescription": "",
+    "notes": "Other colors available upon request",
+    "dataSheetLink": "PDS-0155",
+    "part": "65402R",
+    "partGroups": [
+      {
+        "partCategories": [
+          {
+            "title": "6540",
+            "constant": true
+          }
+        ]
+      },
+      {
+        "partCategories": [
+          {
+            "title": "2R",
+            "constant": true
+          },
+          {
+            "finePrint": "",
+            "length": 2,
+            "parts": [
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Blue"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "BL"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "white"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "WH"
+              }
+            ],
+            "title": "COLOR",
+            "type": "Y"
+          }
+        ]
+      },
+      {
+        "partCategories": [
+          {
+            "title": "L305",
+            "constant": true
+          }
+        ]
+      }
+    ],
+    "icon": "section1.svg",
+    "section": 1,
+    "finePrints": ""
+  },
+  "60402P": {
+    "title": "UTP CABLES",
+    "subTitle": "CAT UTP 4-PAIR, 1000 FEET",
+    "categories": [
+      "CAT6",
+      "CMP",
+      "CAT6 PLENUM"
+    ],
+    "description": "Our range of Ethernet UTP Cables available in Standard Categories for data, video and voice applications.",
+    "shortDescription": "",
+    "longDescription": "",
+    "notes": "Other colors available upon request",
+    "dataSheetLink": "PDS-0156",
+    "part": "60402P",
+    "partGroups": [
+      {
+        "partCategories": [
+          {
+            "title": "6040",
+            "constant": true
+          }
+        ]
+      },
+      {
+        "partCategories": [
+          {
+            "title": "2P",
+            "constant": true
+          },
+          {
+            "finePrint": "",
+            "length": 2,
+            "parts": [
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Blue"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "BL"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "white"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "WH"
+              }
+            ],
+            "title": "COLOR",
+            "type": "Y"
+          }
+        ]
+      },
+      {
+        "partCategories": [
+          {
+            "title": "R305",
+            "constant": true
+          }
+        ]
+      }
+    ],
+    "icon": "section1.svg",
+    "section": 1,
+    "finePrints": ""
+  },
+  "60402R": {
+    "title": "UTP CABLES",
+    "subTitle": "CAT UTP 4-PAIR, 1000 FEET",
+    "categories": [
+      "CAT6",
+      "CMR",
+      "CAT6 RISER"
+    ],
+    "description": "Our range of Ethernet UTP Cables available in Standard Categories for data, video and voice applications.",
+    "shortDescription": "",
+    "longDescription": "",
+    "notes": "Other colors available upon request",
+    "dataSheetLink": "PDS-0156",
+    "part": "60402R",
+    "partGroups": [
+      {
+        "partCategories": [
+          {
+            "title": "6040",
+            "constant": true
+          }
+        ]
+      },
+      {
+        "partCategories": [
+          {
+            "title": "2R",
+            "constant": true
+          },
+          {
+            "finePrint": "",
+            "length": 2,
+            "parts": [
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Blue"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "BL"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "white"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "WH"
+              }
+            ],
+            "title": "COLOR",
+            "type": "Y"
+          }
+        ]
+      },
+      {
+        "partCategories": [
+          {
+            "title": "R305",
+            "constant": true
+          }
+        ]
+      }
+    ],
+    "icon": "section1.svg",
+    "section": 1,
+    "finePrints": ""
+  },
+  "KWZZZ": {
+    "title": "BLANK",
+    "subTitle": "Keystone Blank Inserts",
+    "description": "",
+    "shortDescription": "",
+    "longDescription": "",
+    "notes": "Provided in bag of 10 units",
+    "dataSheetLink": "PDS-0048",
+    "part": "KWZZZ",
+    "partGroups": [
+      {
+        "partCategories": [
+          {
+            "title": "KW",
+            "constant": true
+          }
+        ]
+      },
+      {
+        "partCategories": [
+          {
+            "title": "ZZZ",
+            "constant": true
+          }
+        ]
+      },
+      {
+        "partCategories": [
+          {
+            "title": "BLK",
+            "constant": true
+          }
+        ]
+      },
+      {
+        "partCategories": [
+          {
+            "finePrint": "",
+            "length": 2,
+            "parts": [
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Black"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "BK"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "white"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "WH"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Almond"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "AL"
+              }
+            ],
+            "title": "COLOR",
+            "type": "Y"
+          }
+        ]
+      }
+    ],
+    "icon": "section2.svg",
+    "section": 2,
+    "finePrints": ""
+  },
+  "KWDUSTCAP": {
+    "title": "DUSTCAPS",
+    "subTitle": "Keywerks Modules Dustcaps",
+    "description": "",
+    "shortDescription": "",
+    "longDescription": "",
+    "notes": "RJ45 Keywerks dust caps (provided in bag of 50 units)",
+    "dataSheetLink": "PDS-0067",
+    "part": "KWDUSTCAP",
+    "partGroups": [
+      {
+        "partCategories": [
+          {
+            "title": "KW",
+            "constant": true
+          }
+        ]
+      },
+      {
+        "partCategories": [
+          {
+            "title": "DUSTCAP",
+            "constant": true
+          }
+        ]
+      },
+      {
+        "partCategories": [
+          {
+            "finePrint": "",
+            "length": 2,
+            "parts": [
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Blue"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "BL"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Black"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "BK"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "White"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "WH"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Yellow"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "YL"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Red"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "RD"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Green"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "GN"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Almond"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "AL"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Orange"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "OG"
+              }
+            ],
+            "title": "COLOR",
+            "type": "Y"
+          }
+        ]
+      }
+    ],
+    "icon": "section2.svg",
+    "section": 2,
+    "finePrints": ""
+  },
+  "PC": {
+    "title": "PATCH CORDS AND PIGTAILS",
+    "subTitle": "Fiber Optic",
+    "description": "",
+    "shortDescription": "",
+    "longDescription": "",
+    "notes": "Use 1.2 mm Cable Type to save space",
+    "dataSheetLink": "PDS-0022",
+    "part": "PC",
+    "partGroups": [
+      {
+        "partCategories": [
+          {
+            "title": "PC",
+            "constant": true
+          }
+        ]
+      },
+      {
+        "partCategories": [
+          {
+            "finePrint": "",
+            "length": 1,
+            "parts": [
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Single Mode OS2"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "1"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "62.5/125 \u03bcm Multimode OM1"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "2"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "50/125 \u03bcm Multimode OM2"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "3"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "50/125 \u03bcm Multimode OM3"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "4"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "50/125 \u03bcm Multimode OM4"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "5"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "50/125 \u03bcm Multimode OM2"
+                  },
+                  {
+                    "bold": true,
+                    "label": "Bend Insensitive"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "B"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "50/125 \u03bcm Multimode OM3"
+                  },
+                  {
+                    "bold": true,
+                    "label": "Bend Insensitive"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "C"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "50/125 \u03bcm Multimode OM4"
+                  },
+                  {
+                    "bold": true,
+                    "label": "Bend Insensitive"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "D"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Single Mode OS2"
+                  },
+                  {
+                    "bold": true,
+                    "label": "Bend Insensitive"
+                  },
+                  {
+                    "bold": false,
+                    "label": "yellow Jacket"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "E"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Single Mode OS2"
+                  },
+                  {
+                    "bold": true,
+                    "label": "Bend Insensitive"
+                  },
+                  {
+                    "bold": false,
+                    "label": "dark blue Jacket"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "H"
+              }
+            ],
+            "title": "FIBER TYPE",
+            "type": "A"
+          },
+          {
+            "finePrint": "",
+            "length": 1,
+            "parts": [
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "2 Fiber Zip 3 mm OFNR"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "A"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "2 Fiber Zip 3 mm OFNP"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "B"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "1 Fiber 3 mm OFNR"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "C"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "1 Fiber 3 mm OFNP"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "D"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "2 Fiber Zip 2 mm OFNR"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "E"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "2 Fiber Zip 2 mm OFNP"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "F"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "1 Fiber 2 mm OFNR"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "G"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "1 Fiber 2 mm OFNP"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "H"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "2 Fiber Zip 1.8 mm OFNR"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "I"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "2 Fiber Zip 1.8 mm OFNP"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "J"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "1 Fiber Tight Buffer 900 \u03bcm"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "K"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "1 Fiber Coated 250 \u03bcm"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "L"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "1 Fiber 1.6mm OFNR"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "M"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "1 Fiber 1.6mm OFNP"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "N"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "2 Fiber Zip 1.6mm OFNR"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "P"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "2 Fiber Zip 1.6mm OFNP"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "Q"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "2 Fiber Round 3 mm OFNR"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "T"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "2 Fiber Round 3 mm OFNP"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "U"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "1 Fiber 1.2 mm OFNR"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "5"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "2 Fiber 1.2 mm OFNR"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "7"
+              }
+            ],
+            "title": "CABLE TYPE",
+            "type": "B"
+          },
+          {
+            "finePrint": "*",
+            "length": 2,
+            "parts": [
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "LC Metal Body"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "LC"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "LC Plastic Body"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "LP"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "SC"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "SC"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "ST"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "ST"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "FC"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "FC"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "MTRJ Female"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "MT"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "MTRJ Male"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "MB"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "SMA905"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "S5"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "SMA906"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "S6"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "E2000"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "E2"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "ESCON"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "ES"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "FDDI"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "FD"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "D4"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "D4"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "MU"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "MU"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "LC Uniboot"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "LU"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "LC Flexible boot"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "LF"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "LC Short boot"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "LS"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Mini LC"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "LM"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "SC Flexible boot"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "SF"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "SC Short boot"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "SS"
+              }
+            ],
+            "title": "CONNECTOR SIDE A",
+            "type": "C"
+          },
+          {
+            "finePrint": "",
+            "length": 1,
+            "parts": [
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "APC"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "A"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "UPC"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "B"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "PC (multimode)"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "C"
+              }
+            ],
+            "title": "POLISH SIDE A",
+            "type": "D"
+          },
+          {
+            "finePrint": "*",
+            "length": 2,
+            "parts": [
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "LC Metal Body"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "LC"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "LC Plastic Body"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "LP"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "SC"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "SC"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "ST"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "ST"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "FC"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "FC"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "MTRJ Female"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "MT"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "MTRJ Male"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "MB"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "SMA905"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "S5"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "SMA906"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "S6"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "E2000"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "E2"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "ESCON"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "ES"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "FDDI"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "FD"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "D4"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "D4"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "MU"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "MU"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "LC Uniboot"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "LU"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "LC Flexible boot"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "LF"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "LC Short boot"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "LS"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Mini LC"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "LM"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "SC Flexible boot"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "SF"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "SC Short boot"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "SS"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Pigtail (no connector)"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "OE"
+              }
+            ],
+            "title": "CONNECTOR SIDE B",
+            "type": "E"
+          },
+          {
+            "finePrint": "",
+            "length": 1,
+            "parts": [
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "APC"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "A"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "UPC"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "B"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "PC (Multimode)"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "C"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "Not Applicable"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "D"
+              }
+            ],
+            "title": "POLISH SIDE B",
+            "type": "F"
+          }
+        ]
+      },
+      {
+        "partCategories": [
+          {
+            "finePrint": "",
+            "length": 3,
+            "parts": [
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "in meters"
+                  }
+                ],
+                "description": "M",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "XXX",
+                "xIsDigit": true,
+                "allowDecimal": true
+              }
+            ],
+            "title": "LENGTH",
+            "type": "N"
+          }
+        ]
+      }
+    ],
+    "icon": "section11.svg",
+    "section": 11,
+    "finePrints": "* If more than one connector type, then place in alphabetical order, i.e. LC before SC, to avoid duplicate of part number creation for the same product.  ** If a decimal is required, add “D00” right after the non-decimal value and without leaving any space between. The “00” in “D00” must be replaced by the required value.  Example: a patch cord with an overall length of 105.55 meters shall read as 105D55."
+  },
+  "MC": {
+    "title": "MODE CONDITIONING PATCH CORDS",
+    "subTitle": "Fiber Optic",
+    "description": "",
+    "shortDescription": "",
+    "longDescription": "",
+    "notes": "",
+    "dataSheetLink": "PDS-0029",
+    "part": "MC",
+    "partGroups": [
+      {
+        "partCategories": [
+          {
+            "title": "MC",
+            "constant": true
+          }
+        ]
+      },
+      {
+        "partCategories": [
+          {
+            "finePrint": "",
+            "length": 1,
+            "parts": [
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "62.5/125 \u03bcm"
+                  },
+                  {
+                    "bold": false,
+                    "label": "Multimode"
+                  },
+                  {
+                    "bold": true,
+                    "label": "OM1"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "2"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "50/125 \u03bcm"
+                  },
+                  {
+                    "bold": false,
+                    "label": "Multimode"
+                  },
+                  {
+                    "bold": true,
+                    "label": "OM2"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "3"
+              }
+            ],
+            "title": "FIBER TYPE",
+            "type": "A"
+          },
+          {
+            "finePrint": "",
+            "length": 2,
+            "parts": [
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "LC"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "LC"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "ST"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "ST"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "SC"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "SC"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "FC"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "FC"
+              }
+            ],
+            "title": "OFFSET CONNECTOR TYPE",
+            "type": "B"
+          },
+          {
+            "finePrint": "",
+            "length": 2,
+            "parts": [
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "LC"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "LC"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "ST"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "ST"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "SC"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "SC"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "FC"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "FC"
+              },
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "MTRJ"
+                  }
+                ],
+                "description": "",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "MT"
+              }
+            ],
+            "title": "CONNECTOR TYPE",
+            "type": "C"
+          }
+        ]
+      },
+      {
+        "partCategories": [
+          {
+            "finePrint": "",
+            "length": 3,
+            "parts": [
+              {
+                "attributes": [
+                  {
+                    "bold": false,
+                    "label": "in meters"
+                  }
+                ],
+                "description": "M",
+                "finePrint": "",
+                "shortDescription": "",
+                "value": "XXX",
+                "xIsDigit": true,
+                "allowDecimal": false
+              }
+            ],
+            "title": "LENGTH",
+            "type": "N"
+          }
+        ]
+      }
+    ],
+    "icon": "section11.svg",
+    "section": 11,
+    "finePrints": ""
+  }
+}

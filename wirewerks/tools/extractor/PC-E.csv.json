@@ -1,0 +1,260 @@
+{
+    "finePrint": "*", 
+    "length": 2, 
+    "parts": [
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "LC Metal Body"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "LC"
+        }, 
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "LC Plastic Body"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "LP"
+        }, 
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "SC"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "SC"
+        }, 
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "ST"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "ST"
+        }, 
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "FC"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "FC"
+        }, 
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "MTRJ Female"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "MT"
+        }, 
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "MTRJ Male"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "MB"
+        }, 
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "SMA905"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "S5"
+        }, 
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "SMA906"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "S6"
+        }, 
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "E2000"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "E2"
+        }, 
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "ESCON"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "ES"
+        }, 
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "FDDI"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "FD"
+        }, 
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "D4"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "D4"
+        }, 
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "MU"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "MU"
+        }, 
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "LC Uniboot"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "LU"
+        }, 
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "LC Flexible boot"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "LF"
+        }, 
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "LC Short boot"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "LS"
+        }, 
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "Mini LC"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "LM"
+        }, 
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "SC Flexible boot"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "SF"
+        }, 
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "SC Short boot"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "SS"
+        }, 
+        {
+            "attributes": [
+                {
+                    "bold": false, 
+                    "label": "Pigtail (no connector)"
+                }
+            ], 
+            "description": "", 
+            "finePrint": "", 
+            "shortDescription": "", 
+            "value": "OE"
+        }
+    ], 
+    "title": "CONNECTOR SIDE B", 
+    "type": "E"
+}
