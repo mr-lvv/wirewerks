@@ -88,3 +88,4 @@ Deployement
 
 heroku logs --app wirewerks --tail
 heroku run bash --app wirewerks
+ 
