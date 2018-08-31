@@ -18,7 +18,7 @@
             <div class="vertical-align-cell">
                 
                 <!-- INDIVIDUAL COPPER SECTION -->
-                <div class="home-section-col col-md-4 col-sm-6 col-xs-12 transition-smooth" ng-repeat="section in sections | filter:{ type: 'copper' }"  ui-sref="products.section({sectionNumber: '{{section.number}}'})">                         
+                <div class="home-section-col col-md-4 col-sm-6 col-xs-12 transition-smooth" ng-repeat="section in sections | filter:{ type: 'copper' } | orderBy:'number'"  ui-sref="products.section({sectionNumber: '{{section.number}}'})">                         
                     <div class="home-section-wrapper">
                         <div class="home-section-container">
                             <img class="home-section-img" ng-src="images/icons/{{section.number}}.png">                                  
@@ -51,7 +51,7 @@
             <div class="vertical-align-cell">
 
                 <!-- INDIVIDUAL FIBER SECTION -->
-                <div class="home-section-col col-md-4 col-sm-6 col-xs-12 transition-smooth" ng-repeat="section in sections | filter:{ type: 'fiber' }" ui-sref="products.section({sectionNumber: '{{section.number}}'})">
+                <div class="home-section-col col-md-4 col-sm-6 col-xs-12 transition-smooth" ng-repeat="section in sections | filter:{ type: 'fiber' } | orderBy:'number'" ui-sref="products.section({sectionNumber: '{{section.number}}'})">
                     <div class="home-section-wrapper">
                         <div class="home-section-container">
                             <img class="home-section-img" ng-src="images/icons/{{section.number}}.png">
@@ -81,7 +81,7 @@
     <div class="home-sections-col col-xs-11">
         <div class="row">
             <!-- INDIVIDUAL OTHER SECTION -->
-            <div class="home-section-col col-md-4 col-sm-6 col-xs-12 transition-smooth" ng-repeat="section in sections | filter:{ type: 'other' }" ui-sref="products.section({sectionNumber: '{{section.number}}'})">
+            <div class="home-section-col col-md-4 col-sm-6 col-xs-12 transition-smooth" ng-repeat="section in sections | filter:{ type: 'other' } | orderBy:'number'" ui-sref="products.section({sectionNumber: '{{section.number}}'})">
                 <div class="home-section-wrapper">
                     <div class="home-section-container">
                         <img class="home-section-img" ng-src="images/icons/{{section.number}}.png">
