@@ -1,7 +1,6 @@
 [
     {
         "partNumber": "6540-2PYY-L305",
-        "layout": "single-choice",
         "dataSheet": "PDS-0155",
         "description": "CAT6A PLENUM",
         "parts": [
@@ -42,7 +41,6 @@
     },
     {
         "partNumber": "7043-2PYY-L305",
-        "layout": "single-choice",
         "dataSheet": "PDS-0225",
         "description": "CAT6A PLENUM SMALL OD",
         "parts": [
@@ -83,7 +81,6 @@
     },
     {
         "partNumber": "6540-2RYY-L305",
-        "layout": "single-choice",
         "dataSheet": "PDS-0155",
         "description": "CAT6A RISER",
         "parts": [
@@ -124,7 +121,6 @@
     },
     {
         "partNumber": "6040-2PYY-R305",
-        "layout": "single-choice",
         "dataSheet": "PDS-0156",
         "description": "CAT6 PLENUM",
         "parts": [
@@ -165,7 +161,6 @@
     },
     {
         "partNumber": "6040-2RYY-R305",
-        "layout": "single-choice",
         "dataSheet": "PDS-0156",
         "description": "CAT6 RISER",
         "parts": [
@@ -206,7 +201,6 @@
     },
     {
         "partNumber": "5540-1PYY-R305",
-        "layout": "single-choice",
         "dataSheet": "PDS-0157",
         "description": "CAT5e PLENUM",
         "parts": [
@@ -247,7 +241,6 @@
     },
     {
         "partNumber": "5540-1RYY-R305",
-        "layout": "single-choice",
         "dataSheet": "PDS-0157",
         "description": "CAT6 RISER",
         "parts": [

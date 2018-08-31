@@ -35,7 +35,6 @@ var partSchema = new Schema({
 
 var productSchema = new Schema({
     partNumber: {type: String, required: true},
-    layout: {type: String, enum: ['no-choice', 'single-choice', 'few-choices', 'many-choices']}, //few-choices < 5; many-choices >= 5
     dataSheet: {type: String, required: true},
     description: {type: String, required: true},
     parts: [partSchema]
@@ -46,8 +45,8 @@ var sectionSchema = new Schema({
     description: {type: String, required: true},
     number: {type: Number, required: true},
     products: [productSchema]
-}, {collection: 'products'});
+}, { collection: 'SolutionsGuide'});
 
-var Products = mongoose.model('Products', sectionSchema);
+var SolutionsGuide = mongoose.model('SolutionsGuide', sectionSchema);
 
-module.exports = Products;
+module.exports = SolutionsGuide;
