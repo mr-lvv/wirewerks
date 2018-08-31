@@ -1,9 +1,8 @@
 [
     {
         "partNumber": "KW-ZZZ-BLK-YY",
-        "layout": "single-choice",
         "dataSheet": "PDS-0048",
-        "description": "KEYSTONE BLANK INSERTS",
+        "description": "Keystone Blank Inserts",
         "parts": [
             {
                 "id": "_constant1",
@@ -40,9 +39,8 @@
     },
     {
         "partNumber": "KW-DUSTCAP-YY",
-        "layout": "single-choice",
         "dataSheet": "PDS-0067",
-        "description": "KEYWERKS MODULES DUSTCAPS",
+        "description": "Keywerks Modules Dustcaps",
         "parts": [
             {
                 "id": "_constant1",
@@ -104,7 +102,6 @@
     },
     {
         "partNumber": "KW-CAACFFBK",
-        "layout": "single-choice",
         "dataSheet": "PDS-0168",
         "description": "Keywerks Inline Couplers (180°) UTP",
         "parts": [
@@ -143,7 +140,6 @@
     },
     {
         "partNumber": "KW-CAACFF",
-        "layout": "single-choice",
         "dataSheet": "PDS-0160",
         "description": "Keywerks Inline Couplers (180°) FTP",
         "parts": [
@@ -182,7 +178,6 @@
     },
     {
         "partNumber": "KW-CC3-45T-YY",
-        "layout": "single-choice",
         "dataSheet": "PDS-0045",
         "description": "CAT3 Keywerks Modules – Voice",
         "parts": [
@@ -241,7 +236,6 @@
     },
     {
         "partNumber": "KW-C6A-45B-YY",
-        "layout": "single-choice",
         "dataSheet": "PDS-0153",
         "description": "Keywerks CAT6A Modules (Jacks)",
         "parts": [
@@ -305,7 +299,6 @@
     },
     {
         "partNumber": "KW-CC6-45B-YY",
-        "layout": "single-choice",
         "dataSheet": "PDS-0108",
         "description": "Keywerks CAT6 Modules (Jacks)",
         "parts": [
@@ -369,7 +362,6 @@
     },
     {
         "partNumber": "KW-C5E-45B-YY",
-        "layout": "single-choice",
         "dataSheet": "PDS-0107",
         "description": "Keywerks CAT5E Modules (Jacks)",
         "parts": [
@@ -433,7 +425,6 @@
     },
     {
         "partNumber": "KW-CAA-BULK-45BYY",
-        "layout": "few-choices",
         "dataSheet": "n/a",
         "description": "Bulk Keywerks Modules (25pcs/pack)",
         "parts": [
@@ -502,8 +493,7 @@
         ]
     },
     {
-        "partNumber": "KW-CAA-45B-YY",
-        "layout": "single-choice",
+        "partNumber": "KW-CAA-45B",
         "dataSheet": "PDS-0161, PDS-0162, PDS-0163",
         "description": "FTP Keywerks Modules (Shielded Jacks)",
         "parts": [
@@ -549,7 +539,6 @@
     },
     {
         "partNumber": "IE-AABB",
-        "layout": "few-choices",
         "dataSheet": "PDS-0165",
         "description": "IP67 RJ45 Modules",
         "parts": [
