@@ -7,7 +7,7 @@
         <tr ng-repeat="item in cart track by $index" class="cart-row">
             
             <td class="cart-img-container">
-                <img class="thumbnail" ng-src="/images/sections/{{item.section}}/{{item.partNumber}}.jpeg" onerror="this.src='/images/missing_img.png'" />
+                <img class="thumbnail" ng-src="{{item.imgUrl}}" ng-show="item.imgUrl != null"/>
             </td>
             
             <td class="cart-partNumber-container">
@@ -17,8 +17,11 @@
                     </label>
                 </div>
                 <div>
-                    <span></span>
-                </div>            
+                    <span ng-bind-html="getAsHtml(item.description)"></span>
+                </div>
+                <div>
+                    <span ng-bind-html="getAsHtml(item.selectedOptions)"></span>
+                </div>    
             </td>
             
             <td class="cart-quantity-td">

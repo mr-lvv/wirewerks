@@ -1,8 +1,36 @@
-<div class="row">
-      
-        <div class="col-md-3 col-sm-4 col-xs-6" ng-repeat="product in section.products" ui-sref="products.section.product({partNumber: '{{product.partNumber}}'})">
-            <label>{{product.description}}</label>
-            <img class="img-responsive img-rounded" ng-src="/images/sections/{{section.number}}/{{product.partNumber}}.jpeg" onerror="this.src='/images/missing_img.png'"/>
+<div class="row row-eq-height">
+
+    <!-- HEADER -->
+    <div class="home-header-col col-xs-1">
+        <div class="home-header-container" ng-class="headerBackgroundClass">
+            <label class="home-header sideway">
+                {{header}}
+            </label>
         </div>
+    </div>
+
+    <!-- PRODUCTS -->
+    <div class="home-sections-col col-xs-11">
     
+        <!-- Centers items vertically when header is taller than sections height -->
+        <div class="row vertical-align-table">
+            <div class="vertical-align-cell">
+    
+                <!-- INDIVIDUAL PRODUCTS -->
+                <div class="home-section-col col-md-4 col-sm-6 col-xs-12 transition-smooth" ng-repeat="product in section.products | orderBy:'partNumber'"
+                    ui-sref="products.section.product({partNumber: '{{product.partNumber}}'})">
+                    <div class="home-section-wrapper">
+                        <div class="home-section-container">
+                            <img class="products-section-img" ng-src="images/sections/{{section.number}}/{{product.partNumber}}.png" onerror="this.src='/images/missing_img.png'">
+                            
+                            <div class="home-section-label">
+                                <label>{{product.description}}</label>                   
+                                <span style="display: block; overflow: hidden">{{product.partNumber}}</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

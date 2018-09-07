@@ -1,4 +1,4 @@
-var cartContentCtrl = function (cart, $scope, $cookies, $state, localStorageService) {
+var cartContentCtrl = function (cart, $scope, $cookies, $state, $sce, localStorageService) {
     
     $scope.quantityRange = 99;
 
@@ -23,6 +23,8 @@ var cartContentCtrl = function (cart, $scope, $cookies, $state, localStorageServ
     var initItem = function(item){
         item.quantityMode = "closed";
         item.quantityInput = item.quantity;
+        item.imgUrl = null;
+        generateImgUrl(item);
     };
 
     //********************************************** NUMERIC INPUT BEGIN  **********************************************
@@ -167,6 +169,29 @@ var cartContentCtrl = function (cart, $scope, $cookies, $state, localStorageServ
         $scope.$apply();
     };
     //----------------------------------------------------------------------------------------------------
+    $scope.getAsHtml = function (value) {
+        return $sce.trustAsHtml(value) || $sce.trustAsHtml('&nbsp');
+    };
+
+    var generateImgUrl = function(item){
+        let imgUrl = '/images/sections/' + item.section + '/' + item.partNumber + '.png';
+            
+        //Check if an img exists for this specific partNumber
+        $.get(imgUrl)
+            .done(function () {
+                item.imgUrl = imgUrl;
+            }).fail(function () {
+                imgUrl = '/images/sections/' + item.section + '/' + item.placeholder + '.png';
+                //Check if an img exists for a generic partNumber
+                $.get(imgUrl)
+                    .done(function () {
+                        item.imgUrl = imgUrl;
+                    })
+                    .fail(function () {
+                        item.imgurl = '/images/missing_img.png';
+                    });
+            });
+    };
 
     initCart();
 };

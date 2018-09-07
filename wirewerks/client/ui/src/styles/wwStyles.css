@@ -251,14 +251,18 @@ html, body{
     border-radius: 6px;
 }
 .home-section-wrapper:hover{
-    background: #ffffff;
     cursor: pointer;
+    background-color: #ffffff;
 }
 .home-section-wrapper:hover .home-section-label{
     color: #333;
 }
 .home-section-wrapper:hover img{
-    border: none;
+    -webkit-transition: border-width 0.3s ease;
+    -moz-transition: border-width 0.3s ease;
+    -o-transition: border-width 0.3s ease;
+    transition: border-width 0.3s ease;
+    border-width: 0px;
 }
 .home-section-container{
     display: table;
@@ -625,10 +629,17 @@ html, body{
     vertical-align: top;
 }
 .cart-row td{
-
 }
 .cart-row:nth-child(2n+1){
     background-color: #e0e0e0;
+}
+.cart-row:nth-child(2n+1) td:first-child{
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+.cart-row:nth-child(2n+1) td:last-child{
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 .cart-img-container{
     width: 100px;
@@ -640,8 +651,8 @@ html, body{
     margin-bottom: 0px;
     height: 100%;
 }
-.cart-partNumber-container{
-    /*background-color: yellow;*/
+.cart-partNumber-container, .cart-quantity-td, .cart-remove-container{
+    padding: 5px;
 }
 .cart-quantity-td{
     position: relative;
@@ -735,9 +746,30 @@ html, body{
     cursor: pointer;
 }
 .cart-remove-container .glyphicon:hover{
+    -webkit-transition: color 0.3s ease;
+    -moz-transition: color 0.3s ease;
+    -o-transition: color 0.3s ease;
+    transition: color 0.3s ease;
     color: red;
 }
 
 .popover{
     width: 250px;
 }
+
+/* ****************************************************************************************** */
+/* *******************************PRODUCTS.SECTION BEGIN************************************* */
+/* ****************************************************************************************** */
+
+.products-section-img{
+    display: table-cell;
+    vertical-align: middle;
+    width: 70px;
+    height: 70px;
+    border: solid transparent 2px;
+    border-radius: 5px;
+}
+
+/* ****************************************************************************************** */
+/* *******************************PRODUCTS.SECTION END*************************************** */
+/* ****************************************************************************************** */

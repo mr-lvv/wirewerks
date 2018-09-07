@@ -5,4 +5,12 @@ var productsSectionContentCtrl = function (section, $scope, $state) {
     }
 
     $scope.section = section;
+
+    var init = function(){
+
+        $scope.header = (section.type + " products").toUpperCase();
+        $scope.headerBackgroundClass = "bg-" + section.type;
+    };
+
+    init();
 };

@@ -292,6 +292,14 @@ var productsProductContentCtrl = function (section, product, $scope, $sce, $cook
         console.log("getOptionFromValue: Option not found for value " + value + " and part " + part.id);
         return null;
     };
+    var getAllDetails = function() {
+        let details = [];
+        for(let part of product.parts){
+            if(partIsVariable(part))
+                details.push(part.details);
+        }
+        return details.join(', ');
+    };
     //----------------------------------------------------------------------------------------------------
     var partIsNumeric = function (part) {
         return part ? part.type == 'numeric' : null;
@@ -321,6 +329,15 @@ var productsProductContentCtrl = function (section, product, $scope, $sce, $cook
         return partNumber;
     };
     $scope.getPartNumber = getPartNumber;
+    //----------------------------------------------------------------------------------------------------
+    var getPlaceholder = function () {
+        let placeholder = "";
+
+        for (let part of product.parts)
+            placeholder += part.placeholder;
+        return placeholder;
+    };
+    $scope.getPlaceholder = getPlaceholder;
     //********************************************** PART VALUE & OPTION END  **********************************************
 
     //********************************************** CONNECTORS VALIATION BEGIN  **********************************************
@@ -564,13 +581,14 @@ var productsProductContentCtrl = function (section, product, $scope, $sce, $cook
 
     $scope.addToCart = function () {
         let key = getPartNumber();
+        let details = getAllDetails();
 
-        let cartItem = generateCartItem(key, section.number, getPartNumber(), $scope.quantity, product.datasheet);
+        let cartItem = generateCartItem(key, section.number, getPartNumber(), getPlaceholder(), product.description, details, $scope.quantity, product.datasheet);
         localStorageService.set(key, cartItem);
     };
 
-    var generateCartItem = function (key, section, partNumber, quantity, datasheet) {
-        return { 'key': key, 'section': section, 'partNumber': partNumber, 'quantity': quantity, 'datasheet': datasheet, 'orderDateTime': new Date().toLocaleString(), 'isCartItem': true };
+    var generateCartItem = function (key, section, partNumber, placeholder, description, selectedOptions, quantity, datasheet) {
+        return { 'key': key, 'section': section, 'partNumber': partNumber, 'placeholder': placeholder, 'description': description, 'selectedOptions': selectedOptions, 'quantity': quantity, 'datasheet': datasheet, 'orderDateTime': new Date().toLocaleString(), 'isCartItem': true };
     };
 
     $scope.test = function () {
