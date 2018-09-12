@@ -1,5 +1,4 @@
 var cartContentCtrl = function (cart, $scope, $cookies, $state, $sce, localStorageService) {
-    
     $scope.quantityRange = 99;
 
     $(document).ready(function () {
@@ -23,8 +22,6 @@ var cartContentCtrl = function (cart, $scope, $cookies, $state, $sce, localStora
     var initItem = function(item){
         item.quantityMode = "closed";
         item.quantityInput = item.quantity;
-        item.imgUrl = null;
-        generateImgUrl(item);
     };
 
     //********************************************** NUMERIC INPUT BEGIN  **********************************************
@@ -153,7 +150,10 @@ var cartContentCtrl = function (cart, $scope, $cookies, $state, $sce, localStora
     };
     //********************************************** NUMERIC INPUT END  **********************************************
     var updateLocalStorage = function (item) {
-        let updatedItem = {'key': item.partNumber, 'section': item.section, 'partNumber': item.partNumber, 'quantity': item.quantity, 'datasheet': item.datasheet, 'orderDateTime': item.orderDateTime, 'isCartItem': true };
+        let updatedItem = _.clone(item);
+        delete updatedItem.quantityMode;
+        delete updatedItem.quantityInput;
+
         localStorageService.set(item.key, updatedItem);
     };
     //----------------------------------------------------------------------------------------------------
@@ -171,26 +171,6 @@ var cartContentCtrl = function (cart, $scope, $cookies, $state, $sce, localStora
     //----------------------------------------------------------------------------------------------------
     $scope.getAsHtml = function (value) {
         return $sce.trustAsHtml(value) || $sce.trustAsHtml('&nbsp');
-    };
-
-    var generateImgUrl = function(item){
-        let imgUrl = '/images/sections/' + item.section + '/' + item.partNumber + '.png';
-            
-        //Check if an img exists for this specific partNumber
-        $.get(imgUrl)
-            .done(function () {
-                item.imgUrl = imgUrl;
-            }).fail(function () {
-                imgUrl = '/images/sections/' + item.section + '/' + item.placeholder + '.png';
-                //Check if an img exists for a generic partNumber
-                $.get(imgUrl)
-                    .done(function () {
-                        item.imgUrl = imgUrl;
-                    })
-                    .fail(function () {
-                        item.imgurl = '/images/missing_img.png';
-                    });
-            });
     };
 
     initCart();

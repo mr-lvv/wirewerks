@@ -17,7 +17,7 @@ define(['../app.js'], function(app) {
 	
 	app.factory('getImageUrlService', function($http){
 		var getImgUrl = function(){
-			
+
 		};
 	});
 
@@ -65,13 +65,44 @@ define(['../app.js'], function(app) {
 				},
 				resolve: {
 					cart: function (localStorageService) {
+						//--------------------------------------------------------------------------------------------------------------
+						var imageExists = function (imgUrl) {
+
+							let http = new XMLHttpRequest();
+
+							http.open('HEAD', imgUrl, false);
+							http.send();
+
+							return http.status != 404;
+
+						};
+						//--------------------------------------------------------------------------------------------------------------
+						var generateImgUrl = function (item) {
+							const specificProductImgUrl = '/images/sections/' + item.section + '/' + item.partNumber + '.png';
+							const genericProductImgUrl = '/images/sections/' + item.section + '/' + item.placeholder + '.png';
+							const notFoundImgUrl = '/images/missing_img.png';
+
+							//img exists for selected parts
+							if (imageExists(specificProductImgUrl))
+								return specificProductImgUrl;
+
+							//generic img for this product (same as in products.section state)
+							if (imageExists(genericProductImgUrl))
+								return genericProductImgUrl;
+
+							return notFoundImgUrl;
+						};
+						//--------------------------------------------------------------------------------------------------------------
+
 						let item, cart = {};
 						lsKeys = localStorageService.keys();
 						
 						for (let key of lsKeys) {
 							item = localStorageService.get(key);
-							if (item.isCartItem)
+							if (item.isCartItem){
+								item.imgUrl = generateImgUrl(item);
 								cart[key] = item;
+							}
 						}
 						return cart;
 					}
