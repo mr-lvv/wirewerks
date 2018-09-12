@@ -1,0 +1,88 @@
+[
+    {
+        "partNumber": "FT-ALCXX",
+        "dataSheet": "PDS-0179",
+        "description": "LC Field Connectors",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "FT-ALC",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_fiberType",
+                "type": "select",
+                "placeholder": "XX",
+                "description": "FIBER TYPE",
+                "color": "deep-orange",
+                "options": [
+                    {
+                        "value": "SM",
+                        "description": "Single&nbsp;Mode 900μm&nbsp;boot",
+                        "conditions": []
+                    },
+                    {
+                        "value": "MM",
+                        "description": "Multimode&nbsp;OM1 900μm&nbsp;boot",
+                        "conditions": []
+                    },
+                    {
+                        "value": "MM50",
+                        "description": "Multimode&nbsp;OM2 900μm&nbsp;boot",
+                        "conditions": []
+                    },
+                    {
+                        "value": "MM10G",
+                        "description": "Multimode&nbsp;OM3/OM4 900μm&nbsp;boot",
+                        "conditions": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "partNumber": "FT-ASCXX",
+        "dataSheet": "PDS-0178",
+        "description": "SC Field Connectors",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "FT-ASC",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_fiberType",
+                "type": "select",
+                "placeholder": "XX",
+                "description": "FIBER TYPE",
+                "color": "deep-orange",
+                "options": [
+                    {
+                        "value": "SM",
+                        "description": "Single&nbsp;Mode 900μm&nbsp;boot",
+                        "conditions": []
+                    },
+                    {
+                        "value": "MM",
+                        "description": "Multimode&nbsp;OM1 900μm&nbsp;boot",
+                        "conditions": []
+                    },
+                    {
+                        "value": "MM50",
+                        "description": "Multimode&nbsp;OM2 900μm&nbsp;boot",
+                        "conditions": []
+                    },
+                    {
+                        "value": "MM10G",
+                        "description": "Multimode&nbsp;OM3/OM4 900μm&nbsp;boot",
+                        "conditions": []
+                    }
+                ]
+            }
+        ]
+    }
+]
