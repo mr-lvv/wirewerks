@@ -1,8 +1,4 @@
 var productsProductContentCtrl = function (section, product, $scope, $sce, $cookies, $state, localStorageService) {
-    if (product.notFound) {
-        $state.go('products.section', [], { location: 'replace' });
-        return;
-    }
 
     $scope.section = section;
     $scope.product = product;
@@ -63,6 +59,8 @@ var productsProductContentCtrl = function (section, product, $scope, $sce, $cook
     };
     //----------------------------------------------------------------------------------------------------
     var init = function () {
+        checkForStateRedirect();
+        
         for (let part of product.parts) {
             initPart(part);
         }
@@ -319,6 +317,14 @@ var productsProductContentCtrl = function (section, product, $scope, $sce, $cook
     //----------------------------------------------------------------------------------------------------
     var partIsVariable = function (part) {
         return part ? part.type != 'constant' : null;
+    };
+    //----------------------------------------------------------------------------------------------------
+    var hasVariablePart = function (product) {
+        for (let part of product.parts)
+            if (partIsVariable(part))
+                return true;
+
+        return false;
     };
     //----------------------------------------------------------------------------------------------------
     var getPartNumber = function () {
@@ -591,6 +597,13 @@ var productsProductContentCtrl = function (section, product, $scope, $sce, $cook
         return { 'key': key, 'section': section, 'partNumber': partNumber, 'placeholder': placeholder, 'description': description, 'selectedOptions': selectedOptions, 'quantity': quantity, 'datasheet': datasheet, 'orderDateTime': new Date().toLocaleString(), 'isCartItem': true };
     };
 
+    var checkForStateRedirect = function(){
+        if (product.notFound || !hasVariablePart(product)) {
+            $state.go('products.section', [], { location: 'replace' });
+            return;
+        }
+    };
+    
     //INIT CALL
     init();
 };

@@ -1,4 +1,4 @@
-var productsSectionContentCtrl = function (section, $scope, $state, localStorageService) {
+var productsSectionContentCtrl = function (section, $scope, $state, $sce, localStorageService) {
     if (section.notFound) {
         $state.go('home', [], { location: 'replace' });
         return;
@@ -17,9 +17,7 @@ var productsSectionContentCtrl = function (section, $scope, $state, localStorage
     //----------------------------------------------------------------------------------------------------
     $scope.onProductClick = function(product){
         if(hasVariablePart(product)){
-            $scope.selectedProduct = product;
-            $('#modalProductSummary').modal('show');
-            //$state.go('.product', {partNumber: product.partNumber} );
+            $state.go('.product', {partNumber: product.partNumber} );
         }
         else{
             $scope.selectedProduct = product;
@@ -72,6 +70,9 @@ var productsSectionContentCtrl = function (section, $scope, $state, localStorage
         return details.join(', ');
     };
     //********************************************** CART END  **********************************************
-
+    $scope.getAsHtml = function (value) {
+        return $sce.trustAsHtml(value) || $sce.trustAsHtml('&nbsp');
+    };
+    
     init();
 };

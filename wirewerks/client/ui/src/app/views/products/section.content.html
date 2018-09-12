@@ -21,7 +21,7 @@
                         <img class="products-section-img" ng-src="images/sections/{{section.number}}/{{product.partNumber}}.png" onerror="this.src='/images/missing_img.png'">
                         
                         <div class="home-section-label">
-                            <label style="cursor: pointer">{{product.description}}</label>
+                            <label ng-bind-html="getAsHtml(product.description)" style="cursor: pointer"></label>
                             <span style="display: block; overflow: hidden">{{product.partNumber}}</label>
                             </div>
                         </div>
