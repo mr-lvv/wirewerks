@@ -72,7 +72,7 @@
     {
         "partNumber": "WW000015",
         "dataSheet": "PDS-0122",
-        "description": "Wirewerks Keystone wall mount, 6&nbsp;Port, black powdered, up to 12&nbsp;fibers",
+        "description": "Keystone wall mount, 6&nbsp;Port, black powdered, up to 12&nbsp;fibers",
         "parts": [
             {
                 "id": "_constant1",
@@ -86,7 +86,7 @@
     {
         "partNumber": "PP-WM2S",
         "dataSheet": "PDS-0124",
-        "description": "Wirewerks LGX wall mount, 2&nbsp;strips 2&nbsp;doors, black powdered, up to 48&nbsp;fibers",
+        "description": "LGX wall mount, 2&nbsp;strips 2&nbsp;doors, black powdered, up to 48&nbsp;fibers",
         "parts": [
             {
                 "id": "_constant1",
@@ -100,7 +100,7 @@
     {
         "partNumber": "PP-WM4SD",
         "dataSheet": "PDS-0125",
-        "description": "Wirewerks LGX wall mount, 4&nbsp;strips 2&nbsp;doors, black powdered, up to 96&nbsp;fibers",
+        "description": "LGX wall mount, 4&nbsp;strips 2&nbsp;doors, black powdered, up to 96&nbsp;fibers",
         "parts": [
             {
                 "id": "_constant1",
@@ -128,7 +128,7 @@
     {
         "partNumber": "NS-PPW1U1",
         "dataSheet": "PDS-0189",
-        "description": "Next StepTM 1U Rack Mount Patch Panel 144/288&nbsp;Fiber",
+        "description": "Next Step™ 1U Rack Mount Patch Panel 144/288&nbsp;Fiber",
         "parts": [
             {
                 "id": "_constant1",
@@ -142,7 +142,7 @@
     {
         "partNumber": "NS-PPW1U2",
         "dataSheet": "PDS-0189",
-        "description": "Next StepTM 1U Rack Mount Light Patch Panel 144/288&nbsp;Fiber",
+        "description": "Next Step™ 1U Rack Mount Light Patch Panel 144/288&nbsp;Fiber",
         "parts": [
             {
                 "id": "_constant1",
@@ -156,7 +156,7 @@
     {
         "partNumber": "NS-PPW1U1L",
         "dataSheet": "PDS-0189",
-        "description": "Next StepTM 1U Rack Mount Lean Patch Panel 144/288&nbsp;Fiber",
+        "description": "Next Step™ 1U Rack Mount Lean Patch Panel 144/288&nbsp;Fiber",
         "parts": [
             {
                 "id": "_constant1",
@@ -170,7 +170,7 @@
     {
         "partNumber": "NS-PPW4U1",
         "dataSheet": "PDS-0203",
-        "description": "Next StepTM 4U Rack Mount Patch Panel 576/4608&nbsp;Fiber",
+        "description": "Next Step™ 4U Rack Mount Patch Panel 576/4608&nbsp;Fiber",
         "parts": [
             {
                 "id": "_constant1",
@@ -184,7 +184,7 @@
     {
         "partNumber": "NS-CBLMGT-BL",
         "dataSheet": "PDS-0189",
-        "description": "Next StepTM Cable Manager",
+        "description": "Next Step™ Cable Manager",
         "parts": [
             {
                 "id": "_constant1",
@@ -198,7 +198,7 @@
     {
         "partNumber": "PP-W1U1",
         "dataSheet": "PDS-0119",
-        "description": "Wirewerks 1U rack mount, black powdered, up to 72&nbsp;fibers",
+        "description": "1U rack mount, black powdered, up to 72&nbsp;fibers",
         "parts": [
             {
                 "id": "_constant1",
@@ -212,7 +212,7 @@
     {
         "partNumber": "PP-W2U1",
         "dataSheet": "PDS-0120",
-        "description": "Wirewerks 2U rack mount, black powdered, up to 144&nbsp;fibers",
+        "description": "2U rack mount, black powdered, up to 144&nbsp;fibers",
         "parts": [
             {
                 "id": "_constant1",
@@ -226,7 +226,7 @@
     {
         "partNumber": "PP-W4U1",
         "dataSheet": "PDS-0001",
-        "description": "Wirewerks 4U rack mount, black powdered, up to 288&nbsp;fibers",
+        "description": "4U rack mount, black powdered, up to 288&nbsp;fibers",
         "parts": [
             {
                 "id": "_constant1",
@@ -240,7 +240,7 @@
     {
         "partNumber": "WW000069",
         "dataSheet": "PDS-0056",
-        "description": "Wirewerks 1U compact rack mount, 3 LGX, up to 72&nbsp;fibers",
+        "description": "1U compact rack mount, 3 LGX, up to 72&nbsp;fibers",
         "parts": [
             {
                 "id": "_constant1",
@@ -254,7 +254,7 @@
     {
         "partNumber": "WW000066",
         "dataSheet": "N/A",
-        "description": "Wirewerks cable management spool 2/pack",
+        "description": "cable management spool 2/pack",
         "parts": [
             {
                 "id": "_constant1",
