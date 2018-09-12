@@ -14,12 +14,6 @@ define(['../app.js'], function(app) {
 			return input;
 		};
 	});
-	
-	app.factory('getImageUrlService', function($http){
-		var getImgUrl = function(){
-
-		};
-	});
 
 	app.config(function (localStorageServiceProvider) {
 		localStorageServiceProvider

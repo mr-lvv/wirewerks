@@ -591,14 +591,6 @@ var productsProductContentCtrl = function (section, product, $scope, $sce, $cook
         return { 'key': key, 'section': section, 'partNumber': partNumber, 'placeholder': placeholder, 'description': description, 'selectedOptions': selectedOptions, 'quantity': quantity, 'datasheet': datasheet, 'orderDateTime': new Date().toLocaleString(), 'isCartItem': true };
     };
 
-    $scope.test = function () {
-        
-        let lsKeys = localStorageService.keys();
-
-        for (let key of lsKeys)
-            console.log(localStorageService.get(key));
-    };
-
     //INIT CALL
     init();
 };
