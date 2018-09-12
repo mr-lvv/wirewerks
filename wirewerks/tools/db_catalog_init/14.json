@@ -1,0 +1,268 @@
+[
+    {
+        "partNumber": "WW-001812",
+        "dataSheet": "PDS-0200",
+        "description": "4U Vertical Wall Mount (fiber/copper)",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "WW-001812",
+                "color": "default",
+                "options": []
+            }
+        ]
+    },
+    {
+        "partNumber": "WW-001819",
+        "dataSheet": "PDS-0200",
+        "description": "4U Vertical Wall Mount Cover",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "WW-001819",
+                "color": "default",
+                "options": []
+            }
+        ]
+    },
+    {
+        "partNumber": "WW-001818",
+        "dataSheet": "PDS-0200",
+        "description": "4U Vertical Wall Mount with Cover (WW-001812+WW-001819)",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "WW-001818",
+                "color": "default",
+                "options": []
+            }
+        ]
+    },
+    {
+        "partNumber": "WW-001810",
+        "dataSheet": "PDS-0198",
+        "description": "3 LGX 1U Patch Panel (fiber/copper)",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "WW-001810",
+                "color": "default",
+                "options": []
+            }
+        ]
+    },
+    {
+        "partNumber": "WW-001815",
+        "dataSheet": "PDS-0199",
+        "description": "Wall-Mounted Single LGX Bracket (fiber/copper)",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "WW-001815",
+                "color": "default",
+                "options": []
+            }
+        ]
+    },
+    {
+        "partNumber": "WW000015",
+        "dataSheet": "PDS-0122",
+        "description": "Wirewerks Keystone wall mount, 6&nbsp;Port, black powdered, up to 12&nbsp;fibers",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "WW000015",
+                "color": "default",
+                "options": []
+            }
+        ]
+    },
+    {
+        "partNumber": "PP-WM2S",
+        "dataSheet": "PDS-0124",
+        "description": "Wirewerks LGX wall mount, 2&nbsp;strips 2&nbsp;doors, black powdered, up to 48&nbsp;fibers",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "PP-WM2S",
+                "color": "default",
+                "options": []
+            }
+        ]
+    },
+    {
+        "partNumber": "PP-WM4SD",
+        "dataSheet": "PDS-0125",
+        "description": "Wirewerks LGX wall mount, 4&nbsp;strips 2&nbsp;doors, black powdered, up to 96&nbsp;fibers",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "PP-WM4SD",
+                "color": "default",
+                "options": []
+            }
+        ]
+    },
+    {
+        "partNumber": "WW000014",
+        "dataSheet": "N/A",
+        "description": "1 cam lock with keys for PP-WM2S and PP-WM4SD",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "WW000014",
+                "color": "default",
+                "options": []
+            }
+        ]
+    },
+    {
+        "partNumber": "NS-PPW1U1",
+        "dataSheet": "PDS-0189",
+        "description": "Next StepTM 1U Rack Mount Patch Panel 144/288&nbsp;Fiber",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "NS-PPW1U1",
+                "color": "default",
+                "options": []
+            }
+        ]
+    },
+    {
+        "partNumber": "NS-PPW1U2",
+        "dataSheet": "PDS-0189",
+        "description": "Next StepTM 1U Rack Mount Light Patch Panel 144/288&nbsp;Fiber",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "NS-PPW1U2",
+                "color": "default",
+                "options": []
+            }
+        ]
+    },
+    {
+        "partNumber": "NS-PPW1U1L",
+        "dataSheet": "PDS-0189",
+        "description": "Next StepTM 1U Rack Mount Lean Patch Panel 144/288&nbsp;Fiber",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "NS-PPW1U1L",
+                "color": "default",
+                "options": []
+            }
+        ]
+    },
+    {
+        "partNumber": "NS-PPW4U1",
+        "dataSheet": "PDS-0203",
+        "description": "Next StepTM 4U Rack Mount Patch Panel 576/4608&nbsp;Fiber",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "NS-PPW4U1",
+                "color": "default",
+                "options": []
+            }
+        ]
+    },
+    {
+        "partNumber": "NS-CBLMGT-BL",
+        "dataSheet": "PDS-0189",
+        "description": "Next StepTM Cable Manager",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "NS-CBLMGT-BL",
+                "color": "default",
+                "options": []
+            }
+        ]
+    },
+    {
+        "partNumber": "PP-W1U1",
+        "dataSheet": "PDS-0119",
+        "description": "Wirewerks 1U rack mount, black powdered, up to 72&nbsp;fibers",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "PP-W1U1",
+                "color": "default",
+                "options": []
+            }
+        ]
+    },
+    {
+        "partNumber": "PP-W2U1",
+        "dataSheet": "PDS-0120",
+        "description": "Wirewerks 2U rack mount, black powdered, up to 144&nbsp;fibers",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "PP-W2U1",
+                "color": "default",
+                "options": []
+            }
+        ]
+    },
+    {
+        "partNumber": "PP-W4U1",
+        "dataSheet": "PDS-0001",
+        "description": "Wirewerks 4U rack mount, black powdered, up to 288&nbsp;fibers",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "PP-W4U1",
+                "color": "default",
+                "options": []
+            }
+        ]
+    },
+    {
+        "partNumber": "WW000069",
+        "dataSheet": "PDS-0056",
+        "description": "Wirewerks 1U compact rack mount, 3 LGX, up to 72&nbsp;fibers",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "WW000069",
+                "color": "default",
+                "options": []
+            }
+        ]
+    },
+    {
+        "partNumber": "WW000066",
+        "dataSheet": "N/A",
+        "description": "Wirewerks cable management spool 2/pack",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "WW000066",
+                "color": "default",
+                "options": []
+            }
+        ]
+    }
+]
