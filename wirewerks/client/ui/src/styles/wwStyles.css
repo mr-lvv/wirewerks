@@ -258,10 +258,10 @@ html, body{
     color: #333;
 }
 .home-section-wrapper:hover img{
-    -webkit-transition: border-width 0.3s ease;
-    -moz-transition: border-width 0.3s ease;
-    -o-transition: border-width 0.3s ease;
-    transition: border-width 0.3s ease;
+    -webkit-transition: border-width 0.2s ease;
+    -moz-transition: border-width 0.2s ease;
+    -o-transition: border-width 0.2s ease;
+    transition: border-width 0.2s ease;
     border-width: 0px;
 }
 .home-section-container{
@@ -659,6 +659,22 @@ html, body{
     width: 85px;
     /*background-color: blue;*/
 }
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0; 
+}
+.modal-quantity-input{
+    -moz-appearance:textfield;
+    appearance: textfield;
+}
+.modal-quantity-input:focus{
+    outline-style: auto;
+    outline-color: dodgerblue;
+    outline-offset: -1.6px;
+    outline-width: 2px;
+}
 /*QUANTITY DEFAULT*/
 .cart-quantity-container{
 
@@ -747,7 +763,7 @@ html, body{
 }
 .cart-remove-container .glyphicon:hover{
     -webkit-transition: color 0.3s ease;
-    -moz-transition: color 0.3s ease;
+    -moz-transition: color 0.1s ease;
     -o-transition: color 0.3s ease;
     transition: color 0.3s ease;
     color: red;
