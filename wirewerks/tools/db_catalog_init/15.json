@@ -1,169 +1,83 @@
 [
     {
-        "partNumber": "WW001130",
+        "partNumber": "WW00AAAA",
         "dataSheet": "PDS-0002",
-        "description": "Fan Out Kit, 6&nbsp;fibers, 25”&nbsp;length, Round 3mm housing  ",
+        "description": "Fan Out Kit",
         "parts": [
             {
                 "id": "_constant1",
                 "type": "constant",
-                "placeholder": "WW001130",
+                "placeholder": "WW00",
                 "color": "default",
                 "options": []
-            }
-        ]
-    },
-    {
-        "partNumber": "WW001114",
-        "dataSheet": "PDS-0002",
-        "description": "Fan Out Kit, 6&nbsp;fibers, 25”&nbsp;length, Ribbon cable housing  ",
-        "parts": [
+            },
             {
-                "id": "_constant1",
-                "type": "constant",
-                "placeholder": "WW001114",
-                "color": "default",
-                "options": []
-            }
-        ]
-    },
-    {
-        "partNumber": "WW000010",
-        "dataSheet": "PDS-0002",
-        "description": "Fan Out Kit, 6&nbsp;fibers, 36”&nbsp;length, Round 3mm housing  ",
-        "parts": [
-            {
-                "id": "_constant1",
-                "type": "constant",
-                "placeholder": "WW000010",
-                "color": "default",
-                "options": []
-            }
-        ]
-    },
-    {
-        "partNumber": "WW001110",
-        "dataSheet": "PDS-0002",
-        "description": "Fan Out Kit, 6&nbsp;fibers, 36”&nbsp;length, Ribbon cable housing  ",
-        "parts": [
-            {
-                "id": "_constant1",
-                "type": "constant",
-                "placeholder": "WW001110",
-                "color": "default",
-                "options": []
-            }
-        ]
-    },
-    {
-        "partNumber": "WW000011",
-        "dataSheet": "PDS-0002",
-        "description": "Fan Out Kit, 6&nbsp;fibers, 47”&nbsp;length, Round 3mm housing  ",
-        "parts": [
-            {
-                "id": "_constant1",
-                "type": "constant",
-                "placeholder": "WW000011",
-                "color": "default",
-                "options": []
-            }
-        ]
-    },
-    {
-        "partNumber": "WW001111",
-        "dataSheet": "PDS-0002",
-        "description": "Fan Out Kit, 6&nbsp;fibers, 47”&nbsp;length, Ribbon cable housing  ",
-        "parts": [
-            {
-                "id": "_constant1",
-                "type": "constant",
-                "placeholder": "WW001111",
-                "color": "default",
-                "options": []
-            }
-        ]
-    },
-    {
-        "partNumber": "WW001131",
-        "dataSheet": "PDS-0002",
-        "description": "Fan Out Kit, 12&nbsp;fibers, 25”&nbsp;length, Round 3mm housing  ",
-        "parts": [
-            {
-                "id": "_constant1",
-                "type": "constant",
-                "placeholder": "WW001131",
-                "color": "default",
-                "options": []
-            }
-        ]
-    },
-    {
-        "partNumber": "WW001115",
-        "dataSheet": "PDS-0002",
-        "description": "Fan Out Kit, 12&nbsp;fibers, 25”&nbsp;length, Ribbon cable housing  ",
-        "parts": [
-            {
-                "id": "_constant1",
-                "type": "constant",
-                "placeholder": "WW001115",
-                "color": "default",
-                "options": []
-            }
-        ]
-    },
-    {
-        "partNumber": "WW000012",
-        "dataSheet": "PDS-0002",
-        "description": "Fan Out Kit, 12&nbsp;fibers, 36”&nbsp;length, Round 3mm housing  ",
-        "parts": [
-            {
-                "id": "_constant1",
-                "type": "constant",
-                "placeholder": "WW000012",
-                "color": "default",
-                "options": []
-            }
-        ]
-    },
-    {
-        "partNumber": "WW001112",
-        "dataSheet": "PDS-0002",
-        "description": "Fan Out Kit, 12&nbsp;fibers, 36”&nbsp;length, Ribbon cable housing  ",
-        "parts": [
-            {
-                "id": "_constant1",
-                "type": "constant",
-                "placeholder": "WW001112",
-                "color": "default",
-                "options": []
-            }
-        ]
-    },
-    {
-        "partNumber": "WW000013",
-        "dataSheet": "PDS-0002",
-        "description": "Fan Out Kit, 12&nbsp;fibers, 47”&nbsp;length, Round 3mm housing  ",
-        "parts": [
-            {
-                "id": "_constant1",
-                "type": "constant",
-                "placeholder": "WW000013",
-                "color": "default",
-                "options": []
-            }
-        ]
-    },
-    {
-        "partNumber": "WW001113",
-        "dataSheet": "PDS-0002",
-        "description": "Fan Out Kit, 12&nbsp;fibers, 47”&nbsp;length, Ribbon cable housing  ",
-        "parts": [
-            {
-                "id": "_constant1",
-                "type": "constant",
-                "placeholder": "WW001113",
-                "color": "default",
-                "options": []
+               "id": "_type",
+                "type": "select",
+                "placeholder": "AAAA",
+                "color": "light-red",
+                "options": [
+                    {
+                        "value": "1130",
+                        "description": "6&nbsp;fibers, 25”&nbsp;length, Round 3mm housing",
+                        "conditions": []
+                    },
+                    {
+                        "value": "0010",
+                        "description": "6&nbsp;fibers, 36”&nbsp;length, Round 3mm housing",
+                        "conditions": []
+                    },
+                    {
+                        "value": "0011",
+                        "description": "6&nbsp;fibers, 47”&nbsp;length, Round 3mm housing",
+                        "conditions": []
+                    },
+                    {
+                        "value": "1131",
+                        "description": "12&nbsp;fibers, 25”&nbsp;length, Round 3mm housing",
+                        "conditions": []
+                    },
+                    {
+                        "value": "0012",
+                        "description": "12&nbsp;fibers, 36”&nbsp;length, Round 3mm housing",
+                        "conditions": []
+                    },
+                    {
+                        "value": "0013",
+                        "description": "12&nbsp;fibers, 47”&nbsp;length, Round 3mm housing",
+                        "conditions": []
+                    },
+                    {
+                        "value": "1114",
+                        "description": "6&nbsp;fibers, 25”&nbsp;length, Ribbon cable housing",
+                        "conditions": []
+                    },
+                    {
+                        "value": "1110",
+                        "description": "6&nbsp;fibers, 36”&nbsp;length, Ribbon cable housing",
+                        "conditions": []
+                    },
+                    {
+                        "value": "1111",
+                        "description": "6&nbsp;fibers, 47”&nbsp;length, Ribbon cable housing",
+                        "conditions": []
+                    },
+                    {
+                        "value": "1115",
+                        "description": "12&nbsp;fibers, 25”&nbsp;length, Ribbon cable housing",
+                        "conditions": []
+                    },
+                    {
+                        "value": "1112",
+                        "description": "12&nbsp;fibers, 36”&nbsp;length, Ribbon cable housing",
+                        "conditions": []
+                    },
+                    {
+                        "value": "1113",
+                        "description": "12&nbsp;fibers, 47”&nbsp;length, Ribbon cable housing",
+                        "conditions": []
+                    }
+                ] 
             }
         ]
     },
@@ -184,7 +98,7 @@
                 "type": "select",
                 "placeholder": "XX",
                 "description": "TYPE",
-                "color": "light-orange",
+                "color": "light-red",
                 "options": [
                     {
                         "value": "24",
@@ -236,7 +150,7 @@
                 "type": "select",
                 "placeholder": "XX",
                 "description": "TYPE",
-                "color": "light-orange",
+                "color": "light-red",
                 "options": [
                     {
                         "value": "20",
