@@ -15,6 +15,7 @@
                "id": "_type",
                 "type": "select",
                 "placeholder": "AAAA",
+                "description": "TYPE",
                 "color": "light-red",
                 "options": [
                     {
