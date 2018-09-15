@@ -1,0 +1,100 @@
+[
+    {
+        "partNumber": "FT-KITPLUS",
+        "dataSheet": "PDS-0183",
+        "description": "Premium Installation Kit",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "FT-KITPLUS",
+                "color": "default",
+                "options": []
+            }
+        ]
+    },
+    {
+        "partNumber": "FT-KIT",
+        "dataSheet": "PDS-0183",
+        "description": "Installation Kit",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "FT-KIT",
+                "color": "default",
+                "options": []
+            }
+        ]
+    },
+    {
+        "partNumber": "FT-CLV01",
+        "dataSheet": "PDS-0187",
+        "description": "Fiber cleaver 900μm, 250μm",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "FT-CLV01",
+                "color": "default",
+                "options": []
+            }
+        ]
+    },
+    {
+        "partNumber": "FT-STP01",
+        "dataSheet": "PDS-0183",
+        "description": "Fiber stripper 900μm, 250μm",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "FT-STP01",
+                "color": "default",
+                "options": []
+            }
+        ]
+    },
+    {
+        "partNumber": "FT-VFV01",
+        "dataSheet": "PDS-0183",
+        "description": "Visual fault locator kit",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "FT-VFV01",
+                "color": "default",
+                "options": []
+            }
+        ]
+    },
+    {
+        "partNumber": "FT-SCJIG",
+        "dataSheet": "PDS-0180",
+        "description": "SC assembly guide jig, 900μm",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "FT-SCJIG",
+                "color": "default",
+                "options": []
+            }
+        ]
+    },
+    {
+        "partNumber": "FT-LCJIG",
+        "dataSheet": "PDS-0180",
+        "description": "LC assembly guide jig, 900μm",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "FT-LCJIG",
+                "color": "default",
+                "options": []
+            }
+        ]
+    }
+]
