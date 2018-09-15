@@ -989,7 +989,7 @@
                 "type": "color",
                 "placeholder": "YY",
                 "description": "COLOR",
-                "color": "light-orange",
+                "color": "light-green",
                 "options": [
                     {
                         "value": "BL",
@@ -1025,7 +1025,7 @@
                 "type": "select",
                 "placeholder": "NNN",
                 "description": "LENGTH",
-                "color": "light-green",
+                "color": "light-red",
                 "options": [
                     {
                         "value": "002",

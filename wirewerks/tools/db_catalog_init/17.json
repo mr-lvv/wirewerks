@@ -1,0 +1,655 @@
+[
+    {
+        "partNumber": "WSFP2-31M01Z-YY",
+        "dataSheet": "PDS-0076",
+        "description": "SFP Module: 1000BASE-SX SFP MM 850&nbsp;nm, LC",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "WSFP2-31M01Z-",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_temperatureRange",
+                "type": "select",
+                "placeholder": "YY",
+                "description": "TEMPERATURE RANGE",
+                "color": "light-green",
+                "options": [
+                    {
+                        "value": "1Y",
+                        "description": "Standard (0&nbsp;°C to 70&nbsp;°C)",
+                        "conditions": []
+                    },
+                    {
+                        "value": "3Y",
+                        "description": "Hardened (-40&nbsp;°C to 85&nbsp;°C)",
+                        "conditions": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "partNumber": "WSFP2-32M02Z-YY",
+        "dataSheet": "PDS-0074",
+        "description": "SFP Module: 1000BASE-SX SFP MM 1310&nbsp;nm, LC, 2&nbsp;km",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "WSFP2-32M02Z-",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_temperatureRange",
+                "type": "select",
+                "placeholder": "YY",
+                "description": "TEMPERATURE RANGE",
+                "color": "light-green",
+                "options": [
+                    {
+                        "value": "1Y",
+                        "description": "Standard (0&nbsp;°C to 70&nbsp;°C)",
+                        "conditions": []
+                    },
+                    {
+                        "value": "3Y",
+                        "description": "Hardened (-40&nbsp;°C to 85&nbsp;°C)",
+                        "conditions": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "partNumber": "WSFP2-33S01Z-YY",
+        "dataSheet": "PDS-0075",
+        "description": "SFP Module: 1000BASE-LX SFP SM 1310&nbsp;nm, LC, 10&nbsp;km",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "WSFP2-33S01Z-",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_temperatureRange",
+                "type": "select",
+                "placeholder": "YY",
+                "description": "TEMPERATURE RANGE",
+                "color": "light-green",
+                "options": [
+                    {
+                        "value": "1Y",
+                        "description": "Standard (0&nbsp;°C to 70&nbsp;°C)",
+                        "conditions": []
+                    },
+                    {
+                        "value": "3Y",
+                        "description": "Hardened (-40&nbsp;°C to 85&nbsp;°C)",
+                        "conditions": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "partNumber": "WSFP2-33S04Y-YY",
+        "dataSheet": "PDS-0077",
+        "description": "SFP Module: 1000BASE-LX SFP SM 1310&nbsp;nm, LC, 40&nbsp;km",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "WSFP2-33S04Y-",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_temperatureRange",
+                "type": "select",
+                "placeholder": "YY",
+                "description": "TEMPERATURE RANGE",
+                "color": "light-green",
+                "options": [
+                    {
+                        "value": "1Y",
+                        "description": "Standard (0&nbsp;°C to 70&nbsp;°C)",
+                        "conditions": []
+                    },
+                    {
+                        "value": "3Y",
+                        "description": "Hardened (-40&nbsp;°C to 85&nbsp;°C)",
+                        "conditions": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "partNumber": "WSFP2-34S08Y-YY",
+        "dataSheet": "PDS-0078",
+        "description": "SFP Module: 1000BASE-ZX SFP SM 1550&nbsp;nm, LC, 80&nbsp;km",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "WSFP2-34S08Y-",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_temperatureRange",
+                "type": "select",
+                "placeholder": "YY",
+                "description": "TEMPERATURE RANGE",
+                "color": "light-green",
+                "options": [
+                    {
+                        "value": "1Y",
+                        "description": "Standard (0&nbsp;°C to 70&nbsp;°C)",
+                        "conditions": []
+                    },
+                    {
+                        "value": "3Y",
+                        "description": "Hardened (-40&nbsp;°C to 85&nbsp;°C)",
+                        "conditions": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "partNumber": "WSFP2-XXS01Y-1Y",
+        "dataSheet": "PDS-0080",
+        "description": "SFP Module: 1000BASE WDM SFP TX, LC, 10&nbsp;km",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "WSFP2-",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_type",
+                "type": "select",
+                "placeholder": "XX",
+                "description": "TYPE",
+                "color": "light-green",
+                "options": [
+                    {
+                        "value": "35",
+                        "description": "1490 nm / Rx: 1310 nm",
+                        "conditions": []
+                    },
+                    {
+                        "value": "36",
+                        "description": "1310 nm / Rx: 1490 nm",
+                        "conditions": []
+                    }
+                ]
+            },
+            {
+                "id": "_constant2",
+                "type": "constant",
+                "placeholder": "S01Y-1Y",
+                "color": "default",
+                "options": []
+            }
+        ]
+    },
+    {
+        "partNumber": "WSFP3-ABBCCCDE",
+        "dataSheet": "N/A",
+        "description": "Cisco Compatible SFP Multiplexer",
+        "parts": [
+            {
+                "type": "constant",
+                "id": "_constant1",
+                "placeholder": "WSFP3-",
+                "color": "default",
+                "options": []
+            },
+            {
+                "type": "select",
+                "id": "_transmissionSpeed",
+                "placeholder": "A",
+                "description": "TRANSMISSION SPEED",
+                "color": "deep-orange",
+                "options": [
+                    {
+                        "value": "2",
+                        "description": "1250Mbps",
+                        "conditions": []
+                    },
+                    {
+                        "value": "4",
+                        "description": "2125Mbps",
+                        "conditions": []
+                    }
+                ]
+            },
+            {
+                "type": "select",
+                "id": "_wavelength",
+                "placeholder": "BB",
+                "description": "WAVELENGTH",
+                "color": "light-green",
+                "options": [
+                    {
+                        "value": "27",
+                        "description": "1271",
+                        "conditions": []
+                    },
+                    {
+                        "value": "29",
+                        "description": "1291",
+                        "conditions": []
+                    },
+                    {
+                        "value": "31",
+                        "description": "1311",
+                        "conditions": []
+                    },
+                    {
+                        "value": "33",
+                        "description": "1331",
+                        "conditions": []
+                    },
+                    {
+                        "value": "35",
+                        "description": "1351",
+                        "conditions": []
+                    },
+                    {
+                        "value": "37",
+                        "description": "1371",
+                        "conditions": []
+                    },
+                    {
+                        "value": "39",
+                        "description": "1391",
+                        "conditions": []
+                    },
+                    {
+                        "value": "41",
+                        "description": "1411",
+                        "conditions": []
+                    },
+                    {
+                        "value": "43",
+                        "description": "1431",
+                        "conditions": []
+                    },
+                    {
+                        "value": "45",
+                        "description": "1451",
+                        "conditions": []
+                    },
+                    {
+                        "value": "47",
+                        "description": "1471",
+                        "conditions": []
+                    },
+                    {
+                        "value": "49",
+                        "description": "1491",
+                        "conditions": []
+                    },
+                    {
+                        "value": "51",
+                        "description": "1511",
+                        "conditions": []
+                    },
+                    {
+                        "value": "53",
+                        "description": "1531",
+                        "conditions": []
+                    },
+                    {
+                        "value": "55",
+                        "description": "1551",
+                        "conditions": []
+                    },
+                    {
+                        "value": "57",
+                        "description": "1571",
+                        "conditions": []
+                    },
+                    {
+                        "value": "59",
+                        "description": "1591",
+                        "conditions": []
+                    },
+                    {
+                        "value": "61",
+                        "description": "1611",
+                        "conditions": []
+                    }
+                ]
+            },
+            {
+                "type": "select",
+                "id": "_transmissionDistance",
+                "placeholder": "CCC",
+                "description": "TRANSMISSION DISTANCE",
+                "color": "light-red",
+                "options": [
+                    {
+                        "value": "040",
+                        "description": "40 Km Single Mode",
+                        "conditions": []
+                    },
+                    {
+                        "value": "080",
+                        "description": "80 Km Single Mode",
+                        "conditions": []
+                    }
+                ]
+            },
+            {
+                "type": "select",
+                "id": "_digitalOpticalMonitoringFunction",
+                "placeholder": "D",
+                "description": "DIGITAL OPTICAL MONITORING FUNCTION",
+                "color": "light-blue",
+                "options": [
+                    {
+                        "value": "Y",
+                        "description": "With",
+                        "conditions": []
+                    },
+                    {
+                        "value": "Z",
+                        "description": "Without",
+                        "conditions": []
+                    }
+                ]
+            },
+            {
+                "type": "select",
+                "id": "_operatingTemperature",
+                "placeholder": "E",
+                "description": "OPERATING TEMPERATURE",
+                "color": "pink",
+                "options": [
+                    {
+                        "value": "1",
+                        "description": "0 ⁰C to 70 ⁰C",
+                        "conditions": []
+                    },
+                    {
+                        "value": "3",
+                        "description": "-40 ⁰C to 85 ⁰C",
+                        "conditions": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "partNumber": "WDM-AC-XX",
+        "dataSheet": "N/A",
+        "description": "WDM Angled Clip (100 pieces pck)",
+        "parts": [
+            {
+                "type": "constant",
+                "id": "_constant1",
+                "placeholder": "WDM-AC-",
+                "color": "default",
+                "options": [
+                    {
+                        "value": "47",
+                        "description": "1471nm (Grey)",
+                        "conditions": []
+                    },
+                    {
+                        "value": "49",
+                        "description": "1491nm (Violet)",
+                        "conditions": []
+                    },
+                    {
+                        "value": "51",
+                        "description": "1511nm (Blue)",
+                        "conditions": []
+                    },
+                    {
+                        "value": "53",
+                        "description": "1531nm (Green)",
+                        "conditions": []
+                    },
+                    {
+                        "value": "55",
+                        "description": "1551nm (Yellow)",
+                        "conditions": []
+                    },
+                    {
+                        "value": "57",
+                        "description": "1571nm (Orange)",
+                        "conditions": []
+                    },
+                    {
+                        "value": "59",
+                        "description": "1591nm (Red)",
+                        "conditions": []
+                    },
+                    {
+                        "value": "61",
+                        "description": "1611nm (Brown)",
+                        "conditions": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "partNumber": "WMCC-111Z-1Y",
+        "dataSheet": "PDS-0081",
+        "description": "14 Bay Rack Mount Media Converter Chassis",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "WMCC-111Z-1Y",
+                "color": "default",
+                "options": []
+            }
+        ]
+    },
+    {
+        "partNumber": "WMC1-422SC02",
+        "dataSheet": "PDS-0069",
+        "description": "10/100BASE-T/TX to 100BASE-FX, Multimode 1310&nbsp;nm, SC, 2&nbsp;km",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "WMC1-422SC02",
+                "color": "default",
+                "options": []
+            }
+        ]
+    },
+    {
+        "partNumber": "WMC1-423SC20",
+        "dataSheet": "PDS-0069",
+        "description": "10/100BASE-T/TX to 100BASE-FX, Single Mode 1310&nbsp;nm, SC, 20&nbsp;km",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "WMC1-423SC20",
+                "color": "default",
+                "options": []
+            }
+        ]
+    },
+    {
+        "partNumber": "WMC1-C26SC20",
+        "dataSheet": "PDS-0072",
+        "description": "100BASE MM 1310&nbsp;nm 2&nbsp;km to 100BASE-FX SM 1310&nbsp;nm, SC, 20&nbsp;km",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "WMC1-C26SC20",
+                "color": "default",
+                "options": []
+            }
+        ]
+    },
+    {
+        "partNumber": "WMC4-4C031",
+        "dataSheet": "PDS-0181",
+        "description": "10/100 Base Ethernet (RJ45) to Coax (BNC) Converter with POE on Transmitter kit (2 per box), up to 500&nbsp;m",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "WMC4-4C031",
+                "color": "default",
+                "options": []
+            }
+        ]
+    },
+    {
+        "partNumber": "WMC3-45E02",
+        "dataSheet": "PDS-0182",
+        "description": "10/100 Base Ethernet (RJ45) To Ethernet (RJ45) Extender kit (2 per box), up to 300&nbsp;m",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "WMC3-45E02",
+                "color": "default",
+                "options": []
+            }
+        ]
+    },
+    {
+        "partNumber": "WMC1-531XX01",
+        "dataSheet": "PDS-0071",
+        "description": "10/100/1000BASE-T/TX to 1000BASE-SX, MM 850&nbsp;nm",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "WMC1-531",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_type",
+                "type": "select",
+                "placeholder": "XX",
+                "description": "TYPE",
+                "color": "light-green",
+                "options": [
+                    {
+                        "value": "SC",
+                        "description": "SC",
+                        "conditions": []
+                    },
+                    {
+                        "value": "LC",
+                        "description": "LC",
+                        "conditions": []
+                    }
+                ]
+            },
+            {
+                "id": "_constant2",
+                "type": "constant",
+                "placeholder": "01",
+                "color": "default",
+                "options": []
+            }
+        ]
+    },
+    {
+        "partNumber": "WMC1-533SCXX",
+        "dataSheet": "PDS-0071",
+        "description": "10/100/1000BASE-T/TX to 1000BASE-LX, SM 1310&nbsp;nm, SC",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "WMC1-533SC",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_range",
+                "type": "select",
+                "placeholder": "XX",
+                "description": "RANGE",
+                "color": "light-green",
+                "options": [
+                    {
+                        "value": "10",
+                        "description": "10 km",
+                        "conditions": []
+                    },
+                    {
+                        "value": "20",
+                        "description": "20 km",
+                        "conditions": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "partNumber": "WMC2-5N-SFP",
+        "dataSheet": "PDS-0073",
+        "description": "10/100/1000BASE-T/T X to 1000BASE SFP Interface (SFP Module not Included)",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "WMC2-5N-SFP",
+                "color": "default",
+                "options": []
+            }
+        ]
+    },
+    {
+        "partNumber": "WMC1-C35SCXX",
+        "dataSheet": "PDS-0072",
+        "description": "1000BASE-SX MM 850&nbsp;nm to 1000BASE-LX SM 1310&nbsp;nm, SC",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "WMC1-C35SC",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_range",
+                "type": "select",
+                "placeholder": "XX",
+                "description": "RANGE",
+                "color": "light-green",
+                "options": [
+                    {
+                        "value": "10",
+                        "description": "10 km",
+                        "conditions": []
+                    },
+                    {
+                        "value": "20",
+                        "description": "20 km",
+                        "conditions": []
+                    }
+                ]
+            }
+        ]
+    }
+]
