@@ -1,7 +1,7 @@
 [
     {
         "partNumber": "WW00AAAA",
-        "dataSheets": [
+        "datasheets": [
             {
                 "value": "PDS-0170",
                 "conditions": [
@@ -81,8 +81,7 @@
             },
             {
                 "id": "_rackSpace",
-                "type": "select",
-                "placeholder": "",
+                "type": "hidden",
                 "description": "RACK SPACE",
                 "color": "light-orange",
                 "options": [
@@ -125,8 +124,7 @@
             },
             {
                 "id": "_ports",
-                "type": "select",
-                "placeholder": "",
+                "type": "hidden",
                 "description": "PORTS",
                 "color": "light-green",
                 "options": [

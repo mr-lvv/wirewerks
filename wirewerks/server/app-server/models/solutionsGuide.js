@@ -16,8 +16,8 @@ var optionSchema = new Schema({
 
 var partSchema = new Schema({
     id: {type: String},
-    type: { type: String, enum: ['constant', 'numeric', 'select', 'color'], required: true},
-    placeholder: { type: String, required: true }, // ex: FA-, A, B, EE, NNN
+    type: { type: String, enum: ['constant', 'numeric', 'select', 'color', 'hidden'], required: true},
+    placeholder: { type: String }, // ex: FA-, A, B, EE, NNN
     description: { type: String }, // ex: LEAD LENGTH   
     color: { type: String, enum: ['default','deep-orange', 'light-green', 'light-red', 'light-blue', 'light-purple', 'light-yellow', 'deep-blue', 'deep-green', 'deep-red', 'light-orange', 'deep-purple', 'pink', 'deep-yellow', 'sky-blue']},
     integersLength: { type: Number }, //number of expected digits
@@ -33,9 +33,14 @@ var partSchema = new Schema({
     optionsGroup2Title: { type: String }
 },{ _id : false });
 
+var datasheetSchema = new Schema({
+    value: { type: String },
+    conditions: { type: [conditionSchema] }, //evaluate with boolean AND between conditions; cond1 && cond2 && ... && condN
+}, { _id: false });
+
 var productSchema = new Schema({
     partNumber: {type: String, required: true},
-    dataSheet: {type: String, required: true},
+    datasheets: [datasheetSchema],
     description: {type: String, required: true},
     parts: [partSchema]
 },{ _id : false });

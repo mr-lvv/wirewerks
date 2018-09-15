@@ -173,6 +173,9 @@ var productsProductContentCtrl = function (section, product, $scope, $sce, $cook
         else if (partIsColor(part)) {
             setIsSuccessful = setColor(part, optionToSelect);
         }
+        else if (partIsHidden(part)) {
+            setIsSuccessful = setHidden(part, optionToSelect);
+        }
         else if (partIsConstant(part)) {
             console.log("Tried to set a constant part on: " + part);
             setIsSuccessful = false;
@@ -219,6 +222,16 @@ var productsProductContentCtrl = function (section, product, $scope, $sce, $cook
         return null;
     };
     //----------------------------------------------------------------------------------------------------
+    var getDatasheet = function () {
+        for (let datasheet of product.datasheets)
+            if (validateOption(datasheet))
+                return datasheet.value;
+
+        console.log("getDatasheet: No valid datasheet was found");
+        return null;
+    };
+    $scope.getDatasheet = getDatasheet;
+    //----------------------------------------------------------------------------------------------------
     var setSelect = function (part, optionToSelect) {
         if (!part || !optionToSelect)
             return false;
@@ -253,6 +266,17 @@ var productsProductContentCtrl = function (section, product, $scope, $sce, $cook
     };
     //----------------------------------------------------------------------------------------------------
     var setColor = function (part, optionToSelect) {
+        if (!part || !optionToSelect)
+            return false;
+
+        part.selectedOption = optionToSelect;
+        part.value = optionToSelect.value;
+        part.details = optionToSelect.description;
+
+        return true;
+    };
+    //----------------------------------------------------------------------------------------------------
+    var setHidden = function (part, optionToSelect) {
         if (!part || !optionToSelect)
             return false;
 
@@ -311,6 +335,10 @@ var productsProductContentCtrl = function (section, product, $scope, $sce, $cook
         return part ? part.type == 'color' : null;
     };
     //----------------------------------------------------------------------------------------------------
+    var partIsHidden = function (part) {
+        return part ? part.type == 'hidden' : null;
+    };
+    //----------------------------------------------------------------------------------------------------
     var partIsConstant = function (part) {
         return part ? part.type == 'constant' : null;
     };
@@ -331,7 +359,9 @@ var productsProductContentCtrl = function (section, product, $scope, $sce, $cook
         let partNumber = "";
 
         for (let part of product.parts)
-            partNumber += part.value || part.placeholder;
+            if(!partIsHidden(part))
+                partNumber += part.value || part.placeholder;
+        
         return partNumber;
     };
     $scope.getPartNumber = getPartNumber;
@@ -589,7 +619,7 @@ var productsProductContentCtrl = function (section, product, $scope, $sce, $cook
         let key = getPartNumber();
         let details = getAllDetails();
 
-        let cartItem = generateCartItem(key, section.number, getPartNumber(), getPlaceholder(), product.description, details, $scope.quantity, product.datasheet);
+        let cartItem = generateCartItem(key, section.number, getPartNumber(), getPlaceholder(), product.description, details, $scope.quantity, getDatasheet());
         localStorageService.set(key, cartItem);
     };
 

@@ -1,7 +1,7 @@
 <div class="row product-partNumber-wrapper">
     <div class="col-xs-12 product-partNumber-container">
         <div ng-repeat="part in product.parts">
-            <label class="bg-{{part.color}}">{{part.value || part.placeholder}}</label>
+            <label ng-if="part.type != 'hidden'" class="bg-{{part.color}}">{{part.value || part.placeholder}}</label>
         </div>
     </div>
 </div>
@@ -22,16 +22,8 @@
         <div ng-repeat="part in product.parts | filter: {type: '!constant'}">
             <ul ng-show="part == product.focusedPart" class="product-options-container">
 
-                <!-- SELECT -->
-                <li ng-if="part.type == 'select'" ng-repeat="option in part.options | filter:validateOption" class="product-options-item"
-                    ng-class="{'focused-item bg-{{part.color}}': option == part.selectedOption, 'bg-faded-{{part.color}} hover-shadow': option != part.selectedOption}"
-                    ng-click="setPart(part, option)">
-                    <label class="select" ng-bind-html="getAsHtml(option.value)"></label>
-                    <span class="bg-gray select" ng-bind-html="getAsHtml(option.description)"></span>
-                </li>
-
-                <!-- COLOR -->
-                <li ng-if="part.type == 'color'" ng-repeat="option in part.options | filter:validateOption" class="product-options-item"
+                <!-- SELECT || COLOR || HIDDEN -->
+                <li ng-if="part.type == 'select' || part.type == 'color' || part.type == 'hidden'" ng-repeat="option in part.options | filter:validateOption" class="product-options-item"
                     ng-class="{'focused-item bg-{{part.color}}': option == part.selectedOption, 'bg-faded-{{part.color}} hover-shadow': option != part.selectedOption}"
                     ng-click="setPart(part, option)">
                     <label class="select" ng-bind-html="getAsHtml(option.value)"></label>
@@ -98,7 +90,7 @@
             <div class="modal-body">
                 <div class="container">
                     <label style="display: block">Part Number: {{getPartNumber()}}</label>
-                    <label style="display: block">Product Data Sheet: {{product.dataSheet}}</label>
+                    <label style="display: block">Product Data Sheet: {{getDatasheet()}}</label>
                 </div>
                 <div class="product-summary-container">
                     <div class="product-summary-left-column">
