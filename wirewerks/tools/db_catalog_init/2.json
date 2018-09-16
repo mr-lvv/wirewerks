@@ -150,7 +150,7 @@
                 "type": "hidden",
                 "placeholder": "",
                 "description": "SHIELDING",
-                "color": "default",
+                "color": "light-orange",
                 "options": [
                     {
                         "value": "FTP",
@@ -169,7 +169,7 @@
                 "type": "select",
                 "placeholder": "AACFF",
                 "description": "PERFORMANCE",
-                "color": "light-orange",
+                "color": "light-green",
                 "options": [
                     {
                         "value": "6ACFFBK",

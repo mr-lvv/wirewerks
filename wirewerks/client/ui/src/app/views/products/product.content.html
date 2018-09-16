@@ -83,7 +83,7 @@
             <!-- MODAL HEADER -->
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">{{product.description}}</h4>
+                <h4 class="modal-title" ng-bind-html="getAsHtml(product.description)"></h4>
             </div>
 
             <!-- MODAL BODY -->
