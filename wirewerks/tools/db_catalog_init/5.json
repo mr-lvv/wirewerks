@@ -1,0 +1,1790 @@
+[
+    {
+        "partNumber": "WW000AAA",
+        "datasheets": [
+            {
+                "value": "PDS-0047",
+                "conditions": []
+            }
+        ],
+        "description": "Decora Style Faceplates",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "WW000",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_footprint",
+                "type": "hidden",
+                "placeholder": "",
+                "description": "FOOTPRINT",
+                "color": "light-orange",
+                "options": [
+                    {
+                        "value": "Single gang",
+                        "description": "Single gang",
+                        "conditions": []
+                    },
+                    {
+                        "value": "Double gang",
+                        "description": "Double gang",
+                        "conditions": []
+                    },
+                    {
+                        "value": "Triple gang",
+                        "description": "Triple gang",
+                        "conditions": []
+                    },
+                    {
+                        "value": "Quad gang",
+                        "description": "Quad gang",
+                        "conditions": []
+                    }
+                ]
+            },
+            {
+                "id": "_color",
+                "type": "color",
+                "placeholder": "AAA",
+                "description": "COLOR",
+                "color": "light-green",
+                "options": [
+                    {
+                        "value": "240",
+                        "description": "White",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Single gang"
+                                ],
+                                "partId": "_footprint"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "241",
+                        "description": "White",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Double gang"
+                                ],
+                                "partId": "_footprint"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "242",
+                        "description": "White",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Triple gang"
+                                ],
+                                "partId": "_footprint"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "243",
+                        "description": "White",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Quad gang"
+                                ],
+                                "partId": "_footprint"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "250",
+                        "description": "Almond",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Single gang"
+                                ],
+                                "partId": "_footprint"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "251",
+                        "description": "Almond",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Double gang"
+                                ],
+                                "partId": "_footprint"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "252",
+                        "description": "Almond",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Triple gang"
+                                ],
+                                "partId": "_footprint"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "253",
+                        "description": "Almond",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Quad gang"
+                                ],
+                                "partId": "_footprint"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "partNumber": "WW000BBB",
+        "datasheets": [
+            {
+                "value": "PDS-0046",
+                "conditions": []
+            }
+        ],
+        "description": "Decora Style Bezels",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "WW000",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_capacity",
+                "type": "hidden",
+                "placeholder": "",
+                "description": "CAPACITY",
+                "color": "light-orange",
+                "options": [
+                    {
+                        "value": "1 Port",
+                        "description": "1 Port",
+                        "conditions": []
+                    },
+                    {
+                        "value": "2 Ports",
+                        "description": "2 Ports",
+                        "conditions": []
+                    },
+                    {
+                        "value": "3 Ports",
+                        "description": "3 Ports",
+                        "conditions": []
+                    },
+                    {
+                        "value": "4 Ports",
+                        "description": "4 Ports",
+                        "conditions": []
+                    },
+                    {
+                        "value": "6 Ports",
+                        "description": "6 Ports",
+                        "conditions": []
+                    },
+                    {
+                        "value": "Blank",
+                        "description": "Blank",
+                        "conditions": []
+                    }
+                ]
+            },
+            {
+                "id": "_color",
+                "type": "color",
+                "placeholder": "BBB",
+                "description": "COLOR",
+                "color": "light-green",
+                "options": [
+                    {
+                        "value": "271",
+                        "description": "White",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "1 Port"
+                                ],
+                                "partId": "_capacity"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "272",
+                        "description": "White",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "2 Ports"
+                                ],
+                                "partId": "_capacity"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "275",
+                        "description": "White",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "3 Ports"
+                                ],
+                                "partId": "_capacity"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "273",
+                        "description": "White",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "4 Ports"
+                                ],
+                                "partId": "_capacity"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "274",
+                        "description": "White",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "6 Ports"
+                                ],
+                                "partId": "_capacity"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "270",
+                        "description": "White",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Blank"
+                                ],
+                                "partId": "_capacity"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "281",
+                        "description": "Almond",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "1 Port"
+                                ],
+                                "partId": "_capacity"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "282",
+                        "description": "Almond",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "2 Ports"
+                                ],
+                                "partId": "_capacity"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "285",
+                        "description": "Almond",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "3 Ports"
+                                ],
+                                "partId": "_capacity"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "283",
+                        "description": "Almond",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "4 Ports"
+                                ],
+                                "partId": "_capacity"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "284",
+                        "description": "Almond",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "6 Ports"
+                                ],
+                                "partId": "_capacity"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "280",
+                        "description": "Almond",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Blank"
+                                ],
+                                "partId": "_capacity"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "partNumber": "WW000CCC",
+        "datasheets": [
+            {
+                "value": "PDS-0051",
+                "conditions": []
+            }
+        ],
+        "description": "Surface Mount Boxes",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "WW000",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_capacity",
+                "type": "hidden",
+                "placeholder": "",
+                "description": "CAPACITY",
+                "color": "light-orange",
+                "options": [
+                    {
+                        "value": "1 Port",
+                        "description": "1 Port",
+                        "conditions": []
+                    },
+                    {
+                        "value": "2 Ports",
+                        "description": "2 Ports",
+                        "conditions": []
+                    },
+                    {
+                        "value": "4 Ports",
+                        "description": "4 Ports",
+                        "conditions": []
+                    },
+                    {
+                        "value": "6 Ports",
+                        "description": "6 Ports",
+                        "conditions": []
+                    }
+                ]
+            },
+            {
+                "id": "_color",
+                "type": "color",
+                "placeholder": "CCC",
+                "description": "COLOR",
+                "color": "light-green",
+                "options": [
+                    {
+                        "value": "070",
+                        "description": "White",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "1 Port"
+                                ],
+                                "partId": "_capacity"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "071",
+                        "description": "White",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "2 Ports"
+                                ],
+                                "partId": "_capacity"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "072",
+                        "description": "White",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "4 Ports"
+                                ],
+                                "partId": "_capacity"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "073",
+                        "description": "White",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "6 Ports"
+                                ],
+                                "partId": "_capacity"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "076",
+                        "description": "Almond",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "1 Port"
+                                ],
+                                "partId": "_capacity"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "077",
+                        "description": "Almond",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "2 Ports"
+                                ],
+                                "partId": "_capacity"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "078",
+                        "description": "Almond",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "4 Ports"
+                                ],
+                                "partId": "_capacity"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "079",
+                        "description": "Almond",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "6 Ports"
+                                ],
+                                "partId": "_capacity"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "partNumber": "WW00090X-YY",
+        "datasheets": [
+            {
+                "value": "PDS-0068",
+                "conditions": []
+            }
+        ],
+        "description": "Furniture Faceplates (Standard&nbsp;Depth)",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "WW00090",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_capacity",
+                "type": "select",
+                "placeholder": "X",
+                "description": "CAPACITY",
+                "color": "light-orange",
+                "options": [
+                    {
+                        "value": "3",
+                        "description": "3 Ports",
+                        "conditions": []
+                    },
+                    {
+                        "value": "4",
+                        "description": "4 Ports",
+                        "conditions": []
+                    }
+                ]
+            },
+            {
+                "id": "_constant2",
+                "type": "constant",
+                "placeholder": "-",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_color",
+                "type": "color",
+                "placeholder": "YY",
+                "description": "COLOR",
+                "color": "light-green",
+                "options": [
+                    {
+                        "value": "WH",
+                        "description": "White",
+                        "conditions": []
+                    },
+                    {
+                        "value": "AL",
+                        "description": "Almond",
+                        "conditions": []
+                    },
+                    {
+                        "value": "BK",
+                        "description": "Black",
+                        "conditions": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "partNumber": "IE-120A-B",
+        "datasheets": [
+            {
+                "value": "PDS-0167",
+                "conditions": []
+            }
+        ],
+        "description": "IP67 Faceplates",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "IE-120",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_footprint",
+                "type": "select",
+                "placeholder": "A",
+                "description": "FOOTPRINT",
+                "color": "light-orange",
+                "options": [
+                    {
+                        "value": "S",
+                        "description": "Single gang",
+                        "conditions": []
+                    },
+                    {
+                        "value": "D",
+                        "description": "Double gang",
+                        "conditions": []
+                    }
+                ]
+            },
+            {
+                "id": "_constant2",
+                "type": "constant",
+                "placeholder": "-",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_port",
+                "type": "select",
+                "placeholder": "B",
+                "description": "PORT",
+                "color": "light-green",
+                "options": [
+                    {
+                        "value": "1",
+                        "description": "1 Port, Stainless Steel",
+                        "conditions": []
+                    },
+                    {
+                        "value": "2",
+                        "description": "2 Ports, Stainless Steel",
+                        "conditions": []
+                    },
+                    {
+                        "value": "4",
+                        "description": "4 Ports, Stainless Steel",
+                        "conditions": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "partNumber": "IE-670D-A",
+        "datasheets": [
+            {
+                "value": "PDS-0166",
+                "conditions": []
+            }
+        ],
+        "description": "IP67 Surface Mount Boxes",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "IE-670D-",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_capacity",
+                "type": "select",
+                "placeholder": "A",
+                "description": "CAPACITY",
+                "color": "light-orange",
+                "options": [
+                    {
+                        "value": "1",
+                        "description": "1 Port",
+                        "conditions": []
+                    },
+                    {
+                        "value": "2",
+                        "description": "2 Port",
+                        "conditions": []
+                    },
+                    {
+                        "value": "3",
+                        "description": "3 Port",
+                        "conditions": []
+                    },
+                    {
+                        "value": "4",
+                        "description": "4 Port",
+                        "conditions": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "partNumber": "WW000DDD",
+        "datasheets": [
+            {
+                "value": "PDS-0040",
+                "conditions": []
+            }
+        ],
+        "description": "Standard Faceplates",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "WW000",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_footprint",
+                "type": "hidden",
+                "placeholder": "",
+                "description": "FOOTPRINT",
+                "color": "light-orange",
+                "options": [
+                    {
+                        "value": "Single gang",
+                        "description": "Single gang",
+                        "conditions": []
+                    },
+                    {
+                        "value": "Double gang",
+                        "description": "Double gang",
+                        "conditions": []
+                    }
+                ]
+            },
+            {
+                "id": "_capacity",
+                "type": "hidden",
+                "placeholder": "",
+                "description": "CAPACITY",
+                "color": "light-green",
+                "options": [
+                    {
+                        "value": "1 Port",
+                        "description": "1 Port",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Single gang"
+                                ],
+                                "partId": "_footprint"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "2 Ports",
+                        "description": "2 Ports",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Single gang"
+                                ],
+                                "partId": "_footprint"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "3 Ports",
+                        "description": "3 Ports",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Single gang"
+                                ],
+                                "partId": "_footprint"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "4 Ports",
+                        "description": "4 Ports",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Single gang"
+                                ],
+                                "partId": "_footprint"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "6 Ports",
+                        "description": "6 Ports",
+                        "conditions": []
+                    },
+                    {
+                        "value": "8 Ports",
+                        "description": "8 Ports",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Double gang"
+                                ],
+                                "partId": "_footprint"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "12 Ports",
+                        "description": "12 Ports",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Double gang"
+                                ],
+                                "partId": "_footprint"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "Blank",
+                        "description": "Blank",
+                        "conditions": []
+                    }
+                ]
+            },
+            {
+                "id": "_color",
+                "type": "color",
+                "placeholder": "DDD",
+                "description": "COLOR",
+                "color": "light-red",
+                "options": [
+                    {
+                        "value": "054",
+                        "description": "White",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Single gang"
+                                ],
+                                "partId": "_footprint"
+                            },
+                            {
+                                "acceptedValues": [
+                                    "1 Port"
+                                ],
+                                "partId": "_capacity"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "055",
+                        "description": "Almond",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Single gang"
+                                ],
+                                "partId": "_footprint"
+                            },
+                            {
+                                "acceptedValues": [
+                                    "1 Port"
+                                ],
+                                "partId": "_capacity"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "044",
+                        "description": "White",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Single gang"
+                                ],
+                                "partId": "_footprint"
+                            },
+                            {
+                                "acceptedValues": [
+                                    "2 Ports"
+                                ],
+                                "partId": "_capacity"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "049",
+                        "description": "Almond",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Single gang"
+                                ],
+                                "partId": "_footprint"
+                            },
+                            {
+                                "acceptedValues": [
+                                    "2 Ports"
+                                ],
+                                "partId": "_capacity"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "056",
+                        "description": "White",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Single gang"
+                                ],
+                                "partId": "_footprint"
+                            },
+                            {
+                                "acceptedValues": [
+                                    "3 Ports"
+                                ],
+                                "partId": "_capacity"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "057",
+                        "description": "Almond",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Single gang"
+                                ],
+                                "partId": "_footprint"
+                            },
+                            {
+                                "acceptedValues": [
+                                    "3 Ports"
+                                ],
+                                "partId": "_capacity"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "045",
+                        "description": "White",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Single gang"
+                                ],
+                                "partId": "_footprint"
+                            },
+                            {
+                                "acceptedValues": [
+                                    "4 Ports"
+                                ],
+                                "partId": "_capacity"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "050",
+                        "description": "Almond",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Single gang"
+                                ],
+                                "partId": "_footprint"
+                            },
+                            {
+                                "acceptedValues": [
+                                    "4 Ports"
+                                ],
+                                "partId": "_capacity"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "046",
+                        "description": "White",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Single gang"
+                                ],
+                                "partId": "_footprint"
+                            },
+                            {
+                                "acceptedValues": [
+                                    "6 Ports"
+                                ],
+                                "partId": "_capacity"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "051",
+                        "description": "Almond",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Single gang"
+                                ],
+                                "partId": "_footprint"
+                            },
+                            {
+                                "acceptedValues": [
+                                    "6 Ports"
+                                ],
+                                "partId": "_capacity"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "600",
+                        "description": "White",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Single gang"
+                                ],
+                                "partId": "_footprint"
+                            },
+                            {
+                                "acceptedValues": [
+                                    "Blank"
+                                ],
+                                "partId": "_capacity"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "601",
+                        "description": "Almond",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Single gang"
+                                ],
+                                "partId": "_footprint"
+                            },
+                            {
+                                "acceptedValues": [
+                                    "Blank"
+                                ],
+                                "partId": "_capacity"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "047",
+                        "description": "White",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Double gang"
+                                ],
+                                "partId": "_footprint"
+                            },
+                            {
+                                "acceptedValues": [
+                                    "6 Ports"
+                                ],
+                                "partId": "_capacity"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "052",
+                        "description": "Almond",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Double gang"
+                                ],
+                                "partId": "_footprint"
+                            },
+                            {
+                                "acceptedValues": [
+                                    "6 Ports"
+                                ],
+                                "partId": "_capacity"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "058",
+                        "description": "White",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Double gang"
+                                ],
+                                "partId": "_footprint"
+                            },
+                            {
+                                "acceptedValues": [
+                                    "8 Ports"
+                                ],
+                                "partId": "_capacity"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "059",
+                        "description": "Almond",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Double gang"
+                                ],
+                                "partId": "_footprint"
+                            },
+                            {
+                                "acceptedValues": [
+                                    "8 Ports"
+                                ],
+                                "partId": "_capacity"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "048",
+                        "description": "White",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Double gang"
+                                ],
+                                "partId": "_footprint"
+                            },
+                            {
+                                "acceptedValues": [
+                                    "12 Ports"
+                                ],
+                                "partId": "_capacity"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "053",
+                        "description": "Almond",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Double gang"
+                                ],
+                                "partId": "_footprint"
+                            },
+                            {
+                                "acceptedValues": [
+                                    "12 Ports"
+                                ],
+                                "partId": "_capacity"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "610",
+                        "description": "White",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Double gang"
+                                ],
+                                "partId": "_footprint"
+                            },
+                            {
+                                "acceptedValues": [
+                                    "Blank"
+                                ],
+                                "partId": "_capacity"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "611",
+                        "description": "Almond",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Double gang"
+                                ],
+                                "partId": "_footprint"
+                            },
+                            {
+                                "acceptedValues": [
+                                    "Blank"
+                                ],
+                                "partId": "_capacity"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "partNumber": "WW000EEE",
+        "datasheets": [
+            {
+                "value": "PDS-0052",
+                "conditions": []
+            }
+        ],
+        "description": "Faceplates with ID Windows",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "WW000",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_footprint",
+                "type": "hidden",
+                "placeholder": "",
+                "description": "FOOTPRINT",
+                "color": "light-orange",
+                "options": [
+                    {
+                        "value": "Single gang",
+                        "description": "Single gang",
+                        "conditions": []
+                    },
+                    {
+                        "value": "Double gang",
+                        "description": "Double gang",
+                        "conditions": []
+                    }
+                ]
+            },
+            {
+                "id": "_capacity",
+                "type": "hidden",
+                "placeholder": "",
+                "description": "CAPACITY",
+                "color": "light-green",
+                "options": [
+                    {
+                        "value": "1 Port",
+                        "description": "1 Port",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Single gang"
+                                ],
+                                "partId": "_footprint"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "2 Ports",
+                        "description": "2 Ports",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Single gang"
+                                ],
+                                "partId": "_footprint"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "3 Ports",
+                        "description": "3 Ports",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Single gang"
+                                ],
+                                "partId": "_footprint"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "4 Ports",
+                        "description": "4 Ports",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Single gang"
+                                ],
+                                "partId": "_footprint"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "6 Ports",
+                        "description": "6 Ports",
+                        "conditions": []
+                    },
+                    {
+                        "value": "12 Ports",
+                        "description": "12 Ports",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Double gang"
+                                ],
+                                "partId": "_footprint"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "_color",
+                "type": "color",
+                "placeholder": "EEE",
+                "description": "COLOR",
+                "color": "light-red",
+                "options": [
+                    {
+                        "value": "400",
+                        "description": "White",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Single gang"
+                                ],
+                                "partId": "_footprint"
+                            },
+                            {
+                                "acceptedValues": [
+                                    "1 Port"
+                                ],
+                                "partId": "_capacity"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "410",
+                        "description": "Almond",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Single gang"
+                                ],
+                                "partId": "_footprint"
+                            },
+                            {
+                                "acceptedValues": [
+                                    "1 Port"
+                                ],
+                                "partId": "_capacity"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "401",
+                        "description": "White",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Single gang"
+                                ],
+                                "partId": "_footprint"
+                            },
+                            {
+                                "acceptedValues": [
+                                    "2 Ports"
+                                ],
+                                "partId": "_capacity"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "411",
+                        "description": "Almond",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Single gang"
+                                ],
+                                "partId": "_footprint"
+                            },
+                            {
+                                "acceptedValues": [
+                                    "2 Ports"
+                                ],
+                                "partId": "_capacity"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "402",
+                        "description": "White",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Single gang"
+                                ],
+                                "partId": "_footprint"
+                            },
+                            {
+                                "acceptedValues": [
+                                    "3 Ports"
+                                ],
+                                "partId": "_capacity"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "412",
+                        "description": "Almond",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Single gang"
+                                ],
+                                "partId": "_footprint"
+                            },
+                            {
+                                "acceptedValues": [
+                                    "3 Ports"
+                                ],
+                                "partId": "_capacity"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "403",
+                        "description": "White",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Single gang"
+                                ],
+                                "partId": "_footprint"
+                            },
+                            {
+                                "acceptedValues": [
+                                    "4 Ports"
+                                ],
+                                "partId": "_capacity"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "413",
+                        "description": "Almond",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Single gang"
+                                ],
+                                "partId": "_footprint"
+                            },
+                            {
+                                "acceptedValues": [
+                                    "4 Ports"
+                                ],
+                                "partId": "_capacity"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "404",
+                        "description": "White",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Single gang"
+                                ],
+                                "partId": "_footprint"
+                            },
+                            {
+                                "acceptedValues": [
+                                    "6 Ports"
+                                ],
+                                "partId": "_capacity"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "414",
+                        "description": "Almond",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Single gang"
+                                ],
+                                "partId": "_footprint"
+                            },
+                            {
+                                "acceptedValues": [
+                                    "6 Ports"
+                                ],
+                                "partId": "_capacity"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "405",
+                        "description": "White",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Double gang"
+                                ],
+                                "partId": "_footprint"
+                            },
+                            {
+                                "acceptedValues": [
+                                    "6 Ports"
+                                ],
+                                "partId": "_capacity"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "415",
+                        "description": "Almond",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Double gang"
+                                ],
+                                "partId": "_footprint"
+                            },
+                            {
+                                "acceptedValues": [
+                                    "6 Ports"
+                                ],
+                                "partId": "_capacity"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "406",
+                        "description": "White",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Double gang"
+                                ],
+                                "partId": "_footprint"
+                            },
+                            {
+                                "acceptedValues": [
+                                    "12 Ports"
+                                ],
+                                "partId": "_capacity"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "416",
+                        "description": "Almond",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Double gang"
+                                ],
+                                "partId": "_footprint"
+                            },
+                            {
+                                "acceptedValues": [
+                                    "12 Ports"
+                                ],
+                                "partId": "_capacity"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "partNumber": "WW000FFF",
+        "datasheets": [
+            {
+                "value": "PDS-0049",
+                "conditions": []
+            }
+        ],
+        "description": "Stainless Steel Faceplates",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "WW000",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_footprint",
+                "type": "hidden",
+                "placeholder": "",
+                "description": "FOOTPRINT",
+                "color": "light-orange",
+                "options": [
+                    {
+                        "value": "Single gang",
+                        "description": "Single gang",
+                        "conditions": []
+                    },
+                    {
+                        "value": "Double gang",
+                        "description": "Double gang",
+                        "conditions": []
+                    }
+                ]
+            },
+            {
+                "id": "_capacity",
+                "type": "select",
+                "placeholder": "FFF",
+                "description": "CAPACITY",
+                "color": "light-green",
+                "options": [
+                    {
+                        "value": "220",
+                        "description": "1 Port",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Single gang"
+                                ],
+                                "partId": "_footprint"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "221",
+                        "description": "2 Ports",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Single gang"
+                                ],
+                                "partId": "_footprint"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "222",
+                        "description": "4 Ports",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Single gang"
+                                ],
+                                "partId": "_footprint"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "223",
+                        "description": "6 Ports",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Single gang"
+                                ],
+                                "partId": "_footprint"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "230",
+                        "description": "4 Ports",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Double gang"
+                                ],
+                                "partId": "_footprint"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "231",
+                        "description": "6 Ports",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Double gang"
+                                ],
+                                "partId": "_footprint"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "partNumber": "WW000GGG",
+        "datasheets": [
+            {
+                "value": "PDS-0050",
+                "conditions": []
+            }
+        ],
+        "description": "Surface Mount Back Boxes",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "WW000",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_footprint",
+                "type": "hidden",
+                "placeholder": "",
+                "description": "FOOTPRINT",
+                "color": "light-orange",
+                "options": [
+                    {
+                        "value": "Single gang",
+                        "description": "Single gang",
+                        "conditions": []
+                    },
+                    {
+                        "value": "Double gang",
+                        "description": "Double gang",
+                        "conditions": []
+                    }
+                ]
+            },
+            {
+                "id": "_color",
+                "type": "color",
+                "placeholder": "GGG",
+                "description": "COLOR",
+                "color": "light-green",
+                "options": [
+                    {
+                        "value": "110",
+                        "description": "White",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Single gang"
+                                ],
+                                "partId": "_footprint"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "113",
+                        "description": "White",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Double gang"
+                                ],
+                                "partId": "_footprint"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "111",
+                        "description": "Almond",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Single gang"
+                                ],
+                                "partId": "_footprint"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "114",
+                        "description": "Almond",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Double gang"
+                                ],
+                                "partId": "_footprint"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]
