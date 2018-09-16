@@ -1,7 +1,12 @@
 [
     {
         "partNumber": "FT-KITPLUS",
-        "dataSheet": "PDS-0183",
+        "datasheets": [
+            {
+                "value": "PDS-0183",
+                "conditions": []
+            }
+        ],
         "description": "Premium Installation Kit",
         "parts": [
             {
@@ -15,7 +20,12 @@
     },
     {
         "partNumber": "FT-KIT",
-        "dataSheet": "PDS-0183",
+        "datasheets": [
+            {
+                "value": "PDS-0183",
+                "conditions": []
+            }
+        ],
         "description": "Installation Kit",
         "parts": [
             {
@@ -29,8 +39,13 @@
     },
     {
         "partNumber": "FT-CLV01",
-        "dataSheet": "PDS-0187",
-        "description": "Fiber cleaver 900μm, 250μm",
+        "datasheets": [
+            {
+                "value": "PDS-0187",
+                "conditions": []
+            }
+        ],
+        "description": "Fiber cleaver 900&nbsp;μm, 250&nbsp;μm",
         "parts": [
             {
                 "id": "_constant1",
@@ -43,8 +58,13 @@
     },
     {
         "partNumber": "FT-STP01",
-        "dataSheet": "PDS-0183",
-        "description": "Fiber stripper 900μm, 250μm",
+        "datasheets": [
+            {
+                "value": "PDS-0183",
+                "conditions": []
+            }
+        ],
+        "description": "Fiber stripper 900&nbsp;μm, 250&nbsp;μm",
         "parts": [
             {
                 "id": "_constant1",
@@ -57,7 +77,12 @@
     },
     {
         "partNumber": "FT-VFV01",
-        "dataSheet": "PDS-0183",
+        "datasheets": [
+            {
+                "value": "PDS-0183",
+                "conditions": []
+            }
+        ],
         "description": "Visual fault locator kit",
         "parts": [
             {
@@ -71,8 +96,13 @@
     },
     {
         "partNumber": "FT-SCJIG",
-        "dataSheet": "PDS-0180",
-        "description": "SC assembly guide jig, 900μm",
+        "datasheets": [
+            {
+                "value": "PDS-0180",
+                "conditions": []
+            }
+        ],
+        "description": "SC assembly guide jig, 900&nbsp;μm",
         "parts": [
             {
                 "id": "_constant1",
@@ -85,8 +115,13 @@
     },
     {
         "partNumber": "FT-LCJIG",
-        "dataSheet": "PDS-0180",
-        "description": "LC assembly guide jig, 900μm",
+        "datasheets": [
+            {
+                "value": "PDS-0180",
+                "conditions": []
+            }
+        ],
+        "description": "LC assembly guide jig, 900&nbsp;μm",
         "parts": [
             {
                 "id": "_constant1",

@@ -1,7 +1,12 @@
 [
     {
         "partNumber": "6540-2PYY-L305",
-        "dataSheet": "PDS-0155",
+        "datasheets": [
+            {
+                "value": "PDS-0155",
+                "conditions": []
+            }
+        ],
         "description": "CAT6A Plenum",
         "parts": [
             {
@@ -41,7 +46,12 @@
     },
     {
         "partNumber": "7043-2PYY-L305",
-        "dataSheet": "PDS-0225",
+        "datasheets": [
+            {
+                "value": "PDS-0225",
+                "conditions": []
+            }
+        ],
         "description": "CAT6A Plenum Small OD",
         "parts": [
             {
@@ -81,7 +91,12 @@
     },
     {
         "partNumber": "6540-2RYY-L305",
-        "dataSheet": "PDS-0155",
+        "datasheets": [
+            {
+                "value": "PDS-0155",
+                "conditions": []
+            }
+        ],
         "description": "CAT6A Riser",
         "parts": [
             {
@@ -121,7 +136,12 @@
     },
     {
         "partNumber": "6040-2PYY-R305",
-        "dataSheet": "PDS-0156",
+        "datasheets": [
+            {
+                "value": "PDS-0156",
+                "conditions": []
+            }
+        ],
         "description": "CAT6 Plenum",
         "parts": [
             {
@@ -161,7 +181,12 @@
     },
     {
         "partNumber": "6040-2RYY-R305",
-        "dataSheet": "PDS-0156",
+        "datasheets": [
+            {
+                "value": "PDS-0156",
+                "conditions": []
+            }
+        ],
         "description": "CAT6 Riser",
         "parts": [
             {
@@ -201,7 +226,12 @@
     },
     {
         "partNumber": "5540-1PYY-R305",
-        "dataSheet": "PDS-0157",
+        "datasheets": [
+            {
+                "value": "PDS-0157",
+                "conditions": []
+            }
+        ],
         "description": "CAT5e Plenum",
         "parts": [
             {
@@ -241,7 +271,12 @@
     },
     {
         "partNumber": "5540-1RYY-R305",
-        "dataSheet": "PDS-0157",
+        "datasheets": [
+            {
+                "value": "PDS-0157",
+                "conditions": []
+            }
+        ],
         "description": "CAT6 Riser",
         "parts": [
             {

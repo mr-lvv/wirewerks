@@ -1,7 +1,12 @@
 [
     {
         "partNumber": "WW00AAAA",
-        "dataSheet": "PDS-0002",
+        "datasheets": [
+            {
+                "value": "PDS-0002",
+                "conditions": []
+            }
+        ],
         "description": "Fan Out Kit",
         "parts": [
             {
@@ -12,7 +17,7 @@
                 "options": []
             },
             {
-               "id": "_type",
+                "id": "_type",
                 "type": "select",
                 "placeholder": "AAAA",
                 "description": "TYPE",
@@ -20,32 +25,32 @@
                 "options": [
                     {
                         "value": "1130",
-                        "description": "6&nbsp;fibers, 25”&nbsp;length, Round 3mm housing",
+                        "description": "6&nbsp;fibers, 25”&nbsp;length, Round 3&nbsp;mm housing",
                         "conditions": []
                     },
                     {
                         "value": "0010",
-                        "description": "6&nbsp;fibers, 36”&nbsp;length, Round 3mm housing",
+                        "description": "6&nbsp;fibers, 36”&nbsp;length, Round 3&nbsp;mm housing",
                         "conditions": []
                     },
                     {
                         "value": "0011",
-                        "description": "6&nbsp;fibers, 47”&nbsp;length, Round 3mm housing",
+                        "description": "6&nbsp;fibers, 47”&nbsp;length, Round 3&nbsp;mm housing",
                         "conditions": []
                     },
                     {
                         "value": "1131",
-                        "description": "12&nbsp;fibers, 25”&nbsp;length, Round 3mm housing",
+                        "description": "12&nbsp;fibers, 25”&nbsp;length, Round 3&nbsp;mm housing",
                         "conditions": []
                     },
                     {
                         "value": "0012",
-                        "description": "12&nbsp;fibers, 36”&nbsp;length, Round 3mm housing",
+                        "description": "12&nbsp;fibers, 36”&nbsp;length, Round 3&nbsp;mm housing",
                         "conditions": []
                     },
                     {
                         "value": "0013",
-                        "description": "12&nbsp;fibers, 47”&nbsp;length, Round 3mm housing",
+                        "description": "12&nbsp;fibers, 47”&nbsp;length, Round 3&nbsp;mm housing",
                         "conditions": []
                     },
                     {
@@ -78,13 +83,18 @@
                         "description": "12&nbsp;fibers, 47”&nbsp;length, Ribbon cable housing",
                         "conditions": []
                     }
-                ] 
+                ]
             }
         ]
     },
     {
         "partNumber": "NS-SPL-XX",
-        "dataSheet": "PDS-0193",
+        "datasheets": [
+            {
+                "value": "PDS-0193",
+                "conditions": []
+            }
+        ],
         "description": "Next Step™ Fusion Splice Modules",
         "parts": [
             {
@@ -103,12 +113,12 @@
                 "options": [
                     {
                         "value": "24",
-                        "description": "24 fibers with 24 fusion sleeves",
+                        "description": "24&nbsp;fibers with 24&nbsp;fusion&nbsp;sleeves",
                         "conditions": []
                     },
                     {
                         "value": "RIB-24",
-                        "description": "24 fibers with 2 ribbon sleeves",
+                        "description": "24&nbsp;fibers with 2&nbsp;ribbon&nbsp;sleeves",
                         "conditions": []
                     },
                     {
@@ -122,8 +132,13 @@
     },
     {
         "partNumber": "SPL-MSPL6",
-        "dataSheet": "PDS-0126",
-        "description": "Metal splice tray 4”x7”, clear cover, holds up to 12 fibers",
+        "datasheets": [
+            {
+                "value": "PDS-0126",
+                "conditions": []
+            }
+        ],
+        "description": "Metal splice tray 4”&nbsp;x&nbsp;7”, clear cover, holds up to 12&nbsp;fibers",
         "parts": [
             {
                 "id": "_constant1",
@@ -136,7 +151,12 @@
     },
     {
         "partNumber": "SL-XXYY",
-        "dataSheet": "PDS-0133",
+        "datasheets": [
+            {
+                "value": "PDS-0133",
+                "conditions": []
+            }
+        ],
         "description": "Fusion Splice Sleeves",
         "parts": [
             {

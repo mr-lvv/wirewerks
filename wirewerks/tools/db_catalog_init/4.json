@@ -481,5 +481,714 @@
                 ]
             }
         ]
+    },
+    {
+        "partNumber": "WW000BBB",
+        "datasheets": [
+            {
+                "value": "PDS-0158",
+                "conditions": [
+                    {
+                        "acceptedValues": [
+                            "1U Feedthrough",
+                            "2U Feedthrough"
+                        ],
+                        "partId": "_rackSpace"
+                    }
+                ]
+            },
+            {
+                "value": "PDS-0159",
+                "conditions": [
+                    {
+                        "acceptedValues": [
+                            "0.5U HD"
+                        ],
+                        "partId": "_rackSpace"
+                    }
+                ]
+            }
+        ],
+        "description": "110 Type",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "WW000",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_rackSpace",
+                "type": "hidden",
+                "description": "RACK SPACE",
+                "color": "light-orange",
+                "options": [
+                    {
+                        "value": "Wall Mount",
+                        "description": "Wall Mount",
+                        "conditions": []
+                    },
+                    {
+                        "value": "1U",
+                        "description": "1U",
+                        "conditions": []
+                    },
+                    {
+                        "value": "2U",
+                        "description": "2U",
+                        "conditions": []
+                    }
+                ]
+            },
+            {
+                "id": "_ports",
+                "type": "hidden",
+                "description": "PORTS",
+                "color": "light-green",
+                "options": [
+                    {
+                        "value": "12",
+                        "description": "12",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Wall Mount"
+                                ],
+                                "partId": "_rackSpace"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "24",
+                        "description": "24",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "1U"
+                                ],
+                                "partId": "_rackSpace"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "48",
+                        "description": "48",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "2U"
+                                ],
+                                "partId": "_rackSpace"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "_type",
+                "type": "select",
+                "placeholder": "BBB",
+                "description": "TYPE",
+                "color": "light-red",
+                "options": [
+                    {
+                        "value": "812",
+                        "description": "CAT6",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Wall Mount"
+                                ],
+                                "partId": "_rackSpace"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "802",
+                        "description": "CAT5e",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Wall Mount"
+                                ],
+                                "partId": "_rackSpace"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "810",
+                        "description": "CAT6",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "1U"
+                                ],
+                                "partId": "_rackSpace"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "800",
+                        "description": "CAT5e",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "1U"
+                                ],
+                                "partId": "_rackSpace"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "811",
+                        "description": "CAT6",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "2U"
+                                ],
+                                "partId": "_rackSpace"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "801",
+                        "description": "CAT5e",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "2U"
+                                ],
+                                "partId": "_rackSpace"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "partNumber": "WW00CCCC",
+        "datasheets": [
+            {
+                "value": "PDS-0058",
+                "conditions": [
+                    {
+                        "acceptedValues": [
+                            "Wall Mount"
+                        ],
+                        "partId": "_rackSpace"
+                    }
+                ]
+            },
+            {
+                "value": "PDS-0152",
+                "conditions": [
+                    {
+                        "acceptedValues": [
+                            "0.5U HD"
+                        ],
+                        "partId": "_rackSpace"
+                    }
+                ]
+            },
+            {
+                "value": "PDS-0169",
+                "conditions": [
+                    {
+                        "acceptedValues": [
+                            "1U Feedthrough",
+                            "2U Feedthrough"
+                        ],
+                        "partId": "_rackSpace"
+                    }
+                ]
+            },
+            {
+                "value": "PDS-0109",
+                "conditions": [
+                    {
+                        "acceptedValues": [
+                            "1U"
+                        ],
+                        "partId": "_rackSpace"
+                    }
+                ]
+            },
+            {
+                "value": "PDS-0151",
+                "conditions": [
+                    {
+                        "acceptedValues": [
+                            "1U HD"
+                        ],
+                        "partId": "_rackSpace"
+                    }
+                ]
+            },
+            {
+                "value": "PDS-0110",
+                "conditions": [
+                    {
+                        "acceptedValues": [
+                            "2U"
+                        ],
+                        "partId": "_rackSpace"
+                    }
+                ]
+            },
+            {
+                "value": "PDS-0106",
+                "conditions": [
+                    {
+                        "acceptedValues": [
+                            "2U Angled"
+                        ],
+                        "partId": "_rackSpace"
+                    }
+                ]
+            }
+        ],
+        "description": "UTP (Unshielded)",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "WW00",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_rackSpace",
+                "type": "hidden",
+                "description": "RACK SPACE",
+                "color": "light-orange",
+                "options": [
+                    {
+                        "value": "Wall Mount",
+                        "description": "Wall Mount",
+                        "conditions": []
+                    },
+                    {
+                        "value": "0.5U HD",
+                        "description": "0.5U HD",
+                        "conditions": []
+                    },
+                    {
+                        "value": "1U Feedthrough",
+                        "description": "1U Feedthrough",
+                        "conditions": []
+                    },
+                    {
+                        "value": "1U",
+                        "description": "1U",
+                        "conditions": []
+                    },
+                    {
+                        "value": "1U HD",
+                        "description": "1U HD",
+                        "conditions": []
+                    },
+                    {
+                        "value": "2U Feedthrough",
+                        "description": "2U Feedthrough",
+                        "conditions": []
+                    },
+                    {
+                        "value": "2U",
+                        "description": "2U",
+                        "conditions": []
+                    },
+                    {
+                        "value": "2U Angled",
+                        "description": "2U Angled",
+                        "conditions": []
+                    }
+                ]
+            },
+            {
+                "id": "_ports",
+                "type": "hidden",
+                "description": "PORTS",
+                "color": "light-green",
+                "options": [
+                    {
+                        "value": "12",
+                        "description": "12",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Wall Mount"
+                                ],
+                                "partId": "_rackSpace"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "24",
+                        "description": "24",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "0.5U HD",
+                                    "1U Feedthrough",
+                                    "1U"
+                                ],
+                                "partId": "_rackSpace"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "48",
+                        "description": "48",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "1U HD",
+                                    "2U Feedthrough",
+                                    "2U",
+                                    "2U Angled"
+                                ],
+                                "partId": "_rackSpace"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "_type",
+                "type": "select",
+                "placeholder": "CCCC",
+                "description": "TYPE",
+                "color": "light-red",
+                "options": [
+                    {
+                        "value": "0830",
+                        "description": "EMPTY",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Wall Mount"
+                                ],
+                                "partId": "_rackSpace"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "1403",
+                        "description": "CAT6A",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "0.5U HD"
+                                ],
+                                "partId": "_rackSpace"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "1402",
+                        "description": "CAT6",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "0.5U HD"
+                                ],
+                                "partId": "_rackSpace"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "1401",
+                        "description": "CAT5e",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "0.5U HD"
+                                ],
+                                "partId": "_rackSpace"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "1400",
+                        "description": "Empty",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "0.5U HD"
+                                ],
+                                "partId": "_rackSpace"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "0870",
+                        "description": "CAT6A",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "1U Feedthrough"
+                                ],
+                                "partId": "_rackSpace"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "0850",
+                        "description": "CAT6",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "1U Feedthrough"
+                                ],
+                                "partId": "_rackSpace"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "0840",
+                        "description": "CAT5e",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "1U Feedthrough"
+                                ],
+                                "partId": "_rackSpace"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "1500",
+                        "description": "CAT6A",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "1U"
+                                ],
+                                "partId": "_rackSpace"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "0032",
+                        "description": "CAT6",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "1U"
+                                ],
+                                "partId": "_rackSpace"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "0022",
+                        "description": "CAT5e",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "1U"
+                                ],
+                                "partId": "_rackSpace"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "0040",
+                        "description": "Empty",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "1U"
+                                ],
+                                "partId": "_rackSpace"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "1453",
+                        "description": "CAT6A",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "1U HD"
+                                ],
+                                "partId": "_rackSpace"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "1452",
+                        "description": "CAT6",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "1U HD"
+                                ],
+                                "partId": "_rackSpace"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "1451",
+                        "description": "CAT5e",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "1U HD"
+                                ],
+                                "partId": "_rackSpace"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "1450",
+                        "description": "Empty",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "1U HD"
+                                ],
+                                "partId": "_rackSpace"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "0871",
+                        "description": "CAT6A",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "2U Feedthrough"
+                                ],
+                                "partId": "_rackSpace"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "0851",
+                        "description": "CAT6",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "2U Feedthrough"
+                                ],
+                                "partId": "_rackSpace"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "0841",
+                        "description": "CAT5e",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "2U Feedthrough"
+                                ],
+                                "partId": "_rackSpace"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "1505",
+                        "description": "CAT6A",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "2U"
+                                ],
+                                "partId": "_rackSpace"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "0037",
+                        "description": "CAT6",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "2U"
+                                ],
+                                "partId": "_rackSpace"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "0027",
+                        "description": "CAT5e",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "2U"
+                                ],
+                                "partId": "_rackSpace"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "0041",
+                        "description": "Empty",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "2U"
+                                ],
+                                "partId": "_rackSpace"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "1508",
+                        "description": "CAT6A",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "2U Angled"
+                                ],
+                                "partId": "_rackSpace"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "0038",
+                        "description": "CAT6",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "2U Angled"
+                                ],
+                                "partId": "_rackSpace"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "0028",
+                        "description": "CAT5e",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "2U Angled"
+                                ],
+                                "partId": "_rackSpace"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "0043",
+                        "description": "Empty",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "2U Angled"
+                                ],
+                                "partId": "_rackSpace"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
     }
 ]

@@ -1,7 +1,12 @@
 [
     {
         "partNumber": "NWDM-ABBWAVECDEFF",
-        "dataSheet": "n/a",
+        "datasheets": [
+            {
+                "value": "N/A",
+                "conditions": []
+            }
+        ],
         "description": "NEXT STEP™ WDM 4CH MULTIPLEXERS",
         "parts": [
             {
@@ -186,7 +191,12 @@
     },
     {
         "partNumber": "NWDM-ABBWAVECDEFF",
-        "dataSheet": "n/a",
+        "datasheets": [
+            {
+                "value": "N/A",
+                "conditions": []
+            }
+        ],
         "description": "NEXT STEP™ WDM 4CH MULTIPLEXERS",
         "parts": [
             {
@@ -371,7 +381,12 @@
     },
     {
         "partNumber": "CWDM1-AABCCDEE",
-        "dataSheet": "n/a",
+        "datasheets": [
+            {
+                "value": "N/A",
+                "conditions": []
+            }
+        ],
         "description": "1CH MULTIPLEXERS FILTER",
         "parts": [
             {

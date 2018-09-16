@@ -1,8 +1,13 @@
 [
     {
         "partNumber": "KW-FPTOOL",
-        "dataSheet": "PDS-0057",
-        "description": "FastPunch Tool (replacement blade included)",
+        "datasheets": [
+            {
+                "value": "PDS-0057",
+                "conditions": []
+            }
+        ],
+        "description": "FastPunch Tool (replacement&nbsp;blade&nbsp;included)",
         "parts": [
             {
                 "id": "_constant1",
@@ -15,8 +20,13 @@
     },
     {
         "partNumber": "KW-FPBLADE",
-        "dataSheet": "PDS-0057",
-        "description": "FastPunch Tool blade replacement kit (provided in bag of 5 units)",
+        "datasheets": [
+            {
+                "value": "PDS-0057",
+                "conditions": []
+            }
+        ],
+        "description": "FastPunch Tool blade replacement kit (5/pack)",
         "parts": [
             {
                 "id": "_constant1",
@@ -29,8 +39,13 @@
     },
     {
         "partNumber": "WW000092",
-        "dataSheet": "PDS-0057",
-        "description": "110-Type Punch Tool (replacement blade included)",
+        "datasheets": [
+            {
+                "value": "PDS-0057",
+                "conditions": []
+            }
+        ],
+        "description": "110-Type Punch Tool (replacement&nbsp;blade&nbsp;included)",
         "parts": [
             {
                 "id": "_constant1",
@@ -43,8 +58,13 @@
     },
     {
         "partNumber": "WW000091",
-        "dataSheet": "PDS-0057",
-        "description": "Keywerks palm tool for jack termination at 90 degree or 180 degree position",
+        "datasheets": [
+            {
+                "value": "PDS-0057",
+                "conditions": []
+            }
+        ],
+        "description": "Keywerks palm tool for jack termination at 90° or 180° position",
         "parts": [
             {
                 "id": "_constant1",

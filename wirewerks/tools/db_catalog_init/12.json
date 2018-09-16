@@ -1,7 +1,12 @@
 [
     {
         "partNumber": "SP1-ABBCDEFFFGHHHIJJKLLM",
-        "dataSheet": "PDS-0097",
+        "datasheets": [
+            {
+                "value": "PDS-0097",
+                "conditions": []
+            }
+        ],
         "description": "Fused Biconic Taper Optical Splitters",
         "parts": [
             {
@@ -74,19 +79,19 @@
                 "options": [
                     {
                         "value": "1",
-                        "description": "1310 nm (single window)"
+                        "description": "1310 nm (single&nbsp;window)"
                     },
                     {
                         "value": "2",
-                        "description": "1550 nm (single window)"
+                        "description": "1550 nm (single&nbsp;window)"
                     },
                     {
                         "value": "3",
-                        "description": "1310/1550 nm (dual window)"
+                        "description": "1310/1550&nbsp;nm (dual&nbsp;window)"
                     },
                     {
                         "value": "4",
-                        "description": "1310/1490/1550 nm (triple window)"
+                        "description": "1310/1490/1550&nbsp;nm (triple&nbsp;window)"
                     }
                 ]
             },
@@ -212,15 +217,15 @@
                 "options": [
                     {
                         "value": "A",
-                        "description": "Stainless steel tube for 250 μm fiber"
+                        "description": "Stainless steel tube for 250&nbsp;μm fiber"
                     },
                     {
                         "value": "B",
-                        "description": "Stainless steel tube for 900 μm fiber"
+                        "description": "Stainless steel tube for 900&nbsp;μm fiber"
                     },
                     {
                         "value": "C",
-                        "description": "ABS module for 2 & 3 mm fiber"
+                        "description": "ABS module for 2 & 3&nbsp;mm fiber"
                     }
                 ]
             },
@@ -312,7 +317,12 @@
     },
     {
         "partNumber": "SP2-ABCCCDEEEFGGHIIJ",
-        "dataSheet": "PDS-0094",
+        "datasheets": [
+            {
+                "value": "PDS-0094",
+                "conditions": []
+            }
+        ],
         "description": "Planar Lightwave Circuit Optical Splitters",
         "parts": [
             {
@@ -467,19 +477,19 @@
                     },
                     {
                         "value": "FN1",
-                        "description": "0.5 m (250 μm ribbon) + 0.5 m (900 μm fanout)"
+                        "description": "0.5 m (250&nbsp;μm&nbsp;ribbon) + 0.5&nbsp;m (900&nbsp;μm&nbsp;fanout)"
                     },
                     {
                         "value": "FN2",
-                        "description": "0.5 m (250 μm ribbon) + 1 m (900 μm fanout)"
+                        "description": "0.5 m (250&nbsp;μm&nbsp;ribbon) + 1&nbsp;m (900&nbsp;μm&nbsp;fanout)"
                     },
                     {
                         "value": "FN3",
-                        "description": "1 m (250 μm ribbon) + 0.5 m (900 μm fanout)"
+                        "description": "1 m (250&nbsp;μm&nbsp;ribbon) + 0.5&nbsp;m (900&nbsp;μm&nbsp;fanout)"
                     },
                     {
                         "value": "FN4",
-                        "description": "1 m (250 μm ribbon) + 1 m (900 μm fanout)"
+                        "description": "1 m (250&nbsp;μm&nbsp;ribbon) + 1&nbsp;m (900&nbsp;μm&nbsp;fanout)"
                     }
                 ]
             },
@@ -492,15 +502,15 @@
                 "options": [
                     {
                         "value": "D",
-                        "description": "Mini steel module 250 μm ribbon, for 1x4~1x8 & 2x4~2x8"
+                        "description": "Mini steel module 250&nbsp;μm ribbon, for 1x4~1x8 & 2x4~2x8"
                     },
                     {
                         "value": "E",
-                        "description": "Mini steel module 250 μm ribbon, for 1x16~1x32 & 2x16~2x32"
+                        "description": "Mini steel module 250&nbsp;μm ribbon, for 1x16~1x32 & 2x16~2x32"
                     },
                     {
                         "value": "F",
-                        "description": "ABS flat module 900 μm, 2 mm & 3 mm, for 1x4~1x32 & 2x4~2x32"
+                        "description": "ABS flat module 900&nbsp;μm, 2&nbsp;mm & 3&nbsp;mm, for 1x4~1x32 & 2x4~2x32"
                     }
                 ]
             },
@@ -592,7 +602,12 @@
     },
     {
         "partNumber": "SP3-ABCCDEEF",
-        "dataSheet": "PDS-0096",
+        "datasheets": [
+            {
+                "value": "PDS-0096",
+                "conditions": []
+            }
+        ],
         "description": "LGX Planar Lightwave Circuit (PLC) Optical Splitters",
         "parts": [
             {
@@ -740,7 +755,12 @@
     },
     {
         "partNumber": "SP4-ABBCDEFFGHHI",
-        "dataSheet": "PDS-0098",
+        "datasheets": [
+            {
+                "value": "PDS-0098",
+                "conditions": []
+            }
+        ],
         "description": "LGX Fused Biconic Taper Optical Splitters",
         "parts": [
             {
@@ -813,19 +833,19 @@
                 "options": [
                     {
                         "value": "1",
-                        "description": "1310 nm (single window)"
+                        "description": "1310 nm (single&nbsp;window)"
                     },
                     {
                         "value": "2",
-                        "description": "1550 nm (single window)"
+                        "description": "1550 nm (single&nbsp;window)"
                     },
                     {
                         "value": "3",
-                        "description": "1310/1550 nm (dual window)"
+                        "description": "1310/1550&nbsp;nm (dual&nbsp;window)"
                     },
                     {
                         "value": "4",
-                        "description": "1310/1490/1550 nm (triple window)"
+                        "description": "1310/1490/1550&nbsp;nm (triple&nbsp;window)"
                     }
                 ]
             },

@@ -1,7 +1,12 @@
 [
     {
         "partNumber": "PC-ABCCDEEF-NNN",
-        "dataSheet": "PDS-0022",
+        "datasheets": [
+            {
+                "value": "PDS-0022",
+                "conditions": []
+            }
+        ],
         "description": "Patch Cords",
         "parts": [
             {
@@ -80,83 +85,83 @@
                 "options": [
                     {
                         "value": "A",
-                        "description": "2 Fibers Zip 3 mm OFNR"
+                        "description": "2 Fibers Zip 3&nbsp;mm OFNR"
                     },
                     {
                         "value": "B",
-                        "description": "2 Fibers Zip 3 mm OFNP"
+                        "description": "2 Fibers Zip 3&nbsp;mm OFNP"
                     },
                     {
                         "value": "C",
-                        "description": "1 Fiber 3 mm OFNR"
+                        "description": "1 Fiber 3&nbsp;mm OFNR"
                     },
                     {
                         "value": "D",
-                        "description": "1 Fiber 3 mm OFNP"
+                        "description": "1 Fiber 3&nbsp;mm OFNP"
                     },
                     {
                         "value": "E",
-                        "description": "2 Fibers Zip 2 mm OFNR"
+                        "description": "2 Fibers Zip 2&nbsp;mm OFNR"
                     },
                     {
                         "value": "F",
-                        "description": "2 Fibers Zip 2 mm OFNP"
+                        "description": "2 Fibers Zip 2&nbsp;mm OFNP"
                     },
                     {
                         "value": "G",
-                        "description": "1 Fiber 2 mm OFNR"
+                        "description": "1 Fiber 2&nbsp;mm OFNR"
                     },
                     {
                         "value": "H",
-                        "description": "1 Fiber 2 mm OFNP"
+                        "description": "1 Fiber 2&nbsp;mm OFNP"
                     },
                     {
                         "value": "I",
-                        "description": "2 Fibers Zip 1.8 mm OFNR"
+                        "description": "2 Fibers Zip 1.8&nbsp;mm OFNR"
                     },
                     {
                         "value": "J",
-                        "description": "2 Fibers Zip 1.8 mm OFNP"
+                        "description": "2 Fibers Zip 1.8&nbsp;mm OFNP"
                     },
                     {
                         "value": "K",
-                        "description": "1 Fiber Tight Buffer 900 μm"
+                        "description": "1 Fiber Tight Buffer 900&nbsp;μm"
                     },
                     {
                         "value": "L",
-                        "description": "1 Fiber Coated 250 μm"
+                        "description": "1 Fiber Coated 250&nbsp;μm"
                     },
                     {
                         "value": "M",
-                        "description": "1 Fiber 1.6mm OFNR"
+                        "description": "1 Fiber 1.6&nbsp;mm OFNR"
                     },
                     {
                         "value": "N",
-                        "description": "1 Fiber 1.6mm OFNP"
+                        "description": "1 Fiber 1.6&nbsp;mm OFNP"
                     },
                     {
                         "value": "P",
-                        "description": "2 Fibers Zip 1.6mm OFNR"
+                        "description": "2 Fibers Zip 1.6&nbsp;mm OFNR"
                     },
                     {
                         "value": "Q",
-                        "description": "2 Fibers Zip 1.6mm OFNP"
+                        "description": "2 Fibers Zip 1.6&nbsp;mm OFNP"
                     },
                     {
                         "value": "T",
-                        "description": "2 Fibers Round 3 mm OFNR"
+                        "description": "2 Fibers Round 3&nbsp;mm OFNR"
                     },
                     {
                         "value": "U",
-                        "description": "2 Fibers Round 3 mm OFNP"
+                        "description": "2 Fibers Round 3&nbsp;mm OFNP"
                     },
                     {
                         "value": "5",
-                        "description": "1 Fiber 1.2 mm OFNR"
+                        "description": "1 Fiber 1.2&nbsp;mm OFNR"
                     },
                     {
                         "value": "7",
-                        "description": "2 Fibers 1.2 mm OFNR"
+                        "description": "2 Fibers 1.2&nbsp;mm OFNR"
                     }
                 ]
             },
@@ -416,7 +421,12 @@
     },
     {
         "partNumber": "MC-ABBCC-NNN",
-        "dataSheet": "PDS-0029",
+        "datasheets": [
+            {
+                "value": "PDS-0029",
+                "conditions": []
+            }
+        ],
         "description": "Mode Conditioning Patch Cords",
         "parts": [
             {
@@ -435,12 +445,12 @@
                 "options": [
                     {
                         "value": "2",
-                        "description": "Multimode 62.5/125μm&nbsp;OM1",
+                        "description": "Multimode 62.5/125&nbsp;μm OM1",
                         "conditions": []
                     },
                     {
                         "value": "3",
-                        "description": "Multimode 50/125μm&nbsp;OM2",
+                        "description": "Multimode 50/125&nbsp;μm OM2",
                         "conditions": []
                     }
                 ]

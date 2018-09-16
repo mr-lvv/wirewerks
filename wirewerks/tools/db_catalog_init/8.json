@@ -1,7 +1,12 @@
 [
     {
         "partNumber": "FA-ABCDEEFGGG-HHiJJKL-NNN",
-        "dataSheet": "PDS-0023",
+        "datasheets": [
+            {
+                "value": "PDS-0023",
+                "conditions": []
+            }
+        ],
         "description": "Cable Assemblies",
         "parts": [
             {
@@ -25,22 +30,22 @@
                     },
                     {
                         "value": "2",
-                        "description": "Multimode 62.5/125μm&nbsp;OM1",
+                        "description": "Multimode 62.5/125&nbsp;μm OM1",
                         "conditions": []
                     },
                     {
                         "value": "3",
-                        "description": "Multimode 50/125μm&nbsp;OM2",
+                        "description": "Multimode 50/125&nbsp;μm OM2",
                         "conditions": []
                     },
                     {
                         "value": "4",
-                        "description": "Multimode 50/125μm&nbsp;OM3",
+                        "description": "Multimode 50/125&nbsp;μm OM3",
                         "conditions": []
                     },
                     {
                         "value": "5",
-                        "description": "Multimode 50/125μm&nbsp;OM4",
+                        "description": "Multimode 50/125&nbsp;μm OM4",
                         "conditions": []
                     },
                     {
@@ -50,17 +55,17 @@
                     },
                     {
                         "value": "B",
-                        "description": "Bend&nbsp;Insensitive Multimode 50/125μm&nbsp;OM2",
+                        "description": "Bend&nbsp;Insensitive Multimode 50/125&nbsp;μm OM2",
                         "conditions": []
                     },
                     {
                         "value": "C",
-                        "description": "Bend&nbsp;Insensitive Multimode 50/125μm&nbsp;OM3",
+                        "description": "Bend&nbsp;Insensitive Multimode 50/125&nbsp;μm OM3",
                         "conditions": []
                     },
                     {
                         "value": "D",
-                        "description": "Bend&nbsp;Insensitive Multimode 50/125μm&nbsp;OM4",
+                        "description": "Bend&nbsp;Insensitive Multimode 50/125&nbsp;μm OM4",
                         "conditions": []
                     }
                 ]
@@ -816,12 +821,12 @@
                     },
                     {
                         "value": "3",
-                        "description": "Staggered with 1 Pulling Eye",
+                        "description": "Staggered with 1&nbsp;Pulling&nbsp;Eye",
                         "conditions": []
                     },
                     {
                         "value": "4",
-                        "description": "Staggered with 2 Pulling Eyes",
+                        "description": "Staggered with 2&nbsp;Pulling&nbsp;Eyes",
                         "conditions": []
                     }
                 ]
@@ -852,7 +857,12 @@
     },
     {
         "partNumber": "WNC-ABBCCDDEFFF-NNNN",
-        "dataSheet": "PDS-0011",
+        "datasheets": [
+            {
+                "value": "PDS-0011",
+                "conditions": []
+            }
+        ],
         "description": "Node Service Cables",
         "parts": [
             {
@@ -871,22 +881,22 @@
                 "options": [
                     {
                         "value": "A",
-                        "description": "Armoured Outdoor Loose Tube",
+                        "description": "Armoured Outdoor Loose&nbsp;Tube",
                         "conditions": []
                     },
                     {
                         "value": "B",
-                        "description": "Armoured Outdoor Loose Tube Dry",
+                        "description": "Armoured Outdoor Loose&nbsp;Tube&nbsp;Dry",
                         "conditions": []
                     },
                     {
                         "value": "N",
-                        "description": "Non-Armoured Outdoor Loose Tube",
+                        "description": "Non-Armoured Outdoor Loose&nbsp;Tube",
                         "conditions": []
                     },
                     {
                         "value": "O",
-                        "description": "Non-Armoured Outdoor Loose Tube Dry",
+                        "description": "Non-Armoured Outdoor Loose&nbsp;Tube&nbsp;Dry",
                         "conditions": []
                     }
                 ]
@@ -1053,7 +1063,12 @@
     },
     {
         "partNumber": "IP-ABCCDEEFG-NNN",
-        "dataSheet": "PDS-0185",
+        "datasheets": [
+            {
+                "value": "PDS-0185",
+                "conditions": []
+            }
+        ],
         "description": "IP68 Cable Assemblies",
         "parts": [
             {
@@ -1077,22 +1092,22 @@
                     },
                     {
                         "value": "2",
-                        "description": "Multimode 62.5/125μm OM1",
+                        "description": "Multimode 62.5/125&nbsp;μm OM1",
                         "conditions": []
                     },
                     {
                         "value": "3",
-                        "description": "Multimode 50/125μm OM2",
+                        "description": "Multimode 50/125&nbsp;μm OM2",
                         "conditions": []
                     },
                     {
                         "value": "4",
-                        "description": "Multimode 50/125μm OM3",
+                        "description": "Multimode 50/125&nbsp;μm OM3",
                         "conditions": []
                     },
                     {
                         "value": "5",
-                        "description": "Multimode 50/125μm OM4",
+                        "description": "Multimode 50/125&nbsp;μm OM4",
                         "conditions": []
                     }
                 ]
@@ -1391,7 +1406,12 @@
     },
     {
         "partNumber": "DC-ABCDDEEFG-NNNN",
-        "dataSheet": "PDS-0130",
+        "datasheets": [
+            {
+                "value": "PDS-0130",
+                "conditions": []
+            }
+        ],
         "description": "Drop Cassette",
         "parts": [
             {
@@ -1424,12 +1444,12 @@
                 "options": [
                     {
                         "value": "T",
-                        "description": "FLAT&nbsp;DROP Non-Armored Toneable Cable",
+                        "description": "FLAT&nbsp;DROP Non-Armored Toneable&nbsp;Cable",
                         "conditions": []
                     },
                     {
                         "value": "N",
-                        "description": "FLAT&nbsp;DROP Non-Armored Non-Toneable Cable",
+                        "description": "FLAT&nbsp;DROP Non-Armored Non-Toneable&nbsp;Cable",
                         "conditions": []
                     },
                     {
@@ -1581,8 +1601,13 @@
     },
     {
         "partNumber": "W9N-YAANNXXYWWWZZZZ",
-        "dataSheet": "PDS-0224",
-        "description": "90 Degree Node Service Cables",
+        "datasheets": [
+            {
+                "value": "PDS-0224",
+                "conditions": []
+            }
+        ],
+        "description": "90° Node Service Cables",
         "parts": [
             {
                 "type": "constant",
@@ -1600,22 +1625,22 @@
                 "options": [
                     {
                         "value": "A",
-                        "description": "Armoured Outdoor Loose Tube",
+                        "description": "Armoured Outdoor Loose&nbsp;Tube",
                         "conditions": []
                     },
                     {
                         "value": "B",
-                        "description": "Armoured Outdoor Loose Tube Dry",
+                        "description": "Armoured Outdoor Loose&nbsp;Tube&nbsp;Dry",
                         "conditions": []
                     },
                     {
                         "value": "N",
-                        "description": "Non-Armoured Outdoor Loose Tube",
+                        "description": "Non-Armoured Outdoor Loose&nbsp;Tube",
                         "conditions": []
                     },
                     {
                         "value": "O",
-                        "description": "Non-Armoured Outdoor Loose Tube Dry",
+                        "description": "Non-Armoured Outdoor Loose&nbsp;Tube&nbsp;Dry",
                         "conditions": []
                     }
                 ]

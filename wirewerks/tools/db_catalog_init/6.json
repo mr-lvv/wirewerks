@@ -1,7 +1,12 @@
 [
     {
         "partNumber": "KW-CZZ-BNC-YY",
-        "dataSheet": "PDS-0048",
+        "datasheets": [
+            {
+                "value": "PDS-0048",
+                "conditions": []
+            }
+        ],
         "description": "BNC Couplers 75Ω",
         "parts": [
             {
@@ -36,7 +41,12 @@
     },
     {
         "partNumber": "KW-CZZ-BNS-YY",
-        "dataSheet": "PDS-0048",
+        "datasheets": [
+            {
+                "value": "PDS-0048",
+                "conditions": []
+            }
+        ],
         "description": "BNC Couplers 50Ω",
         "parts": [
             {
@@ -71,7 +81,12 @@
     },
     {
         "partNumber": "KW-CZZ-FTC-YY",
-        "dataSheet": "PDS-0048",
+        "datasheets": [
+            {
+                "value": "PDS-0048",
+                "conditions": []
+            }
+        ],
         "description": "F Couplers 3&nbsp;GHz",
         "parts": [
             {
@@ -106,7 +121,12 @@
     },
     {
         "partNumber": "KW-CZZ-RFX-YY",
-        "dataSheet": "PDS-0048",
+        "datasheets": [
+            {
+                "value": "PDS-0048",
+                "conditions": []
+            }
+        ],
         "description": "RCA to F-Type Couplers",
         "parts": [
             {
@@ -177,7 +197,12 @@
     },
     {
         "partNumber": "KW-CZZ-RCX-YY",
-        "dataSheet": "PDS-0048",
+        "datasheets": [
+            {
+                "value": "PDS-0048",
+                "conditions": []
+            }
+        ],
         "description": "RCA to RCA Couplers",
         "parts": [
             {
@@ -248,7 +273,12 @@
     },
     {
         "partNumber": "KW-RCA110-X-WH",
-        "dataSheet": "PDS-0048",
+        "datasheets": [
+            {
+                "value": "PDS-0048",
+                "conditions": []
+            }
+        ],
         "description": "RCA to 110 IDC Couplers",
         "parts": [
             {
@@ -290,7 +320,12 @@
     },
     {
         "partNumber": "KW-FWW-ZZZ-YY",
-        "dataSheet": "PDS-0048",
+        "datasheets": [
+            {
+                "value": "PDS-0048",
+                "conditions": []
+            }
+        ],
         "description": "Keystone Fiber Optic Couplers",
         "parts": [
             {
@@ -396,7 +431,12 @@
     },
     {
         "partNumber": "KW-CZZ-HDF-YY",
-        "dataSheet": "PDS-0053",
+        "datasheets": [
+            {
+                "value": "PDS-0053",
+                "conditions": []
+            }
+        ],
         "description": "HDMI Couplers",
         "parts": [
             {
@@ -423,7 +463,12 @@
     },
     {
         "partNumber": "HD500-NNN",
-        "dataSheet": "PDS-0062",
+        "datasheets": [
+            {
+                "value": "PDS-0062",
+                "conditions": []
+            }
+        ],
         "description": "HDMI Cables with Ethernet",
         "parts": [
             {
@@ -478,7 +523,12 @@
     },
     {
         "partNumber": "KW-CZZ-BPM-YY",
-        "dataSheet": "PDS-0048",
+        "datasheets": [
+            {
+                "value": "PDS-0048",
+                "conditions": []
+            }
+        ],
         "description": "Speaker Binding Posts",
         "parts": [
             {
@@ -513,8 +563,13 @@
     },
     {
         "partNumber": "KW-35T-YY",
-        "dataSheet": "PDS-0048",
-        "description": "3.5mm Stereo Socket To Terminal Block Module",
+        "datasheets": [
+            {
+                "value": "PDS-0048",
+                "conditions": []
+            }
+        ],
+        "description": "3.5&nbsp;mm Stereo Socket To Terminal Block Module",
         "parts": [
             {
                 "id": "_constant1",

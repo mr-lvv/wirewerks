@@ -1,7 +1,12 @@
 [
     {
         "partNumber": "MS-LCABB",
-        "dataSheet": "PDS-0130",
+        "datasheets": [
+            {
+                "value": "PDS-0130",
+                "conditions": []
+            }
+        ],
         "description": "LC Mating Sleeve Adapter",
         "parts": [
             {
@@ -106,7 +111,12 @@
     },
     {
         "partNumber": "MS-SCABBCD",
-        "dataSheet": "PDS-0130",
+        "datasheets": [
+            {
+                "value": "PDS-0130",
+                "conditions": []
+            }
+        ],
         "description": "SC Mating Sleeve Adapter",
         "parts": [
             {
@@ -229,7 +239,12 @@
     },
     {
         "partNumber": "MS-FCABBC",
-        "dataSheet": "PDS-0130",
+        "datasheets": [
+            {
+                "value": "PDS-0130",
+                "conditions": []
+            }
+        ],
         "description": "FC Mating Sleeve Adapter",
         "parts": [
             {
@@ -307,7 +322,12 @@
     },
     {
         "partNumber": "MS-MPA",
-        "dataSheet": "PDS-0130",
+        "datasheets": [
+            {
+                "value": "PDS-0130",
+                "conditions": []
+            }
+        ],
         "description": "MPO Mating Sleeve Adapter",
         "parts": [
             {
@@ -338,7 +358,12 @@
     },
     {
         "partNumber": "MS-MTAA",
-        "dataSheet": "PDS-0130",
+        "datasheets": [
+            {
+                "value": "PDS-0130",
+                "conditions": []
+            }
+        ],
         "description": "MTRJ Mating Sleeve Adapter",
         "parts": [
             {
@@ -369,7 +394,12 @@
     },
     {
         "partNumber": "MS-STABBC",
-        "dataSheet": "PDS-0130",
+        "datasheets": [
+            {
+                "value": "PDS-0130",
+                "conditions": []
+            }
+        ],
         "description": "ST Mating Sleeve Adapter",
         "parts": [
             {
@@ -444,7 +474,12 @@
     },
     {
         "partNumber": "HA-ABCCCDDDEF",
-        "dataSheet": "PDS-0128",
+        "datasheets": [
+            {
+                "value": "PDS-0128",
+                "conditions": []
+            }
+        ],
         "description": "Hybrid Adapter",
         "parts": [
             {
@@ -598,7 +633,12 @@
     },
     {
         "partNumber": "WFA-ABCCDE-NN",
-        "dataSheet": "PDS-0129",
+        "datasheets": [
+            {
+                "value": "PDS-0129",
+                "conditions": []
+            }
+        ],
         "description": "Attenuators",
         "parts": [
             {
@@ -638,11 +678,11 @@
                     },
                     {
                         "value": "2",
-                        "description": "62.5/125μm Multimode&nbsp;OM1"
+                        "description": "62.5/125&nbsp;μm Multimode OM1"
                     },
                     {
                         "value": "3",
-                        "description": "50/125μm Multimode&nbsp;OM2"
+                        "description": "50/125&nbsp;μm Multimode OM2"
                     }
                 ]
             },
@@ -701,7 +741,7 @@
                 "options": [
                     {
                         "value": "A",
-                        "description": "Dual&nbsp;1310/1550&nbsp;nm (Single mode)"
+                        "description": "Dual&nbsp;1310/1550&nbsp;nm (Single&nbsp;mode)"
                     },
                     {
                         "value": "B",
@@ -790,7 +830,12 @@
     },
     {
         "partNumber": "DM-ABCCDEE",
-        "dataSheet": "PDS-0034",
+        "datasheets": [
+            {
+                "value": "PDS-0034",
+                "conditions": []
+            }
+        ],
         "description": "LGX Distribution Module",
         "parts": [
             {
@@ -814,22 +859,22 @@
                     },
                     {
                         "value": "2",
-                        "description": "Multimode 62.5/125μm&nbsp;OM1",
+                        "description": "62.5/125&nbsp;μm Multimode OM1",
                         "conditions": []
                     },
                     {
                         "value": "3",
-                        "description": "Multimode 50/125μm&nbsp;OM2",
+                        "description": "50/125&nbsp;μm Multimode OM2",
                         "conditions": []
                     },
                     {
                         "value": "4",
-                        "description": "Multimode 50/125μm&nbsp;OM3",
+                        "description": "50/125&nbsp;μm Multimode OM3",
                         "conditions": []
                     },
                     {
                         "value": "5",
-                        "description": "Multimode 50/125μm&nbsp;OM4",
+                        "description": "50/125&nbsp;μm Multimode OM4",
                         "conditions": []
                     }
                 ]
@@ -910,7 +955,7 @@
                     },
                     {
                         "value": "24",
-                        "description": "2&nbsp;x&nbsp;12 Fibers"
+                        "description": "2x12 Fibers"
                     }
                 ]
             }
@@ -918,7 +963,12 @@
     },
     {
         "partNumber": "AS-WBCCD",
-        "dataSheet": "PDS-0027",
+        "datasheets": [
+            {
+                "value": "PDS-0027",
+                "conditions": []
+            }
+        ],
         "description": "LGX Adapter Strips",
         "parts": [
             {
@@ -995,7 +1045,7 @@
                 "options": [
                     {
                         "value": "M",
-                        "description": "62.5/125 and 50/125 μm Multimode phosphor bronze sleeve, beige",
+                        "description": "62.5/125 and 50/125&nbsp;μm Multimode phosphor bronze&nbsp;sleeve, beige",
                         "conditions": [
                             {
                                 "acceptedValues": [
@@ -1011,7 +1061,7 @@
                     },
                     {
                         "value": "G",
-                        "description": "50/125 μm OM3/OM4 Multimode zirconia ceramic sleeve, aqua",
+                        "description": "50/125&nbsp;μm OM3/OM4 Multimode zirconia ceramic&nbsp;sleeve, aqua",
                         "conditions": [
                             {
                                 "acceptedValues": [
@@ -1027,7 +1077,7 @@
                     },
                     {
                         "value": "S",
-                        "description": "UPC Single mode zirconia ceramic sleeve, blue",
+                        "description": "UPC Single&nbsp;mode zirconia ceramic&nbsp;sleeve, blue",
                         "conditions": [
                             {
                                 "acceptedValues": [
@@ -1043,7 +1093,7 @@
                     },
                     {
                         "value": "A",
-                        "description": "APC Single mode zirconia ceramic sleeve, green",
+                        "description": "APC Single&nbsp;mode zirconia ceramic&nbsp;sleeve, green",
                         "conditions": [
                             {
                                 "acceptedValues": [
@@ -1075,7 +1125,12 @@
     },
     {
         "partNumber": "NS-PM-WBCCD",
-        "dataSheet": "PDS-0192",
+        "datasheets": [
+            {
+                "value": "PDS-0192",
+                "conditions": []
+            }
+        ],
         "description": "NEXT STEP™ Patch Modules",
         "parts": [
             {
@@ -1128,19 +1183,19 @@
                 "options": [
                     {
                         "value": "M",
-                        "description": "OM1/OM2 MM, Beige, Phosphor Bronze"
+                        "description": "OM1/OM2 MM, Beige, Phosphor&nbsp;Bronze"
                     },
                     {
                         "value": "G",
-                        "description": "OM3/OM4 MM, Aqua, Zirconia Ceramic"
+                        "description": "OM3/OM4 MM, Aqua, Zirconia&nbsp;Ceramic"
                     },
                     {
                         "value": "S",
-                        "description": "Single Mode, UPC, Blue, Zirconia Ceramic"
+                        "description": "Single Mode, UPC, Blue, Zirconia&nbsp;Ceramic"
                     },
                     {
                         "value": "A",
-                        "description": "Single Mode, APC, Green, Zirconia Ceramic"
+                        "description": "Single Mode, APC, Green, Zirconia&nbsp;Ceramic"
                     }
                 ]
             }
@@ -1148,7 +1203,12 @@
     },
     {
         "partNumber": "NS-DM-ABCCDEE",
-        "dataSheet": "PDS-0191",
+        "datasheets": [
+            {
+                "value": "PDS-0191",
+                "conditions": []
+            }
+        ],
         "description": "NEXT STEP™ Distribution Modules",
         "parts": [
             {
@@ -1167,23 +1227,23 @@
                 "options": [
                     {
                         "value": "1",
-                        "description": "Single Mode OS2, 9/125um"
+                        "description": "Single Mode OS2, 9/125&nbsp;μm"
                     },
                     {
                         "value": "2",
-                        "description": "Multimode OM1, 62.5/125μm"
+                        "description": "Multimode OM1, 62.5/125&nbsp;μm"
                     },
                     {
                         "value": "3",
-                        "description": "Multimode OM2, 50/125μm"
+                        "description": "Multimode OM2, 50/125&nbsp;μm"
                     },
                     {
                         "value": "4",
-                        "description": "Multimode OM3, 50/125μm"
+                        "description": "Multimode OM3, 50/125&nbsp;μm"
                     },
                     {
                         "value": "5",
-                        "description": "Multimode OM4, 50/125μm"
+                        "description": "Multimode OM4, 50/125&nbsp;μm"
                     }
                 ]
             },

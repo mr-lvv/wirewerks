@@ -1,7 +1,12 @@
 [
     {
         "partNumber": "FT-ALCXX",
-        "dataSheet": "PDS-0179",
+        "datasheets": [
+            {
+                "value": "PDS-0179",
+                "conditions": []
+            }
+        ],
         "description": "LC Field Connectors",
         "parts": [
             {
@@ -20,22 +25,22 @@
                 "options": [
                     {
                         "value": "SM",
-                        "description": "Single&nbsp;Mode 900μm&nbsp;boot",
+                        "description": "Single&nbsp;Mode 900&nbsp;μm&nbsp;boot",
                         "conditions": []
                     },
                     {
                         "value": "MM",
-                        "description": "Multimode&nbsp;OM1 900μm&nbsp;boot",
+                        "description": "Multimode&nbsp;OM1 900&nbsp;μm&nbsp;boot",
                         "conditions": []
                     },
                     {
                         "value": "MM50",
-                        "description": "Multimode&nbsp;OM2 900μm&nbsp;boot",
+                        "description": "Multimode&nbsp;OM2 900&nbsp;μm&nbsp;boot",
                         "conditions": []
                     },
                     {
                         "value": "MM10G",
-                        "description": "Multimode&nbsp;OM3/OM4 900μm&nbsp;boot",
+                        "description": "Multimode&nbsp;OM3/OM4 900&nbsp;μm&nbsp;boot",
                         "conditions": []
                     }
                 ]
@@ -44,7 +49,12 @@
     },
     {
         "partNumber": "FT-ASCXX",
-        "dataSheet": "PDS-0178",
+        "datasheets": [
+            {
+                "value": "PDS-0178",
+                "conditions": []
+            }
+        ],
         "description": "SC Field Connectors",
         "parts": [
             {
@@ -63,22 +73,22 @@
                 "options": [
                     {
                         "value": "SM",
-                        "description": "Single&nbsp;Mode 900μm&nbsp;boot",
+                        "description": "Single&nbsp;Mode 900&nbsp;μm&nbsp;boot",
                         "conditions": []
                     },
                     {
                         "value": "MM",
-                        "description": "Multimode&nbsp;OM1 900μm&nbsp;boot",
+                        "description": "Multimode&nbsp;OM1 900&nbsp;μm&nbsp;boot",
                         "conditions": []
                     },
                     {
                         "value": "MM50",
-                        "description": "Multimode&nbsp;OM2 900μm&nbsp;boot",
+                        "description": "Multimode&nbsp;OM2 900&nbsp;μm&nbsp;boot",
                         "conditions": []
                     },
                     {
                         "value": "MM10G",
-                        "description": "Multimode&nbsp;OM3/OM4 900μm&nbsp;boot",
+                        "description": "Multimode&nbsp;OM3/OM4 900&nbsp;μm&nbsp;boot",
                         "conditions": []
                     }
                 ]

@@ -1,8 +1,13 @@
 [
     {
         "partNumber": "KW-ZZZ-BLK-YY",
-        "dataSheet": "PDS-0048",
-        "description": "Keystone Blank Inserts",
+        "datasheets": [
+            {
+                "value": "PDS-0048",
+                "conditions": []
+            }
+        ],
+        "description": "Blank Inserts",
         "parts": [
             {
                 "id": "_constant1",
@@ -39,8 +44,13 @@
     },
     {
         "partNumber": "KW-DUSTCAP-YY",
-        "dataSheet": "PDS-0067",
-        "description": "Keywerks Modules Dustcaps",
+        "datasheets": [
+            {
+                "value": "PDS-0067",
+                "conditions": []
+            }
+        ],
+        "description": "RJ45 Dustcaps",
         "parts": [
             {
                 "id": "_constant1",
@@ -101,47 +111,32 @@
         ]
     },
     {
-        "partNumber": "KW-CAACFFBK",
-        "dataSheet": "PDS-0168",
-        "description": "Keywerks Inline Couplers (180°) UTP",
-        "parts": [
+        "partNumber": "KW-CAACFF",
+        "datasheets": [
             {
-                "id": "_constant1",
-                "type": "constant",
-                "placeholder": "KW-C",
-                "color": "default",
-                "options": []
+                "value": "PDS-0168",
+                "conditions": [
+                    {
+                        "acceptedValues": [
+                            "UTP"
+                        ],
+                        "partId": "_shielding"
+                    }
+                ]
             },
             {
-                "id": "_performance",
-                "type": "select",
-                "placeholder": "AA",
-                "description": "PERFORMANCE",
-                "color": "light-orange",
-                "options": [
+                "value": "PDS-0160",
+                "conditions": [
                     {
-                        "value": "6A",
-                        "description": "CAT6A",
-                        "conditions": []
-                    },
-                    {
-                        "value": "C6",
-                        "description": "CAT6",
-                        "conditions": []
-                    },
-                    {
-                        "value": "5E",
-                        "description": "CAT5e",
-                        "conditions": []
+                        "acceptedValues": [
+                            "FTP"
+                        ],
+                        "partId": "_shielding"
                     }
                 ]
             }
-        ]
-    },
-    {
-        "partNumber": "KW-CAACFF",
-        "dataSheet": "PDS-0160",
-        "description": "Keywerks Inline Couplers (180°) FTP",
+        ],
+        "description": "Inline Couplers (180°)",
         "parts": [
             {
                 "id": "_constant1",
@@ -151,26 +146,102 @@
                 "options": []
             },
             {
+                "id": "_shielding",
+                "type": "hidden",
+                "placeholder": "",
+                "description": "SHIELDING",
+                "color": "default",
+                "options": [
+                    {
+                        "value": "FTP",
+                        "description": "FTP",
+                        "conditions": []
+                    },
+                    {
+                        "value": "UTP",
+                        "description": "UTP",
+                        "conditions": []
+                    }
+                ]
+            },
+            {
                 "id": "_performance",
                 "type": "select",
-                "placeholder": "AA",
+                "placeholder": "AACFF",
                 "description": "PERFORMANCE",
                 "color": "light-orange",
                 "options": [
                     {
-                        "value": "SA",
+                        "value": "6ACFFBK",
                         "description": "CAT6A",
-                        "conditions": []
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "UTP"
+                                ],
+                                "partId": "_shielding"
+                            }
+                        ]
                     },
                     {
-                        "value": "S6",
+                        "value": "C6CFFBK",
                         "description": "CAT6",
-                        "conditions": []
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "UTP"
+                                ],
+                                "partId": "_shielding"
+                            }
+                        ]
                     },
                     {
-                        "value": "SE",
+                        "value": "5ECFFBK",
                         "description": "CAT5e",
-                        "conditions": []
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "UTP"
+                                ],
+                                "partId": "_shielding"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "SACFF",
+                        "description": "CAT6A",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "FTP"
+                                ],
+                                "partId": "_shielding"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "S6CFF",
+                        "description": "CAT6",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "FTP"
+                                ],
+                                "partId": "_shielding"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "S5CFF",
+                        "description": "CAT5e",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "FTP"
+                                ],
+                                "partId": "_shielding"
+                            }
+                        ]
                     }
                 ]
             }
@@ -178,8 +249,13 @@
     },
     {
         "partNumber": "KW-CC3-45T-YY",
-        "dataSheet": "PDS-0045",
-        "description": "CAT3 Keywerks Modules – Voice",
+        "datasheets": [
+            {
+                "value": "PDS-0045",
+                "conditions": []
+            }
+        ],
+        "description": "CAT3 Modules – Voice",
         "parts": [
             {
                 "id": "_constant1",
@@ -235,140 +311,79 @@
         ]
     },
     {
-        "partNumber": "KW-C6A-45B-YY",
-        "dataSheet": "PDS-0153",
-        "description": "Keywerks CAT6A Modules (Jacks)",
-        "parts": [
+        "partNumber": "KW-CAA-45B-YY",
+        "datasheets": [
             {
-                "id": "_constant1",
-                "type": "constant",
-                "placeholder": "KW-C6A-45B-",
-                "color": "default",
-                "options": []
+                "value": "PDS-0153",
+                "conditions": [
+                    {
+                        "acceptedValues": [
+                            "6A"
+                        ],
+                        "partId": "_type"
+                    }
+                ]
             },
             {
-                "id": "_color",
-                "type": "color",
-                "placeholder": "YY",
-                "description": "COLOR",
-                "color": "light-orange",
-                "options": [
+                "value": "PDS-0108",
+                "conditions": [
                     {
-                        "value": "BL",
-                        "description": "Blue",
-                        "conditions": []
-                    },
+                        "acceptedValues": [
+                            "C6"
+                        ],
+                        "partId": "_type"
+                    }
+                ]
+            },
+            {
+                "value": "PDS-0107",
+                "conditions": [
                     {
-                        "value": "BK",
-                        "description": "Black",
-                        "conditions": []
-                    },
-                    {
-                        "value": "WH",
-                        "description": "White",
-                        "conditions": []
-                    },
-                    {
-                        "value": "YL",
-                        "description": "Yellow",
-                        "conditions": []
-                    },
-                    {
-                        "value": "RD",
-                        "description": "Red",
-                        "conditions": []
-                    },
-                    {
-                        "value": "GN",
-                        "description": "Green",
-                        "conditions": []
-                    },
-                    {
-                        "value": "AL",
-                        "description": "Almond",
-                        "conditions": []
-                    },
-                    {
-                        "value": "OG",
-                        "description": "Orange",
-                        "conditions": []
+                        "acceptedValues": [
+                            "5E"
+                        ],
+                        "partId": "_type"
                     }
                 ]
             }
-        ]
-    },
-    {
-        "partNumber": "KW-CC6-45B-YY",
-        "dataSheet": "PDS-0108",
-        "description": "Keywerks CAT6 Modules (Jacks)",
+        ],
+        "description": "RJ45 Modules (Jacks)",
         "parts": [
             {
                 "id": "_constant1",
                 "type": "constant",
-                "placeholder": "KW-CC6-45B-",
+                "placeholder": "KW-C",
                 "color": "default",
                 "options": []
             },
             {
-                "id": "_color",
-                "type": "color",
-                "placeholder": "YY",
-                "description": "COLOR",
+                "id": "_type",
+                "type": "select",
+                "placeholder": "AA",
+                "description": "TYPE",
                 "color": "light-orange",
                 "options": [
                     {
-                        "value": "BL",
-                        "description": "Blue",
+                        "value": "6A",
+                        "description": "CAT6A",
                         "conditions": []
                     },
                     {
-                        "value": "BK",
-                        "description": "Black",
+                        "value": "C6",
+                        "description": "CAT6",
                         "conditions": []
                     },
                     {
-                        "value": "WH",
-                        "description": "White",
-                        "conditions": []
-                    },
-                    {
-                        "value": "YL",
-                        "description": "Yellow",
-                        "conditions": []
-                    },
-                    {
-                        "value": "RD",
-                        "description": "Red",
-                        "conditions": []
-                    },
-                    {
-                        "value": "GN",
-                        "description": "Green",
-                        "conditions": []
-                    },
-                    {
-                        "value": "AL",
-                        "description": "Almond",
-                        "conditions": []
-                    },
-                    {
-                        "value": "OG",
-                        "description": "Orange",
+                        "value": "5E",
+                        "description": "CAT5e",
                         "conditions": []
                     }
                 ]
-            }
-        ]
-    },
-    {
-        "partNumber": "KW-C5E-45B-YY",
-        "dataSheet": "PDS-0107",
-        "description": "Keywerks CAT5E Modules (Jacks)",
-        "parts": [
+            },
             {
-                "id": "_constant1",
+                "id": "_constant2",
                 "type": "constant",
-                "placeholder": "KW-C5E-45B-",
+                "placeholder": "-45B-",
                 "color": "default",
                 "options": []
             },
@@ -377,7 +392,7 @@
                 "type": "color",
                 "placeholder": "YY",
                 "description": "COLOR",
-                "color": "light-orange",
+                "color": "light-green",
                 "options": [
                     {
                         "value": "BL",
@@ -425,8 +440,13 @@
     },
     {
         "partNumber": "KW-CAA-BULK-45BYY",
-        "dataSheet": "n/a",
-        "description": "Bulk Keywerks Modules (25pcs/pack)",
+        "datasheets": [
+            {
+                "value": "N/A",
+                "conditions": []
+            }
+        ],
+        "description": "Bulk RJ45 Modules (25/pack)",
         "parts": [
             {
                 "id": "_constant1",
@@ -494,8 +514,41 @@
     },
     {
         "partNumber": "KW-CAA-45B",
-        "dataSheet": "PDS-0161, PDS-0162, PDS-0163",
-        "description": "FTP Keywerks Modules (Shielded Jacks)",
+        "datasheets": [
+            {
+                "value": "PDS-0161",
+                "conditions": [
+                    {
+                        "acceptedValues": [
+                            "SA"
+                        ],
+                        "partId": "_performance"
+                    }
+                ]
+            },
+            {
+                "value": "PDS-0162",
+                "conditions": [
+                    {
+                        "acceptedValues": [
+                            "S6"
+                        ],
+                        "partId": "_performance"
+                    }
+                ]
+            },{
+                "value": "PDS-0163",
+                "conditions": [
+                    {
+                        "acceptedValues": [
+                            "SE"
+                        ],
+                        "partId": "_performance"
+                    }
+                ]
+            }
+        ],
+        "description": "FTP Modules (Shielded&nbsp;Jacks)",
         "parts": [
             {
                 "id": "_constant1",
@@ -539,7 +592,12 @@
     },
     {
         "partNumber": "IE-AABB",
-        "dataSheet": "PDS-0165",
+        "datasheets": [
+            {
+                "value": "PDS-0165",
+                "conditions": []
+            }
+        ],
         "description": "IP67 RJ45 Modules",
         "parts": [
             {

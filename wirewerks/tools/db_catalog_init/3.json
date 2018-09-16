@@ -1,7 +1,12 @@
 [
     {
         "partNumber": "CA40-6MYY-ANNN",
-        "dataSheet": "PDS-0154",
+        "datasheets": [
+            {
+                "value": "PDS-0154",
+                "conditions": []
+            }
+        ],
         "description": "CAT6A Patch Cords",
         "parts": [
             {
@@ -90,7 +95,12 @@
     },
     {
         "partNumber": "CAT-06AYY-NNN",
-        "dataSheet": "PDS-0112",
+        "datasheets": [
+            {
+                "value": "PDS-0112",
+                "conditions": []
+            }
+        ],
         "description": "CAT6 Patch Cords",
         "parts": [
             {
@@ -244,7 +254,12 @@
     },
     {
         "partNumber": "CAT-5EAYY-NNN",
-        "dataSheet": "PDS-0111",
+        "datasheets": [
+            {
+                "value": "PDS-0111",
+                "conditions": []
+            }
+        ],
         "description": "CAT5e Patch Cords",
         "parts": [
             {
@@ -398,7 +413,12 @@
     },
     {
         "partNumber": "CAT-6ZAYY-NNN",
-        "dataSheet": "n/a",
+        "datasheets": [
+            {
+                "value": "n/a",
+                "conditions": []
+            }
+        ],
         "description": "CAT6 Cross-overs",
         "parts": [
             {
@@ -503,7 +523,12 @@
     },
     {
         "partNumber": "CAT-5ZAYY-NNN",
-        "dataSheet": "n/a",
+        "datasheets": [
+            {
+                "value": "n/a",
+                "conditions": []
+            }
+        ],
         "description": "CAT5e Cross-overs",
         "parts": [
             {
@@ -608,7 +633,12 @@
     },
     {
         "partNumber": "C640-3RYY-CNNN",
-        "dataSheet": "n/a",
+        "datasheets": [
+            {
+                "value": "n/a",
+                "conditions": []
+            }
+        ],
         "description": "CAT6 Pigtails",
         "parts": [
             {
@@ -672,7 +702,12 @@
     },
     {
         "partNumber": "C540-1RYY-CNNN",
-        "dataSheet": "n/a",
+        "datasheets": [
+            {
+                "value": "n/a",
+                "conditions": []
+            }
+        ],
         "description": "CAT5e Pigtails",
         "parts": [
             {
@@ -736,7 +771,12 @@
     },
     {
         "partNumber": "C640-3RYY-CNNN",
-        "dataSheet": "n/a",
+        "datasheets": [
+            {
+                "value": "n/a",
+                "conditions": []
+            }
+        ],
         "description": "CAT6 Pigtails",
         "parts": [
             {
@@ -800,7 +840,12 @@
     },
     {
         "partNumber": "TMC-1YY-NNN",
-        "dataSheet": "PDS-0132",
+        "datasheets": [
+            {
+                "value": "PDS-0132",
+                "conditions": []
+            }
+        ],
         "description": "Voice Line Patch Cords",
         "parts": [
             {
@@ -869,7 +914,12 @@
     },
     {
         "partNumber": "IE-CA40-2HBK-AA-NNN",
-        "dataSheet": "PDS-0164",
+        "datasheets": [
+            {
+                "value": "PDS-0164",
+                "conditions": []
+            }
+        ],
         "description": "IP67 UTP Patch Cords",
         "parts": [
             {
@@ -948,7 +998,30 @@
     },
     {
         "partNumber": "CZ41-6MYY-ANNN",
-        "dataSheet": "PDS-0176, PDS-0177",
+        "datasheets": [
+            {
+                "value": "PDS-0176",
+                "conditions": [
+                    {
+                        "acceptedValues": [
+                            "6"
+                        ],
+                        "partId": "_performance"
+                    }
+                ]
+            },
+            {
+                "value": "PDS-0177",
+                "conditions": [
+                    {
+                        "acceptedValues": [
+                            "5"
+                        ],
+                        "partId": "_performance"
+                    }
+                ]
+            }
+        ],
         "description": "F/UTP Patch Cords (Shielded)",
         "parts": [
             {
