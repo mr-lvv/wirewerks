@@ -12,9 +12,7 @@
             
             <td class="cart-partNumber-container">
                 <div>
-                    <label>
-                        {{item.partNumber}}
-                    </label>
+                    <label>{{item.sectionDescription}} – {{item.partNumber}}</label>
                 </div>
                 <div>
                     <span ng-bind-html="getAsHtml(item.description)"></span>

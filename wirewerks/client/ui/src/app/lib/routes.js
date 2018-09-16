@@ -72,8 +72,8 @@ define(['../app.js'], function(app) {
 						};
 						//--------------------------------------------------------------------------------------------------------------
 						var generateImgUrl = function (item) {
-							const specificProductImgUrl = '/images/sections/' + item.section + '/' + item.partNumber + '.png';
-							const genericProductImgUrl = '/images/sections/' + item.section + '/' + item.placeholder + '.png';
+							const specificProductImgUrl = '/images/sections/' + item.sectionNumber + '/' + item.partNumber + '.png';
+							const genericProductImgUrl = '/images/sections/' + item.sectionNumber + '/' + item.placeholder + '.png';
 							const notFoundImgUrl = '/images/missing_img.png';
 
 							//img exists for selected parts

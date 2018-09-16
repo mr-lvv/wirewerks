@@ -20,6 +20,9 @@ var productsProductContentCtrl = function (section, product, $scope, $sce, $cook
         else if (partIsColor(part)) {
             initColor(part);
         }
+        else if (partIsHidden(part)) {
+            initHidden(part);
+        }
         else if (partIsConstant(part)) {
             initConstant(part);
         }
@@ -46,6 +49,10 @@ var productsProductContentCtrl = function (section, product, $scope, $sce, $cook
         }
     };
     var initColor = function (part) {
+        //Do init here
+    };
+    //----------------------------------------------------------------------------------------------------
+    var initHidden = function (part) {
         //Do init here
     };
     //----------------------------------------------------------------------------------------------------
@@ -370,7 +377,8 @@ var productsProductContentCtrl = function (section, product, $scope, $sce, $cook
         let placeholder = "";
 
         for (let part of product.parts)
-            placeholder += part.placeholder;
+            if (!partIsHidden(part))
+                placeholder += part.placeholder;
         return placeholder;
     };
     $scope.getPlaceholder = getPlaceholder;
@@ -619,12 +627,12 @@ var productsProductContentCtrl = function (section, product, $scope, $sce, $cook
         let key = getPartNumber();
         let details = getAllDetails();
 
-        let cartItem = generateCartItem(key, section.number, getPartNumber(), getPlaceholder(), product.description, details, $scope.quantity, getDatasheet());
+        let cartItem = generateCartItem(key, section.number, section.description, getPartNumber(), getPlaceholder(), product.description, details, $scope.quantity, getDatasheet());
         localStorageService.set(key, cartItem);
     };
 
-    var generateCartItem = function (key, section, partNumber, placeholder, description, selectedOptions, quantity, datasheet) {
-        return { 'key': key, 'section': section, 'partNumber': partNumber, 'placeholder': placeholder, 'description': description, 'selectedOptions': selectedOptions, 'quantity': quantity, 'datasheet': datasheet, 'orderDateTime': new Date().toLocaleString(), 'isCartItem': true };
+    var generateCartItem = function (key, sectionNumber, sectionDescription, partNumber, placeholder, description, selectedOptions, quantity, datasheet) {
+        return { 'key': key, 'sectionNumber': sectionNumber, 'sectionDescription': sectionDescription, 'partNumber': partNumber, 'placeholder': placeholder, 'description': description, 'selectedOptions': selectedOptions, 'quantity': quantity, 'datasheet': datasheet, 'orderDateTime': new Date().toLocaleString(), 'isCartItem': true };
     };
 
     var checkForStateRedirect = function(){

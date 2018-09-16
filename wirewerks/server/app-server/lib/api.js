@@ -40,6 +40,18 @@ class Api {
 			});
 		});
 
+		client.get('/sectionDescription/:number', (req, res) => {
+			sg.findOne({ "number": req.params.number }, 'description').exec(function (err, description) {
+				if (err || !description) {
+					res.status(200).send({ 'notFound': true });
+					return;
+				}
+
+				//Section Found
+				res.status(200).send(description);
+			});
+		});
+
 		client.post('/addSections', (req, res) => {
 			var sections = req.body;
 			console.log(sections);

@@ -490,8 +490,8 @@
                 "conditions": [
                     {
                         "acceptedValues": [
-                            "1U Feedthrough",
-                            "2U Feedthrough"
+                            "1U",
+                            "2U"
                         ],
                         "partId": "_rackSpace"
                     }
@@ -502,7 +502,7 @@
                 "conditions": [
                     {
                         "acceptedValues": [
-                            "0.5U HD"
+                            "Wall Mount"
                         ],
                         "partId": "_rackSpace"
                     }
