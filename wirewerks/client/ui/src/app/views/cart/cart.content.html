@@ -6,19 +6,22 @@
     <table ng-if="!cartIsEmpty" class="col-xs-12" style="border-spacing: 10px;">
         <tr ng-repeat="item in cart" class="cart-row">
             
-            <td class="cart-img-container">
-                <img class="thumbnail" ng-src="{{item.imgUrl}}" ng-show="item.imgUrl != null"/>
+            <td class="cart-img-container" ng-click="goToProduct(item)">
+                <img style="cursor: pointer" class="thumbnail" ng-src="{{item.imgUrl}}" ng-show="item.imgUrl != null"/>
             </td>
             
             <td class="cart-partNumber-container">
                 <div>
-                    <label>{{item.sectionDescription}} – {{item.partNumber}}</label>
+                    <label class="cart-partNumber" ng-click="goToProduct(item)">{{item.sectionDescription}} – {{item.partNumber}}</label>
+                </div>
+                <div>
+                    <span><b>Datasheet: </b>{{item.datasheet}}</label>
                 </div>
                 <div>
                     <span ng-bind-html="getAsHtml(item.description)"></span>
                 </div>
                 <div>
-                    <span ng-bind-html="getAsHtml(item.selectedOptions)"></span>
+                    <span ng-bind-html="getAsHtml(item.details)"></span>
                 </div>    
             </td>
             

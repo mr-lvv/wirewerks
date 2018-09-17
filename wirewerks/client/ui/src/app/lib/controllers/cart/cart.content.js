@@ -173,5 +173,9 @@ var cartContentCtrl = function (cart, $scope, $cookies, $state, $sce, localStora
         return $sce.trustAsHtml(value) || $sce.trustAsHtml('&nbsp');
     };
 
+    $scope.goToProduct = function(item){
+        $state.go('products.section.product', { sectionNumber: item.sectionNumber, partNumber: item.placeholder, cartItem: item });
+    };
+
     initCart();
 };

@@ -654,6 +654,10 @@ html, body{
 .cart-partNumber-container, .cart-quantity-td, .cart-remove-container{
     padding: 5px;
 }
+.cart-partNumber:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
 .cart-quantity-td{
     position: relative;
     width: 85px;

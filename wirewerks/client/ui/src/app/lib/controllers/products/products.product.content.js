@@ -1,4 +1,4 @@
-var productsProductContentCtrl = function (section, product, $scope, $sce, $cookies, $state, localStorageService) {
+var productsProductContentCtrl = function (section, product, cartItem, $scope, $sce, $cookies, $state, localStorageService) {
 
     $scope.section = section;
     $scope.product = product;
@@ -72,6 +72,9 @@ var productsProductContentCtrl = function (section, product, $scope, $sce, $cook
             initPart(part);
         }
         initFocusedPart();
+
+        if(cartItem)
+            setProductFromCart();
     };
     //********************************************** INIT FUNCTIONS END **********************************************
 
@@ -271,6 +274,20 @@ var productsProductContentCtrl = function (section, product, $scope, $sce, $cook
 
         return true;
     };
+    var setNumericFromCart = function (part, optionToSelect, input) {
+        if (!part || !optionToSelect)
+            return false;
+
+        if (!part.value && optionToSelect.description != 'Not Applicable')
+            return false;
+
+        part.selectedOption = optionToSelect;
+        part.input = input;
+        part.value = generateNumericValue(part);
+        part.details = generateNumericDetails(part);
+
+        return true;
+    };
     //----------------------------------------------------------------------------------------------------
     var setColor = function (part, optionToSelect) {
         if (!part || !optionToSelect)
@@ -315,7 +332,7 @@ var productsProductContentCtrl = function (section, product, $scope, $sce, $cook
     //----------------------------------------------------------------------------------------------------
     var getOptionFromValue = function (part, value) {
         for (let option of part.options)
-            if (option.value == value)
+            if (option.value == (value || undefined))
                 return option;
 
         console.log("getOptionFromValue: Option not found for value " + value + " and part " + part.id);
@@ -328,6 +345,21 @@ var productsProductContentCtrl = function (section, product, $scope, $sce, $cook
                 details.push(part.details);
         }
         return details.join(', ');
+    };
+    var getAllSelectedOptions = function(){
+        let selectedOptions = [];
+        for(let part of product.parts){
+            if(!partIsConstant(part)){
+                if(partIsNumeric(part)){
+                    selectedOptions.push(part.selectedOption.value);
+                    selectedOptions.push(part.input);
+                }
+                else{
+                    selectedOptions.push(part.selectedOption.value);
+                }
+            }
+        }
+        return selectedOptions;
     };
     //----------------------------------------------------------------------------------------------------
     var partIsNumeric = function (part) {
@@ -626,13 +658,14 @@ var productsProductContentCtrl = function (section, product, $scope, $sce, $cook
     $scope.addToCart = function () {
         let key = getPartNumber();
         let details = getAllDetails();
+        let selectedOptions = getAllSelectedOptions();
 
-        let cartItem = generateCartItem(key, section.number, section.description, getPartNumber(), getPlaceholder(), product.description, details, $scope.quantity, getDatasheet());
+        let cartItem = generateCartItem(key, section.number, section.description, getPartNumber(), getPlaceholder(), product.description, details, selectedOptions, $scope.quantity, getDatasheet());
         localStorageService.set(key, cartItem);
     };
 
-    var generateCartItem = function (key, sectionNumber, sectionDescription, partNumber, placeholder, description, selectedOptions, quantity, datasheet) {
-        return { 'key': key, 'sectionNumber': sectionNumber, 'sectionDescription': sectionDescription, 'partNumber': partNumber, 'placeholder': placeholder, 'description': description, 'selectedOptions': selectedOptions, 'quantity': quantity, 'datasheet': datasheet, 'orderDateTime': new Date().toLocaleString(), 'isCartItem': true };
+    var generateCartItem = function (key, sectionNumber, sectionDescription, partNumber, placeholder, description, details, selectedOptions, quantity, datasheet) {
+        return { 'key': key, 'sectionNumber': sectionNumber, 'sectionDescription': sectionDescription, 'partNumber': partNumber, 'placeholder': placeholder, 'description': description, 'details': details, 'selectedOptions': selectedOptions, 'quantity': quantity, 'datasheet': datasheet, 'orderDateTime': new Date().toLocaleString(), 'isCartItem': true };
     };
 
     var checkForStateRedirect = function(){
@@ -642,6 +675,46 @@ var productsProductContentCtrl = function (section, product, $scope, $sce, $cook
         }
     };
     
+    var setProductFromCart = function(){
+        let selectedOptions = cartItem.selectedOptions;
+        let i = 0;
+
+        for(let part of product.parts){
+            if (partIsConstant(part)){
+                continue;
+            }
+            else if (partIsSelect(part)){
+                part.isDisabled = false;
+                part.selectedOption = getOptionFromValue(part, selectedOptions[i]);
+                setSelect(part, part.selectedOption);
+                i++;
+            }
+            else if (partIsNumeric(part)) {
+                part.isDisabled = false;
+                part.selectedOption = getOptionFromValue(part, selectedOptions[i]);
+                part.input = selectedOptions[i + 1];
+                setNumericFromCart(part, part.selectedOption);
+                part.value = generateNumericValue(part);
+                part.details = generateNumericDetails(part);
+                i+=2;
+            }
+            else if (partIsColor(part)) {
+                part.isDisabled = false;
+                part.selectedOption = getOptionFromValue(part, selectedOptions[i]);
+                setColor(part, part.selectedOption);
+                i++;
+            }
+            else if (partIsHidden(part)) {
+                part.isDisabled = false;
+                part.selectedOption = getOptionFromValue(part, selectedOptions[i]);
+                setHidden(part, part.selectedOption);
+                i++;
+            }
+        }
+
+        $('#modalProductSummary').modal('show');
+    };
+
     //INIT CALL
     init();
 };

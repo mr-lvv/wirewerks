@@ -136,6 +136,7 @@ define(['../app.js'], function(app) {
 			})
 			.state('products.section.product', {
 				url: '/:partNumber',
+				params: {cartItem: null },
 				views: {
 					"nav@products": {
 						templateUrl: 'app/views/products/product.nav.html',
@@ -153,6 +154,9 @@ define(['../app.js'], function(app) {
 								return product;
 						}
 						return {'notFound': true};
+					},
+					cartItem: function ($stateParams) {
+						return $stateParams.cartItem;
 					}
 				}
 			});
