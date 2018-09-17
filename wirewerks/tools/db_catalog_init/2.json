@@ -646,5 +646,90 @@
                 ]
             }
         ]
+    },
+    {
+        "partNumber": "RFT-XXYZZ",
+        "datasheets": [
+            {
+                "value": "PDS-0214",
+                "conditions": []
+            }
+        ],
+        "description": "Field terminable RJ45 plug",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "RFT-6A",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_category",
+                "type": "select",
+                "placeholder": "XX",
+                "description": "CATEGORY",
+                "color": "light-orange",
+                "options": [
+                    {
+                        "value": "6A",
+                        "description": "CAT6A",
+                        "conditions": []
+                    }
+                ]
+            },
+            {
+                "id": "_shielding",
+                "type": "select",
+                "placeholder": "Y",
+                "description": "SHIELDING",
+                "color": "light-green",
+                "options": [
+                    {
+                        "value": "U",
+                        "description": "UTP",
+                        "conditions": []
+                    },
+                    {
+                        "value": "F",
+                        "description": "FTP",
+                        "conditions": []
+                    }
+                ]
+            },
+            {
+                "id": "_color",
+                "type": "color",
+                "placeholder": "ZZ",
+                "description": "COLOR",
+                "color": "light-red",
+                "options": [
+                    {
+                        "value": "GY",
+                        "description": "Grey",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "U"
+                                ],
+                                "partId": "_shielding"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "ME",
+                        "description": "Metal",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "F"
+                                ],
+                                "partId": "_shielding"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
     }
 ]

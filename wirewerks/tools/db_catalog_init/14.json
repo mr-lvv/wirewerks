@@ -82,7 +82,7 @@
                 ]
             }
         ],
-        "description": "Wall Mount",
+        "description": "Wall Mount Patch Panel",
         "parts": [
             {
                 "id": "_type",
@@ -222,9 +222,20 @@
                         "partId": "_type"
                     }
                 ]
+            },
+            {
+                "value": "PDS-0208",
+                "conditions": [
+                    {
+                        "acceptedValues": [
+                            "PP-S1UL"
+                        ],
+                        "partId": "_type"
+                    }
+                ]
             }
         ],
-        "description": "Rack Mount",
+        "description": "Rack Mount Patch Panel",
         "parts": [
             {
                 "id": "_type",
@@ -235,27 +246,27 @@
                 "options": [
                     {
                         "value": "NS-PPW1U1",
-                        "description": "Next Step™ 1U Rack Mount Patch&nbsp;Panel 144/288&nbsp;Fiber",
+                        "description": "NextSTEP™ 1U Rack Mount Patch&nbsp;Panel 144/288&nbsp;Fiber",
                         "conditions": []
                     },
                     {
                         "value": "NS-PPW1U2",
-                        "description": "Next Step™ 1U Rack Mount Light&nbsp;Patch&nbsp;Panel 144/288&nbsp;Fiber",
+                        "description": "NextSTEP™ 1U Rack Mount Light&nbsp;Patch&nbsp;Panel 144/288&nbsp;Fiber",
                         "conditions": []
                     },
                     {
                         "value": "NS-PPW1U1L",
-                        "description": "Next Step™ 1U Rack Mount Lean&nbsp;Patch&nbsp;Panel 144/288&nbsp;Fiber",
+                        "description": "NextSTEP™ 1U Rack Mount Lean&nbsp;Patch&nbsp;Panel 144/288&nbsp;Fiber",
                         "conditions": []
                     },
                     {
                         "value": "NS-PPW4U1",
-                        "description": "Next Step™ 4U Rack Mount Patch&nbsp;Panel 576/4608&nbsp;Fiber",
+                        "description": "NextSTEP™ 4U Rack Mount Patch&nbsp;Panel 576/4608&nbsp;Fiber",
                         "conditions": []
                     },
                     {
                         "value": "NS-CBLMGT-BL",
-                        "description": "Next Step™ Cable Manager",
+                        "description": "NextSTEP™ Cable Manager",
                         "conditions": []
                     },
                     {
@@ -281,6 +292,171 @@
                     {
                         "value": "WW000066",
                         "description": "cable management spool (2/pack)",
+                        "conditions": []
+                    },
+                    {
+                        "value": "PP-S1UL",
+                        "description": "Swingout 1U rack mount LGX 48F, up to 48&nbsp;fibers",
+                        "conditions": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "partNumber": "NS-PP-1U2SX",
+        "datasheets": [
+            {
+                "value": "PDS-0222",
+                "conditions": []
+            }
+        ],
+        "description": "NextSTEP™ minus 1U",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "NS-PP-1U2S",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_type",
+                "type": "select",
+                "placeholder": "X",
+                "description": "TYPE",
+                "color": "light-red",
+                "options": [
+                    {
+                        "value": "C",
+                        "description": "Cisco ME1200-4S-A switch w/installation hardware",
+                        "conditions": []
+                    },
+                    {
+                        "value": "A",
+                        "description": "Alcatel 7210-SAS-D switch w/installation hardware",
+                        "conditions": []
+                    },
+                    {
+                        "value": "T",
+                        "description": "Integrated Universal Tray w/installation hardware",
+                        "conditions": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "partNumber": "NS-PP-WM6S-XX",
+        "datasheets": [
+            {
+                "value": "PDS-0218",
+                "conditions": []
+            }
+        ],
+        "description": "NextSTEP™ Wall Mount Patch Panel",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "NS-PP-WM6S-",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_type",
+                "type": "select",
+                "placeholder": "XX",
+                "description": "TYPE",
+                "color": "light-red",
+                "options": [
+                    {
+                        "value": "AB",
+                        "description": "NextSTEP™ Wall Mount PP 6S,  -/Brush",
+                        "conditions": []
+                    },
+                    {
+                        "value": "BB",
+                        "description": "NextSTEP™ Wall Mount PP 6S,  8-12mm/Brush",
+                        "conditions": []
+                    },
+                    {
+                        "value": "CB",
+                        "description": "NextSTEP™ Wall Mount PP 6S,  13-18mm/Brush",
+                        "conditions": []
+                    },
+                    {
+                        "value": "AF",
+                        "description": "NextSTEP™ Wall Mount PP 6S,  -/Foam",
+                        "conditions": []
+                    },
+                    {
+                        "value": "BF",
+                        "description": "NextSTEP™ Wall Mount PP 6S,  8-12mm/Foam",
+                        "conditions": []
+                    },
+                    {
+                        "value": "CF",
+                        "description": "NextSTEP™ Wall Mount PP 6S,  13-18mm/Foam",
+                        "conditions": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "partNumber": "NS-AAAMGT-YY",
+        "datasheets": [
+            {
+                "value": "PDS-0209",
+                "conditions": []
+            }
+        ],
+        "description": "NextSTEP™ Magnetic Cable Managers",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "NS-",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_type",
+                "type": "select",
+                "placeholder": "AAA",
+                "description": "TYPE",
+                "color": "light-red",
+                "options": [
+                    {
+                        "value": "CBL",
+                        "description": "NextSTEP™ CableTree™",
+                        "conditions": []
+                    },
+                    {
+                        "value": "BLD",
+                        "description": "NextSTEP™ CableBundle™",
+                        "conditions": []
+                    }
+                ]
+            },
+            {
+                "id": "_constant2",
+                "type": "constant",
+                "placeholder": "MGT-",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_color",
+                "type": "color",
+                "placeholder": "YY",
+                "description": "COLOR",
+                "color": "light-green",
+                "options": [
+                    {
+                        "value": "BL",
+                        "description": "Blue",
                         "conditions": []
                     }
                 ]

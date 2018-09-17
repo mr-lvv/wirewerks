@@ -1079,5 +1079,169 @@
                 ]
             }
         ]
+    },
+    {
+        "partNumber": "CAT-68AYY-NNN",
+        "datasheets": [
+            {
+                "value": "PDS-0212",
+                "conditions": []
+            }
+        ],
+        "description": "28 AWG Patch Cords",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "CAT-68A",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_color",
+                "type": "color",
+                "placeholder": "YY",
+                "description": "COLOR",
+                "color": "light-orange",
+                "options": [
+                    {
+                        "value": "BL",
+                        "description": "Blue",
+                        "conditions": []
+                    },
+                    {
+                        "value": "BK",
+                        "description": "Black",
+                        "conditions": []
+                    },
+                    {
+                        "value": "WH",
+                        "description": "White",
+                        "conditions": []
+                    },
+                    {
+                        "value": "YL",
+                        "description": "Yellow",
+                        "conditions": []
+                    },
+                    {
+                        "value": "RD",
+                        "description": "Red",
+                        "conditions": []
+                    },
+                    {
+                        "value": "GY",
+                        "description": "Grey",
+                        "conditions": []
+                    },
+                    {
+                        "value": "GN",
+                        "description": "Green",
+                        "conditions": []
+                    },
+                    {
+                        "value": "PR",
+                        "description": "Purple",
+                        "conditions": []
+                    },
+                    {
+                        "value": "OG",
+                        "description": "Orange",
+                        "conditions": []
+                    }
+                ]
+            },
+            {
+                "id": "_constant2",
+                "type": "constant",
+                "placeholder": "-",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_length",
+                "type": "select",
+                "placeholder": "NNN",
+                "description": "LENGTH",
+                "color": "light-green",
+                "options": [
+                    {
+                        "value": "001",
+                        "description": "1 Foot",
+                        "conditions": []
+                    },
+                    {
+                        "value": "002",
+                        "description": "2 Feet",
+                        "conditions": []
+                    },
+                    {
+                        "value": "003",
+                        "description": "3 Feet",
+                        "conditions": []
+                    },
+                    {
+                        "value": "004",
+                        "description": "4 Feet",
+                        "conditions": []
+                    },
+                    {
+                        "value": "005",
+                        "description": "5 Feet",
+                        "conditions": []
+                    },
+                    {
+                        "value": "006",
+                        "description": "6 Feet",
+                        "conditions": []
+                    },
+                    {
+                        "value": "007",
+                        "description": "7 Feet",
+                        "conditions": []
+                    },
+                    {
+                        "value": "010",
+                        "description": "10 Feet",
+                        "conditions": []
+                    },
+                    {
+                        "value": "012",
+                        "description": "12 Feet",
+                        "conditions": []
+                    },
+                    {
+                        "value": "015",
+                        "description": "15 Feet",
+                        "conditions": []
+                    },
+                    {
+                        "value": "020",
+                        "description": "20 Feet",
+                        "conditions": []
+                    },
+                    {
+                        "value": "025",
+                        "description": "25 Feet",
+                        "conditions": []
+                    },
+                    {
+                        "value": "050",
+                        "description": "50 Feet",
+                        "conditions": []
+                    },
+                    {
+                        "value": "075",
+                        "description": "75 Feet",
+                        "conditions": []
+                    },
+                    {
+                        "value": "100",
+                        "description": "100 Feet",
+                        "conditions": []
+                    }
+                ]
+            }
+        ]
     }
 ]

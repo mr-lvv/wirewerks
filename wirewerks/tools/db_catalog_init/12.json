@@ -944,5 +944,179 @@
                 ]
             }
         ]
+    },
+    {
+        "partNumber": "SP5-ABBCCCDEEEGGH",
+        "datasheets": [
+            {
+                "value": "PDS-0094",
+                "conditions": []
+            }
+        ],
+        "description": "NextSTEP™ Reach-out Splitter",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "SP5-",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_configuration",
+                "type": "select",
+                "placeholder": "A",
+                "description": "CONFIGURATION",
+                "color": "deep-orange",
+                "options": [
+                    {
+                        "value": "C",
+                        "description": "1 x 4"
+                    },
+                    {
+                        "value": "D",
+                        "description": "1 x 8"
+                    },
+                    {
+                        "value": "E",
+                        "description": "1 x 16"
+                    },
+                    {
+                        "value": "F",
+                        "description": "1 x 32"
+                    },
+                    {
+                        "value": "J",
+                        "description": "2 x 4"
+                    },
+                    {
+                        "value": "K",
+                        "description": "2 x 8"
+                    },
+                    {
+                        "value": "L",
+                        "description": "2 x 16"
+                    },
+                    {
+                        "value": "M",
+                        "description": "2 x 32"
+                    }
+                ]
+            },
+            {
+                "id": "_inputAdaptor",
+                "type": "select",
+                "placeholder": "BB",
+                "description": "INPUT ADAPTOR",
+                "color": "light-green",
+                "options": [
+                    {
+                        "value": "SC",
+                        "description": "SC"
+                    },
+                    {
+                        "value": "LC",
+                        "description": "LC"
+                    }
+                ]
+            },
+            {
+                "id": "_inputPolish",
+                "type": "select",
+                "placeholder": "CCC",
+                "description": "INPUT POLISH",
+                "color": "light-red",
+                "options": [
+                    {
+                        "value": "APC",
+                        "description": "APC (Single&nbsp;Mode)"
+                    },
+                    {
+                        "value": "UPC",
+                        "description": "UPC (Single&nbsp;Mode)"
+                    }
+                ]
+            },
+            {
+                "id": "_outputFiberType",
+                "type": "select",
+                "placeholder": "D",
+                "description": "OUTPUT FIBER TYPE",
+                "color": "light-blue",
+                "options": [
+                    {
+                        "value": "6",
+                        "description": "1.6 mm jacket"
+                    }
+                ]
+            },
+            {
+                "id": "_outputFiberLength",
+                "type": "select",
+                "placeholder": "EEE",
+                "description": "OUTPUT FIBER LENGTH",
+                "color": "light-purple",
+                "options": [
+                    {
+                        "value": "0D5",
+                        "description": "0.5 Meters"
+                    },
+                    {
+                        "value": "001",
+                        "description": "1 Meter"
+                    },
+                    {
+                        "value": "1D5",
+                        "description": "1.5 Meters"
+                    },
+                    {
+                        "value": "002",
+                        "description": "2 Meters"
+                    }
+                ]
+            },
+            {
+                "id": "_outputConnector",
+                "type": "select",
+                "placeholder": "GG",
+                "description": "OUTPUT CONNECTOR",
+                "color": "deep-blue",
+                "options": [
+                    {
+                        "value": "SC",
+                        "description": "SC"
+                    },
+                    {
+                        "value": "LC",
+                        "description": "LC"
+                    },
+                    {
+                        "value": "ZZ",
+                        "description": "Not Categorized"
+                    }
+                ]
+            },
+            {
+                "id": "_outputPolish",
+                "type": "select",
+                "placeholder": "H",
+                "description": "OUTPUT POLISH",
+                "color": "deep-green",
+                "options": [
+                    {
+                        "value": "A",
+                        "description": "APC (Single&nbsp;Mode)"
+                    },
+                    {
+                        "value": "B",
+                        "description": "UPC (Single&nbsp;Mode)"
+                    },
+                    {
+                        "value": "Z",
+                        "description": "Not Applicable"
+                    }
+                ]
+            }
+        ]
     }
 ]

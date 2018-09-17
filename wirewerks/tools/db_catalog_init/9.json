@@ -1131,7 +1131,7 @@
                 "conditions": []
             }
         ],
-        "description": "NEXT STEP™ Patch Modules",
+        "description": "NextSTEP™ Patch Modules",
         "parts": [
             {
                 "id": "_constant1",
@@ -1209,7 +1209,7 @@
                 "conditions": []
             }
         ],
-        "description": "NEXT STEP™ Distribution Modules",
+        "description": "NextSTEP™ Distribution Modules",
         "parts": [
             {
                 "id": "_constant1",
@@ -1308,6 +1308,302 @@
                     {
                         "value": "12",
                         "description": "12 Fibers"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "partNumber": "NF-ABBCDE-XXX",
+        "datasheets": [
+            {
+                "value": "PDS-0221",
+                "conditions": []
+            }
+        ],
+        "description": "NextSTEP™ Flex Module",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "NF-",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_fiberType",
+                "type": "select",
+                "placeholder": "A",
+                "description": "FIBER TYPE",
+                "color": "light-red",
+                "options": [
+                    {
+                        "value": "C",
+                        "description": "50/125&nbsp;μm Multimode OM3 Bend&nbsp;Insensitive 7.5&nbsp;mm"
+                    },
+                    {
+                        "value": "D",
+                        "description": "50/125&nbsp;μm Multimode OM4 Bend&nbsp;Insensitive 7.5&nbsp;mm"
+                    },
+                    {
+                        "value": "E",
+                        "description": "Single Mode OS2 Bend&nbsp;Insensitive 10&nbsp;mm"
+                    }
+                ]
+            },
+            {
+                "id": "_fiberCountAndRating",
+                "type": "select",
+                "placeholder": "BB",
+                "description": "FIBER COUNT & RATING",
+                "color": "light-green",
+                "options": [
+                    {
+                        "value": "1P",
+                        "description": "12&nbsp;Fibers, Plenum"
+                    },
+                    {
+                        "value": "1R",
+                        "description": "12&nbsp;Fibers, Riser"
+                    },
+                    {
+                        "value": "2P",
+                        "description": "24&nbsp;Fibers, Plenum"
+                    },
+                    {
+                        "value": "2R",
+                        "description": "24&nbsp;Fibers, Riser"
+                    }
+                    
+                ]
+            },
+            {
+                "id": "_cablePerformances",
+                "type": "select",
+                "placeholder": "C",
+                "description": "MPO TRUNK CABLE PERFORMANCES",
+                "color": "light-red",
+                "options": [
+                    {
+                        "value": "1",
+                        "description": "1 MPO Low&nbsp;Loss"
+                    },
+                    {
+                        "value": "2",
+                        "description": "2 MPO Low&nbsp;Loss"
+                    }
+                ]
+            },
+            {
+                "id": "_connectorType",
+                "type": "select",
+                "placeholder": "D",
+                "description": "CASSETTE CONNECTOR TYPE",
+                "color": "light-blue",
+                "options": [
+                    {
+                        "value": "L",
+                        "description": "LC"
+                    },
+                    {
+                        "value": "S",
+                        "description": "SC"
+                    },
+                    {
+                        "value": "Z",
+                        "description": "Not Applicable"
+                    }
+                ]
+            },
+            {
+                "id": "_connectorPolish",
+                "type": "select",
+                "placeholder": "E",
+                "description": "CASSETTE CONNECTOR POLISH",
+                "color": "light-purple",
+                "options": [
+                    {
+                        "value": "A",
+                        "description": "APC"
+                    },
+                    {
+                        "value": "U",
+                        "description": "UPC"
+                    },
+                    {
+                        "value": "C",
+                        "description": "PC"
+                    },
+                    {
+                        "value": "Z",
+                        "description": "Not Applicable"
+                    }
+                ]
+            },
+            {
+                "id": "_length",
+                "type": "select",
+                "placeholder": "XXX",
+                "description": "LENGTH",
+                "color": "deep-purple",
+                "options": [
+                    {
+                        "value": "015",
+                        "description": "15 meters of 3&nbsp;mm OD (24F) Cable"
+                    },
+                    {
+                        "value": "030",
+                        "description": "30 meters of 2&nbsp;mm OD (12F) Cable"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "partNumber": "NS-ASBLANK",
+        "datasheets": [
+            {
+                "value": "PDS-0206",
+                "conditions": []
+            }
+        ],
+        "description": "NextSTEP™ Blank Module",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "NS-ASBLANK",
+                "color": "default",
+                "options": []
+            }
+        ]
+    },
+    {
+        "partNumber": "WLB-ANNYXX",
+        "datasheets": [
+            {
+                "value": "PDS-0216",
+                "conditions": []
+            }
+        ],
+        "description": "Fiber Optic Loopback",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "WLB-",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_fiberType",
+                "type": "select",
+                "placeholder": "A",
+                "description": "FIBER TYPE",
+                "color": "light-red",
+                "options": [
+                    {
+                        "value": "1",
+                        "description": "Single Mode OS2"
+                    },
+                    {
+                        "value": "2",
+                        "description": "62.5/125 µm Multimode OM1"
+                    },
+                    {
+                        "value": "3",
+                        "description": "50/125 µm Multimode OM2"
+                    },
+                    {
+                        "value": "4",
+                        "description": "50/125 µm Multimode OM3"
+                    },
+                    {
+                        "value": "5",
+                        "description": "50/125 µm Multimode OM4"
+                    }
+                ]
+            },
+            {
+                "id": "_connectorType",
+                "type": "select",
+                "placeholder": "NN",
+                "description": "CONNECTOR TYPE",
+                "color": "light-green",
+                "options": [
+                    {
+                        "value": "LC",
+                        "description": "LC"
+                    },
+                    {
+                        "value": "SC",
+                        "description": "SC"
+                    },
+                    {
+                        "value": "MT",
+                        "description": "MTRJ Female"
+                    },
+                    {
+                        "value": "MB",
+                        "description": "MTRJ Male"
+                    },
+                    {
+                        "value": "MP",
+                        "description": "12F MPO Female"
+                    },
+                    {
+                        "value": "MA",
+                        "description": "12F MPO Male"
+                    },
+                    {
+                        "value": "PP",
+                        "description": "24F MPO Female"
+                    },
+                    {
+                        "value": "PA",
+                        "description": "24F MPO Male"
+                    }
+                ]
+            },
+            {
+                "id": "_polish",
+                "type": "select",
+                "placeholder": "Y",
+                "description": "POLISH",
+                "color": "light-red",
+                "options": [
+                    {
+                        "value": "A",
+                        "description": "APC"
+                    },
+                    {
+                        "value": "B",
+                        "description": "UPC"
+                    },
+                    {
+                        "value": "C",
+                        "description": "PC"
+                    }
+                ]
+            },
+            {
+                "id": "_fiberCount",
+                "type": "select",
+                "placeholder": "XX",
+                "description": "FIBER COUNT",
+                "color": "light-blue",
+                "options": [
+                    {
+                        "value": "02",
+                        "description": "2 Fibers"
+                    },
+                    {
+                        "value": "12",
+                        "description": "12 Fibers"
+                    },
+                    {
+                        "value": "24",
+                        "description": "24 Fibers"
                     }
                 ]
             }

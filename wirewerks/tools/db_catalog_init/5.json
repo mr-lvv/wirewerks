@@ -1786,5 +1786,262 @@
                 ]
             }
         ]
+    },
+    {
+        "partNumber": "WW00HHHH-YY",
+        "datasheets": [
+            {
+                "value": "PDS-0220",
+                "conditions": []
+            }
+        ],
+        "description": "Angled Faceplates",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "WW00",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_footprint",
+                "type": "hidden",
+                "placeholder": "",
+                "description": "FOOTPRINT",
+                "color": "light-orange",
+                "options": [
+                    {
+                        "value": "Single gang",
+                        "description": "Single gang",
+                        "conditions": []
+                    },
+                    {
+                        "value": "Double gang",
+                        "description": "Double gang",
+                        "conditions": []
+                    }
+                ]
+            },
+            {
+                "id": "_capacity",
+                "type": "select",
+                "placeholder": "HHHH",
+                "description": "CAPACITY",
+                "color": "light-green",
+                "options": [
+                    {
+                        "value": "1211",
+                        "description": "1 Port",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Single gang"
+                                ],
+                                "partId": "_footprint"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "1212",
+                        "description": "2 Ports",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Single gang"
+                                ],
+                                "partId": "_footprint"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "1214",
+                        "description": "4 Ports",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Single gang"
+                                ],
+                                "partId": "_footprint"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "1218",
+                        "description": "8 Ports",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Double gang"
+                                ],
+                                "partId": "_footprint"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "_color",
+                "type": "color",
+                "placeholder": "EEE",
+                "description": "COLOR",
+                "color": "light-red",
+                "options": [
+                    {
+                        "value": "WH",
+                        "description": "White",
+                        "conditions": []
+                    },
+                    {
+                        "value": "AL",
+                        "description": "Almond",
+                        "conditions": []
+                    },
+                    {
+                        "value": "BK",
+                        "description": "Black",
+                        "conditions": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "partNumber": "WW000GGG",
+        "datasheets": [
+            {
+                "value": "PDS-0050",
+                "conditions": []
+            }
+        ],
+        "description": "Surface Mount Back Boxes",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "WW000",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_footprint",
+                "type": "hidden",
+                "placeholder": "",
+                "description": "FOOTPRINT",
+                "color": "light-orange",
+                "options": [
+                    {
+                        "value": "Single gang",
+                        "description": "Single gang",
+                        "conditions": []
+                    },
+                    {
+                        "value": "Double gang",
+                        "description": "Double gang",
+                        "conditions": []
+                    }
+                ]
+            },
+            {
+                "id": "_color",
+                "type": "color",
+                "placeholder": "GGG",
+                "description": "COLOR",
+                "color": "light-green",
+                "options": [
+                    {
+                        "value": "110",
+                        "description": "White",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Single gang"
+                                ],
+                                "partId": "_footprint"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "113",
+                        "description": "White",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Double gang"
+                                ],
+                                "partId": "_footprint"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "111",
+                        "description": "Almond",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Single gang"
+                                ],
+                                "partId": "_footprint"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "114",
+                        "description": "Almond",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Double gang"
+                                ],
+                                "partId": "_footprint"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "partNumber": "WW00IIII",
+        "datasheets": [
+            {
+                "value": "PDS-0223",
+                "conditions": []
+            }
+        ],
+        "description": "Field Terminal Boxes",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "WW00",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_type",
+                "type": "select",
+                "placeholder": "IIII",
+                "description": "TYPE",
+                "color": "light-orange",
+                "options": [
+                    {
+                        "value": "1170",
+                        "description": "2 Ports, White",
+                        "conditions": []
+                    },
+                    {
+                        "value": "1171",
+                        "description": "2 Ports, Black",
+                        "conditions": []
+                    },
+                    {
+                        "value": "1172",
+                        "description": "2 Ports, Grey",
+                        "conditions": []
+                    }
+                ]
+            }
+        ]
     }
 ]
