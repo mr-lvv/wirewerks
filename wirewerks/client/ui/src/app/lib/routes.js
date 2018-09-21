@@ -89,7 +89,7 @@ define(['../app.js'], function(app) {
 						//--------------------------------------------------------------------------------------------------------------
 
 						let item, cart = {};
-						lsKeys = localStorageService.keys();
+						let lsKeys = localStorageService.keys();
 						
 						for (let key of lsKeys) {
 							item = localStorageService.get(key);
