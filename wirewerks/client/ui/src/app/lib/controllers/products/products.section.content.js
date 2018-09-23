@@ -148,5 +148,10 @@ var productsSectionContentCtrl = function (section, $scope, $state, $sce, localS
         return $sce.trustAsHtml(value) || $sce.trustAsHtml('&nbsp');
     };
     
+$scope.onImgLoaded = function(elem){
+    //var test = $(elem).closest('div[class="hidden"]');
+    $(element).parent().fadeIn(500);
+};
+
     init();
 };

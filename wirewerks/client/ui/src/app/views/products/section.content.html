@@ -17,8 +17,8 @@
             <div class="home-section-col col-md-4 col-sm-6 col-xs-12 transition-smooth" ng-repeat="product in section.products | orderBy:'partNumber'"
             ng-click="onProductClick(product)">
                 <div class="home-section-wrapper">
-                    <div class="home-section-container">
-                        <img class="products-section-img" ng-src="images/sections/{{section.number}}/{{product.partNumber}}.png" onerror="this.src='/images/missing_img.png'">
+                    <div class="home-section-container hidden-before-load">
+                        <img class="products-section-img" ng-src="https://s3.amazonaws.com/wirewerks-sg/{{section.number}}/{{product.partNumber}}.png" onerror="this.src='/images/missing_img.png'" imageonload="onImgLoaded(this)">
                         
                         <div class="home-section-label">
                             <label ng-bind-html="getAsHtml(product.description)" style="cursor: pointer"></label>
@@ -63,7 +63,7 @@
                     </div>
                 </div>
                 <div class="container">
-                    <img class="img-responsive" ng-src="/images/sections/{{section.number}}/{{selectedProduct.partNumber}}.png" style="width: 50%; margin: auto;"
+                    <img class="img-responsive" ng-src="https://s3.amazonaws.com/wirewerks-sg/{{section.number}}/{{selectedProduct.partNumber}}.png" style="width: 50%; margin: auto; display:none;"
                         onerror="this.src=''" />
                 </div>
             </div>

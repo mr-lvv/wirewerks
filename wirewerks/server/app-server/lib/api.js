@@ -2,6 +2,8 @@ var express = require('express');
 var path = require('path');
 var ejs = require('ejs');
 var sg = require('../models/solutionsGuide');
+var AWS = require('aws-sdk');
+var s3Client = new AWS.S3();
 
 // For resource example: https://github.com/developit/express-es6-rest-api/blob/master/src/api/facets.js
 class Api {

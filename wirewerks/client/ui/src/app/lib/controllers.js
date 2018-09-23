@@ -27,4 +27,15 @@ define([
     app.controller('products.section.content.ctrl', productsSectionContentCtrl);
     app.controller('products.product.nav.ctrl', productsproductNavCtrl);
     app.controller('products.product.content.ctrl', productsproductContentCtrl);
+
+    app.directive('imageonload', function () {
+        return {
+            restrict: 'A',
+            link: function (scope, element, attrs) {
+ 
+                $(element).parent().css('visibility', 'visible').hide().fadeIn('slow');
+             
+            }
+        };
+    })
 });
