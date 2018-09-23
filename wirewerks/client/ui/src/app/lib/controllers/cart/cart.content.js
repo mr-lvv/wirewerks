@@ -177,5 +177,15 @@ var cartContentCtrl = function (cart, $scope, $cookies, $state, $sce, localStora
         $state.go('products.section.product', { sectionNumber: item.sectionNumber, partNumber: item.placeholder, cartItem: item });
     };
 
+    var imageError = function(e) {
+        alert("ok");
+        $(e).attr('data-src', $(e).attr('src'));
+        $(e).attr('src', 'http://placehold.it/200x100/B40000/ffffff?text=404');
+    };
+
+    var test = function(){
+        alert("ERROR");
+    }; $scope.test = test;
+
     initCart();
 };

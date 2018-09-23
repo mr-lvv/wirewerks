@@ -62,29 +62,18 @@ define(['../app.js'], function(app) {
 						//--------------------------------------------------------------------------------------------------------------
 						var imageExists = function (imgUrl) {
 
-							let http = new XMLHttpRequest();
+							var http = new XMLHttpRequest();
 
 							http.open('HEAD', imgUrl, false);
 							http.send();
 
-							return http.status != 404;
-
+							return http.status == 200;
 						};
 						//--------------------------------------------------------------------------------------------------------------
 						var generateImgUrl = function (item) {
-							const specificProductImgUrl = 'https://s3.amazonaws.com/wirewerks-sg-images/' + item.sectionNumber + '/' + item.partNumber + '.png';
-							const genericProductImgUrl = 'https://s3.amazonaws.com/wirewerks-sg-images/' + item.sectionNumber + '/' + item.placeholder + '.png';
-							const notFoundImgUrl = '/images/missing_img.png';
-
-							//img exists for selected parts
-							if (imageExists(specificProductImgUrl))
-								return specificProductImgUrl;
-
-							//generic img for this product (same as in products.section state)
-							if (imageExists(genericProductImgUrl))
-								return genericProductImgUrl;
-
-							return notFoundImgUrl;
+							item.imgUrl = 'https://s3.amazonaws.com/wirewerks-sg-images/' + item.sectionNumber + '/' + item.partNumber + '.png';
+							item.backupImgUrl = 'https://s3.amazonaws.com/wirewerks-sg-images/' + item.sectionNumber + '/' + item.placeholder + '.png';
+							item.notFoundImgUrl = '/images/missing_img.png';
 						};
 						//--------------------------------------------------------------------------------------------------------------
 
@@ -94,7 +83,8 @@ define(['../app.js'], function(app) {
 						for (let key of lsKeys) {
 							item = localStorageService.get(key);
 							if (item.isCartItem){
-								item.imgUrl = generateImgUrl(item);
+								generateImgUrl(item);
+								//item.imgUrl = "https://s3.amazonaws.com/wirewerks-sg-images/'" + item.sectionNumber + '/' + item.partNumber + '.png';
 								cart[key] = item;
 							}
 						}
