@@ -20,8 +20,8 @@
                 <!-- INDIVIDUAL COPPER SECTION -->
                 <div class="home-section-col col-md-4 col-sm-6 col-xs-12 transition-smooth" ng-repeat="section in sections | filter:{ type: 'copper' } | orderBy:'number'"  ui-sref="products.section({sectionNumber: '{{section.number}}'})">                         
                     <div class="home-section-wrapper">
-                        <div class="home-section-container">
-                            <img class="home-section-img" ng-src="images/icons/{{section.number}}.png">                                  
+                        <div class="home-section-container hidden-before-load">
+                            <img class="home-section-img" ng-src="images/icons/{{section.number}}.png" imageonload="onImgLoaded(this)">                                  
                             <label class="home-section-label">{{section.description}}</label>                            
                         </div>
                     </div>
@@ -53,8 +53,8 @@
                 <!-- INDIVIDUAL FIBER SECTION -->
                 <div class="home-section-col col-md-4 col-sm-6 col-xs-12 transition-smooth" ng-repeat="section in sections | filter:{ type: 'fiber' } | orderBy:'number'" ui-sref="products.section({sectionNumber: '{{section.number}}'})">
                     <div class="home-section-wrapper">
-                        <div class="home-section-container">
-                            <img class="home-section-img" ng-src="images/icons/{{section.number}}.png">
+                        <div class="home-section-container hidden-before-load">
+                            <img class="home-section-img" ng-src="images/icons/{{section.number}}.png" imageonload="onImgLoaded(this)">
                             <label class="home-section-label">{{section.description}}</label>
                         </div>
                     </div>
@@ -83,8 +83,8 @@
             <!-- INDIVIDUAL OTHER SECTION -->
             <div class="home-section-col col-md-4 col-sm-6 col-xs-12 transition-smooth" ng-repeat="section in sections | filter:{ type: 'other' } | orderBy:'number'" ui-sref="products.section({sectionNumber: '{{section.number}}'})">
                 <div class="home-section-wrapper">
-                    <div class="home-section-container">
-                        <img class="home-section-img" ng-src="images/icons/{{section.number}}.png">
+                    <div class="home-section-container hidden-before-load">
+                        <img class="home-section-img" ng-src="images/icons/{{section.number}}.png" imageonload="onImgLoaded(this)">
                         <label class="home-section-label">{{section.description}}</label>
                     </div>
                 </div>
