@@ -72,8 +72,8 @@ define(['../app.js'], function(app) {
 						};
 						//--------------------------------------------------------------------------------------------------------------
 						var generateImgUrl = function (item) {
-							const specificProductImgUrl = 'https://s3.amazonaws.com/wirewerks-sg/' + item.sectionNumber + '/' + item.partNumber + '.png';
-							const genericProductImgUrl = 'https://s3.amazonaws.com/wirewerks-sg/' + item.sectionNumber + '/' + item.placeholder + '.png';
+							const specificProductImgUrl = 'https://s3.amazonaws.com/wirewerks-sg-images/' + item.sectionNumber + '/' + item.partNumber + '.png';
+							const genericProductImgUrl = 'https://s3.amazonaws.com/wirewerks-sg-images/' + item.sectionNumber + '/' + item.placeholder + '.png';
 							const notFoundImgUrl = '/images/missing_img.png';
 
 							//img exists for selected parts

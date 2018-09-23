@@ -33,7 +33,7 @@ define([
             restrict: 'A',
             link: function (scope, element, attrs) {
                 element.bind('load', function () {
-                    $(element).parent().css('visibility', 'visible').hide().fadeIn('slow');
+                    $(element).closest('.hidden-before-load').css('visibility', 'visible').hide().fadeIn('slow');
 
                     //scope.$apply(attrs.imageonload);
                 });

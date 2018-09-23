@@ -18,7 +18,7 @@
             ng-click="onProductClick(product)">
                 <div class="home-section-wrapper">
                     <div class="home-section-container hidden-before-load">
-                        <img class="products-section-img" ng-src="https://s3.amazonaws.com/wirewerks-sg/{{section.number}}/{{product.partNumber}}.png" onerror="this.src='/images/missing_img.png'" imageonload="onImgLoaded(this)">
+                        <img class="products-section-img" ng-src="https://s3.amazonaws.com/wirewerks-sg-images/{{section.number}}/{{product.partNumber}}.png" onerror="this.src='/images/missing_img.png'" imageonload="onImgLoaded(this)">
                         
                         <div class="home-section-label">
                             <label ng-bind-html="getAsHtml(product.description)" style="cursor: pointer"></label>
@@ -62,9 +62,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="container">
-                    <img class="img-responsive" ng-src="https://s3.amazonaws.com/wirewerks-sg/{{section.number}}/{{selectedProduct.partNumber}}.png" style="width: 50%; margin: auto; display:none;"
-                        onerror="this.src=''" />
+                <div class="container hidden-before-load">
+                    <img class="img-responsive" ng-src="https://s3.amazonaws.com/wirewerks-sg-images/{{section.number}}/{{selectedProduct.partNumber}}.png" style="width: 50%; margin: auto; display:none;"
+                        onerror="this.src=''" imageonload="onImgLoaded(this)"/>
                 </div>
             </div>
 
