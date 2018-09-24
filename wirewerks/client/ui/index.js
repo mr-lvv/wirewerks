@@ -201,7 +201,7 @@ function preBuild(callback) {
 	})
 }
 
-try {
+/*try {
 	// Build mode
 	if (argv.css) {
 		console.log('Building Css Only.');
@@ -223,4 +223,4 @@ try {
 
 } catch (error) {
 	console.error(error);
-}
+}*/
