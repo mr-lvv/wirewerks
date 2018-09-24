@@ -65,7 +65,7 @@ define(['../app.js'], function(app) {
 						for (let key of lsKeys) {
 							item = localStorageService.get(key);
 							if (item.isCartItem){
-								item.imgUrl = 'https://s3.amazonaws.com/wirewerks-sg-images/' + item.sectionNumber + '/' + item.partNumber + '.png';
+								item.imgUrl = 'https://s3.amazonaws.com/wirewerks-sg-images/' + item.sectionNumber + '/' + item.partNumber + '.jpeg';
 								item.backupImgUrl = 'https://s3.amazonaws.com/wirewerks-sg-images/' + item.sectionNumber + '/' + item.placeholder + '.png';
 								cart[key] = item;
 							}

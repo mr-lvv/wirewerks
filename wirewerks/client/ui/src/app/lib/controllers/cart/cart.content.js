@@ -177,12 +177,6 @@ var cartContentCtrl = function (cart, $scope, $state, $sce, localStorageService)
         $state.go('products.section.product', { sectionNumber: item.sectionNumber, partNumber: item.placeholder, cartItem: item });
     };
 
-    var imageError = function(e) {
-        alert("ok");
-        $(e).attr('data-src', $(e).attr('src'));
-        $(e).attr('src', 'http://placehold.it/200x100/B40000/ffffff?text=404');
-    };
-
     $().ready(function(){
         $('.hidden-before-load').each(function (i, obj) {
             $(obj).css('visibility', 'visible').hide().fadeIn('slow');
