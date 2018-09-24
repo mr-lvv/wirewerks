@@ -30,7 +30,7 @@ class Server {
 	_cors() {
 		return {
 			origin: '*',
-			allowedHeaders: ["Access-Control-Allow-Headers", "Origin", "X-Requested-With", "Content-Type", "Accept"],
+			allowedHeaders: ["Origin", "X-Requested-With", "Content-Type", "Accept"],
 			exposeHeaders: this.config.corsHeaders
 		};
 	}
