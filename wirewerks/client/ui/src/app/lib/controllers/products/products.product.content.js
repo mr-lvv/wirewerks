@@ -1,4 +1,4 @@
-var productsProductContentCtrl = function (section, product, cartItem, $scope, $sce, $cookies, $state, localStorageService) {
+var productsProductContentCtrl = function (section, product, cartItem, $scope, $sce, $state, localStorageService) {
 
     $scope.section = section;
     $scope.product = product;

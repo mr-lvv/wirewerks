@@ -1,4 +1,4 @@
-var cartContentCtrl = function (cart, $scope, $cookies, $state, $sce, localStorageService) {
+var cartContentCtrl = function (cart, $scope, $state, $sce, localStorageService) {
     $scope.quantityRange = 10;
 
     $(document).ready(function () {
