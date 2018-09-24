@@ -31,6 +31,7 @@ System.config({
 		'css-element-queries': "node_modules/css-element-queries/src/ResizeSensor.js",
 		bootstrap: 'node_modules/bootstrap/dist/js/bootstrap.min.js',
 		'bootstrap.confirmation': '3rd/bootstrap-confirmation.min.js',
+		'imagesloaded': 'node_modules/imagesloaded/imagesloaded.pkgd.min.js',
 	},
 
 	meta: {
@@ -49,6 +50,7 @@ System.config({
 		'ui.router':{deps: ['angular']},
 		lodash: {exports: "_", format: "global"},
 		bootstrap: {deps: ['jquery']},
-		'bootstrap.confirmation': {deps: ['bootstrap']}
+		'bootstrap.confirmation': {deps: ['bootstrap']},
+		'imagesloaded':{deps:['jquery']},
 	}
 });

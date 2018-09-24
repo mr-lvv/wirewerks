@@ -59,32 +59,14 @@ define(['../app.js'], function(app) {
 				},
 				resolve: {
 					cart: function (localStorageService) {
-						//--------------------------------------------------------------------------------------------------------------
-						var imageExists = function (imgUrl) {
-
-							var http = new XMLHttpRequest();
-
-							http.open('HEAD', imgUrl, false);
-							http.send();
-
-							return http.status == 200;
-						};
-						//--------------------------------------------------------------------------------------------------------------
-						var generateImgUrl = function (item) {
-							item.imgUrl = 'https://s3.amazonaws.com/wirewerks-sg-images/' + item.sectionNumber + '/' + item.partNumber + '.png';
-							item.backupImgUrl = 'https://s3.amazonaws.com/wirewerks-sg-images/' + item.sectionNumber + '/' + item.placeholder + '.png';
-							item.notFoundImgUrl = '/images/missing_img.png';
-						};
-						//--------------------------------------------------------------------------------------------------------------
-
 						let item, cart = {};
 						let lsKeys = localStorageService.keys();
 						
 						for (let key of lsKeys) {
 							item = localStorageService.get(key);
 							if (item.isCartItem){
-								generateImgUrl(item);
-								//item.imgUrl = "https://s3.amazonaws.com/wirewerks-sg-images/'" + item.sectionNumber + '/' + item.partNumber + '.png';
+								item.imgUrl = 'https://s3.amazonaws.com/wirewerks-sg-images/' + item.sectionNumber + '/' + item.partNumber + '.png';
+								item.backupImgUrl = 'https://s3.amazonaws.com/wirewerks-sg-images/' + item.sectionNumber + '/' + item.placeholder + '.png';
 								cart[key] = item;
 							}
 						}

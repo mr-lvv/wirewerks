@@ -15,7 +15,8 @@ define([
 	'angular-file-saver',
 	'offline',
 	'ui.router',
-	'bootstrap.confirmation'
+	'bootstrap.confirmation',
+	'imagesloaded'
 ], function(ww, common) {	
 
 	Offline.options = {

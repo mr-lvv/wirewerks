@@ -1,5 +1,5 @@
 var cartContentCtrl = function (cart, $scope, $cookies, $state, $sce, localStorageService) {
-    $scope.quantityRange = 99;
+    $scope.quantityRange = 10;
 
     $(document).ready(function () {
         $('.removePopover').confirmation({
@@ -183,9 +183,12 @@ var cartContentCtrl = function (cart, $scope, $cookies, $state, $sce, localStora
         $(e).attr('src', 'http://placehold.it/200x100/B40000/ffffff?text=404');
     };
 
-    var test = function(){
-        alert("ERROR");
-    }; $scope.test = test;
+    $().ready(function(){
+        $('.hidden-before-load').each(function (i, obj) {
+            $(obj).css('visibility', 'visible').hide().fadeIn('slow');
+        });
+        
+    });
 
     initCart();
 };

@@ -797,3 +797,6 @@ input[type=number]::-webkit-outer-spin-button {
 .hidden-before-load{
     visibility: hidden;
 }
+.test{
+    display: none;
+}
