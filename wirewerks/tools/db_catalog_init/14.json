@@ -1,6 +1,6 @@
 [
     {
-        "partNumber": "PP-WALL-MOUNT",
+        "partNumber": "WW-00AAAA",
         "datasheets": [
             {
                 "value": "PDS-0200",
@@ -82,12 +82,12 @@
                 ]
             }
         ],
-        "description": "Wall Mount Patch Panel",
+        "description": "LGX Wall&nbsp;Mount Patch&nbsp;Panel",
         "parts": [
             {
                 "id": "_type",
                 "type": "select",
-                "placeholder": "PP-WALL-MOUNT",
+                "placeholder": "WW-00AAAA",
                 "description": "TYPE",
                 "color": "light-red",
                 "options": [
@@ -168,7 +168,7 @@
                 ]
             }
         ],
-        "description": "NextSTEP™ Rack Mount Patch Panel",
+        "description": "NextSTEP™ Rack&nbsp;Mount Patch&nbsp;Panel",
         "parts": [
             {
                 "id": "_constant1",
@@ -278,7 +278,7 @@
                 ]
             }
         ],
-        "description": "LGX Rack Mount Patch Panel",
+        "description": "LGX Rack&nbsp;Mount Patch&nbsp;Panel",
         "parts": [
             {
                 "id": "_type",
@@ -372,7 +372,7 @@
                 "conditions": []
             }
         ],
-        "description": "NextSTEP™ Wall Mount Patch Panel",
+        "description": "NextSTEP™ Wall&nbsp;Mount Patch&nbsp;Panel",
         "parts": [
             {
                 "id": "_constant1",
@@ -430,7 +430,7 @@
                 "conditions": []
             }
         ],
-        "description": "NextSTEP™ Magnetic Cable Managers",
+        "description": "NextSTEP™ Magnetic&nbsp;Cable&nbsp;Managers",
         "parts": [
             {
                 "id": "_constant1",
