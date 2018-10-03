@@ -277,7 +277,7 @@
                 "conditions": []
             }
         ],
-        "description": "CAT6 Riser",
+        "description": "CAT5e Riser",
         "parts": [
             {
                 "id": "_constant1",
