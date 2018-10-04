@@ -4,7 +4,7 @@
     </div>
 
     <table ng-if="!cartIsEmpty" class="col-xs-12" style="border-spacing: 10px;">
-        <tr ng-repeat="item in cart" class="cart-row hidden-before-load">
+        <tr ng-repeat="item in cart | filter:{isRemoved:false} | orderBy:'orderDateTime':'reverse=true'" class="cart-row hidden-before-load">
             
             <td class="cart-img-container" ng-click="goToProduct(item)">
                 <img style="cursor: pointer" class="thumbnail" ng-src="{{item.imgUrl}}" backupSrc="{{item.backupImgUrl}}" ng-show="item.imgUrl != null" onerror="var src = this.getAttribute('backupSrc'); this.src=src; this.setAttribute('backupSrc', 'images/missing_img.png')"/>
