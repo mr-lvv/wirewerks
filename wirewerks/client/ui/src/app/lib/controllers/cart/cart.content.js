@@ -12,16 +12,17 @@ var cartContentCtrl = function (cart, $scope, $state, $sce, localStorageService)
 
     var initCart = function () {
         $scope.cart = cart;
-        $scope.cartIsEmpty = _.keys(cart).length == 0;
+        $scope.cartIsEmpty = cart.length == 0;
 
-        _.each(cart, function(item){
+        for(let item of cart){
             initItem(item);
-        });
+        }
     };
 
     var initItem = function(item){
         item.quantityMode = "closed";
         item.quantityInput = item.quantity;
+        item.isRemoved = false;
     };
 
     //********************************************** NUMERIC INPUT BEGIN  **********************************************
@@ -157,16 +158,33 @@ var cartContentCtrl = function (cart, $scope, $state, $sce, localStorageService)
         localStorageService.set(item.key, updatedItem);
     };
     //----------------------------------------------------------------------------------------------------
-    var removeItem = function(key){
+    var removeItem = function (key) {
         localStorage.removeItem('wwApp.' + key);
-        delete cart[key];
         
+        angular.forEach($scope.cart, function (item) {
+            if (item.key == key){
+                item.isRemoved = true;
+            }
+        });
+
         updateCart();
     };
     //----------------------------------------------------------------------------------------------------
-    var updateCart = function(){
-        $scope.cartIsEmpty = _.keys(cart).length == 0;
+    var updateCart = function () {
+        $scope.cartIsEmpty = generateCartIsEmpty();
         $scope.$apply();
+    };
+    //----------------------------------------------------------------------------------------------------
+    var generateCartIsEmpty = function () {
+        if(cart.length == 0)
+            return true;
+        
+        for(let item of cart){
+            if(!item.isRemoved)
+                return false;
+        }
+        
+        return true;
     };
     //----------------------------------------------------------------------------------------------------
     $scope.getAsHtml = function (value) {

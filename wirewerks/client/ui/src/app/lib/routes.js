@@ -59,7 +59,8 @@ define(['../app.js'], function(app) {
 				},
 				resolve: {
 					cart: function (localStorageService) {
-						let item, cart = {};
+						let item;
+						let cart = [];
 						let lsKeys = localStorageService.keys();
 						
 						for (let key of lsKeys) {
@@ -67,7 +68,7 @@ define(['../app.js'], function(app) {
 							if (item.isCartItem){
 								item.imgUrl = 'https://s3.amazonaws.com/wirewerks-sg-images/' + item.sectionNumber + '/' + item.partNumber + '.jpeg';
 								item.backupImgUrl = 'https://s3.amazonaws.com/wirewerks-sg-images/' + item.sectionNumber + '/' + item.placeholder + '.png';
-								cart[key] = item;
+								cart.push(item);
 							}
 						}
 						return cart;
