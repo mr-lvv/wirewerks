@@ -683,62 +683,6 @@ input[type=number]::-webkit-outer-spin-button {
 .cart-quantity-container{
 
 }
-.closed-quantity-container{
-    background: white;
-    color: #333;
-    border: 1px solid #cccccc;
-    border-radius: 4px;
-    cursor: pointer;
-    width: 85px;
-    padding-left: 8px;
-    padding-right: 5px;
-
-    display: inline-block;
-    line-height:34px;
-    height: 34px;
-}
-.closed-quantity{
-
-}
-.closed-quantity-glyphicon{
-    float: right;
-    line-height:34px;
-    vertical-align: middle;
-}
-/*QUANTITY SELECT*/
-.opened-quantity-container{
-    background: white;
-    color: #333;
-    border: 1px solid #cccccc;
-    border-radius: 4px;
-    cursor: pointer;
-    width: 85px;
-
-    position: absolute;
-    z-index: 2;
-}
-.opened-quantity{
-    margin-top: 10px;
-    margin-bottom: 10px;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-left: 0px;
-    max-height: 10em;
-    overflow: scroll;
-    overflow-x: hidden;
-}
-.opened-quantity li{
-    list-style-type: none;
-    padding-left: 8px;
-}
-.opened-quantity li:last-child{
-    border-top: solid grey 1px;
-    padding-top: 2px;
-}
-.opened-quantity li:hover, .opened-quantity-selected{
-    background-color: #e0e0e0;
-    outline: #a0a0a0 solid 1px;
-}
 .input-quantity{
     background: white;
     color: #333;
@@ -755,7 +699,6 @@ input[type=number]::-webkit-outer-spin-button {
     padding-top: 2px;
     padding-bottom: 2px;
 }
-
 
 .cart-remove-container{
     width: 40px;

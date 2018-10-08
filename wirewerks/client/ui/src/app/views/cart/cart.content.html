@@ -27,17 +27,7 @@
             
             <td class="cart-quantity-td">
                 <div class="cart-quantity-container">
-                    <div ng-show="item.quantityMode == 'closed'" class="closed-quantity-container" ng-click="onClickClosedQuantity(event, item)">
-                        <span class="closed-quantity">{{item.quantity}}</span>
-                        <div class="closed-quantity-glyphicon glyphicon glyphicon-chevron-down"></div>
-                    </div>
-                    <div ng-show="item.quantityMode == 'opened'" class="opened-quantity-container">
-                        <ul class="opened-quantity">
-                            <li ng-repeat="n in [] | range:quantityRange" ng-click="onClickOpenedQuantity(item)" value="{{n+1}}" ng-class="{'opened-quantity-selected': item.quantity == n+1}">{{n+1}}</li>
-                            <li ng-click="onClickOpenedQuantity(item)" value="input">{{quantityRange}}+</li>
-                        </ul>
-                    </div>
-                    <div ng-show="item.quantityMode == 'input'" class="input-quantity-container">
+                    <div class="input-quantity-container">
                         <input ng-model="item.quantityInput" type="text" ng-paste="onPasteNumericInput()" ng-change="onChangeNumericInput()" ng-keypress="onKeypressNumericInput()" class="input-quantity">
                         <button ng-click="onClickQuantityUpdate(item)" ng-show="quantityInputIsValid(item)" class="input-quantity-btn btn btn-warning">Update</button>
                     </div>

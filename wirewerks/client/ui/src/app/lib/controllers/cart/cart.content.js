@@ -20,7 +20,6 @@ var cartContentCtrl = function (cart, $scope, $state, $sce, localStorageService)
     };
 
     var initItem = function(item){
-        item.quantityMode = "closed";
         item.quantityInput = item.quantity;
         item.isRemoved = false;
     };
@@ -38,59 +37,6 @@ var cartContentCtrl = function (cart, $scope, $state, $sce, localStorageService)
 
         return true;
     };
-    //-------------------------------------------EVENTS BEGIN---------------------------------------------
-    var removeQuantityOpenCloseEvents = function () {
-        $(document).off("click.cartQuantity");
-        $(document).off("keyup.cartQuantity");
-    };
-    //----------------------------------------------------------------------------------------------------
-    var addQuantityOpenCloseEvents = function (item, quantityInputContainerElem) {
-        //Close quantityInput if user clicks anywhere outside the select box
-        $(document).on("click.cartQuantity", function (event) {
-            let evt = event || window.event;
-            let target = evt.target;
-
-            //User clicked outside of the quantityInput element
-            if (!quantityInputContainerElem.contains(target)) {
-                quantityGoToClosedState(item);
-                $scope.$apply(); //manually update ng
-            }
-        });
-
-        //Close quantityInput if user hits esc key
-        $(document).on("keyup.cartQuantity", function (event) {
-            let evt = event || window.event;
-            let key = evt.keyCode || evt.which;
-
-            if (key == 27) { //esc
-                quantityGoToClosedState(item);
-                $scope.$apply(); //manually update ng
-            }
-        });
-    };
-    //-------------------------------------------EVENTS END---------------------------------------------
-    //------------------------------------------QUANTITY STATES--------------------------------------------
-    var quantityGoToClosedState = function (item) {
-        item.quantityMode = "closed";
-        removeQuantityOpenCloseEvents();
-    };
-    //----------------------------------------------------------------------------------------------------
-    var quantityGoToOpenedState = function (item, quantityInputContainerElem) {
-        item.quantityMode = "opened";
-        addQuantityOpenCloseEvents(item, quantityInputContainerElem);
-    };
-    //----------------------------------------------------------------------------------------------------
-    var quantityGoToInputState = function (item, quantityInputElement) {
-        item.quantityMode = "input";
-
-        //set focus on input; timeout required because must wait for ng to update
-        window.setTimeout(function () {
-            quantityInputElement.focus();
-        }, 0);
-
-        removeQuantityOpenCloseEvents();
-    };
-    //------------------------------------------QUANTITY STATES--------------------------------------------
     //--------------------------------------------NUMERIC INPUT BEGIN------------------------------------------------
     $scope.onKeypressNumericInput = function (event) {
         let evt = event || window.event;
@@ -117,29 +63,6 @@ var cartContentCtrl = function (cart, $scope, $state, $sce, localStorageService)
     $scope.onClickQuantityUpdate = function (item) {
         updateQuantity(item, item.quantityInput);
         quantityGoToClosedState(item);
-    };
-    //----------------------------------------------------------------------------------------------------
-    $scope.onClickClosedQuantity = function (event, item) {
-        let evt = event || window.event;
-        let target = evt.target;
-
-        quantityGoToOpenedState(item, target);
-    };
-    //----------------------------------------------------------------------------------------------------
-    $scope.onClickOpenedQuantity = function (item) {
-        let evt = event || window.event;
-        let target = evt.target;
-
-        let value = target.getAttribute("value");
-
-        if (value == 'input') {
-            let quantityInputElement = target.closest(".cart-quantity-container").getElementsByTagName('input')[0];
-            quantityGoToInputState(item, quantityInputElement);
-        }
-        else {
-            updateQuantity(item, value);
-            quantityGoToClosedState(item);
-        }
     };
     //--------------------------------------------NG EVENTS END------------------------------------------------
     //----------------------------------------------------------------------------------------------------
