@@ -1210,17 +1210,65 @@
                     {
                         "value": "A",
                         "description": "APC",
-                        "conditions": []
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "1"
+                                ],
+                                "partId": "_fiberType"
+                            },
+                            {
+                                "acceptedValues": [
+                                    "LC",
+                                    "SC",
+                                    "MP",
+                                    "MA",
+                                    "BP",
+                                    "BA",
+                                    "CP",
+                                    "CA"
+                                ],
+                                "partId": "_connectorSideA"
+                            }
+                        ]
                     },
                     {
                         "value": "B",
                         "description": "UPC",
-                        "conditions": []
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "1"
+                                ],
+                                "partId": "_fiberType"
+                            },
+                            {
+                                "acceptedValues": [
+                                    "LC",
+                                    "SC",
+                                    "BP",
+                                    "BA",
+                                    "CP",
+                                    "CA"
+                                ],
+                                "partId": "_connectorSideA"
+                            }
+                        ]
                     },
                     {
                         "value": "C",
                         "description": "PC (multimode)",
-                        "conditions": []
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "2",
+                                    "3",
+                                    "4",
+                                    "5"
+                                ],
+                                "partId": "_fiberType"
+                            }
+                        ]
                     }
                 ]
             },
@@ -1291,6 +1339,12 @@
                         "conditions": [
                             {
                                 "acceptedValues": [
+                                    "1"
+                                ],
+                                "partId": "_fiberType"
+                            },
+                            {
+                                "acceptedValues": [
                                     "LC",
                                     "SC",
                                     "MP",
@@ -1310,10 +1364,14 @@
                         "conditions": [
                             {
                                 "acceptedValues": [
+                                    "1"
+                                ],
+                                "partId": "_fiberType"
+                            },
+                            {
+                                "acceptedValues": [
                                     "LC",
                                     "SC",
-                                    "MP",
-                                    "MA",
                                     "BP",
                                     "BA",
                                     "CP",
@@ -1327,6 +1385,15 @@
                         "value": "C",
                         "description": "PC (multimode)",
                         "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "2",
+                                    "3",
+                                    "4",
+                                    "5"
+                                ],
+                                "partId": "_fiberType"
+                            },
                             {
                                 "acceptedValues": [
                                     "LC",
