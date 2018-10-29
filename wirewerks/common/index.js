@@ -58,11 +58,9 @@
 	}
 
 	return {
-		PartInfo: PartInfo,
-		PartNumber: PartNumber,
-		PartService: PartService,
-		ProductValidation: ProductValidation,
-
-		UnknownPartSymbol: UnknownPartSymbol
+		//PartInfo: PartInfo,
+		//PartNumber: PartNumber,
+		//PartService: PartService,
+		//ProductValidation: ProductValidation,
 	};
 }));
