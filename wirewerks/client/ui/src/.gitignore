@@ -2,3 +2,4 @@
 main.css
 main_production.css
 *.css.map
+package-lock.json
